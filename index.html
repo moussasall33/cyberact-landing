@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CyberAct — Évaluation sécurité des projets et fournisseurs | MS360 ISP</title>
+<meta name="description" content="MS360 ISP par CyberAct : plateforme d'évaluation sécurité des projets (EBIOS RM) et de qualification des fournisseurs (TPRM), avec workflow RSSI, référentiels ISO 27001 / RGPD / NIS2, et livrables automatisés.">
+<meta property="og:title" content="CyberAct — MS360 ISP">
+<meta property="og:description" content="Plateforme d'évaluation sécurité des projets et fournisseurs. Workflow RSSI, référentiels à jour, livrables automatisés.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cyberact.fr">
+<style>
+  :root {
+    --navy: #0F1F4B;
+    --navy-dark: #0a1637;
+    --navy-light: #1a2e6b;
+    --teal: #0F7B8C;
+    --teal-dark: #0b5f6d;
+    --teal-light: #e0f2f5;
+    --white: #ffffff;
+    --gray-50: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-400: #94a3b8;
+    --gray-600: #475569;
+    --gray-800: #1e293b;
+    --accent: #f59e0b;
+    --shadow-sm: 0 1px 3px rgba(15, 31, 75, 0.08);
+    --shadow-md: 0 4px 12px rgba(15, 31, 75, 0.1);
+    --shadow-lg: 0 10px 30px rgba(15, 31, 75, 0.15);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--gray-800);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; height: auto; }
+
+  .container {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ===== HEADER ===== */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--gray-200);
+    z-index: 100;
+    padding: 16px 0;
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    font-size: 20px;
+    color: var(--navy);
+    letter-spacing: -0.3px;
+  }
+  .logo-mark {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--teal) 100%);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 800;
+    font-size: 15px;
+    letter-spacing: 0;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--gray-600);
+    font-weight: 500;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--teal); }
+  .nav-cta {
+    background: var(--navy);
+    color: white !important;
+    padding: 9px 18px;
+    border-radius: 6px;
+    font-weight: 600 !important;
+    transition: all 0.2s;
+  }
+  .nav-cta:hover { background: var(--navy-light) !important; transform: translateY(-1px); }
+
+  .mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--navy);
+    cursor: pointer;
+  }
+
+  @media (max-width: 860px) {
+    .nav-links { display: none; }
+    .mobile-toggle { display: block; }
+    .nav-links.open {
+      display: flex;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      background: white;
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--gray-200);
+      gap: 16px;
+      box-shadow: var(--shadow-md);
+    }
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 60%, var(--teal) 160%);
+    color: white;
+    padding: 140px 0 100px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(15, 123, 140, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--teal-light);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    backdrop-filter: blur(10px);
+  }
+  .hero h1 {
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 24px;
+  }
+  .hero h1 span {
+    background: linear-gradient(90deg, #4dd0e1 0%, #a7e9f0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero p.lead {
+    font-size: 19px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 36px;
+    max-width: 560px;
+  }
+  .hero-ctas {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 26px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+  }
+  .btn-primary {
+    background: var(--teal);
+    color: white;
+    box-shadow: 0 4px 14px rgba(15, 123, 140, 0.4);
+  }
+  .btn-primary:hover {
+    background: var(--teal-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(15, 123, 140, 0.5);
+  }
+  .btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+
+  .hero-visual {
+    position: relative;
+  }
+  .mock-card {
+    background: white;
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: var(--shadow-lg);
+    color: var(--gray-800);
+    transform: perspective(1000px) rotateY(-8deg) rotateX(4deg);
+    transition: transform 0.3s;
+  }
+  .mock-card:hover { transform: perspective(1000px) rotateY(-4deg) rotateX(2deg); }
+  .mock-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--gray-200);
+  }
+  .mock-title { font-weight: 700; color: var(--navy); font-size: 15px; }
+  .mock-badge {
+    background: #d1fae5;
+    color: #065f46;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .mock-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    font-size: 13px;
+  }
+  .mock-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .mock-dot.green { background: #10b981; }
+  .mock-dot.orange { background: #f59e0b; }
+  .mock-dot.red { background: #ef4444; }
+  .mock-text { color: var(--gray-600); flex: 1; }
+  .mock-progress {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--gray-200);
+  }
+  .mock-progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--gray-600);
+    margin-bottom: 6px;
+  }
+  .mock-progress-bar {
+    height: 8px;
+    background: var(--gray-100);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .mock-progress-fill {
+    height: 100%;
+    width: 73%;
+    background: linear-gradient(90deg, var(--teal) 0%, #4dd0e1 100%);
+    border-radius: 4px;
+  }
+
+  @media (max-width: 860px) {
+    .hero { padding: 120px 0 70px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero h1 { font-size: 36px; }
+    .hero p.lead { font-size: 17px; }
+    .mock-card { transform: none; }
+  }
+
+  /* ===== SECTIONS ===== */
+  section {
+    padding: 90px 0;
+  }
+  .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  .section-eyebrow {
+    color: var(--teal);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .section-header h2 {
+    font-size: 38px;
+    color: var(--navy);
+    font-weight: 800;
+    letter-spacing: -0.8px;
+    margin-bottom: 14px;
+  }
+  .section-header p {
+    font-size: 18px;
+    color: var(--gray-600);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* ===== POUR QUI ===== */
+  #pourqui {
+    background: var(--gray-50);
+  }
+  .personas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+  }
+  .persona {
+    background: white;
+    padding: 32px 28px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-200);
+    transition: all 0.25s;
+  }
+  .persona:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--teal);
+  }
+  .persona-icon {
+    width: 52px;
+    height: 52px;
+    background: var(--teal-light);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 18px;
+  }
+  .persona h3 {
+    color: var(--navy);
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  .persona p {
+    color: var(--gray-600);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* ===== FONCTIONNALITÉS ===== */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 28px;
+  }
+  .feature {
+    padding: 32px;
+    border-radius: 14px;
+    background: white;
+    border: 1px solid var(--gray-200);
+    transition: all 0.25s;
+  }
+  .feature:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--teal);
+  }
+  .feature-icon {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--teal) 100%);
+    color: white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+  .feature h3 {
+    color: var(--navy);
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .feature p {
+    color: var(--gray-600);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  /* ===== REFERENTIELS ===== */
+  #referentiels {
+    background: var(--navy);
+    color: white;
+  }
+  #referentiels .section-header h2 { color: white; }
+  #referentiels .section-header p { color: rgba(255, 255, 255, 0.75); }
+  #referentiels .section-eyebrow { color: #4dd0e1; }
+
+  .ref-groups {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+  }
+  .ref-group h4 {
+    font-size: 13px;
+    color: #4dd0e1;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+  .ref-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .ref-badge {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+  .ref-badge:hover {
+    background: rgba(15, 123, 140, 0.3);
+    border-color: var(--teal);
+    transform: translateY(-2px);
+  }
+
+  /* ===== CAS D'USAGE ===== */
+  .cases {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .case-card {
+    display: grid;
+    grid-template-columns: 60px 1fr auto;
+    gap: 24px;
+    align-items: center;
+    background: white;
+    padding: 28px;
+    border-radius: 14px;
+    border-left: 5px solid var(--teal);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s;
+  }
+  .case-card:hover {
+    transform: translateX(4px);
+    box-shadow: var(--shadow-md);
+  }
+  .case-num {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--teal) 100%);
+    color: white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    font-weight: 800;
+  }
+  .case-content h3 {
+    color: var(--navy);
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .case-content p {
+    color: var(--gray-600);
+    font-size: 15px;
+    margin-bottom: 4px;
+  }
+  .case-benefit {
+    color: var(--teal);
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .case-benefit::before {
+    content: '→ ';
+    font-weight: 700;
+  }
+  @media (max-width: 700px) {
+    .case-card { grid-template-columns: 1fr; text-align: left; }
+    .case-num { margin-bottom: 8px; }
+  }
+
+  /* ===== CTA ===== */
+  #contact {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--teal) 150%);
+    color: white;
+    text-align: center;
+  }
+  #contact h2 {
+    font-size: 40px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    letter-spacing: -0.8px;
+  }
+  #contact p.lead {
+    font-size: 19px;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 36px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .contact-ctas {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+  }
+  .btn-white {
+    background: white;
+    color: var(--navy);
+  }
+  .btn-white:hover {
+    background: var(--teal-light);
+    transform: translateY(-2px);
+  }
+  .contact-email {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.75);
+  }
+  .contact-email a {
+    color: #4dd0e1;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--navy-dark);
+    color: rgba(255, 255, 255, 0.6);
+    padding: 40px 0 24px;
+    font-size: 14px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 32px;
+  }
+  .footer-about .logo { color: white; margin-bottom: 14px; }
+  .footer-about p { line-height: 1.6; font-size: 13px; max-width: 340px; }
+  .footer h5 {
+    color: white;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    font-weight: 700;
+  }
+  footer ul { list-style: none; }
+  footer ul li { margin: 6px 0; }
+  footer ul a:hover { color: #4dd0e1; }
+  .footer-bottom {
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 13px;
+  }
+  @media (max-width: 700px) {
+    .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="container nav">
+    <a href="#" class="logo">
+      <div class="logo-mark">C</div>
+      <span>CyberAct</span>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#pourqui">Pour qui</a></li>
+      <li><a href="#fonctionnalites">Fonctionnalités</a></li>
+      <li><a href="#referentiels">Référentiels</a></li>
+      <li><a href="#cas">Cas d'usage</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="https://isp.cyberact.fr:8443" class="nav-cta">Accéder à l'outil</a></li>
+    </ul>
+    <button class="mobile-toggle" onclick="document.getElementById('nav-links').classList.toggle('open')" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <span class="hero-badge">🛡️ Plateforme ISP + TPRM</span>
+        <h1>Structurez vos <span>évaluations sécurité</span>, maîtrisez vos fournisseurs.</h1>
+        <p class="lead">
+          MS360 ISP est la plateforme qui industrialise vos analyses EBIOS RM, la qualification de vos prestataires et le pilotage de vos plans d'action — avec les référentiels ISO 27001, RGPD, NIS2 et l'IA intégrée.
+        </p>
+        <div class="hero-ctas">
+          <a href="mailto:grc@cyberact.fr?subject=Demande%20de%20d%C3%A9mo%20MS360%20ISP&body=Bonjour%2C%0A%0AJe%20souhaite%20planifier%20une%20d%C3%A9monstration%20de%20MS360%20ISP.%0A%0AMon%20organisation%20%3A%20%0ANombre%20d%27utilisateurs%20estim%C3%A9%20%3A%20%0ACr%C3%A9neaux%20souhait%C3%A9s%20%3A%20%0A%0AMerci." class="btn btn-primary">
+            Demander une démo →
+          </a>
+          <a href="https://isp.cyberact.fr:8443" class="btn btn-secondary">
+            Accéder à l'outil
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="mock-card">
+          <div class="mock-header">
+            <div class="mock-title">Projet · Migration CRM Cloud</div>
+            <div class="mock-badge">GO CONDITIONNEL</div>
+          </div>
+          <div class="mock-row"><span class="mock-dot green"></span><span class="mock-text">ISO 27001 · 42 exigences conformes</span></div>
+          <div class="mock-row"><span class="mock-dot orange"></span><span class="mock-text">RGPD · 3 non-conformités en traitement</span></div>
+          <div class="mock-row"><span class="mock-dot green"></span><span class="mock-text">TPRM · Fournisseur qualifié</span></div>
+          <div class="mock-row"><span class="mock-dot red"></span><span class="mock-text">Plan d'action · 2 échéances &lt; 7 jours</span></div>
+          <div class="mock-progress">
+            <div class="mock-progress-label">
+              <span>Conformité globale</span>
+              <span style="color: var(--teal); font-weight: 700;">73%</span>
+            </div>
+            <div class="mock-progress-bar"><div class="mock-progress-fill"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POUR QUI -->
+<section id="pourqui">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Pour qui</div>
+      <h2>Un outil conçu pour vos équipes sécurité</h2>
+      <p>Chaque profil trouve son espace de travail — et travaille sur les mêmes données, en temps réel.</p>
+    </div>
+    <div class="personas-grid">
+      <div class="persona">
+        <div class="persona-icon">🎯</div>
+        <h3>RSSI</h3>
+        <p>Tableau de bord global, validation des projets, arbitrage, pilotage du portefeuille fournisseurs.</p>
+      </div>
+      <div class="persona">
+        <div class="persona-icon">🔍</div>
+        <h3>Analyste SSI</h3>
+        <p>Workflow guidé EBIOS RM, saisie des exigences, génération automatique des non-conformités, IA assistée.</p>
+      </div>
+      <div class="persona">
+        <div class="persona-icon">📋</div>
+        <h3>Chef de projet</h3>
+        <p>Formulaire de soumission en 10 minutes, suivi de sa demande, exigences applicables visibles.</p>
+      </div>
+      <div class="persona">
+        <div class="persona-icon">⚙️</div>
+        <h3>Direction SI</h3>
+        <p>Visibilité consolidée sur la conformité, les décisions et les risques résiduels du portefeuille.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FONCTIONNALITÉS -->
+<section id="fonctionnalites">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Fonctionnalités</div>
+      <h2>Tout ce dont vous avez besoin, intégré</h2>
+      <p>Une plateforme unique pour couvrir l'évaluation projet, la qualification fournisseur et la gouvernance.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature">
+        <div class="feature-icon">📐</div>
+        <h3>Évaluation EBIOS RM</h3>
+        <p>9 étapes guidées : contexte, valeurs métier, biens supports, scénarios, exigences, non-conformités, plan d'action, tiers, décision.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🤝</div>
+        <h3>Gestion des tiers (TPRM)</h3>
+        <p>Qualification, évaluation RFI/RFP, scoring, contractualisation, surveillance continue. Un fournisseur évalué une fois, réutilisé partout.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">📚</div>
+        <h3>Référentiels à jour</h3>
+        <p>ISO 27001, RGPD, NIS2, NIST CSF, EU AI Act, HDS, DORA, PCI-DSS, OWASP LLM Top 10… 17 référentiels intégrés et maintenus.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🤖</div>
+        <h3>IA augmentée</h3>
+        <p>Claude, GPT-4o, Gemini, Mistral. Suggestions de mesures, rédaction de recommandations, analyse fournisseur — avec validation humaine.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🛡️</div>
+        <h3>Sécurité IA intégrée</h3>
+        <p>Référentiel OWASP LLM Top 10 : prompt injection, fuite d'informations, poisoning, supply chain, hallucinations, cost exhaustion. Activation automatique dès qu'un projet utilise de l'IA.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">⚖️</div>
+        <h3>Hand-off DPO automatique</h3>
+        <p>Détection intelligente : dès que des données personnelles ou de l'IA sont identifiées, envoi d'un compte-rendu structuré au DPO en un clic — pour RGPD et EU AI Act, sans bloquer l'analyse sécurité.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">✅</div>
+        <h3>Workflow RSSI</h3>
+        <p>Soumission → validation → décision formalisée (GO / GOC / NO-GO) avec traçabilité, notifications et historique complet.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">📄</div>
+        <h3>Livrables automatisés</h3>
+        <p>Export Excel, PDF, Word et PowerPoint en un clic. Synthèse exécutive, dossier détaillé, présentation comité — prêts à l'emploi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REFERENTIELS -->
+<section id="referentiels">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Conformité</div>
+      <h2>17 référentiels couverts</h2>
+      <p>Basculez d'un référentiel à l'autre en un clic — ou appliquez-en plusieurs simultanément à un même projet.</p>
+    </div>
+    <div class="ref-groups">
+      <div class="ref-group">
+        <h4>Réglementation EU & FR</h4>
+        <div class="ref-badges">
+          <span class="ref-badge">RGPD</span>
+          <span class="ref-badge">NIS2</span>
+          <span class="ref-badge">LPM / OIV</span>
+          <span class="ref-badge">EU AI Act</span>
+          <span class="ref-badge">DORA</span>
+          <span class="ref-badge">HDS</span>
+          <span class="ref-badge">PGSSI-S</span>
+          <span class="ref-badge">SecNumCloud</span>
+        </div>
+      </div>
+      <div class="ref-group">
+        <h4>Normes internationales</h4>
+        <div class="ref-badges">
+          <span class="ref-badge">ISO 27001</span>
+          <span class="ref-badge">ISO 22301</span>
+          <span class="ref-badge">ISO 42001</span>
+          <span class="ref-badge">NIST CSF 2.0</span>
+          <span class="ref-badge">CIS Controls v8</span>
+        </div>
+      </div>
+      <div class="ref-group">
+        <h4>Standards techniques</h4>
+        <div class="ref-badges">
+          <span class="ref-badge">PCI-DSS v4</span>
+          <span class="ref-badge">OWASP Top 10</span>
+          <span class="ref-badge">OWASP ASVS</span>
+          <span class="ref-badge">OWASP LLM Top 10</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAS D'USAGE -->
+<section id="cas">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Cas d'usage</div>
+      <h2>Le quotidien d'un RSSI, réinventé</h2>
+      <p>Des scénarios concrets, des gains mesurables.</p>
+    </div>
+    <div class="cases">
+      <div class="case-card">
+        <div class="case-num">1</div>
+        <div class="case-content">
+          <h3>Un chef de projet soumet une nouvelle demande</h3>
+          <p>Formulaire public en 10 minutes, classification automatique, accusé de réception par email.</p>
+          <div class="case-benefit">Un point d'entrée unique, structuré, avec les bonnes questions dès le départ.</div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-num">2</div>
+        <div class="case-content">
+          <h3>L'analyste conduit une évaluation EBIOS RM</h3>
+          <p>9 étapes guidées, calcul de conformité en temps réel, auto-synchronisation des non-conformités.</p>
+          <div class="case-benefit">Un processus reproductible et traçable, exportable en un clic pour comité.</div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-num">3</div>
+        <div class="case-content">
+          <h3>Le RSSI qualifie un nouveau fournisseur SaaS</h3>
+          <p>Questionnaire RFI contextualisé, scoring automatique, décision formalisée, plan de surveillance.</p>
+          <div class="case-benefit">Un fournisseur évalué une fois est réutilisable sur tous les projets suivants.</div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-num">4</div>
+        <div class="case-content">
+          <h3>Les échéances du plan d'action approchent</h3>
+          <p>Chaque matin à 8h, les responsables sont relancés automatiquement par email (J-7).</p>
+          <div class="case-benefit">Le pilotage des actions devient automatique. Plus besoin de relances manuelles.</div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-num">5</div>
+        <div class="case-content">
+          <h3>Un projet implique de l'IA ou des données personnelles</h3>
+          <p>L'outil détecte automatiquement le besoin d'impliquer le DPO. Un compte-rendu structuré est pré-rempli (types de données, usage IA, sous-traitants, impacts…) et envoyé au DPO en un clic. L'analyste poursuit l'ISP sans blocage.</p>
+          <div class="case-benefit">Les sujets RGPD et EU AI Act partent chez le DPO tout de suite, l'équipe sécurité garde le focus sur les risques techniques.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <h2>Prêt à structurer votre démarche SSI ?</h2>
+    <p class="lead">Planifions une démonstration adaptée à votre contexte. 30 minutes pour voir la plateforme en action et répondre à vos questions.</p>
+    <div class="contact-ctas">
+      <a href="mailto:grc@cyberact.fr?subject=Demande%20de%20d%C3%A9mo%20MS360%20ISP&body=Bonjour%2C%0A%0AJe%20souhaite%20planifier%20une%20d%C3%A9monstration%20de%20MS360%20ISP.%0A%0AMon%20organisation%20%3A%20%0ANombre%20d%27utilisateurs%20estim%C3%A9%20%3A%20%0ACr%C3%A9neaux%20souhait%C3%A9s%20%3A%20%0A%0AMerci." class="btn btn-white">
+            ✉️ Demander une démo
+          </a>
+      <a href="https://isp.cyberact.fr:8443" class="btn btn-secondary">
+            Accéder à l'outil →
+          </a>
+    </div>
+    <p class="contact-email">
+      Ou écrivez-nous directement à <a href="mailto:grc@cyberact.fr">grc@cyberact.fr</a>
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a href="#" class="logo">
+          <div class="logo-mark">C</div>
+          <span>CyberAct</span>
+        </a>
+        <p>MS360 ISP est la plateforme d'évaluation sécurité des projets et de qualification des fournisseurs, conçue pour les équipes SSI exigeantes.</p>
+      </div>
+      <div>
+        <h5>Produit</h5>
+        <ul>
+          <li><a href="#fonctionnalites">Fonctionnalités</a></li>
+          <li><a href="#referentiels">Référentiels</a></li>
+          <li><a href="#cas">Cas d'usage</a></li>
+          <li><a href="https://isp.cyberact.fr:8443">Accéder à l'outil</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:grc@cyberact.fr">grc@cyberact.fr</a></li>
+          <li><a href="mailto:grc@cyberact.fr?subject=Demande%20de%20d%C3%A9mo">Demander une démo</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 CyberAct — Tous droits réservés.</div>
+      <div>MS360 ISP v6+</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

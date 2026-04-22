@@ -388,6 +388,154 @@
     line-height: 1.6;
   }
 
+  /* ===== MODULES (section hero produit) ===== */
+  #modules {
+    background: linear-gradient(180deg, #ffffff 0%, var(--gray-50) 100%);
+  }
+  .modules-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+  .module-card {
+    background: white;
+    padding: 34px 32px 28px;
+    border-radius: 16px;
+    border-top: 6px solid;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.25s;
+    display: flex;
+    flex-direction: column;
+  }
+  .module-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+  }
+  .module-card.navy { border-top-color: #0F1F4B; }
+  .module-card.teal { border-top-color: #0F7B8C; }
+  .module-card.violet { border-top-color: #7C3AED; }
+  .module-card.orange { border-top-color: #D97706; }
+
+  .module-icon-box {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  .module-card.navy .module-icon-box { background: #e6eaf3; }
+  .module-card.teal .module-icon-box { background: #d7eef1; }
+  .module-card.violet .module-icon-box { background: #ede9fe; }
+  .module-card.orange .module-icon-box { background: #fef0e0; }
+
+  .module-name {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+    margin-bottom: 4px;
+  }
+  .module-sub {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--gray-600);
+    letter-spacing: 0;
+    margin-top: 4px;
+    margin-bottom: 6px;
+  }
+  .module-when {
+    font-size: 13.5px;
+    color: var(--gray-600);
+    padding: 11px 14px;
+    background: var(--gray-50);
+    border-radius: 8px;
+    margin: 18px 0 16px;
+    border-left: 3px solid;
+  }
+  .module-when strong { color: var(--navy); }
+  .module-card.navy .module-when { border-left-color: #0F1F4B; }
+  .module-card.teal .module-when { border-left-color: #0F7B8C; }
+  .module-card.violet .module-when { border-left-color: #7C3AED; }
+  .module-card.orange .module-when { border-left-color: #D97706; }
+
+  .module-pitch {
+    font-size: 15px;
+    color: var(--gray-800);
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+  .module-features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 22px;
+    flex: 1;
+  }
+  .module-features-list li {
+    padding: 7px 0 7px 30px;
+    position: relative;
+    font-size: 14px;
+    color: var(--gray-600);
+    line-height: 1.5;
+  }
+  .module-features-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 7px;
+    font-weight: 700;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: white;
+  }
+  .module-card.navy .module-features-list li::before { background: #0F1F4B; }
+  .module-card.teal .module-features-list li::before { background: #0F7B8C; }
+  .module-card.violet .module-features-list li::before { background: #7C3AED; }
+  .module-card.orange .module-features-list li::before { background: #D97706; }
+
+  .module-outcome {
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px 16px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1.5px dashed;
+  }
+  .module-card.navy .module-outcome { color: #0F1F4B; border-color: rgba(15,31,75,0.25); background: rgba(15,31,75,0.04); }
+  .module-card.teal .module-outcome { color: #0F7B8C; border-color: rgba(15,123,140,0.25); background: rgba(15,123,140,0.04); }
+  .module-card.violet .module-outcome { color: #7C3AED; border-color: rgba(124,58,237,0.25); background: rgba(124,58,237,0.04); }
+  .module-card.orange .module-outcome { color: #D97706; border-color: rgba(217,119,6,0.25); background: rgba(217,119,6,0.04); }
+
+  .modules-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 16px;
+    margin: 40px 0 48px;
+    text-align: center;
+  }
+  .modules-intro-item {
+    padding: 14px 10px;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid var(--gray-200);
+    font-size: 13px;
+    color: var(--gray-600);
+  }
+  .modules-intro-item strong { color: var(--navy); display: block; margin-bottom: 2px; font-size: 14px; }
+
+  @media (max-width: 860px) {
+    .modules-grid { grid-template-columns: 1fr; }
+    .modules-intro { grid-template-columns: repeat(2, 1fr); }
+  }
+
   /* ===== FONCTIONNALITÉS ===== */
   .features-grid {
     display: grid;
@@ -627,6 +775,7 @@
       <span>CyberAct</span>
     </a>
     <ul class="nav-links" id="nav-links">
+      <li><a href="#modules">Modules</a></li>
       <li><a href="#pourqui">Pour qui</a></li>
       <li><a href="#fonctionnalites">Fonctionnalités</a></li>
       <li><a href="#referentiels">Référentiels</a></li>
@@ -643,10 +792,10 @@
   <div class="container">
     <div class="hero-grid">
       <div>
-        <span class="hero-badge">🛡️ 4 modules : ISP · TPRM · RFP · Audit</span>
-        <h1>Structurez vos <span>évaluations sécurité</span>, maîtrisez vos fournisseurs.</h1>
+        <span class="hero-badge">🛡️ 4 modules intégrés · 20 référentiels · 1 seul outil</span>
+        <h1>Structurez vos <span>évaluations sécurité</span> de bout en bout.</h1>
         <p class="lead">
-          Trois modules intégrés — <strong>ISP</strong> (EBIOS RM), <strong>TPRM</strong> (fournisseurs) et <strong>RFP</strong> (appels d'offres multi-soumissionnaires). <strong>L'expertise reste entre vos mains : l'IA propose, vous décidez.</strong> Tout est modifiable, extensible, exportable.
+          Quatre modules complémentaires pour couvrir tout le cycle de vie SSI : <strong>ISP</strong> (EBIOS RM), <strong>TPRM</strong> (fournisseurs), <strong>RFP</strong> (appels d'offres) et <strong>Audit</strong> (ISO 19011). <strong>L'expertise reste entre vos mains : l'IA propose, vous décidez.</strong>
         </p>
         <div class="hero-ctas">
           <a href="mailto:grc@cyberact.fr?subject=Demande%20de%20d%C3%A9mo%20MS360%20ISP&body=Bonjour%2C%0A%0AJe%20souhaite%20planifier%20une%20d%C3%A9monstration%20de%20MS360%20ISP.%0A%0AMon%20organisation%20%3A%20%0ANombre%20d%27utilisateurs%20estim%C3%A9%20%3A%20%0ACr%C3%A9neaux%20souhait%C3%A9s%20%3A%20%0A%0AMerci." class="btn btn-primary">
@@ -677,6 +826,104 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODULES (hero produit) -->
+<section id="modules">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">La plateforme</div>
+      <h2>Quatre modules, un seul outil</h2>
+      <p>Chaque module couvre un moment précis du cycle de vie sécurité. Ils partagent le même contexte projet : saisissez une fois, réutilisez partout. Aucune redondance.</p>
+    </div>
+
+    <div class="modules-intro">
+      <div class="modules-intro-item"><strong>📐 ISP</strong>Évaluer un projet interne</div>
+      <div class="modules-intro-item"><strong>🤝 TPRM</strong>Qualifier un fournisseur</div>
+      <div class="modules-intro-item"><strong>📋 RFP</strong>Lancer un appel d'offres</div>
+      <div class="modules-intro-item"><strong>🔎 Audit</strong>Conduire un audit de maturité</div>
+    </div>
+
+    <div class="modules-grid">
+
+      <!-- MODULE 1 : ISP -->
+      <div class="module-card navy">
+        <div class="module-icon-box">📐</div>
+        <div class="module-name">ISP</div>
+        <div class="module-sub">Instruction de Sécurité Projet — méthodologie EBIOS RM</div>
+        <div class="module-when"><strong>Quand :</strong> nouveau projet, service ou prestation à cadrer avant production.</div>
+        <div class="module-pitch">
+          Évaluez la sécurité d'un projet en <strong>9 étapes guidées</strong> : contexte, valeurs métier, biens supports, scénarios de risque, exigences, non-conformités, plan d'action, tiers, décision RSSI. Méthodologie <strong>ANSSI EBIOS RM</strong> respectée de bout en bout.
+        </div>
+        <ul class="module-features-list">
+          <li>Import d'un cahier des charges → pré-remplissage automatique du contexte</li>
+          <li>Scoring DICT (Disponibilité, Intégrité, Confidentialité, Traçabilité) sur 4 niveaux</li>
+          <li>Synchronisation automatique exigences ↔ non-conformités, zéro double saisie</li>
+          <li>Workflow RSSI intégré : soumission → validation → verdict formalisé</li>
+          <li>Exports Excel, PDF, Word, PowerPoint en un clic</li>
+        </ul>
+        <div class="module-outcome">→ Dossier d'arbitrage complet, prêt pour comité de validation</div>
+      </div>
+
+      <!-- MODULE 2 : TPRM -->
+      <div class="module-card teal">
+        <div class="module-icon-box">🤝</div>
+        <div class="module-name">TPRM</div>
+        <div class="module-sub">Third Party Risk Management — qualification fournisseur</div>
+        <div class="module-when"><strong>Quand :</strong> contractualisation, renouvellement ou revue annuelle d'un fournisseur.</div>
+        <div class="module-pitch">
+          Qualifiez un prestataire, éditeur ou hébergeur <strong>de bout en bout</strong> : inventaire, questionnaire RFI de maturité SSI, scoring automatique, évaluation sécurité pondérée, avis RSSI, contractualisation et plan de surveillance périodique.
+        </div>
+        <ul class="module-features-list">
+          <li>Questionnaire RFI 20 questions avec scoring automatique de maturité</li>
+          <li>Exigences CDC contextuelles générées IA selon la criticité du projet</li>
+          <li>Grille d'évaluation pondérée avec collecte de preuves documentaires</li>
+          <li>Génération automatique des clauses sécurité, du PAS et du plan de surveillance</li>
+          <li>Portefeuille fournisseurs consolidé — évalué une fois, réutilisé partout</li>
+        </ul>
+        <div class="module-outcome">→ Fournisseur qualifié réutilisable sur tous vos projets suivants</div>
+      </div>
+
+      <!-- MODULE 3 : RFP -->
+      <div class="module-card violet">
+        <div class="module-icon-box">📋</div>
+        <div class="module-name">RFP</div>
+        <div class="module-sub">Appel d'offres multi-fournisseurs avec scoring comparatif</div>
+        <div class="module-when"><strong>Quand :</strong> sourcing, sélection prestataire, appel d'offres avec plusieurs soumissionnaires.</div>
+        <div class="module-pitch">
+          Lancez une campagne où plusieurs fournisseurs répondent au <strong>même questionnaire</strong>. Construisez le cahier des charges depuis vos référentiels projet, envoyez par email, importez les réponses Excel, comparez en matrice scorée.
+        </div>
+        <ul class="module-features-list">
+          <li>Questionnaire construit depuis vos exigences projet (pas un CDC générique)</li>
+          <li>Envoi email automatisé à chaque soumissionnaire avec Excel pré-rempli</li>
+          <li>Import des réponses, association automatique par ID (zéro erreur)</li>
+          <li>Matrice comparative colorée, scoring pondéré Bloquant×3 / Majeur×2 / Mineur×1</li>
+          <li>Verdict automatique GO / GO CONDITIONNEL / NO-GO par soumissionnaire</li>
+        </ul>
+        <div class="module-outcome">→ Décision objectivée, défendable devant un comité d'investissement</div>
+      </div>
+
+      <!-- MODULE 4 : AUDIT -->
+      <div class="module-card orange">
+        <div class="module-icon-box">🔎</div>
+        <div class="module-name">Audit</div>
+        <div class="module-sub">Audit de maturité SSI — méthodologie ISO 19011</div>
+        <div class="module-when"><strong>Quand :</strong> audit périodique interne, audit externe, revue de conformité.</div>
+        <div class="module-pitch">
+          Conduisez un audit SSI structuré en <strong>4 phases méthodologiques</strong> : Cadrage → Entretiens → Évaluation → Constats &amp; Synthèse. Notation CMMI (0 / 0.25 / 0.5 / 1), pondération obligatoire ×3, constats typés, avis formalisé final.
+        </div>
+        <ul class="module-features-list">
+          <li>Cadrage : objectifs, périmètre, exclusions, méthodes, équipe d'audit</li>
+          <li>Entretiens : guide d'entretien IA, résumé automatique des notes par l'IA</li>
+          <li>Évaluation CMMI + pré-notation IA depuis les entretiens conduits</li>
+          <li>Constats structurés (NC, point sensible, observation, bonne pratique)</li>
+          <li>Grilles d'audit ReCyF NIS2 (152 exigences) et ISO 27001/27002:2022 incluses</li>
+        </ul>
+        <div class="module-outcome">→ Rapport d'audit complet, traçabilité ISO 19011 de bout en bout</div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -714,39 +961,19 @@
   </div>
 </section>
 
-<!-- FONCTIONNALITÉS -->
+<!-- FONCTIONNALITÉS TRANSVERSES -->
 <section id="fonctionnalites">
   <div class="container">
     <div class="section-header">
-      <div class="section-eyebrow">Fonctionnalités</div>
-      <h2>L'expertise humaine, outillée par l'IA</h2>
-      <p>Une plateforme unique pour l'évaluation projet, la qualification fournisseur et la gouvernance. L'IA vous fait gagner du temps. Vous gardez la main sur chaque décision.</p>
+      <div class="section-eyebrow">Capacités transverses</div>
+      <h2>Ce qui rend l'outil unique</h2>
+      <p>Au-delà des 4 modules, la plateforme mutualise les données, automatise ce qui peut l'être, et vous laisse garder la main sur chaque décision.</p>
     </div>
     <div class="features-grid">
       <div class="feature">
-        <div class="feature-icon">📐</div>
-        <h3>Évaluation EBIOS RM</h3>
-        <p>9 étapes guidées : contexte, valeurs métier, biens supports, scénarios, exigences, non-conformités, plan d'action, tiers, décision.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">🤝</div>
-        <h3>Qualification fournisseur (TPRM)</h3>
-        <p>Inventaire, qualification, évaluation sécurité contextualisée, contractualisation, surveillance. Un fournisseur évalué une fois, réutilisé sur tous les projets suivants.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">📋</div>
-        <h3>Appels d'offres (RFP)</h3>
-        <p>Campagne multi-fournisseurs sur un même questionnaire : construction depuis vos référentiels, envoi email, import des réponses, matrice comparative avec scoring pondéré et verdict GO/GOC/NO-GO par soumissionnaire.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon">🔎</div>
-        <h3>Audit de maturité (ISO 19011)</h3>
-        <p>Conduisez un audit SSI structuré en 4 phases : <strong>Cadrage, Entretiens, Évaluation, Constats &amp; Synthèse</strong>. Notation CMMI (0/0.25/0.5/1), pondération obligatoire×3, constats typés (NC, point sensible, observation…), avis formalisé GO/réserves/défavorable. L'IA assiste chaque phase mais l'auditeur valide.</p>
-      </div>
-      <div class="feature">
         <div class="feature-icon">📚</div>
-        <h3>Référentiels à jour</h3>
-        <p>ISO 27001, RGPD, NIS2, NIST CSF, EU AI Act, HDS, DORA, PCI-DSS, OWASP LLM Top 10… 17 référentiels intégrés et maintenus, plus 3 grilles d'audit détaillées : <strong>ReCyF NIS2 (ANSSI)</strong>, <strong>ISO 27001:2022</strong> et <strong>ISO 27002:2022</strong>.</p>
+        <h3>20 référentiels intégrés</h3>
+        <p>ISO 27001, RGPD, NIS2, NIST CSF, EU AI Act, HDS, DORA, PCI-DSS, OWASP LLM Top 10… plus 3 grilles d'audit détaillées : <strong>ReCyF NIS2 (ANSSI)</strong>, <strong>ISO 27001:2022</strong> et <strong>ISO 27002:2022</strong>. Filtre de pertinence contextuelle automatique.</p>
       </div>
       <div class="feature">
         <div class="feature-icon">🤖</div>
@@ -926,6 +1153,7 @@
       <div>
         <h5>Produit</h5>
         <ul>
+          <li><a href="#modules">Modules</a></li>
           <li><a href="#fonctionnalites">Fonctionnalités</a></li>
           <li><a href="#referentiels">Référentiels</a></li>
           <li><a href="#cas">Cas d'usage</a></li>

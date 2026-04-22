@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CyberAct — Évaluation sécurité des projets et fournisseurs | MS360 ISP</title>
-<meta name="description" content="MS360 ISP par CyberAct : plateforme d'évaluation sécurité des projets (EBIOS RM), qualification fournisseurs (TPRM) et gestion des appels d'offres (RFP). L'expertise humaine, outillée par l'IA.">
+<meta name="description" content="MS360 ISP par CyberAct : plateforme d'évaluation sécurité des projets (EBIOS RM), qualification fournisseurs (TPRM), appels d'offres (RFP) et audits de maturité (ISO 19011). L'expertise humaine, outillée par l'IA.">
 <meta property="og:title" content="CyberAct — MS360 ISP">
-<meta property="og:description" content="Plateforme d'évaluation sécurité des projets, qualification fournisseurs et appels d'offres. Workflow RSSI, 17 référentiels, IA intégrée. L'expertise humaine, outillée par l'IA.">
+<meta property="og:description" content="Plateforme d'évaluation sécurité des projets, qualification fournisseurs, appels d'offres et audits de maturité. Workflow RSSI, 20 référentiels, IA intégrée, chiffrement AES-256-GCM. L'expertise humaine, outillée par l'IA.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cyberact.fr">
 <style>
@@ -643,7 +643,7 @@
   <div class="container">
     <div class="hero-grid">
       <div>
-        <span class="hero-badge">🛡️ 3 modules : ISP · TPRM · RFP</span>
+        <span class="hero-badge">🛡️ 4 modules : ISP · TPRM · RFP · Audit</span>
         <h1>Structurez vos <span>évaluations sécurité</span>, maîtrisez vos fournisseurs.</h1>
         <p class="lead">
           Trois modules intégrés — <strong>ISP</strong> (EBIOS RM), <strong>TPRM</strong> (fournisseurs) et <strong>RFP</strong> (appels d'offres multi-soumissionnaires). <strong>L'expertise reste entre vos mains : l'IA propose, vous décidez.</strong> Tout est modifiable, extensible, exportable.
@@ -739,9 +739,14 @@
         <p>Campagne multi-fournisseurs sur un même questionnaire : construction depuis vos référentiels, envoi email, import des réponses, matrice comparative avec scoring pondéré et verdict GO/GOC/NO-GO par soumissionnaire.</p>
       </div>
       <div class="feature">
+        <div class="feature-icon">🔎</div>
+        <h3>Audit de maturité (ISO 19011)</h3>
+        <p>Conduisez un audit SSI structuré en 4 phases : <strong>Cadrage, Entretiens, Évaluation, Constats &amp; Synthèse</strong>. Notation CMMI (0/0.25/0.5/1), pondération obligatoire×3, constats typés (NC, point sensible, observation…), avis formalisé GO/réserves/défavorable. L'IA assiste chaque phase mais l'auditeur valide.</p>
+      </div>
+      <div class="feature">
         <div class="feature-icon">📚</div>
         <h3>Référentiels à jour</h3>
-        <p>ISO 27001, RGPD, NIS2, NIST CSF, EU AI Act, HDS, DORA, PCI-DSS, OWASP LLM Top 10… 17 référentiels intégrés et maintenus.</p>
+        <p>ISO 27001, RGPD, NIS2, NIST CSF, EU AI Act, HDS, DORA, PCI-DSS, OWASP LLM Top 10… 17 référentiels intégrés et maintenus, plus 3 grilles d'audit détaillées : <strong>ReCyF NIS2 (ANSSI)</strong>, <strong>ISO 27001:2022</strong> et <strong>ISO 27002:2022</strong>.</p>
       </div>
       <div class="feature">
         <div class="feature-icon">🤖</div>
@@ -773,6 +778,11 @@
         <h3>Import / export multiformat</h3>
         <p>Exports Excel, PDF, Word, PowerPoint en un clic — synthèse exécutive, dossier détaillé, présentation comité. Imports Excel / CSV pour charger vos données existantes, questionnaires fournisseurs, catalogues maison.</p>
       </div>
+      <div class="feature">
+        <div class="feature-icon">🔐</div>
+        <h3>Sécurité de vos données</h3>
+        <p>Chiffrement au repos <strong>AES-256-GCM</strong>, HTTPS avec HSTS, JWT court 2h, protection CSRF, CSP stricte, audit log des opérations sensibles, partages expirables 90j. Clés API IA (BYOK) stockées uniquement dans votre navigateur, jamais côté serveur.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -782,8 +792,8 @@
   <div class="container">
     <div class="section-header">
       <div class="section-eyebrow">Conformité</div>
-      <h2>17 référentiels couverts</h2>
-      <p>Basculez d'un référentiel à l'autre en un clic — ou appliquez-en plusieurs simultanément à un même projet.</p>
+      <h2>20 référentiels et grilles d'audit</h2>
+      <p>Basculez d'un référentiel à l'autre en un clic — ou appliquez-en plusieurs simultanément à un même projet. Filtre de pertinence contextuelle automatique (RGPD si données perso, HDS si Santé, OWASP LLM Top 10 si IA…).</p>
     </div>
     <div class="ref-groups">
       <div class="ref-group">
@@ -816,6 +826,14 @@
           <span class="ref-badge">OWASP Top 10</span>
           <span class="ref-badge">OWASP ASVS</span>
           <span class="ref-badge">OWASP LLM Top 10</span>
+        </div>
+      </div>
+      <div class="ref-group">
+        <h4>Grilles d'audit détaillées (module Audit)</h4>
+        <div class="ref-badges">
+          <span class="ref-badge">ReCyF NIS2 (ANSSI) · 152 exigences</span>
+          <span class="ref-badge">ISO 27001:2022 · grille CMMI</span>
+          <span class="ref-badge">ISO 27002:2022 · 93 contrôles</span>
         </div>
       </div>
     </div>
@@ -924,7 +942,7 @@
     </div>
     <div class="footer-bottom">
       <div>© 2026 CyberAct — Tous droits réservés.</div>
-      <div>MS360 ISP v6+</div>
+      <div>MS360 ISP v7</div>
     </div>
   </div>
 </footer>

@@ -864,7 +864,7 @@
             <div class="mock-badge">GO CONDITIONNEL</div>
           </div>
           <div class="mock-row"><span class="mock-dot green"></span><span class="mock-text">ISO 27001 · 42 exigences conformes</span></div>
-          <div class="mock-row"><span class="mock-dot orange"></span><span class="mock-text">RGPD · 3 non-conformités en traitement</span></div>
+          <div class="mock-row"><span class="mock-dot orange"></span><span class="mock-text">RGPD · 3 risques en traitement</span></div>
           <div class="mock-row"><span class="mock-dot green"></span><span class="mock-text">TPRM · Fournisseur qualifié</span></div>
           <div class="mock-row"><span class="mock-dot red"></span><span class="mock-text">Plan d'action · 2 échéances &lt; 7 jours</span></div>
           <div class="mock-progress">
@@ -908,14 +908,15 @@
         <button type="button" class="module-toggle" aria-expanded="false">Voir les capacités <span class="chev">▾</span></button>
         <div class="module-details">
           <div class="module-pitch">
-            Du <strong>cadrage du contexte</strong> jusqu'à la <strong>décision RSSI</strong>, le parcours couvre les valeurs métier, les biens supports, les scénarios de risque, les exigences applicables, les non-conformités, le plan de traitement et l'évaluation des tiers. À chaque étape, un assistant IA propose - vous restez décideur.
+            Du <strong>cadrage du contexte</strong> jusqu'à la <strong>décision RSSI</strong>, le parcours couvre les valeurs métier, les biens supports, les scénarios de risque, les exigences applicables, les <strong>risques inhérents</strong>, le plan de traitement et l'évaluation des tiers. À chaque étape, un assistant IA propose - vous restez décideur.
           </div>
           <ul class="module-features-list">
             <li>Scoring DICT (Disponibilité, Intégrité, Confidentialité, Traçabilité) par valeur métier</li>
             <li>Scénarios de risque générés selon EBIOS RM, référencés MITRE ATT&amp;CK</li>
-            <li>Exigences contextuelles depuis une bibliothèque de référentiels (synchronisation automatique exigences ↔ non-conformités)</li>
+            <li>Exigences contextuelles depuis une bibliothèque de référentiels, synchronisation automatique entre exigences et risques</li>
+            <li><strong>Trois états de risque suivis</strong> : risque inhérent (brut), risque ajusté (après mesures existantes), risque résiduel (après plan de traitement)</li>
             <li>Plan de traitement avec responsable, échéance, preuve ; relances automatiques selon les échéances que vous définissez</li>
-            <li>Workflow RSSI : soumission → notification → verdict <strong>GO / GO CONDITIONNEL / GOC RENFORCÉ / NO-GO</strong> tracé et horodaté</li>
+            <li>Workflow RSSI : soumission → notification → verdict <strong>GO / GOC / NO-GO</strong> tracé et horodaté</li>
             <li>Hand-off DPO automatique si données personnelles ou usage IA détecté</li>
             <li>Exports Excel, PDF, Word, PowerPoint - ou reconstruction d'un projet à partir d'un PDF d'archive</li>
           </ul>
@@ -958,7 +959,7 @@
         <button type="button" class="module-toggle" aria-expanded="false">Voir les capacités <span class="chev">▾</span></button>
         <div class="module-details">
           <div class="module-pitch">
-            Construction du questionnaire à partir des <strong>exigences ISP</strong>, des <strong>NC bloquantes</strong> à couvrir, d'une <strong>palette de référentiels</strong> ou en saisie libre. Distribution email, import Excel, matrice comparative et arbitrage final - tout est centralisé sur la même campagne.
+            Construction du questionnaire à partir des <strong>exigences du projet ISP</strong>, des <strong>risques à couvrir</strong>, d'une <strong>palette de référentiels</strong> ou en saisie libre. Distribution email, import Excel, matrice comparative et décision finale - tout est centralisé sur la même campagne.
           </div>
           <ul class="module-features-list">
             <li>Questionnaire contextualisé sur votre projet réel, pas un CDC générique</li>
@@ -988,12 +989,12 @@
           <ul class="module-features-list">
             <li><strong>Cadrage</strong> : objectifs, périmètre, exclusions, méthodes (entretiens, revue doc, observation, tests, échantillonnage, revue de logs), équipe</li>
             <li><strong>Entretiens</strong> : suggestion IA des personnes à interviewer, guide d'entretien généré, résumé automatique des notes</li>
-            <li><strong>Évaluation</strong> : pré-notation IA depuis les entretiens, findings rédigés automatiquement pour les non-conformités</li>
-            <li><strong>Constats</strong> structurés en 5 types (Non-conformité, Point sensible, Observation, Opportunité, Bonne pratique) avec criticité Critique / Majeure / Mineure</li>
+            <li><strong>Évaluation</strong> : pré-notation IA depuis les entretiens, findings rédigés automatiquement pour les risques identifiés</li>
+            <li><strong>Constats</strong> structurés (risque inhérent, point sensible, observation, opportunité d'amélioration, bonne pratique…) avec criticité Critique / Majeure / Mineure</li>
             <li>Synthèse exécutive générée IA + proposition d'<strong>avis Favorable / Favorable avec réserves / Défavorable</strong></li>
             <li>Grilles d'audit prêtes à l'emploi : ReCyF NIS2 (ANSSI), ISO 27001:2022, ISO 27002:2022 - et chargement de vos propres grilles</li>
             <li>Score pondéré temps réel, niveau CMMI agrégé, tableau de bord des entretiens, exigences évaluées et constats</li>
-            <li><strong>Rapport au format BORAKAY</strong> structuré en sections (cadrage, synthèse, NC priorisées, entretiens, constats, conclusion, grille en annexe) - conforme ISO 19011</li>
+            <li>Rapport d'audit structuré (cadrage, synthèse exécutive, constats priorisés, entretiens, conclusion, grille en annexe) - conforme ISO 19011</li>
           </ul>
           <div class="module-outcome">→ Rapport d'audit complet avec traçabilité ISO 19011 de bout en bout</div>
         </div>
@@ -1020,7 +1021,7 @@
       <div class="persona">
         <div class="persona-icon">🔍</div>
         <h3>Analyste SSI</h3>
-        <p>Workflow guidé EBIOS RM, saisie des exigences, génération automatique des non-conformités, IA assistée.</p>
+        <p>Workflow guidé EBIOS RM, saisie des exigences, identification et suivi des risques (inhérent, ajusté, résiduel), IA assistée.</p>
       </div>
       <div class="persona">
         <div class="persona-icon">📋</div>
@@ -1053,12 +1054,12 @@
       <div class="feature">
         <div class="feature-icon">🤖</div>
         <h3>L'IA propose, vous décidez</h3>
-        <p>GPT-4o, Gemini, Mistral accélèrent votre travail : suggestions d'exigences, mesures correctives, synthèses. <strong>Rien n'est écrit à la place de l'analyste</strong> - chaque proposition est revue, modifiée, validée ou rejetée par un humain. En parallèle de l'IA, un <strong>moteur de règles déterministe</strong> calcule le verdict GO / GOC / NO-GO à partir des indicateurs (risques résiduels, NC bloquantes, conformité, TPRM) - traçable, reproductible, auditable (ISO 27001 cl. 6.1.3).</p>
+        <p>GPT-4o, Gemini, Mistral accélèrent votre travail : suggestions d'exigences, mesures correctives, synthèses. <strong>Rien n'est écrit à la place de l'analyste</strong> - chaque proposition est revue, modifiée, validée ou rejetée par un humain. En parallèle de l'IA, un <strong>moteur de règles déterministe</strong> calcule le verdict GO / GOC / NO-GO à partir des indicateurs (risques résiduels, risques bloquants, niveau de conformité des exigences, TPRM) - traçable, reproductible, auditable (ISO 27001 cl. 6.1.3).</p>
       </div>
       <div class="feature">
         <div class="feature-icon">✏️</div>
         <h3>Vous gardez la main sur tout</h3>
-        <p>Chaque exigence, non-conformité, mesure, scénario est <strong>modifiable, complétable, supprimable</strong> à tout moment. Ajoutez vos propres référentiels internes, importez vos questionnaires Excel, adaptez les catalogues à votre contexte.</p>
+        <p>Chaque exigence, risque, mesure, scénario est <strong>modifiable, complétable, supprimable</strong> à tout moment. Ajoutez vos propres référentiels internes, importez vos questionnaires Excel, adaptez les catalogues à votre contexte.</p>
       </div>
       <div class="feature">
         <div class="feature-icon">🗂️</div>
@@ -1092,8 +1093,8 @@
       </div>
       <div class="feature">
         <div class="feature-icon">📡</div>
-        <h3>Surveillance continue cross-projets</h3>
-        <p>Tableau de bord RSSI consolidé : <strong>alertes contextuelles</strong> en temps réel sur l'ensemble du portefeuille (actions en retard, échéances proches, NC bloquantes ouvertes, dérogations à réviser, projets inactifs). <strong>Heatmap de conformité pondérée</strong> par référentiel en moyenne cross-projets. <strong>Digest périodique par email</strong> envoyé aux RSSI et admins, avec fréquence et destinataires configurables. Alignement ISO 27001:2022 cl. 9.1 (mesure de performance ISMS), A.5.24, A.8.16 et DORA art. 17.</p>
+        <h3>Tableau de bord RSSI consolidé</h3>
+        <p>Vue cross-projets en temps réel : <strong>alertes contextuelles</strong> sur l'ensemble du portefeuille (actions en retard, échéances proches, risques bloquants ouverts, dérogations à réviser, projets inactifs). Alignement ISO 27001:2022 cl. 9.1 (mesure de performance ISMS), A.5.24, A.8.16 et DORA art. 17.</p>
       </div>
     </div>
   </div>
@@ -1174,7 +1175,7 @@
         <div class="case-num">2</div>
         <div class="case-content">
           <h3>L'analyste conduit une évaluation EBIOS RM</h3>
-          <p>Parcours guidé, calcul de conformité en temps réel, synchronisation automatique des non-conformités.</p>
+          <p>Parcours guidé, exigences et risques calculés en temps réel, synchronisation automatique entre eux.</p>
           <div class="case-benefit">Un processus reproductible et traçable, exportable pour comité.</div>
         </div>
       </div>

@@ -916,7 +916,7 @@
             <li>Exigences contextuelles depuis une bibliothèque de référentiels, synchronisation automatique entre exigences et risques</li>
             <li><strong>Trois états de risque suivis</strong> : risque inhérent (brut), risque ajusté (après mesures existantes), risque résiduel (après plan de traitement)</li>
             <li>Plan de traitement avec responsable, échéance, preuve ; relances automatiques selon les échéances que vous définissez</li>
-            <li>Workflow RSSI : soumission → notification → verdict <strong>GO / GOC / NO-GO</strong> tracé et horodaté</li>
+            <li>Workflow RSSI : soumission → notification → verdict <strong>GO / GOC / NO-GO</strong> décidé par le RSSI, tracé et horodaté. Le moteur de règles propose un verdict en aide à la décision, le RSSI tranche.</li>
             <li>Hand-off DPO automatique si données personnelles ou usage IA détecté</li>
             <li>Exports Excel, PDF, Word, PowerPoint - ou reconstruction d'un projet à partir d'un PDF d'archive</li>
           </ul>
@@ -938,8 +938,8 @@
           </div>
           <ul class="module-features-list">
             <li><strong>Identification</strong> : périmètre, criticité, fiche fournisseur</li>
-            <li><strong>Évaluation</strong> : grille de critères contextuelle alignée référentiels secteur (ISO 27036, CSA, HDS, SecNumCloud, OWASP…), scoring pondéré configurable</li>
-            <li><strong>Décision</strong> formalisée : verdict <strong>GO / GOC / NO-GO</strong> tracé et horodaté</li>
+            <li><strong>Évaluation</strong> : grille de critères contextuelle alignée référentiels secteur (ISO 27036, CSA, HDS, SecNumCloud, OWASP…), scoring pondéré configurable, exigences modifiables et complétables</li>
+            <li><strong>Décision</strong> formalisée par le RSSI : verdict <strong>GO / GOC / NO-GO</strong> tracé et horodaté, en s'appuyant sur le scoring et les conditions du contexte</li>
             <li><strong>Contrat &amp; PAS</strong> : génération de clauses contractuelles sécurité, droit d'audit, Plan d'Assurance Sécurité</li>
             <li><strong>Surveillance</strong> : plan de suivi avec fréquence, KPI et déclencheurs de réévaluation que vous définissez</li>
             <li>Multi-fournisseurs sur un même projet : un workspace par fournisseur, vue consolidée du portefeuille</li>
@@ -967,8 +967,8 @@
             <li>Envoi email avec Excel pré-rempli par fournisseur</li>
             <li>Import des réponses avec contrôle d'intégrité (bon projet, bon fournisseur) et association automatique</li>
             <li>Matrice comparative colorée : lignes = questions, colonnes = fournisseurs, tooltips preuves</li>
-            <li>Scoring pondéré configurable (criticité bloquante / majeure / mineure), verdict automatique <strong>GO / GOC / NO-GO</strong> avec règle stricte sur les bloquants</li>
-            <li>Classement automatique des soumissionnaires, détail Oui / Partiel / Non, bloquants non couverts</li>
+            <li>Scoring pondéré configurable (criticité bloquante / majeure / mineure) calculé en aide à la décision, avec règle stricte sur les bloquants - le verdict <strong>GO / GOC / NO-GO</strong> reste validé par le RSSI</li>
+            <li>Classement consultatif des soumissionnaires (détail Oui / Partiel / Non, bloquants non couverts) - ajustable, vous gardez la main sur le choix final</li>
           </ul>
           <div class="module-outcome">→ Décision factuelle et traçable, défendable devant comité d'investissement</div>
         </div>
@@ -980,7 +980,7 @@
         <div class="module-name">Audit</div>
         <div class="module-sub">Audit de maturité SSI - méthodologie ISO 19011</div>
         <div class="module-when"><strong>Quand :</strong> audit périodique interne, audit externe (certification / tierce partie / renouvellement), revue de conformité.</div>
-        <div class="module-headline">Quatre phases structurées avec assistance IA à chaque étape - l'auditeur garde toujours la main. Rapport conforme ISO 19011 généré automatiquement.</div>
+        <div class="module-headline">Quatre phases structurées avec assistance IA à chaque étape - l'auditeur garde toujours la main. Le rapport est pré-rempli à partir de vos saisies, modifiable, conforme ISO 19011.</div>
         <button type="button" class="module-toggle" aria-expanded="false">Voir les capacités <span class="chev">▾</span></button>
         <div class="module-details">
           <div class="module-pitch">
@@ -988,10 +988,10 @@
           </div>
           <ul class="module-features-list">
             <li><strong>Cadrage</strong> : objectifs, périmètre, exclusions, méthodes (entretiens, revue doc, observation, tests, échantillonnage, revue de logs), équipe</li>
-            <li><strong>Entretiens</strong> : suggestion IA des personnes à interviewer, guide d'entretien généré, résumé automatique des notes</li>
-            <li><strong>Évaluation</strong> : pré-notation IA depuis les entretiens, findings rédigés automatiquement pour les risques identifiés</li>
+            <li><strong>Entretiens</strong> : suggestion IA des personnes à interviewer, guide d'entretien proposé, résumé IA des notes - tout est modifiable</li>
+            <li><strong>Évaluation</strong> : pré-notation IA depuis les entretiens, findings proposés pour les risques identifiés - chaque notation et chaque finding restent validés ou réécrits par l'auditeur</li>
             <li><strong>Constats</strong> structurés (risque inhérent, point sensible, observation, opportunité d'amélioration, bonne pratique…) avec criticité Critique / Majeure / Mineure</li>
-            <li>Synthèse exécutive générée IA + proposition d'<strong>avis Favorable / Favorable avec réserves / Défavorable</strong></li>
+            <li>Synthèse exécutive proposée par IA, modifiable, et proposition d'<strong>avis Favorable / Favorable avec réserves / Défavorable</strong> - décision finale par l'auditeur</li>
             <li>Grilles d'audit prêtes à l'emploi : ReCyF NIS2 (ANSSI), ISO 27001:2022, ISO 27002:2022 - et chargement de vos propres grilles</li>
             <li>Score pondéré temps réel, niveau CMMI agrégé, tableau de bord des entretiens, exigences évaluées et constats</li>
             <li>Rapport d'audit structuré (cadrage, synthèse exécutive, constats priorisés, entretiens, conclusion, grille en annexe) - conforme ISO 19011</li>
@@ -1054,7 +1054,7 @@
       <div class="feature">
         <div class="feature-icon">🤖</div>
         <h3>L'IA propose, vous décidez</h3>
-        <p>GPT-4o, Gemini, Mistral accélèrent votre travail : suggestions d'exigences, mesures correctives, synthèses. <strong>Rien n'est écrit à la place de l'analyste</strong> - chaque proposition est revue, modifiée, validée ou rejetée par un humain. En parallèle de l'IA, un <strong>moteur de règles déterministe</strong> calcule le verdict GO / GOC / NO-GO à partir des indicateurs (risques résiduels, risques bloquants, niveau de conformité des exigences, TPRM) - traçable, reproductible, auditable (ISO 27001 cl. 6.1.3).</p>
+        <p>L'assistance IA accélère votre travail : suggestions d'exigences, mesures correctives, synthèses. <strong>Rien n'est écrit à la place de l'analyste</strong> - chaque proposition est revue, modifiée, validée ou rejetée par un humain. <strong>IA locale 100% souveraine</strong> (aucun appel API externe, données qui ne quittent jamais votre infrastructure) ou <strong>API externe</strong> selon votre choix et votre politique. En parallèle de l'IA, un <strong>moteur de règles déterministe</strong> calcule un verdict GO / GOC / NO-GO en aide à la décision, à partir des indicateurs (risques résiduels, risques bloquants, niveau de conformité des exigences, TPRM) - traçable, reproductible, auditable (ISO 27001 cl. 6.1.3). Le RSSI tranche.</p>
       </div>
       <div class="feature">
         <div class="feature-icon">✏️</div>
@@ -1064,7 +1064,7 @@
       <div class="feature">
         <div class="feature-icon">🗂️</div>
         <h3>Bibliothèque de conformité centralisée</h3>
-        <p>Un espace unique pour vos <strong>référentiels, politiques et procédures</strong> : modèles prêts à l'emploi (PSSI, charte, gestion des accès, sauvegarde, gestion des incidents, PRA/PCA, notifications RGPD/NIS2/DORA…) à dupliquer et adapter, génération IA contextualisée, exports PDF/Word, déclencheurs vers les modules ISP, RFP, TPRM ou Audit. <strong>Mode multi-filiales</strong> : variantes documentaires par entité avec annexes consolidées dans un seul export.</p>
+        <p>Un espace unique pour vos <strong>référentiels, politiques et procédures</strong> : modèles prêts à l'emploi (PSSI, charte, gestion des accès, sauvegarde, gestion des incidents, PRA/PCA, notifications RGPD/NIS2/DORA…) à dupliquer et adapter, proposition IA contextualisée que vous éditez librement, exports PDF/Word, déclencheurs vers les modules ISP, RFP, TPRM ou Audit. <strong>Mode multi-filiales</strong> : variantes documentaires par entité avec annexes consolidées dans un seul export.</p>
       </div>
       <div class="feature">
         <div class="feature-icon">🛡️</div>
@@ -1073,13 +1073,13 @@
       </div>
       <div class="feature">
         <div class="feature-icon">⚖️</div>
-        <h3>Hand-off DPO automatique</h3>
-        <p>Détection intelligente : dès que des données personnelles ou de l'IA sont identifiées, envoi d'un compte-rendu structuré au DPO en un clic — pour RGPD et EU AI Act, sans bloquer l'analyse sécurité.</p>
+        <h3>Hand-off DPO assisté</h3>
+        <p>Détection contextuelle : dès que des données personnelles ou de l'IA sont identifiées, un compte-rendu structuré est pré-rempli pour le DPO. Vous le relisez, le complétez si besoin et déclenchez l'envoi - pour RGPD et EU AI Act, sans bloquer l'analyse sécurité.</p>
       </div>
       <div class="feature">
         <div class="feature-icon">✅</div>
         <h3>Workflow RSSI</h3>
-        <p>Soumission → validation → décision formalisée (GO / GOC / NO-GO) avec traçabilité, notifications et historique complet. <strong>Cascade automatique entre étapes EBIOS RM</strong> : toute modification d'une étape amont (valeurs métier, biens supports, scénarios de risque, exigences) propage les recalculs aux étapes aval (NC, plan de traitement, arbitrage), conformément à la logique d'amélioration continue ISO 27005.</p>
+        <p>Soumission → validation → décision formalisée (GO / GOC / NO-GO) par le RSSI, avec traçabilité, notifications et historique complet. <strong>Synchronisation entre étapes EBIOS RM</strong> : toute modification d'une étape amont (valeurs métier, biens supports, scénarios de risque, exigences) propage les recalculs aux étapes aval (risques, plan de traitement, arbitrage). Vous gardez la main à chaque étape - le recalcul est une aide, pas une substitution.</p>
       </div>
       <div class="feature">
         <div class="feature-icon">📄</div>
@@ -1183,7 +1183,7 @@
         <div class="case-num">3</div>
         <div class="case-content">
           <h3>Le RSSI qualifie un nouveau fournisseur SaaS</h3>
-          <p>Questionnaire contextualisé, scoring automatique, décision formalisée, plan de surveillance.</p>
+          <p>Questionnaire contextualisé, scoring d'aide à la décision, décision formalisée par le RSSI, plan de surveillance.</p>
           <div class="case-benefit">Un fournisseur évalué une fois est réutilisable sur tous les projets suivants.</div>
         </div>
       </div>

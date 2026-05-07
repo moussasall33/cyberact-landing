@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CyberAct - Plateforme GRC complète : 26 modules livrés (ISP, TPRM, RFP, Audit, ROPA, DPIA…)</title>
-<meta name="description" content="CyberAct : plateforme GRC modulaire pour RSSI et DPO. 26 modules livrés couvrant tout le cycle GRC : évaluation sécurité projets (EBIOS RM), qualification fournisseurs (TPRM), appels d'offres (RFP), audits de maturité (ISO 19011), conformité documentaire, registre des risques, ROPA, DPIA, demandes CNIL, Trust Center, KPIs CODIR... IA locale souveraine ou API externe au choix.">
-<meta property="og:title" content="CyberAct - 26 modules GRC livrés, multi-tenant, IA souveraine">
-<meta property="og:description" content="Plateforme GRC modulaire pour RSSI, DPO et auditeurs. 26 modules livrés : ISP, TPRM, RFP, Audit ISO 19011, Compliance Center, Roadmap, Cartographie, Registre des risques, Dérogations, Incidents NIS 2, KPIs CODIR, ROPA, DPIA, Demandes CNIL, Veille réglementaire, Trust Center, Contrats & DPA, Due diligence, Plan d'audit annuel, Self-assessment et plus. Multi-tenant, MFA TOTP, IA locale souveraine ou API externe au choix.">
+<title>CyberAct - Plateforme GRC complète : 30 modules livrés (ISP, TPRM, RFP, Audit, ROPA, DPIA…)</title>
+<meta name="description" content="CyberAct : plateforme GRC modulaire pour RSSI et DPO. 30 modules livrés couvrant tout le cycle GRC : évaluation sécurité projets (EBIOS RM), qualification fournisseurs (TPRM), appels d'offres (RFP), audits de maturité (ISO 19011), conformité documentaire, registre des risques, ROPA, DPIA, demandes CNIL, Trust Center, KPIs CODIR... IA locale souveraine ou API externe au choix.">
+<meta property="og:title" content="CyberAct - 30 modules GRC livrés, multi-tenant, IA souveraine">
+<meta property="og:description" content="Plateforme GRC modulaire pour RSSI, DPO et auditeurs. 30 modules livrés : ISP, TPRM, RFP, Audit ISO 19011, Compliance Center, Roadmap, Cartographie, Registre des risques, Dérogations, Incidents NIS 2, KPIs CODIR, ROPA, DPIA, Demandes CNIL, Veille réglementaire, Trust Center, Contrats & DPA, Due diligence, Plan d'audit annuel, Self-assessment et plus. Multi-tenant, MFA TOTP, IA locale souveraine ou API externe au choix.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cyberact.fr">
 <style>
@@ -409,11 +409,30 @@
     height: 100%;
     background: var(--accent);
     border-radius: 999px;
-    animation: heroBarFill 1.4s ease-out;
+    width: 0;
+    transition: width 1.6s cubic-bezier(0.22, 1, 0.36, 1);
   }
-  @keyframes heroBarFill {
-    from { width: 0; }
+  .mock.in-view .mock-pill-bar i {
+    width: var(--target, 0%);
   }
+  /* Spark line décorative dans le bloc score */
+  .mock-spark {
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    width: 130px;
+    height: 30px;
+    opacity: 0.55;
+    pointer-events: none;
+  }
+  .mock-spark polyline {
+    stroke: var(--accent);
+    stroke-width: 1.8;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .mock-hero { position: relative; }
   .mock-pill-num {
     font-size: 13px;
     font-weight: 800;
@@ -433,6 +452,78 @@
     .hero h1 { font-size: 36px; }
     .mock-score { font-size: 44px; }
     .mock-row { grid-template-columns: 1fr; }
+  }
+
+  /* ===== BANDE STATS ÉDITORIALE (inspirée v3-editorial) ===== */
+  .stat-band {
+    background: var(--navy);
+    color: white;
+    padding: 0;
+    border-top: 1px solid rgba(255,255,255,0.10);
+    border-bottom: 1px solid rgba(255,255,255,0.10);
+    position: relative;
+    overflow: hidden;
+  }
+  .stat-band::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 80% 50%, rgba(0,184,107,0.10), transparent 60%);
+    pointer-events: none;
+  }
+  .stat-band-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    position: relative;
+    z-index: 2;
+  }
+  .stat-band-item {
+    padding: 44px 32px;
+    border-right: 1px solid rgba(255,255,255,0.10);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .stat-band-item:last-child { border-right: none; }
+  .stat-band-num {
+    font-family: 'Times New Roman', Georgia, serif;
+    font-size: 56px;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    color: white;
+  }
+  .stat-band-num small {
+    font-size: 26px;
+    opacity: 0.55;
+    margin-left: 2px;
+  }
+  .stat-band-num .accent {
+    color: #5EE3A6;
+  }
+  .stat-band-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.65);
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+  .stat-band-hint {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.5;
+  }
+  @media (max-width: 900px) {
+    .stat-band-grid { grid-template-columns: repeat(2, 1fr); }
+    .stat-band-item:nth-child(2) { border-right: none; }
+    .stat-band-item { padding: 32px 24px; }
+    .stat-band-num { font-size: 44px; }
+  }
+  @media (max-width: 520px) {
+    .stat-band-grid { grid-template-columns: 1fr; }
+    .stat-band-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.10); }
+    .stat-band-item:last-child { border-bottom: none; }
   }
 
   /* ===== SECTIONS ===== */
@@ -1601,11 +1692,11 @@
       <div>
         <div class="hero-eyebrow">
           <span class="hero-eyebrow-pulse"></span>
-          <span>Approche par le risque · 26 modules livrés</span>
+          <span>Approche par le risque · 30 modules livrés</span>
         </div>
         <h1>La conformité, <span class="accent">pilotée par le risque.</span></h1>
         <p class="lead">
-          Une plateforme GRC où <strong>chaque exigence est rattachée à un risque réel chez vous</strong>. Trois états de risque suivis (inhérent, ajusté, résiduel), méthodologie EBIOS RM, et chaque non-conformité d'audit alimente automatiquement le registre. 26 modules activables un par un, selon votre maturité et vos priorités. <strong>IA locale 100% souveraine ou API externe au choix.</strong>
+          Une plateforme GRC où <strong>chaque exigence est rattachée à un risque réel chez vous</strong>. Trois états de risque suivis (inhérent, ajusté, résiduel), méthodologie EBIOS RM, et chaque non-conformité d'audit alimente automatiquement le registre. 30 modules activables un par un, selon votre maturité et vos priorités. <strong>IA locale 100% souveraine ou API externe au choix.</strong>
         </p>
         <div class="hero-ctas">
           <a href="mailto:grc@cyberact.fr?subject=Demande%20de%20d%C3%A9mo%20CyberAct&body=Bonjour%2C%0A%0AJe%20souhaite%20planifier%20une%20d%C3%A9monstration.%0A%0AMon%20organisation%20%3A%20%0ANombre%20d%27utilisateurs%20estim%C3%A9%20%3A%20%0ACr%C3%A9neaux%20souhait%C3%A9s%20%3A%20%0A%0AMerci." class="btn btn-primary btn-lg">
@@ -1628,14 +1719,17 @@
           <div class="mock-body">
             <div class="mock-hero">
               <div class="mock-caps">Risques résiduels actifs</div>
-              <div class="mock-score">24</div>
+              <div class="mock-score" data-count-to="24">0</div>
               <div class="mock-trend">3 critiques · 12 modérés · 9 mineurs</div>
+              <svg class="mock-spark" viewBox="0 0 200 40" preserveAspectRatio="none" aria-hidden="true">
+                <polyline points="0,32 20,28 40,30 60,22 80,24 100,18 120,20 140,12 160,14 180,8 200,6" />
+              </svg>
             </div>
             <div class="mock-row">
-              <div class="mock-pill"><div class="mock-pill-norm">ISO 27001</div><div class="mock-pill-bar"><i style="width:87%"></i></div><div class="mock-pill-num">3 NC</div></div>
-              <div class="mock-pill"><div class="mock-pill-norm">RGPD</div><div class="mock-pill-bar"><i style="width:92%"></i></div><div class="mock-pill-num">1 NC</div></div>
-              <div class="mock-pill"><div class="mock-pill-norm">NIS 2</div><div class="mock-pill-bar"><i style="width:64%"></i></div><div class="mock-pill-num">5 NC</div></div>
-              <div class="mock-pill"><div class="mock-pill-norm">SOC 2</div><div class="mock-pill-bar"><i style="width:78%"></i></div><div class="mock-pill-num">2 NC</div></div>
+              <div class="mock-pill"><div class="mock-pill-norm">ISO 27001</div><div class="mock-pill-bar"><i style="--target:87%"></i></div><div class="mock-pill-num">3 NC</div></div>
+              <div class="mock-pill"><div class="mock-pill-norm">RGPD</div><div class="mock-pill-bar"><i style="--target:92%"></i></div><div class="mock-pill-num">1 NC</div></div>
+              <div class="mock-pill"><div class="mock-pill-norm">NIS 2</div><div class="mock-pill-bar"><i style="--target:64%"></i></div><div class="mock-pill-num">5 NC</div></div>
+              <div class="mock-pill"><div class="mock-pill-norm">SOC 2</div><div class="mock-pill-bar"><i style="--target:78%"></i></div><div class="mock-pill-num">2 NC</div></div>
             </div>
           </div>
         </div>
@@ -1644,13 +1738,39 @@
   </div>
 </section>
 
+<!-- BANDE STATS (style éditorial) -->
+<aside class="stat-band" aria-label="Chiffres clés">
+  <div class="stat-band-grid">
+    <div class="stat-band-item">
+      <div class="stat-band-num">30<small>modules</small></div>
+      <div class="stat-band-label">Livrés à ce jour</div>
+      <div class="stat-band-hint">Activables un par un, par tenant</div>
+    </div>
+    <div class="stat-band-item">
+      <div class="stat-band-num"><span class="accent">3</span><small>états</small></div>
+      <div class="stat-band-label">de risque suivis</div>
+      <div class="stat-band-hint">Inhérent · ajusté · résiduel</div>
+    </div>
+    <div class="stat-band-item">
+      <div class="stat-band-num">100<small>%</small></div>
+      <div class="stat-band-label">Souverain</div>
+      <div class="stat-band-hint">IA locale ou API externe au choix</div>
+    </div>
+    <div class="stat-band-item">
+      <div class="stat-band-num">EBIOS<small>RM</small></div>
+      <div class="stat-band-label">Méthodologie ANSSI</div>
+      <div class="stat-band-hint">+ ISO 27005 · NIS 2 · DORA · RGPD</div>
+    </div>
+  </div>
+</aside>
+
 <!-- MODULES (hero produit) -->
 <section id="modules">
   <div class="container">
     <div class="section-header">
-      <div class="section-eyebrow">26 modules livrés · pilotés par le risque</div>
+      <div class="section-eyebrow">30 modules livrés · pilotés par le risque</div>
       <h2>Un registre des risques au centre. Six piliers métier autour.</h2>
-      <p>Le <strong>registre central des risques</strong> est le cœur de la plateforme : tous les modules y convergent. Chaque exigence applicable est rattachée à un risque, chaque non-conformité d'audit alimente le registre, chaque action de traitement recalcule les risques résiduels. Six piliers métier orchestrent ce flux, vingt modules complémentaires l'enrichissent. <strong>Activez ce dont vous avez besoin</strong>, ajoutez le reste plus tard - votre maturité, vos priorités, votre rythme.</p>
+      <p>Le <strong>registre central des risques</strong> est le cœur de la plateforme : tous les modules y convergent. Chaque exigence applicable est rattachée à un risque, chaque non-conformité d'audit alimente le registre, chaque action de traitement recalcule les risques résiduels. Six piliers métier orchestrent ce flux, vingt-trois modules complémentaires l'enrichissent. <strong>Activez ce dont vous avez besoin</strong>, ajoutez le reste plus tard - votre maturité, vos priorités, votre rythme.</p>
     </div>
 
     <!-- SOCLE : Registre central des risques (le cœur de la plateforme) -->
@@ -1884,7 +2004,7 @@
 
     <!-- 19 modules complémentaires livrés -->
     <div class="modules-extra-header">
-      <div class="modules-extra-eyebrow">+ 19 modules complémentaires</div>
+      <div class="modules-extra-eyebrow">+ 23 modules complémentaires</div>
       <div class="modules-extra-title">L'écosystème GRC autour des 6 piliers</div>
       <p class="modules-extra-sub">Tous livrés et activables par tenant. Tous alimentent ou consomment le registre central des risques. Du Trust Center aux obligations RGPD/NIS 2, en passant par le pilotage CODIR.</p>
     </div>
@@ -1911,6 +2031,13 @@
           <div class="module-mini-body">
             <div class="module-mini-name">Plan d'audit annuel</div>
             <div class="module-mini-desc">Planning, cycles, périmètres, ressources auditeurs</div>
+          </div>
+        </div>
+        <div class="module-mini">
+          <div class="module-mini-icon">🎓</div>
+          <div class="module-mini-body">
+            <div class="module-mini-name">Sensibilisation cyber</div>
+            <div class="module-mini-desc">Campagnes, formations, simulations phishing, reporting CODIR (NIS 2 art. 21.2.g)</div>
           </div>
         </div>
       </div>
@@ -1947,6 +2074,13 @@
             <div class="module-mini-desc">Acceptation formelle des risques, revues périodiques</div>
           </div>
         </div>
+        <div class="module-mini">
+          <div class="module-mini-icon">🛰️</div>
+          <div class="module-mini-body">
+            <div class="module-mini-name">Radar</div>
+            <div class="module-mini-desc">Découverte des sous-domaines exposés, scoring 0-100 (A-F), expositions HTTPS / DNS / TLS</div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -1979,6 +2113,13 @@
           <div class="module-mini-body">
             <div class="module-mini-name">KPIs CODIR / Direction</div>
             <div class="module-mini-desc">Tableau de bord direction, indicateurs mensuels, tendances</div>
+          </div>
+        </div>
+        <div class="module-mini">
+          <div class="module-mini-icon">🌐</div>
+          <div class="module-mini-body">
+            <div class="module-mini-name">Animation filière Cyber</div>
+            <div class="module-mini-desc">Pilotage Groupe → filiales : décisions, communications, ateliers, points réguliers</div>
           </div>
         </div>
       </div>
@@ -2034,6 +2175,13 @@
           <div class="module-mini-body">
             <div class="module-mini-name">Cartographie des données</div>
             <div class="module-mini-desc">Data mapping RGPD/HDS, flux PII, transferts hors UE</div>
+          </div>
+        </div>
+        <div class="module-mini">
+          <div class="module-mini-icon">🛟</div>
+          <div class="module-mini-body">
+            <div class="module-mini-name">BIA / PCA / PRA</div>
+            <div class="module-mini-desc">Bilan d'impact, RTO/RPO/MTPD, plans de continuité (ISO 22301 + NIS 2 art. 21.2.c)</div>
           </div>
         </div>
       </div>
@@ -2102,28 +2250,13 @@
   </div>
 </section>
 
-<!-- À VENIR (1 module + ouverture) -->
+<!-- ENGAGEMENT CO-CONSTRUCTION (remplace ancienne section "à venir") -->
 <section id="vision">
   <div class="container">
     <div class="section-header">
-      <div class="section-eyebrow">Sur la feuille de route</div>
-      <h2>Et après ?</h2>
-      <p>Notre roadmap suit les besoins concrets des clients. Voici ce qui arrive prochainement - et si un module vous manque, parlons-en : on priorise.</p>
-    </div>
-
-    <div class="vision-categories" style="grid-template-columns: 1fr; max-width: 720px; margin: 0 auto;">
-      <div class="vision-category">
-        <div class="vision-cat-head">
-          <div class="vision-cat-icon">🎓</div>
-          <div class="vision-cat-title">Sensibilisation cyber</div>
-        </div>
-        <ul class="vision-modules-list">
-          <li class="vision-mod">
-            <div><span class="vision-mod-name">Formation &amp; phishing simulé</span><div class="vision-mod-desc">Modules e-learning, campagnes de phishing simulées, reporting CODIR. Active une boucle « former / mesurer / corriger » alignée NIS 2 art. 21.2.g.</div></div>
-            <span class="vision-status soon">Bientôt</span>
-          </li>
-        </ul>
-      </div>
+      <div class="section-eyebrow">// ROADMAP</div>
+      <h2>30 modules livrés. La roadmap continue.</h2>
+      <p>L'ensemble des modules présentés ci-dessus est livré et activable dès maintenant. Notre roadmap évolue en fonction des besoins concrets remontés par les clients - <strong>si un cas d'usage vous manque, parlons-en : on priorise.</strong></p>
     </div>
   </div>
 </section>
@@ -2468,7 +2601,7 @@
       <div>
         <h5>Produit</h5>
         <ul>
-          <li><a href="#modules">26 modules livrés</a></li>
+          <li><a href="#modules">30 modules livrés</a></li>
           <li><a href="#vision">Sur la feuille de route</a></li>
           <li><a href="#fonctionnalites">Fonctionnalités</a></li>
           <li><a href="#referentiels">Référentiels</a></li>
@@ -2510,6 +2643,43 @@
       setBtn();
     });
   });
+})();
+
+// Animation mock hero : compteur risques + barres au scroll-into-view.
+(function(){
+  var mock = document.querySelector('.mock');
+  if(!mock || !('IntersectionObserver' in window)) {
+    if(mock) mock.classList.add('in-view');
+    return;
+  }
+  var animated = false;
+  function animateCounter(){
+    var el = mock.querySelector('[data-count-to]');
+    if(!el) return;
+    var target = parseInt(el.getAttribute('data-count-to'), 10) || 0;
+    var duration = 1200; // ms
+    var start = performance.now();
+    function step(now){
+      var t = Math.min((now - start) / duration, 1);
+      // ease-out cubic
+      var eased = 1 - Math.pow(1 - t, 3);
+      el.textContent = Math.round(target * eased);
+      if(t < 1) requestAnimationFrame(step);
+      else el.textContent = target;
+    }
+    requestAnimationFrame(step);
+  }
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting && !animated){
+        animated = true;
+        mock.classList.add('in-view');
+        animateCounter();
+        obs.disconnect();
+      }
+    });
+  }, { threshold: 0.4 });
+  obs.observe(mock);
 })();
 </script>
 

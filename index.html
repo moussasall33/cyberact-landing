@@ -606,9 +606,46 @@
     .modules-intro { grid-template-columns: repeat(2, 1fr); }
   }
 
+  /* ===== MODULES À LA CARTE (encart entre piliers et grille) ===== */
+  .modules-alacarte {
+    margin: 50px 0 6px;
+    padding: 22px 28px;
+    background: linear-gradient(90deg, rgba(15, 123, 140, 0.04) 0%, rgba(15, 31, 75, 0.04) 100%);
+    border: 1px solid var(--gray-200);
+    border-left: 4px solid var(--teal);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+  .modules-alacarte-icon {
+    font-size: 32px;
+    flex-shrink: 0;
+  }
+  .modules-alacarte-text {
+    flex: 1;
+  }
+  .modules-alacarte-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+    letter-spacing: -0.2px;
+  }
+  .modules-alacarte-sub {
+    font-size: 14px;
+    color: var(--gray-600);
+    line-height: 1.55;
+  }
+  .modules-alacarte-sub strong { color: var(--navy); }
+  @media (max-width: 700px) {
+    .modules-alacarte { flex-direction: column; align-items: flex-start; padding: 20px; }
+    .modules-alacarte-icon { font-size: 28px; }
+  }
+
   /* ===== MODULES COMPLÉMENTAIRES (grille compacte) ===== */
   .modules-extra-header {
-    margin: 56px 0 24px;
+    margin: 32px 0 24px;
     text-align: center;
   }
   .modules-extra-eyebrow {
@@ -1262,10 +1299,10 @@
   <div class="container">
     <div class="hero-grid">
       <div>
-        <span class="hero-badge">🛡️ 26 modules livrés · plateforme GRC complète · multi-tenant</span>
+        <span class="hero-badge">🛡️ 26 modules livrés · à la carte · activables un par un</span>
         <h1>La plateforme GRC qui <span>structure vos décisions</span>, pas qui les remplace.</h1>
         <p class="lead">
-          De l'évaluation projet au pilotage CODIR : <strong>26 modules livrés</strong> couvrant l'évaluation et le sourcing, l'audit, la cartographie, la gouvernance RSSI, la conformité RGPD/NIS 2/DORA et le trust client. <strong>L'IA propose, vous décidez. IA locale 100% souveraine ou API externe au choix.</strong>
+          <strong>Vous choisissez les modules qui correspondent à votre besoin</strong> - pas de bouquet imposé. 26 modules livrés, activables un par un selon votre maturité et vos priorités : ISP, TPRM, RFP, Audit, ROPA, DPIA, Trust Center, KPIs CODIR... <strong>L'IA propose, vous décidez. IA locale 100% souveraine ou API externe au choix.</strong>
         </p>
         <div class="hero-ctas">
           <a href="mailto:grc@cyberact.fr?subject=Demande%20de%20d%C3%A9mo%20CyberAct&body=Bonjour%2C%0A%0AJe%20souhaite%20planifier%20une%20d%C3%A9monstration.%0A%0AMon%20organisation%20%3A%20%0ANombre%20d%27utilisateurs%20estim%C3%A9%20%3A%20%0ACr%C3%A9neaux%20souhait%C3%A9s%20%3A%20%0A%0AMerci." class="btn btn-primary">
@@ -1305,9 +1342,9 @@
 <section id="modules">
   <div class="container">
     <div class="section-header">
-      <div class="section-eyebrow">26 modules livrés · 6 piliers</div>
-      <h2>Six piliers détaillés, vingt modules complémentaires</h2>
-      <p>Chaque module couvre un moment précis du cycle de vie GRC. Ils partagent le même contexte projet, le même catalogue de référentiels et le même registre des risques : saisissez une fois, réutilisez partout. <strong>Tout est activable par tenant</strong> - vous payez et utilisez seulement ce dont vous avez besoin.</p>
+      <div class="section-eyebrow">26 modules livrés · à la carte</div>
+      <h2>Choisissez les modules qui correspondent à votre besoin</h2>
+      <p>Pas de bouquet imposé. Six piliers détaillés, vingt modules complémentaires, et un seul outil. Chaque module couvre un moment précis du cycle GRC, partage le même contexte et le même registre des risques. <strong>Activez ce dont vous avez besoin</strong>, ajoutez le reste plus tard - votre maturité, vos priorités, votre rythme.</p>
     </div>
 
     <div class="modules-intro">
@@ -1471,6 +1508,15 @@
         </div>
       </div>
 
+    </div>
+
+    <!-- Encart à la carte -->
+    <div class="modules-alacarte">
+      <div class="modules-alacarte-icon">🎛️</div>
+      <div class="modules-alacarte-text">
+        <div class="modules-alacarte-title">Vous composez votre plateforme. Pas l'inverse.</div>
+        <div class="modules-alacarte-sub">Démarrez avec <strong>1 ou 2 modules</strong> selon votre priorité du moment - une mise en conformité NIS 2, un audit, un appel d'offres, le déploiement RGPD - puis <strong>activez les autres au fur et à mesure</strong>. Chaque module se configure indépendamment, sans casser les précédents. Pas de pack, pas de minimum, pas d'engagement sur ce que vous n'utilisez pas.</div>
+      </div>
     </div>
 
     <!-- 20 modules complémentaires livrés -->

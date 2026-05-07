@@ -904,7 +904,7 @@
     .modules-alacarte-icon { font-size: 28px; }
   }
 
-  /* ===== MODULES COMPLÉMENTAIRES (grille compacte) ===== */
+  /* ===== MODULES COMPLÉMENTAIRES (par blocs / catégories) ===== */
   .modules-extra-header {
     margin: 32px 0 24px;
     text-align: center;
@@ -930,19 +930,59 @@
     max-width: 620px;
     margin: 0 auto;
   }
-  .modules-extra-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+  .modules-block {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 24px 24px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s, border-color 0.2s;
+  }
+  .modules-block:hover {
+    border-color: var(--ice);
+    box-shadow: var(--shadow-md);
+  }
+  .modules-block-head {
+    display: flex;
+    align-items: baseline;
     gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .modules-block-eyebrow {
+    color: var(--teal);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    line-height: 1.2;
+  }
+  .modules-block-title {
+    font-size: 18px;
+    color: var(--navy);
+    font-weight: 800;
+    letter-spacing: -0.2px;
+    line-height: 1.25;
+  }
+  .modules-block-sub {
+    font-size: 13.5px;
+    color: var(--gray-600);
+    margin-left: auto;
+  }
+  .modules-block-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
   }
   @media (max-width: 1100px) {
-    .modules-extra-grid { grid-template-columns: repeat(3, 1fr); }
+    .modules-block-grid { grid-template-columns: repeat(2, 1fr); }
+    .modules-block-sub { margin-left: 0; }
   }
-  @media (max-width: 860px) {
-    .modules-extra-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (max-width: 520px) {
-    .modules-extra-grid { grid-template-columns: 1fr; }
+  @media (max-width: 600px) {
+    .modules-block-grid { grid-template-columns: 1fr; }
   }
   .module-mini {
     background: white;
@@ -980,14 +1020,6 @@
     font-size: 12.5px;
     color: var(--gray-600);
     line-height: 1.4;
-  }
-  .module-mini-cat {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--teal-dark);
-    margin-top: 6px;
   }
 
   /* ===== VISION PLATEFORME ===== */
@@ -1857,179 +1889,215 @@
       <p class="modules-extra-sub">Tous livrés et activables par tenant. Tous alimentent ou consomment le registre central des risques. Du Trust Center aux obligations RGPD/NIS 2, en passant par le pilotage CODIR.</p>
     </div>
 
-    <div class="modules-extra-grid">
-
-      <div class="module-mini">
-        <div class="module-mini-icon">📋</div>
-        <div class="module-mini-body">
-          <div class="module-mini-name">Self-assessment</div>
-          <div class="module-mini-desc">Auto-évaluation rapide filiales / équipes</div>
-          <div class="module-mini-cat">Évaluation</div>
+    <!-- BLOC 1 : Évaluation & Audit -->
+    <div class="modules-block">
+      <div class="modules-block-head">
+        <div>
+          <div class="modules-block-eyebrow">Bloc 1</div>
+          <div class="modules-block-title">Évaluation &amp; Audit</div>
+        </div>
+        <div class="modules-block-sub">Cycle d'évaluation et de vérification - amont projet et contrôles</div>
+      </div>
+      <div class="modules-block-grid">
+        <div class="module-mini">
+          <div class="module-mini-icon">📋</div>
+          <div class="module-mini-body">
+            <div class="module-mini-name">Self-assessment</div>
+            <div class="module-mini-desc">Auto-évaluation rapide filiales / équipes</div>
+          </div>
+        </div>
+        <div class="module-mini">
+          <div class="module-mini-icon">📅</div>
+          <div class="module-mini-body">
+            <div class="module-mini-name">Plan d'audit annuel</div>
+            <div class="module-mini-desc">Planning, cycles, périmètres, ressources auditeurs</div>
+          </div>
         </div>
       </div>
+    </div>
 
-      <div class="module-mini">
-        <div class="module-mini-icon">📅</div>
-        <div class="module-mini-body">
-          <div class="module-mini-name">Plan d'audit annuel</div>
-          <div class="module-mini-desc">Planning, cycles, périmètres, ressources auditeurs</div>
-          <div class="module-mini-cat">Audit</div>
+    <!-- BLOC 2 : Risques -->
+    <div class="modules-block">
+      <div class="modules-block-head">
+        <div>
+          <div class="modules-block-eyebrow">Bloc 2</div>
+          <div class="modules-block-title">Risques</div>
+        </div>
+        <div class="modules-block-sub">Registres centraux cross-projets et inventaires SI</div>
+      </div>
+      <div class="modules-block-grid">
+        <div class="module-mini">
+          <div class="module-mini-icon">🗂️</div>
+          <div class="module-mini-body">
+            <div class="module-mini-name">Cartographie des actifs</div>
+            <div class="module-mini-desc">Inventaire SI, classification, propriétaires, criticité</div>
+          </div>
+        </div>
+        <div class="module-mini">
+          <div class="module-mini-icon">📑</div>
+          <div class="module-mini-body">
+            <div class="module-mini-name">Référentiels &amp; exigences</div>
+            <div class="module-mini-desc">ISO, NIS 2, RGPD, PCI, SOC 2 - couverture risques + KPI résiduels</div>
+          </div>
+        </div>
+        <div class="module-mini">
+          <div class="module-mini-icon">✋</div>
+          <div class="module-mini-body">
+            <div class="module-mini-name">Registre des dérogations</div>
+            <div class="module-mini-desc">Acceptation formelle des risques, revues périodiques</div>
+          </div>
         </div>
       </div>
+    </div>
 
-      <div class="module-mini">
-        <div class="module-mini-icon">🗂️</div>
-        <div class="module-mini-body">
-          <div class="module-mini-name">Cartographie des actifs</div>
-          <div class="module-mini-desc">Inventaire SI, classification, propriétaires, criticité</div>
-          <div class="module-mini-cat">Risques</div>
+    <!-- BLOC 3 : Gouvernance & Pilotage -->
+    <div class="modules-block">
+      <div class="modules-block-head">
+        <div>
+          <div class="modules-block-eyebrow">Bloc 3</div>
+          <div class="modules-block-title">Gouvernance &amp; Pilotage</div>
+        </div>
+        <div class="modules-block-sub">Cycle stratégique RSSI - politique, procédures, indicateurs</div>
+      </div>
+      <div class="modules-block-grid">
+        <div class="module-mini">
+          <div class="module-mini-icon">📜</div>
+          <div class="module-mini-body">
+            <div class="module-mini-name">Politique &amp; Charte SSI</div>
+            <div class="module-mini-desc">PSSI formalisée, charte user/admin, validation direction</div>
+          </div>
+        </div>
+        <div class="module-mini">
+          <div class="module-mini-icon">📖</div>
+          <div class="module-mini-body">
+            <div class="module-mini-name">Procédures &amp; bonnes pratiques</div>
+            <div class="module-mini-desc">Bibliothèque documentaire SSI : runbooks, guides</div>
+          </div>
+        </div>
+        <div class="module-mini">
+          <div class="module-mini-icon">📊</div>
+          <div class="module-mini-body">
+            <div class="module-mini-name">KPIs CODIR / Direction</div>
+            <div class="module-mini-desc">Tableau de bord direction, indicateurs mensuels, tendances</div>
+          </div>
         </div>
       </div>
+    </div>
 
-      <div class="module-mini">
-        <div class="module-mini-icon">📑</div>
-        <div class="module-mini-body">
-          <div class="module-mini-name">Référentiels &amp; exigences</div>
-          <div class="module-mini-desc">ISO, NIS 2, RGPD, PCI, SOC 2 - couverture risques + KPI résiduels</div>
-          <div class="module-mini-cat">Risques</div>
+    <!-- BLOC 4 : Conformité & Privacy -->
+    <div class="modules-block">
+      <div class="modules-block-head">
+        <div>
+          <div class="modules-block-eyebrow">Bloc 4</div>
+          <div class="modules-block-title">Conformité &amp; Privacy</div>
+        </div>
+        <div class="modules-block-sub">RGPD, NIS 2, DORA - obligations réglementaires</div>
+      </div>
+      <div class="modules-block-grid">
+        <div class="module-mini">
+          <div class="module-mini-icon">🚨</div>
+          <div class="module-mini-body">
+            <div class="module-mini-name">Incidents NIS 2</div>
+            <div class="module-mini-desc">Notification NIS 2 art. 23 (24h / 72h / 30j), workflow complet</div>
+          </div>
+        </div>
+        <div class="module-mini">
+          <div class="module-mini-icon">📇</div>
+          <div class="module-mini-body">
+            <div class="module-mini-name">ROPA</div>
+            <div class="module-mini-desc">Registre traitements RGPD art. 30 : finalités, base légale, durées</div>
+          </div>
+        </div>
+        <div class="module-mini">
+          <div class="module-mini-icon">🔍</div>
+          <div class="module-mini-body">
+            <div class="module-mini-name">DPIA</div>
+            <div class="module-mini-desc">Analyses d'impact RGPD, traitements à risque</div>
+          </div>
+        </div>
+        <div class="module-mini">
+          <div class="module-mini-icon">✉️</div>
+          <div class="module-mini-body">
+            <div class="module-mini-name">Demandes CNIL &amp; droits</div>
+            <div class="module-mini-desc">Accès, effacement, portabilité, plaintes, suivi</div>
+          </div>
+        </div>
+        <div class="module-mini">
+          <div class="module-mini-icon">📡</div>
+          <div class="module-mini-body">
+            <div class="module-mini-name">Veille réglementaire</div>
+            <div class="module-mini-desc">NIS 2, DORA, RGPD, EU AI Act, alertes &amp; jurisprudence</div>
+          </div>
+        </div>
+        <div class="module-mini">
+          <div class="module-mini-icon">🌍</div>
+          <div class="module-mini-body">
+            <div class="module-mini-name">Cartographie des données</div>
+            <div class="module-mini-desc">Data mapping RGPD/HDS, flux PII, transferts hors UE</div>
+          </div>
         </div>
       </div>
+    </div>
 
-      <div class="module-mini">
-        <div class="module-mini-icon">✋</div>
-        <div class="module-mini-body">
-          <div class="module-mini-name">Registre des dérogations</div>
-          <div class="module-mini-desc">Acceptation formelle des risques, revues périodiques</div>
-          <div class="module-mini-cat">Risques</div>
+    <!-- BLOC 5 : Trust & Relations externes -->
+    <div class="modules-block">
+      <div class="modules-block-head">
+        <div>
+          <div class="modules-block-eyebrow">Bloc 5</div>
+          <div class="modules-block-title">Trust &amp; Relations externes</div>
+        </div>
+        <div class="modules-block-sub">Vitrine externe et relations clients / auditeurs</div>
+      </div>
+      <div class="modules-block-grid">
+        <div class="module-mini">
+          <div class="module-mini-icon">🛡️</div>
+          <div class="module-mini-body">
+            <div class="module-mini-name">Trust Center</div>
+            <div class="module-mini-desc">Page de confiance partagée clients/prospects, certificats publics</div>
+          </div>
+        </div>
+        <div class="module-mini">
+          <div class="module-mini-icon">📃</div>
+          <div class="module-mini-body">
+            <div class="module-mini-name">Contrats &amp; DPA</div>
+            <div class="module-mini-desc">Registre contrats sécu, DPA RGPD, clauses signées, échéances</div>
+          </div>
+        </div>
+        <div class="module-mini">
+          <div class="module-mini-icon">📥</div>
+          <div class="module-mini-body">
+            <div class="module-mini-name">Due diligence reçue</div>
+            <div class="module-mini-desc">Questionnaires sécu envoyés par clients, centralisation des réponses</div>
+          </div>
         </div>
       </div>
+    </div>
 
-      <div class="module-mini">
-        <div class="module-mini-icon">🚨</div>
-        <div class="module-mini-body">
-          <div class="module-mini-name">Incidents NIS 2</div>
-          <div class="module-mini-desc">Notification NIS 2 art. 23 (24h / 72h / 30j), workflow complet</div>
-          <div class="module-mini-cat">Conformité</div>
+    <!-- BLOC 6 : Support transversal -->
+    <div class="modules-block">
+      <div class="modules-block-head">
+        <div>
+          <div class="modules-block-eyebrow">Bloc 6</div>
+          <div class="modules-block-title">Support transversal</div>
+        </div>
+        <div class="modules-block-sub">Outils transverses et infrastructure - admin, traçabilité</div>
+      </div>
+      <div class="modules-block-grid">
+        <div class="module-mini">
+          <div class="module-mini-icon">👥</div>
+          <div class="module-mini-body">
+            <div class="module-mini-name">Gestion utilisateurs</div>
+            <div class="module-mini-desc">Administration users, rôles, comptes temporaires, MFA TOTP</div>
+          </div>
+        </div>
+        <div class="module-mini">
+          <div class="module-mini-icon">📓</div>
+          <div class="module-mini-body">
+            <div class="module-mini-name">Journal d'audit technique</div>
+            <div class="module-mini-desc">Traçabilité des actions admin / utilisateur (audit log)</div>
+          </div>
         </div>
       </div>
-
-      <div class="module-mini">
-        <div class="module-mini-icon">📜</div>
-        <div class="module-mini-body">
-          <div class="module-mini-name">Politique &amp; Charte SSI</div>
-          <div class="module-mini-desc">PSSI formalisée, charte user/admin, validation direction</div>
-          <div class="module-mini-cat">Gouvernance</div>
-        </div>
-      </div>
-
-      <div class="module-mini">
-        <div class="module-mini-icon">📖</div>
-        <div class="module-mini-body">
-          <div class="module-mini-name">Procédures &amp; bonnes pratiques</div>
-          <div class="module-mini-desc">Bibliothèque documentaire SSI : runbooks, guides</div>
-          <div class="module-mini-cat">Gouvernance</div>
-        </div>
-      </div>
-
-      <div class="module-mini">
-        <div class="module-mini-icon">📊</div>
-        <div class="module-mini-body">
-          <div class="module-mini-name">KPIs CODIR / Direction</div>
-          <div class="module-mini-desc">Tableau de bord direction, indicateurs mensuels, tendances</div>
-          <div class="module-mini-cat">Gouvernance</div>
-        </div>
-      </div>
-
-      <div class="module-mini">
-        <div class="module-mini-icon">📇</div>
-        <div class="module-mini-body">
-          <div class="module-mini-name">ROPA</div>
-          <div class="module-mini-desc">Registre traitements RGPD art. 30 : finalités, base légale, durées</div>
-          <div class="module-mini-cat">Privacy</div>
-        </div>
-      </div>
-
-      <div class="module-mini">
-        <div class="module-mini-icon">🔍</div>
-        <div class="module-mini-body">
-          <div class="module-mini-name">DPIA</div>
-          <div class="module-mini-desc">Analyses d'impact RGPD, traitements à risque</div>
-          <div class="module-mini-cat">Privacy</div>
-        </div>
-      </div>
-
-      <div class="module-mini">
-        <div class="module-mini-icon">✉️</div>
-        <div class="module-mini-body">
-          <div class="module-mini-name">Demandes CNIL &amp; droits</div>
-          <div class="module-mini-desc">Accès, effacement, portabilité, plaintes, suivi</div>
-          <div class="module-mini-cat">Privacy</div>
-        </div>
-      </div>
-
-      <div class="module-mini">
-        <div class="module-mini-icon">📡</div>
-        <div class="module-mini-body">
-          <div class="module-mini-name">Veille réglementaire</div>
-          <div class="module-mini-desc">NIS 2, DORA, RGPD, EU AI Act, alertes &amp; jurisprudence</div>
-          <div class="module-mini-cat">Conformité</div>
-        </div>
-      </div>
-
-      <div class="module-mini">
-        <div class="module-mini-icon">🌍</div>
-        <div class="module-mini-body">
-          <div class="module-mini-name">Cartographie des données</div>
-          <div class="module-mini-desc">Data mapping RGPD/HDS, flux PII, transferts hors UE</div>
-          <div class="module-mini-cat">Privacy</div>
-        </div>
-      </div>
-
-      <div class="module-mini">
-        <div class="module-mini-icon">🛡️</div>
-        <div class="module-mini-body">
-          <div class="module-mini-name">Trust Center</div>
-          <div class="module-mini-desc">Page de confiance partagée clients/prospects, certificats publics</div>
-          <div class="module-mini-cat">Trust</div>
-        </div>
-      </div>
-
-      <div class="module-mini">
-        <div class="module-mini-icon">📃</div>
-        <div class="module-mini-body">
-          <div class="module-mini-name">Contrats &amp; DPA</div>
-          <div class="module-mini-desc">Registre contrats sécu, DPA RGPD, clauses signées, échéances</div>
-          <div class="module-mini-cat">Trust</div>
-        </div>
-      </div>
-
-      <div class="module-mini">
-        <div class="module-mini-icon">📥</div>
-        <div class="module-mini-body">
-          <div class="module-mini-name">Due diligence reçue</div>
-          <div class="module-mini-desc">Questionnaires sécu envoyés par clients, centralisation des réponses</div>
-          <div class="module-mini-cat">Trust</div>
-        </div>
-      </div>
-
-      <div class="module-mini">
-        <div class="module-mini-icon">👥</div>
-        <div class="module-mini-body">
-          <div class="module-mini-name">Gestion utilisateurs</div>
-          <div class="module-mini-desc">Administration users, rôles, comptes temporaires, MFA TOTP</div>
-          <div class="module-mini-cat">Support</div>
-        </div>
-      </div>
-
-      <div class="module-mini">
-        <div class="module-mini-icon">📓</div>
-        <div class="module-mini-body">
-          <div class="module-mini-name">Journal d'audit technique</div>
-          <div class="module-mini-desc">Traçabilité des actions admin / utilisateur (audit log)</div>
-          <div class="module-mini-cat">Support</div>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>

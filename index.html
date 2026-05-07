@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CyberAct - Plateforme d'évaluation sécurité des projets et fournisseurs</title>
-<meta name="description" content="CyberAct : plateforme d'évaluation sécurité des projets (EBIOS RM), qualification fournisseurs (TPRM), appels d'offres (RFP) et audits de maturité (ISO 19011). L'expertise humaine, outillée par l'IA.">
-<meta property="og:title" content="CyberAct - Plateforme GRC">
-<meta property="og:description" content="Plateforme d'évaluation sécurité des projets, qualification fournisseurs, appels d'offres et audits de maturité. Workflow RSSI, bibliothèque de référentiels et grilles d'audit, IA intégrée, sécurité de niveau entreprise. L'expertise humaine, outillée par l'IA.">
+<title>CyberAct - Plateforme GRC complète : ISP, TPRM, RFP, Audit, Compliance, Roadmap</title>
+<meta name="description" content="CyberAct : plateforme GRC modulaire pour RSSI et DPO. Évaluation sécurité projets (EBIOS RM), qualification fournisseurs (TPRM), appels d'offres (RFP), audits de maturité (ISO 19011), bibliothèque de conformité (politiques, procédures, multi-filiales), feuille de route consolidée. IA locale souveraine ou API externe au choix. L'expertise humaine, outillée par l'IA.">
+<meta property="og:title" content="CyberAct - Plateforme GRC modulaire pour RSSI et DPO">
+<meta property="og:description" content="6 modules livrés (ISP, TPRM, RFP, Audit, Compliance Center, Roadmap), 15 modules à venir (ROPA, DPIA, Trust Center, KPIs CODIR, registre des risques, cartographie des actifs, veille réglementaire…). Multi-tenant, MFA TOTP, IA locale souveraine ou API externe au choix. L'expertise humaine, outillée par l'IA.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cyberact.fr">
 <style>
@@ -394,8 +394,11 @@
   }
   .modules-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 28px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 1100px) {
+    .modules-grid { grid-template-columns: repeat(2, 1fr); }
   }
   .module-card {
     background: white;
@@ -415,6 +418,8 @@
   .module-card.teal { border-top-color: #0F7B8C; }
   .module-card.steel { border-top-color: #1D5FA8; }
   .module-card.deepteal { border-top-color: #0b5f6d; }
+  .module-card.ice { border-top-color: #4dd0e1; }
+  .module-card.midnight { border-top-color: #0a1637; }
 
   .module-icon-box {
     width: 56px;
@@ -430,6 +435,8 @@
   .module-card.teal .module-icon-box { background: #d7eef1; }
   .module-card.steel .module-icon-box { background: #e3edf9; }
   .module-card.deepteal .module-icon-box { background: #cfe5e9; }
+  .module-card.ice .module-icon-box { background: #e3f6f9; }
+  .module-card.midnight .module-icon-box { background: #dde2ec; }
 
   .module-name {
     font-size: 26px;
@@ -461,6 +468,8 @@
   .module-card.teal .module-when { border-left-color: #0F7B8C; }
   .module-card.steel .module-when { border-left-color: #1D5FA8; }
   .module-card.deepteal .module-when { border-left-color: #0b5f6d; }
+  .module-card.ice .module-when { border-left-color: #4dd0e1; }
+  .module-card.midnight .module-when { border-left-color: #0a1637; }
 
   .module-pitch {
     font-size: 15px;
@@ -500,6 +509,8 @@
   .module-card.teal .module-features-list li::before { background: #0F7B8C; }
   .module-card.steel .module-features-list li::before { background: #1D5FA8; }
   .module-card.deepteal .module-features-list li::before { background: #0b5f6d; }
+  .module-card.ice .module-features-list li::before { background: #2596a8; }
+  .module-card.midnight .module-features-list li::before { background: #0a1637; }
 
   .module-outcome {
     font-size: 14px;
@@ -513,6 +524,8 @@
   .module-card.teal .module-outcome { color: #0F7B8C; border-color: rgba(15,123,140,0.25); background: rgba(15,123,140,0.04); }
   .module-card.steel .module-outcome { color: #1D5FA8; border-color: rgba(29,95,168,0.25); background: rgba(29,95,168,0.04); }
   .module-card.deepteal .module-outcome { color: #0b5f6d; border-color: rgba(11,95,109,0.28); background: rgba(11,95,109,0.04); }
+  .module-card.ice .module-outcome { color: #146776; border-color: rgba(37,150,168,0.28); background: rgba(77,208,225,0.06); }
+  .module-card.midnight .module-outcome { color: #0a1637; border-color: rgba(10,22,55,0.25); background: rgba(10,22,55,0.04); }
 
   /* Module sober mode + expansion */
   .module-headline {
@@ -550,6 +563,10 @@
   .module-card.deepteal .module-toggle:hover { color: #074650; }
   .module-card.navy .module-toggle { color: var(--navy); }
   .module-card.navy .module-toggle:hover { color: var(--navy-light); }
+  .module-card.ice .module-toggle { color: #146776; }
+  .module-card.ice .module-toggle:hover { color: #0a4f5b; }
+  .module-card.midnight .module-toggle { color: #0a1637; }
+  .module-card.midnight .module-toggle:hover { color: #050b1e; }
 
   .module-details {
     overflow: hidden;
@@ -566,10 +583,13 @@
 
   .modules-intro {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 16px;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
     margin: 40px 0 48px;
     text-align: center;
+  }
+  @media (max-width: 1100px) {
+    .modules-intro { grid-template-columns: repeat(3, 1fr); }
   }
   .modules-intro-item {
     padding: 14px 10px;
@@ -585,6 +605,145 @@
     .modules-grid { grid-template-columns: 1fr; }
     .modules-intro { grid-template-columns: repeat(2, 1fr); }
   }
+
+  /* ===== VISION PLATEFORME ===== */
+  #vision {
+    background: var(--gray-50);
+    border-top: 1px solid var(--gray-200);
+  }
+  .vision-categories {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+  @media (max-width: 860px) {
+    .vision-categories { grid-template-columns: 1fr; }
+  }
+  .vision-category {
+    background: white;
+    border-radius: 14px;
+    padding: 26px 26px 22px;
+    border: 1px solid var(--gray-200);
+    box-shadow: var(--shadow-sm);
+  }
+  .vision-cat-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--gray-200);
+  }
+  .vision-cat-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    background: var(--teal-light);
+    color: var(--teal-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+  }
+  .vision-cat-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.2px;
+  }
+  .vision-modules-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .vision-mod {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    align-items: start;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: var(--gray-50);
+    font-size: 14px;
+    line-height: 1.45;
+  }
+  .vision-mod-name {
+    color: var(--navy);
+    font-weight: 700;
+  }
+  .vision-mod-desc {
+    color: var(--gray-600);
+    font-size: 13px;
+    font-weight: 400;
+    margin-top: 2px;
+  }
+  .vision-status {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 4px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+    align-self: center;
+  }
+  .vision-status.live {
+    background: #d1fae5;
+    color: #065f46;
+  }
+  .vision-status.soon {
+    background: #fef3c7;
+    color: #92400e;
+  }
+  .vision-status.planned {
+    background: #e2e8f0;
+    color: #475569;
+  }
+  .vision-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 0 0 40px;
+  }
+  @media (max-width: 700px) {
+    .vision-summary { grid-template-columns: 1fr; }
+  }
+  .vision-summary-item {
+    background: white;
+    padding: 22px;
+    border-radius: 12px;
+    border: 1px solid var(--gray-200);
+    text-align: center;
+  }
+  .vision-summary-num {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 6px;
+    letter-spacing: -1px;
+  }
+  .vision-summary-num.teal { color: var(--teal); }
+  .vision-summary-label {
+    font-size: 13px;
+    color: var(--gray-600);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+  .vision-note {
+    margin-top: 30px;
+    padding: 18px 22px;
+    background: white;
+    border-left: 3px solid var(--teal);
+    border-radius: 6px;
+    color: var(--gray-600);
+    font-size: 14px;
+    line-height: 1.65;
+  }
+  .vision-note strong { color: var(--navy); }
 
   /* ===== FONCTIONNALITÉS ===== */
   .features-grid {
@@ -730,6 +889,181 @@
     .case-num { margin-bottom: 8px; }
   }
 
+  /* ===== SCÉNARIOS ===== */
+  #scenarios { background: #f4f7fb; }
+  .scenarios-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  @media (max-width: 900px) { .scenarios-grid { grid-template-columns: 1fr; } }
+  .scenario-card {
+    background: white;
+    border-radius: 14px;
+    border-top: 4px solid var(--teal);
+    padding: 28px;
+    box-shadow: 0 4px 20px rgba(15,31,75,0.06);
+    display: flex;
+    flex-direction: column;
+  }
+  .scenario-card:nth-child(2) { border-top-color: var(--navy); }
+  .scenario-card:nth-child(3) { border-top-color: var(--navy-dark); }
+  .scenario-num {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--teal);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .scenario-card h3 {
+    font-size: 19px;
+    color: var(--navy);
+    margin-bottom: 14px;
+    line-height: 1.3;
+  }
+  .scenario-modules {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .scenario-mod {
+    background: var(--teal-light);
+    color: var(--teal-dark);
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .scenario-context {
+    font-size: 14px;
+    color: #555;
+    font-style: italic;
+    margin-bottom: 16px;
+    line-height: 1.5;
+    padding-bottom: 14px;
+    border-bottom: 1px dashed #dde2ec;
+  }
+  .scenario-flow {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 18px 0;
+    counter-reset: step;
+  }
+  .scenario-flow li {
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5;
+    counter-increment: step;
+  }
+  .scenario-flow li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 1px;
+    width: 20px;
+    height: 20px;
+    background: var(--navy);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+  }
+  .scenario-output {
+    margin-top: auto;
+    padding: 14px 16px;
+    background: #f4f7fb;
+    border-radius: 10px;
+    font-size: 13px;
+    color: var(--navy);
+    line-height: 1.5;
+  }
+  .scenario-output strong {
+    color: var(--teal-dark);
+    display: block;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+  }
+  /* Exemple concret - timeline */
+  .scenario-example {
+    background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 60%, var(--teal) 200%);
+    color: white;
+    border-radius: 18px;
+    padding: 44px;
+    margin-top: 12px;
+  }
+  @media (max-width: 700px) { .scenario-example { padding: 28px; } }
+  .example-eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--teal-light);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .scenario-example h3 {
+    color: white;
+    font-size: 26px;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+  .example-intro {
+    color: rgba(255,255,255,0.85);
+    font-size: 16px;
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 28px;
+    max-width: 820px;
+  }
+  .timeline {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .timeline-step {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 20px;
+    padding: 16px 22px;
+    background: rgba(255,255,255,0.06);
+    border-left: 3px solid var(--teal-light);
+    border-radius: 8px;
+  }
+  @media (max-width: 700px) {
+    .timeline-step { grid-template-columns: 1fr; gap: 6px; padding: 14px 18px; }
+  }
+  .timeline-when {
+    font-weight: 700;
+    color: var(--teal-light);
+    font-size: 14px;
+  }
+  .timeline-what {
+    font-size: 14px;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.6;
+  }
+  .timeline-what strong { color: white; }
+  .scenario-result {
+    margin-top: 24px;
+    padding: 18px 24px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 10px;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+  .scenario-result strong { color: var(--teal-light); }
+
   /* ===== CTA ===== */
   #contact {
     background: linear-gradient(135deg, var(--navy) 0%, var(--teal) 150%);
@@ -826,11 +1160,11 @@
     </a>
     <ul class="nav-links" id="nav-links">
       <li><a href="#modules">Modules</a></li>
+      <li><a href="#vision">Vision</a></li>
       <li><a href="#pourqui">Pour qui</a></li>
       <li><a href="#fonctionnalites">Fonctionnalités</a></li>
       <li><a href="#referentiels">Référentiels</a></li>
-      <li><a href="#cas">Cas d'usage</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#scenarios">Scénarios</a></li>
       <li><a href="#contact" class="nav-cta">Demander une démo</a></li>
     </ul>
     <button class="mobile-toggle" onclick="document.getElementById('nav-links').classList.toggle('open')" aria-label="Menu">☰</button>
@@ -842,10 +1176,10 @@
   <div class="container">
     <div class="hero-grid">
       <div>
-        <span class="hero-badge">🛡️ 4 modules intégrés · bibliothèque de référentiels · 1 seul outil</span>
-        <h1>Structurez vos <span>évaluations sécurité</span> de bout en bout.</h1>
+        <span class="hero-badge">🛡️ 6 modules livrés · plateforme GRC modulaire · multi-tenant</span>
+        <h1>La plateforme GRC qui <span>structure vos décisions</span>, pas qui les remplace.</h1>
         <p class="lead">
-          Quatre modules complémentaires pour couvrir tout le cycle de vie SSI : <strong>ISP</strong> (EBIOS RM), <strong>TPRM</strong> (fournisseurs), <strong>RFP</strong> (appels d'offres) et <strong>Audit</strong> (ISO 19011). <strong>L'expertise reste entre vos mains : l'IA propose, vous décidez.</strong>
+          De l'évaluation projet jusqu'au pilotage RSSI consolidé : <strong>ISP</strong> (EBIOS RM), <strong>TPRM</strong> (fournisseurs), <strong>RFP</strong> (appels d'offres), <strong>Audit</strong> (ISO 19011), <strong>Compliance Center</strong> (politiques, procédures, multi-filiales) et <strong>Roadmap</strong> consolidée. <strong>L'IA propose, vous décidez. IA locale 100% souveraine ou API externe au choix.</strong>
         </p>
         <div class="hero-ctas">
           <a href="mailto:grc@cyberact.fr?subject=Demande%20de%20d%C3%A9mo%20CyberAct&body=Bonjour%2C%0A%0AJe%20souhaite%20planifier%20une%20d%C3%A9monstration.%0A%0AMon%20organisation%20%3A%20%0ANombre%20d%27utilisateurs%20estim%C3%A9%20%3A%20%0ACr%C3%A9neaux%20souhait%C3%A9s%20%3A%20%0A%0AMerci." class="btn btn-primary">
@@ -863,10 +1197,11 @@
             <div class="mock-title">Projet · Migration CRM Cloud</div>
             <div class="mock-badge">GO CONDITIONNEL</div>
           </div>
-          <div class="mock-row"><span class="mock-dot green"></span><span class="mock-text">ISO 27001 · 42 exigences conformes</span></div>
-          <div class="mock-row"><span class="mock-dot orange"></span><span class="mock-text">RGPD · 3 risques en traitement</span></div>
-          <div class="mock-row"><span class="mock-dot green"></span><span class="mock-text">TPRM · Fournisseur qualifié</span></div>
-          <div class="mock-row"><span class="mock-dot red"></span><span class="mock-text">Plan d'action · 2 échéances &lt; 7 jours</span></div>
+          <div class="mock-row"><span class="mock-dot green"></span><span class="mock-text">ISO 27001:2022 · 42 exigences conformes</span></div>
+          <div class="mock-row"><span class="mock-dot orange"></span><span class="mock-text">RGPD · 3 risques résiduels en traitement</span></div>
+          <div class="mock-row"><span class="mock-dot green"></span><span class="mock-text">TPRM · Fournisseur qualifié, PAS signé</span></div>
+          <div class="mock-row"><span class="mock-dot green"></span><span class="mock-text">Compliance · PSSI déclinée filiale FR</span></div>
+          <div class="mock-row"><span class="mock-dot red"></span><span class="mock-text">Roadmap · 2 actions en retard, RSSI à relancer</span></div>
           <div class="mock-progress">
             <div class="mock-progress-label">
               <span>Conformité globale</span>
@@ -884,16 +1219,18 @@
 <section id="modules">
   <div class="container">
     <div class="section-header">
-      <div class="section-eyebrow">La plateforme</div>
-      <h2>Quatre modules, un seul outil</h2>
-      <p>Chaque module couvre un moment précis du cycle de vie sécurité. Ils partagent le même contexte projet : saisissez une fois, réutilisez partout. Aucune redondance.</p>
+      <div class="section-eyebrow">Les 6 modules livrés</div>
+      <h2>Six modules livrés, un seul outil</h2>
+      <p>Chaque module couvre un moment précis du cycle de vie GRC. Ils partagent le même contexte projet, le même catalogue de référentiels et le même registre des risques : saisissez une fois, réutilisez partout. Aucune redondance.</p>
     </div>
 
     <div class="modules-intro">
-      <div class="modules-intro-item"><strong>📐 ISP</strong>Évaluer un projet interne</div>
+      <div class="modules-intro-item"><strong>📐 ISP</strong>Évaluer un projet</div>
       <div class="modules-intro-item"><strong>🤝 TPRM</strong>Qualifier un fournisseur</div>
       <div class="modules-intro-item"><strong>📋 RFP</strong>Lancer un appel d'offres</div>
-      <div class="modules-intro-item"><strong>🔎 Audit</strong>Conduire un audit de maturité</div>
+      <div class="modules-intro-item"><strong>🔎 Audit</strong>Auditer la maturité</div>
+      <div class="modules-intro-item"><strong>📚 Compliance</strong>Politiques &amp; procédures</div>
+      <div class="modules-intro-item"><strong>🗺️ Roadmap</strong>Pilotage consolidé</div>
     </div>
 
     <div class="modules-grid">
@@ -1000,6 +1337,222 @@
         </div>
       </div>
 
+      <!-- MODULE 5 : COMPLIANCE CENTER -->
+      <div class="module-card ice">
+        <div class="module-icon-box">📚</div>
+        <div class="module-name">Compliance</div>
+        <div class="module-sub">Centre de conformité - référentiels, politiques, procédures, multi-filiales</div>
+        <div class="module-when"><strong>Quand :</strong> rédaction et déclinaison de la PSSI, déploiement multi-filiales, contrôle de conformité aux référentiels.</div>
+        <div class="module-headline">Une bibliothèque vivante : référentiels (ISO 27001/27701/42001, RGPD, NIS 2, DORA, HDS, PCI...), 10 modèles de politiques prêts à l'emploi, registre des procédures, déclinaisons par filiale avec annexes consolidées.</div>
+        <button type="button" class="module-toggle" aria-expanded="false">Voir les capacités <span class="chev">▾</span></button>
+        <div class="module-details">
+          <div class="module-pitch">
+            Trois onglets : <strong>Référentiels</strong> (catalogue activable par tenant, mapping cross-frameworks anti-doublons), <strong>Politiques</strong> (10 templates : PSSI, charte utilisateur, gestion des accès, sauvegarde, gestion des incidents, PRA/PCA, notifications RGPD/NIS 2/DORA, classification...), <strong>Procédures</strong> (runbooks, guides). Mode multi-filiales avec variantes documentaires et exports consolidés.
+          </div>
+          <ul class="module-features-list">
+            <li><strong>Référentiels</strong> : activation par tenant, mapping cross-frameworks (ISO 27001 ↔ NIS 2 ↔ RGPD ↔ DORA ↔ NIST CSF), Statement of Applicability, suivi de couverture en temps réel</li>
+            <li><strong>Politiques</strong> : 10 templates aux standards français (PSSI, charte, accès, sauvegarde, incidents, PRA/PCA, notifications, classification, télétravail, sous-traitance), workflow d'approbation, versioning, signature horodatée</li>
+            <li><strong>Procédures</strong> : bibliothèque de runbooks et guides opérationnels, rattachement aux contrôles ISO/Annexe A, calendrier de revue</li>
+            <li><strong>Multi-filiales</strong> : politique groupe + variantes par filiale, exports consolidés avec annexes locales</li>
+            <li><strong>Bouton « Déclencher contrôle »</strong> : transforme une politique en mission d'audit (module Audit) en un clic</li>
+            <li>4 modes de saisie : <strong>manuel</strong>, <strong>import fichier</strong>, <strong>IA génère</strong> (à partir du contexte tenant), <strong>IA restructure</strong> (mise en forme d'un document existant) - humain valide tout</li>
+          </ul>
+          <div class="module-outcome">→ Corpus documentaire à jour, opposable, prêt pour audit externe</div>
+        </div>
+      </div>
+
+      <!-- MODULE 6 : ROADMAP -->
+      <div class="module-card midnight">
+        <div class="module-icon-box">🗺️</div>
+        <div class="module-name">Roadmap</div>
+        <div class="module-sub">Feuille de route consolidée - vue Gantt, Kanban et Liste, polymorphe</div>
+        <div class="module-when"><strong>Quand :</strong> pilotage cross-modules, comité de direction, suivi des plans de traitement, vue d'ensemble RSSI.</div>
+        <div class="module-headline">Une feuille de route polymorphe (projet, audit, programme, fournisseur, incident, initiative, objectif, manuelle), 3 vues (Gantt, Kanban, Liste), 2 niveaux (par entité ou portfolio global). Auto-alimentée par les autres modules, mais l'humain valide tout recalcul de risque.</div>
+        <button type="button" class="module-toggle" aria-expanded="false">Voir les capacités <span class="chev">▾</span></button>
+        <div class="module-details">
+          <div class="module-pitch">
+            Toutes les actions du système (plans de traitement ISP, écarts d'audit, surveillance TPRM, dérogations, mesures correctives) remontent dans une feuille de route unique. Le RSSI pilote, valide les recalculs de risque, communique au CODIR avec des vues lisibles.
+          </div>
+          <ul class="module-features-list">
+            <li><strong>3 vues interchangeables</strong> : Gantt (planning), Kanban (avancement), Liste (filtres avancés)</li>
+            <li><strong>2 niveaux</strong> : feuille de route par entité (1 projet, 1 audit, 1 fournisseur) ou globale portfolio (cross-tenant)</li>
+            <li><strong>Polymorphe</strong> : sources hétérogènes (projets ISP, audits, fournisseurs TPRM, incidents, programmes, objectifs, items manuels) sur la même timeline</li>
+            <li><strong>Auto-alimentation</strong> : actions plan TRAITER ISP, écarts audit, plan d'assurance sécurité TPRM créés automatiquement comme tâches</li>
+            <li><strong>Validation humaine</strong> du recalcul des risques résiduels après une action terminée - le système propose, le RSSI valide</li>
+            <li>Alertes contextuelles : actions en retard, échéances proches, dépendances bloquantes, risques résiduels élevés non couverts</li>
+          </ul>
+          <div class="module-outcome">→ Pilotage RSSI consolidé, visibilité CODIR, plus rien ne tombe entre les chaises</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- VISION PLATEFORME -->
+<section id="vision">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Vision plateforme</div>
+      <h2>Une plateforme GRC complète, livrée petit à petit</h2>
+      <p>21 modules organisés en 6 catégories métier. Six sont déjà livrés. Les autres arrivent par sprints, en fonction des besoins clients. Chaque module est <strong>activable par tenant</strong> - vous payez et utilisez seulement ce dont vous avez besoin.</p>
+    </div>
+
+    <div class="vision-summary">
+      <div class="vision-summary-item">
+        <div class="vision-summary-num teal">6</div>
+        <div class="vision-summary-label">modules livrés et utilisables</div>
+      </div>
+      <div class="vision-summary-item">
+        <div class="vision-summary-num">15</div>
+        <div class="vision-summary-label">modules sur la feuille de route, livrés progressivement</div>
+      </div>
+      <div class="vision-summary-item">
+        <div class="vision-summary-num teal">100%</div>
+        <div class="vision-summary-label">modulaire - chaque module activable par tenant</div>
+      </div>
+    </div>
+
+    <div class="vision-categories">
+
+      <div class="vision-category">
+        <div class="vision-cat-head">
+          <div class="vision-cat-icon">🎯</div>
+          <div class="vision-cat-title">1. Évaluation &amp; Sourcing</div>
+        </div>
+        <ul class="vision-modules-list">
+          <li class="vision-mod">
+            <div><span class="vision-mod-name">ISP</span><div class="vision-mod-desc">Intégration sécurité projets - EBIOS RM 8 étapes</div></div>
+            <span class="vision-status live">Livré</span>
+          </li>
+          <li class="vision-mod">
+            <div><span class="vision-mod-name">TPRM</span><div class="vision-mod-desc">Qualification fournisseur - workflow 5 phases</div></div>
+            <span class="vision-status live">Livré</span>
+          </li>
+          <li class="vision-mod">
+            <div><span class="vision-mod-name">RFP</span><div class="vision-mod-desc">Appel d'offres multi-fournisseurs avec scoring</div></div>
+            <span class="vision-status live">Livré</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="vision-category">
+        <div class="vision-cat-head">
+          <div class="vision-cat-icon">🔎</div>
+          <div class="vision-cat-title">2. Audit &amp; Contrôle</div>
+        </div>
+        <ul class="vision-modules-list">
+          <li class="vision-mod">
+            <div><span class="vision-mod-name">Audit ISO 19011</span><div class="vision-mod-desc">Cadrage, entretiens, évaluation CMMI, synthèse</div></div>
+            <span class="vision-status live">Livré</span>
+          </li>
+          <li class="vision-mod">
+            <div><span class="vision-mod-name">Self-assessment</span><div class="vision-mod-desc">Auto-évaluation rapide filiales / équipes</div></div>
+            <span class="vision-status soon">Bientôt</span>
+          </li>
+          <li class="vision-mod">
+            <div><span class="vision-mod-name">Plan d'audit annuel</span><div class="vision-mod-desc">Planning, cycles, périmètres, ressources</div></div>
+            <span class="vision-status planned">Roadmap</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="vision-category">
+        <div class="vision-cat-head">
+          <div class="vision-cat-icon">🗺️</div>
+          <div class="vision-cat-title">3. Risques &amp; Cartographie</div>
+        </div>
+        <ul class="vision-modules-list">
+          <li class="vision-mod">
+            <div><span class="vision-mod-name">Roadmap consolidée</span><div class="vision-mod-desc">Gantt / Kanban / Liste, polymorphe, portfolio</div></div>
+            <span class="vision-status live">Livré</span>
+          </li>
+          <li class="vision-mod">
+            <div><span class="vision-mod-name">Cartographie des actifs</span><div class="vision-mod-desc">Inventaire SI, classification, criticité</div></div>
+            <span class="vision-status soon">Bientôt</span>
+          </li>
+          <li class="vision-mod">
+            <div><span class="vision-mod-name">Registre central des risques</span><div class="vision-mod-desc">Vue cross-projets, heatmap G×V globale</div></div>
+            <span class="vision-status soon">Bientôt</span>
+          </li>
+          <li class="vision-mod">
+            <div><span class="vision-mod-name">Registre des dérogations</span><div class="vision-mod-desc">Acceptation formelle des risques, revues</div></div>
+            <span class="vision-status planned">Roadmap</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="vision-category">
+        <div class="vision-cat-head">
+          <div class="vision-cat-icon">📚</div>
+          <div class="vision-cat-title">4. Gouvernance &amp; Pilotage</div>
+        </div>
+        <ul class="vision-modules-list">
+          <li class="vision-mod">
+            <div><span class="vision-mod-name">Compliance Center</span><div class="vision-mod-desc">Référentiels, politiques, procédures, multi-filiales</div></div>
+            <span class="vision-status live">Livré</span>
+          </li>
+          <li class="vision-mod">
+            <div><span class="vision-mod-name">KPIs CODIR / Direction</span><div class="vision-mod-desc">Tableau de bord direction, tendances</div></div>
+            <span class="vision-status soon">Bientôt</span>
+          </li>
+          <li class="vision-mod">
+            <div><span class="vision-mod-name">Veille réglementaire</span><div class="vision-mod-desc">NIS 2, DORA, RGPD, EU AI Act, alertes &amp; jurisprudence</div></div>
+            <span class="vision-status planned">Roadmap</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="vision-category">
+        <div class="vision-cat-head">
+          <div class="vision-cat-icon">⚖️</div>
+          <div class="vision-cat-title">5. Conformité &amp; Privacy (RGPD / NIS 2 / DORA)</div>
+        </div>
+        <ul class="vision-modules-list">
+          <li class="vision-mod">
+            <div><span class="vision-mod-name">ROPA (Registre des traitements)</span><div class="vision-mod-desc">RGPD art. 30, durées de conservation, base légale</div></div>
+            <span class="vision-status soon">Bientôt</span>
+          </li>
+          <li class="vision-mod">
+            <div><span class="vision-mod-name">DPIA</span><div class="vision-mod-desc">Analyses d'impact RGPD, traitements à risque</div></div>
+            <span class="vision-status soon">Bientôt</span>
+          </li>
+          <li class="vision-mod">
+            <div><span class="vision-mod-name">Demandes CNIL &amp; droits</span><div class="vision-mod-desc">Accès, effacement, portabilité, plaintes</div></div>
+            <span class="vision-status planned">Roadmap</span>
+          </li>
+          <li class="vision-mod">
+            <div><span class="vision-mod-name">Cartographie des données</span><div class="vision-mod-desc">Data mapping RGPD/HDS, flux PII, transferts hors UE</div></div>
+            <span class="vision-status planned">Roadmap</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="vision-category">
+        <div class="vision-cat-head">
+          <div class="vision-cat-icon">🤝</div>
+          <div class="vision-cat-title">6. Trust &amp; Relations externes</div>
+        </div>
+        <ul class="vision-modules-list">
+          <li class="vision-mod">
+            <div><span class="vision-mod-name">Trust Center</span><div class="vision-mod-desc">Page de confiance partagée clients/prospects</div></div>
+            <span class="vision-status soon">Bientôt</span>
+          </li>
+          <li class="vision-mod">
+            <div><span class="vision-mod-name">Contrats &amp; DPA</span><div class="vision-mod-desc">Registre contrats sécurité, DPA RGPD, échéances</div></div>
+            <span class="vision-status planned">Roadmap</span>
+          </li>
+          <li class="vision-mod">
+            <div><span class="vision-mod-name">Due diligence reçue</span><div class="vision-mod-desc">Questionnaires sécurité reçus, centralisation des réponses</div></div>
+            <span class="vision-status planned">Roadmap</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="vision-note">
+      <strong>Notre engagement :</strong> les modules sont livrés <strong>par sprints</strong> et activables individuellement par tenant. Aucun module ne vous est imposé. Notre roadmap suit les besoins concrets des clients - si un module à venir est critique pour vous, parlons-en, on priorise.
     </div>
   </div>
 </section>
@@ -1010,28 +1563,38 @@
     <div class="section-header">
       <div class="section-eyebrow">Pour qui</div>
       <h2>Un outil conçu pour vos équipes sécurité</h2>
-      <p>Chaque profil trouve son espace de travail — et travaille sur les mêmes données, en temps réel.</p>
+      <p>Chaque profil trouve son espace de travail - et travaille sur les mêmes données, en temps réel.</p>
     </div>
     <div class="personas-grid">
       <div class="persona">
         <div class="persona-icon">🎯</div>
         <h3>RSSI</h3>
-        <p>Tableau de bord global, validation des projets, arbitrage, pilotage du portefeuille fournisseurs.</p>
+        <p>Tableau de bord global, validation des projets, arbitrage GO / GOC / NO-GO, pilotage du portefeuille fournisseurs et de la feuille de route consolidée.</p>
       </div>
       <div class="persona">
         <div class="persona-icon">🔍</div>
         <h3>Analyste SSI</h3>
-        <p>Workflow guidé EBIOS RM, saisie des exigences, identification et suivi des risques (inhérent, ajusté, résiduel), IA assistée.</p>
+        <p>Workflow guidé EBIOS RM, saisie des exigences, identification et suivi des risques (inhérent, ajusté, résiduel), IA assistée à chaque étape.</p>
+      </div>
+      <div class="persona">
+        <div class="persona-icon">⚖️</div>
+        <h3>DPO</h3>
+        <p>Hand-off automatique depuis ISP/TPRM si données personnelles, registre des politiques RGPD, modèles AIPD, ROPA et DPIA à venir, alignement EU AI Act.</p>
+      </div>
+      <div class="persona">
+        <div class="persona-icon">🔎</div>
+        <h3>Auditeur interne</h3>
+        <p>Audit ISO 19011 outillé : cadrage, entretiens guidés, notation CMMI, constats priorisés, rapport pré-rempli modifiable. Plan d'audit annuel à venir.</p>
       </div>
       <div class="persona">
         <div class="persona-icon">📋</div>
         <h3>Chef de projet</h3>
-        <p>Formulaire de soumission structuré, suivi de sa demande, exigences applicables visibles.</p>
+        <p>Formulaire de soumission structuré, suivi de sa demande, exigences applicables visibles, points de cadrage et de revue collaboratifs.</p>
       </div>
       <div class="persona">
         <div class="persona-icon">⚙️</div>
-        <h3>Direction SI</h3>
-        <p>Visibilité consolidée sur la conformité, les décisions et les risques résiduels du portefeuille.</p>
+        <h3>Direction SI / CODIR</h3>
+        <p>Visibilité consolidée sur la conformité, les décisions, les risques résiduels et la feuille de route - KPIs CODIR à venir pour le pilotage stratégique.</p>
       </div>
     </div>
   </div>
@@ -1046,6 +1609,16 @@
       <p>Au-delà des 4 modules, la plateforme mutualise les données, automatise ce qui peut l'être, et vous laisse garder la main sur chaque décision.</p>
     </div>
     <div class="features-grid">
+      <div class="feature">
+        <div class="feature-icon">📝</div>
+        <h3>Quatre modes de saisie sur chaque module</h3>
+        <p>Chaque écran propose les <strong>quatre modes de saisie</strong> : <strong>manuel</strong> (vous tapez), <strong>import fichier</strong> (Excel/CSV/Word/PDF), <strong>IA génère</strong> (à partir du contexte projet ou tenant), <strong>IA restructure</strong> (mise en forme d'un document existant). Là où c'est pertinent, un cinquième mode <strong>catalogue</strong> tire des bibliothèques de référentiels et de templates. Aucune option n'est imposée, l'humain valide tout.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🏢</div>
+        <h3>Multi-tenant et multi-filiales</h3>
+        <p>Architecture <strong>multi-tenant avec isolation forte (RLS Postgres)</strong> : chaque organisation et chaque filiale travaille dans son propre espace sécurisé. JWT court, gestion fine des rôles. Les politiques groupes/filiales (Compliance Center) déclinent une PSSI mère vers ses entités, avec exports consolidés et annexes locales.</p>
+      </div>
       <div class="feature">
         <div class="feature-icon">📚</div>
         <h3>Bibliothèque de référentiels et grilles d'audit</h3>
@@ -1084,7 +1657,7 @@
       <div class="feature">
         <div class="feature-icon">📄</div>
         <h3>Import / export multiformat</h3>
-        <p>Exports Excel, PDF, Word, PowerPoint en un clic — synthèse exécutive, dossier détaillé, présentation comité. Imports Excel / CSV pour charger vos données existantes, questionnaires fournisseurs, catalogues maison.</p>
+        <p>Exports Excel, PDF, Word, PowerPoint en un clic - synthèse exécutive, dossier détaillé, présentation comité. Imports Excel / CSV pour charger vos données existantes, questionnaires fournisseurs, catalogues maison.</p>
       </div>
       <div class="feature">
         <div class="feature-icon">🔐</div>
@@ -1110,45 +1683,187 @@
     </div>
     <div class="ref-groups">
       <div class="ref-group">
-        <h4>Réglementation EU & FR</h4>
+        <h4>Réglementation EU &amp; FR</h4>
         <div class="ref-badges">
           <span class="ref-badge">RGPD</span>
-          <span class="ref-badge">NIS2</span>
+          <span class="ref-badge">NIS 2</span>
           <span class="ref-badge">LPM / OIV</span>
           <span class="ref-badge">EU AI Act</span>
           <span class="ref-badge">DORA</span>
           <span class="ref-badge">HDS</span>
           <span class="ref-badge">PGSSI-S</span>
           <span class="ref-badge">SecNumCloud</span>
+          <span class="ref-badge">TSA (Transports)</span>
+        </div>
+      </div>
+      <div class="ref-group">
+        <h4>Réglementation internationale</h4>
+        <div class="ref-badges">
+          <span class="ref-badge">HIPAA (US santé)</span>
+          <span class="ref-badge">DPDPA (Inde)</span>
+          <span class="ref-badge">FedRAMP (US fédéral)</span>
         </div>
       </div>
       <div class="ref-group">
         <h4>Normes internationales</h4>
         <div class="ref-badges">
-          <span class="ref-badge">ISO 27001</span>
+          <span class="ref-badge">ISO 27001:2022</span>
+          <span class="ref-badge">ISO 27002:2022</span>
+          <span class="ref-badge">ISO 27005:2022</span>
+          <span class="ref-badge">ISO 27701:2025</span>
+          <span class="ref-badge">ISO 27036</span>
           <span class="ref-badge">ISO 22301</span>
           <span class="ref-badge">ISO 42001</span>
           <span class="ref-badge">NIST CSF 2.0</span>
           <span class="ref-badge">CIS Controls v8</span>
+          <span class="ref-badge">SOC 2</span>
         </div>
       </div>
       <div class="ref-group">
         <h4>Standards techniques</h4>
         <div class="ref-badges">
-          <span class="ref-badge">PCI-DSS v4</span>
+          <span class="ref-badge">PCI-DSS v4.0.1</span>
           <span class="ref-badge">OWASP Top 10</span>
           <span class="ref-badge">OWASP ASVS</span>
           <span class="ref-badge">OWASP LLM Top 10</span>
+          <span class="ref-badge">CSA CCM</span>
+          <span class="ref-badge">MITRE ATT&amp;CK</span>
         </div>
       </div>
       <div class="ref-group">
-        <h4>Grilles d'audit détaillées (module Audit)</h4>
+        <h4>Grilles d'audit (module Audit)</h4>
         <div class="ref-badges">
-          <span class="ref-badge">ReCyF NIS2 (ANSSI)</span>
+          <span class="ref-badge">ReCyF NIS 2 (ANSSI)</span>
           <span class="ref-badge">ISO 27001:2022 · grille CMMI</span>
           <span class="ref-badge">ISO 27002:2022</span>
           <span class="ref-badge">+ vos grilles internes</span>
         </div>
+      </div>
+      <div class="ref-group">
+        <h4>Mesures CyberAct (pondérations propres)</h4>
+        <div class="ref-badges">
+          <span class="ref-badge">24 exigences pondérées</span>
+          <span class="ref-badge">cross-frameworks</span>
+          <span class="ref-badge">anti-doublons</span>
+          <span class="ref-badge">configurables</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCÉNARIOS -->
+<section id="scenarios">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Trois scénarios, une plateforme</div>
+      <h2>Choisissez la combinaison de modules adaptée à votre besoin</h2>
+      <p>D'un projet 100% interne à un appel d'offres concurrentiel : CyberAct s'adapte à la complexité réelle de vos arbitrages.</p>
+    </div>
+
+    <div class="scenarios-grid">
+      <!-- Scénario 1 -->
+      <div class="scenario-card">
+        <div class="scenario-num">Scénario 1</div>
+        <h3>Projet 100% interne</h3>
+        <div class="scenario-modules">
+          <span class="scenario-mod">ISP</span>
+        </div>
+        <div class="scenario-context">Une DSI lance un nouveau service en interne (par exemple : refonte du portail RH hébergé en cloud privé).</div>
+        <ol class="scenario-flow">
+          <li>Cadrage du contexte (étape 0 ISP) : périmètre, données RH = données personnelles, hand-off DPO automatique.</li>
+          <li>EBIOS RM (étapes 1 à 7) : valeurs métier, biens supports, scénarios stratégiques et opérationnels.</li>
+          <li>Plan de traitement aligné ISO 27001 + RGPD.</li>
+          <li>Validation RSSI, mise en production conditionnée.</li>
+        </ol>
+        <div class="scenario-output">
+          <strong>Sortie</strong>
+          Note de cadrage SSI, plan de traitement, registre des risques résiduels.
+        </div>
+      </div>
+
+      <!-- Scénario 2 -->
+      <div class="scenario-card">
+        <div class="scenario-num">Scénario 2</div>
+        <h3>Projet avec fournisseurs</h3>
+        <div class="scenario-modules">
+          <span class="scenario-mod">ISP</span>
+          <span class="scenario-mod">TPRM</span>
+        </div>
+        <div class="scenario-context">Le projet inclut un éditeur SaaS pour la paie (Cegid, ADP, etc.) ou un infogérant externe.</div>
+        <ol class="scenario-flow">
+          <li>Cadrage ISP comme en scénario 1.</li>
+          <li>À l'étape « biens supports », déclaration d'un fournisseur externe : ouverture automatique du module TPRM.</li>
+          <li>Envoi du questionnaire sécurité au fournisseur (ou import de son rapport SOC 2 / ISO 27001).</li>
+          <li>Détection d'incohérences : l'outil compare les déclarations avec les exigences du projet et signale les écarts.</li>
+          <li>Décision contractuelle : exiger des engagements supplémentaires, accepter, refuser.</li>
+        </ol>
+        <div class="scenario-output">
+          <strong>Sortie</strong>
+          Fiche fournisseur, écarts identifiés, clauses contractuelles recommandées.
+        </div>
+      </div>
+
+      <!-- Scénario 3 -->
+      <div class="scenario-card">
+        <div class="scenario-num">Scénario 3</div>
+        <h3>Appel d'offres compétitif</h3>
+        <div class="scenario-modules">
+          <span class="scenario-mod">ISP</span>
+          <span class="scenario-mod">TPRM</span>
+          <span class="scenario-mod">RFP</span>
+        </div>
+        <div class="scenario-context">L'organisation lance un appel d'offres pour sélectionner un fournisseur cloud parmi trois candidats.</div>
+        <ol class="scenario-flow">
+          <li>Cadrage ISP (mêmes étapes).</li>
+          <li>Construction du questionnaire RFP : sélection des exigences à poser aux candidats (catalogue ou Excel).</li>
+          <li>Envoi du même questionnaire aux 3 fournisseurs.</li>
+          <li>Réception des réponses, scoring automatique (pondérations ISO / NIST / PCI / CyberAct).</li>
+          <li>Tableau comparatif : score global, écarts par exigence, points forts et faibles.</li>
+          <li>Décision sourcing tracée et défendable.</li>
+        </ol>
+        <div class="scenario-output">
+          <strong>Sortie</strong>
+          Matrice comparative, justification de choix, plan de remédiation pour le fournisseur retenu.
+        </div>
+      </div>
+    </div>
+
+    <!-- Exemple concret -->
+    <div class="scenario-example">
+      <div class="example-eyebrow">Exemple concret</div>
+      <h3>Mehdi qualifie un éditeur SaaS de signature électronique en 3 jours</h3>
+      <p class="example-intro">Mehdi est RSSI dans une banque mutualiste. Il doit qualifier un éditeur SaaS de signature électronique avant que la direction juridique ne signe le contrat de 3 ans.</p>
+
+      <div class="timeline">
+        <div class="timeline-step">
+          <div class="timeline-when">Lundi 9h<br><span style="opacity:.7;font-weight:500;font-size:12px">Lancement</span></div>
+          <div class="timeline-what">Mehdi se connecte à CyberAct, choisit le module <strong>TPRM</strong>, crée le projet « Signature électronique - Éditeur X ». Il importe le contrat brouillon (.docx) : CyberAct détecte éditeur, scope, données concernées (signataires = données personnelles) et pays d'hébergement (Irlande). Mehdi relit, corrige, valide.</div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-when">Lundi 10h<br><span style="opacity:.7;font-weight:500;font-size:12px">Hand-off DPO</span></div>
+          <div class="timeline-what">Comme l'éditeur traite des données personnelles avec un transfert intra-UE, CyberAct affiche un encart : <em>« Données personnelles détectées. Envoyer un compte-rendu au DPO ? »</em>. Mehdi clique : un mail structuré part au DPO avec contexte, types de données, base légale présumée, recommandation AIPD.</div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-when">Lundi 14h<br><span style="opacity:.7;font-weight:500;font-size:12px">Questionnaire</span></div>
+          <div class="timeline-what">Mehdi sélectionne le catalogue <strong>ISO 27001:2022 + RGPD</strong> (filtre auto par contexte). CyberAct lui propose 67 exigences pertinentes. Il en retire 12 non applicables, en ajoute 3 spécifiques au métier bancaire. Il envoie le questionnaire au fournisseur via lien sécurisé.</div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-when">Mardi<br><span style="opacity:.7;font-weight:500;font-size:12px">Réception</span></div>
+          <div class="timeline-what">Le fournisseur répond avec preuves : extraits de politique, rapport SOC 2, certificats ISO.</div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-when">Mercredi<br><span style="opacity:.7;font-weight:500;font-size:12px">Analyse</span></div>
+          <div class="timeline-what">CyberAct score automatiquement chaque réponse en aide à la décision, signale 4 incohérences (ex. : le fournisseur déclare « MFA généralisée » mais le SOC 2 montre une exception sur les comptes admin de niveau 2). Mehdi peut <strong>modifier le score en justifiant</strong>. Il marque 2 incohérences comme bloquantes.</div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-when">Jeudi<br><span style="opacity:.7;font-weight:500;font-size:12px">Verdict</span></div>
+          <div class="timeline-what">Score global <strong>78/100</strong>. Risque résiduel « modéré ». Mehdi valide avec deux conditions contractuelles : engagement de notification d'incident sous 24h (au lieu de 72h proposé), et audit annuel autorisé. Il exporte un rapport Word de 12 pages signé horodaté, le transmet au juridique.</div>
+        </div>
+      </div>
+
+      <div class="scenario-result">
+        <strong>Cycle complet : 3 jours</strong> au lieu de 2 semaines en mode tableur classique. Le RSSI conserve la décision finale, l'outil porte la rigueur méthodologique et la vitesse.
       </div>
     </div>
   </div>
@@ -1240,15 +1955,16 @@
           <div class="logo-mark">C</div>
           <span>CyberAct</span>
         </a>
-        <p>Plateforme d'évaluation sécurité des projets et de qualification des fournisseurs, conçue pour les équipes SSI exigeantes.</p>
+        <p>Plateforme GRC modulaire pour RSSI, DPO et auditeurs : évaluation projets, qualification fournisseurs, appels d'offres, audits, conformité documentaire et feuille de route consolidée. Livrée petit à petit, activable par tenant.</p>
       </div>
       <div>
         <h5>Produit</h5>
         <ul>
-          <li><a href="#modules">Modules</a></li>
+          <li><a href="#modules">6 modules livrés</a></li>
+          <li><a href="#vision">Vision plateforme (21 modules)</a></li>
           <li><a href="#fonctionnalites">Fonctionnalités</a></li>
           <li><a href="#referentiels">Référentiels</a></li>
-          <li><a href="#cas">Cas d'usage</a></li>
+          <li><a href="#scenarios">Scénarios &amp; processus</a></li>
           <li><a href="#contact">Demander une démo</a></li>
         </ul>
       </div>

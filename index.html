@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CyberAct - Plateforme GRC complète : ISP, TPRM, RFP, Audit, Compliance, Roadmap</title>
-<meta name="description" content="CyberAct : plateforme GRC modulaire pour RSSI et DPO. Évaluation sécurité projets (EBIOS RM), qualification fournisseurs (TPRM), appels d'offres (RFP), audits de maturité (ISO 19011), bibliothèque de conformité (politiques, procédures, multi-filiales), feuille de route consolidée. IA locale souveraine ou API externe au choix. L'expertise humaine, outillée par l'IA.">
-<meta property="og:title" content="CyberAct - Plateforme GRC modulaire pour RSSI et DPO">
-<meta property="og:description" content="6 modules livrés (ISP, TPRM, RFP, Audit, Compliance Center, Roadmap), 15 modules à venir (ROPA, DPIA, Trust Center, KPIs CODIR, registre des risques, cartographie des actifs, veille réglementaire…). Multi-tenant, MFA TOTP, IA locale souveraine ou API externe au choix. L'expertise humaine, outillée par l'IA.">
+<title>CyberAct - Plateforme GRC complète : 26 modules livrés (ISP, TPRM, RFP, Audit, ROPA, DPIA…)</title>
+<meta name="description" content="CyberAct : plateforme GRC modulaire pour RSSI et DPO. 26 modules livrés couvrant tout le cycle GRC : évaluation sécurité projets (EBIOS RM), qualification fournisseurs (TPRM), appels d'offres (RFP), audits de maturité (ISO 19011), conformité documentaire, registre des risques, ROPA, DPIA, demandes CNIL, Trust Center, KPIs CODIR... IA locale souveraine ou API externe au choix.">
+<meta property="og:title" content="CyberAct - 26 modules GRC livrés, multi-tenant, IA souveraine">
+<meta property="og:description" content="Plateforme GRC modulaire pour RSSI, DPO et auditeurs. 26 modules livrés : ISP, TPRM, RFP, Audit ISO 19011, Compliance Center, Roadmap, Cartographie, Registre des risques, Dérogations, Incidents NIS 2, KPIs CODIR, ROPA, DPIA, Demandes CNIL, Veille réglementaire, Trust Center, Contrats & DPA, Due diligence, Plan d'audit annuel, Self-assessment et plus. Multi-tenant, MFA TOTP, IA locale souveraine ou API externe au choix.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cyberact.fr">
 <style>
@@ -606,6 +606,92 @@
     .modules-intro { grid-template-columns: repeat(2, 1fr); }
   }
 
+  /* ===== MODULES COMPLÉMENTAIRES (grille compacte) ===== */
+  .modules-extra-header {
+    margin: 56px 0 24px;
+    text-align: center;
+  }
+  .modules-extra-eyebrow {
+    color: var(--teal);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .modules-extra-title {
+    font-size: 22px;
+    color: var(--navy);
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    margin-bottom: 6px;
+  }
+  .modules-extra-sub {
+    font-size: 14px;
+    color: var(--gray-600);
+    max-width: 620px;
+    margin: 0 auto;
+  }
+  .modules-extra-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  @media (max-width: 1100px) {
+    .modules-extra-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 860px) {
+    .modules-extra-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 520px) {
+    .modules-extra-grid { grid-template-columns: 1fr; }
+  }
+  .module-mini {
+    background: white;
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 14px 16px;
+    transition: all 0.2s;
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+  }
+  .module-mini:hover {
+    border-color: var(--teal);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+  }
+  .module-mini-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    line-height: 1.2;
+  }
+  .module-mini-body {
+    flex: 1;
+    min-width: 0;
+  }
+  .module-mini-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.25;
+    margin-bottom: 3px;
+    letter-spacing: -0.1px;
+  }
+  .module-mini-desc {
+    font-size: 12.5px;
+    color: var(--gray-600);
+    line-height: 1.4;
+  }
+  .module-mini-cat {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--teal-dark);
+    margin-top: 6px;
+  }
+
   /* ===== VISION PLATEFORME ===== */
   #vision {
     background: var(--gray-50);
@@ -1176,10 +1262,10 @@
   <div class="container">
     <div class="hero-grid">
       <div>
-        <span class="hero-badge">🛡️ 6 modules livrés · plateforme GRC modulaire · multi-tenant</span>
+        <span class="hero-badge">🛡️ 26 modules livrés · plateforme GRC complète · multi-tenant</span>
         <h1>La plateforme GRC qui <span>structure vos décisions</span>, pas qui les remplace.</h1>
         <p class="lead">
-          De l'évaluation projet jusqu'au pilotage RSSI consolidé : <strong>ISP</strong> (EBIOS RM), <strong>TPRM</strong> (fournisseurs), <strong>RFP</strong> (appels d'offres), <strong>Audit</strong> (ISO 19011), <strong>Compliance Center</strong> (politiques, procédures, multi-filiales) et <strong>Roadmap</strong> consolidée. <strong>L'IA propose, vous décidez. IA locale 100% souveraine ou API externe au choix.</strong>
+          De l'évaluation projet au pilotage CODIR : <strong>26 modules livrés</strong> couvrant l'évaluation et le sourcing, l'audit, la cartographie, la gouvernance RSSI, la conformité RGPD/NIS 2/DORA et le trust client. <strong>L'IA propose, vous décidez. IA locale 100% souveraine ou API externe au choix.</strong>
         </p>
         <div class="hero-ctas">
           <a href="mailto:grc@cyberact.fr?subject=Demande%20de%20d%C3%A9mo%20CyberAct&body=Bonjour%2C%0A%0AJe%20souhaite%20planifier%20une%20d%C3%A9monstration.%0A%0AMon%20organisation%20%3A%20%0ANombre%20d%27utilisateurs%20estim%C3%A9%20%3A%20%0ACr%C3%A9neaux%20souhait%C3%A9s%20%3A%20%0A%0AMerci." class="btn btn-primary">
@@ -1219,9 +1305,9 @@
 <section id="modules">
   <div class="container">
     <div class="section-header">
-      <div class="section-eyebrow">Les 6 modules livrés</div>
-      <h2>Six modules livrés, un seul outil</h2>
-      <p>Chaque module couvre un moment précis du cycle de vie GRC. Ils partagent le même contexte projet, le même catalogue de référentiels et le même registre des risques : saisissez une fois, réutilisez partout. Aucune redondance.</p>
+      <div class="section-eyebrow">26 modules livrés · 6 piliers</div>
+      <h2>Six piliers détaillés, vingt modules complémentaires</h2>
+      <p>Chaque module couvre un moment précis du cycle de vie GRC. Ils partagent le même contexte projet, le même catalogue de référentiels et le même registre des risques : saisissez une fois, réutilisez partout. <strong>Tout est activable par tenant</strong> - vous payez et utilisez seulement ce dont vous avez besoin.</p>
     </div>
 
     <div class="modules-intro">
@@ -1386,121 +1472,222 @@
       </div>
 
     </div>
+
+    <!-- 20 modules complémentaires livrés -->
+    <div class="modules-extra-header">
+      <div class="modules-extra-eyebrow">+ 20 modules complémentaires</div>
+      <div class="modules-extra-title">Tout l'écosystème GRC autour des 6 piliers</div>
+      <p class="modules-extra-sub">Tous livrés et activables par tenant. Du registre des risques au Trust Center, en passant par les obligations RGPD/NIS 2 et le pilotage CODIR.</p>
+    </div>
+
+    <div class="modules-extra-grid">
+
+      <div class="module-mini">
+        <div class="module-mini-icon">📋</div>
+        <div class="module-mini-body">
+          <div class="module-mini-name">Self-assessment</div>
+          <div class="module-mini-desc">Auto-évaluation rapide filiales / équipes</div>
+          <div class="module-mini-cat">Évaluation</div>
+        </div>
+      </div>
+
+      <div class="module-mini">
+        <div class="module-mini-icon">📅</div>
+        <div class="module-mini-body">
+          <div class="module-mini-name">Plan d'audit annuel</div>
+          <div class="module-mini-desc">Planning, cycles, périmètres, ressources auditeurs</div>
+          <div class="module-mini-cat">Audit</div>
+        </div>
+      </div>
+
+      <div class="module-mini">
+        <div class="module-mini-icon">🗂️</div>
+        <div class="module-mini-body">
+          <div class="module-mini-name">Cartographie des actifs</div>
+          <div class="module-mini-desc">Inventaire SI, classification, propriétaires, criticité</div>
+          <div class="module-mini-cat">Risques</div>
+        </div>
+      </div>
+
+      <div class="module-mini">
+        <div class="module-mini-icon">⚠️</div>
+        <div class="module-mini-body">
+          <div class="module-mini-name">Registre central des risques</div>
+          <div class="module-mini-desc">Vue cross-projets, heatmap G×V, suivi traitement</div>
+          <div class="module-mini-cat">Risques</div>
+        </div>
+      </div>
+
+      <div class="module-mini">
+        <div class="module-mini-icon">📑</div>
+        <div class="module-mini-body">
+          <div class="module-mini-name">Référentiels &amp; exigences</div>
+          <div class="module-mini-desc">ISO, NIS 2, RGPD, PCI, SOC 2 - couverture risques + KPI résiduels</div>
+          <div class="module-mini-cat">Risques</div>
+        </div>
+      </div>
+
+      <div class="module-mini">
+        <div class="module-mini-icon">✋</div>
+        <div class="module-mini-body">
+          <div class="module-mini-name">Registre des dérogations</div>
+          <div class="module-mini-desc">Acceptation formelle des risques, revues périodiques</div>
+          <div class="module-mini-cat">Risques</div>
+        </div>
+      </div>
+
+      <div class="module-mini">
+        <div class="module-mini-icon">🚨</div>
+        <div class="module-mini-body">
+          <div class="module-mini-name">Incidents NIS 2</div>
+          <div class="module-mini-desc">Notification NIS 2 art. 23 (24h / 72h / 30j), workflow complet</div>
+          <div class="module-mini-cat">Conformité</div>
+        </div>
+      </div>
+
+      <div class="module-mini">
+        <div class="module-mini-icon">📜</div>
+        <div class="module-mini-body">
+          <div class="module-mini-name">Politique &amp; Charte SSI</div>
+          <div class="module-mini-desc">PSSI formalisée, charte user/admin, validation direction</div>
+          <div class="module-mini-cat">Gouvernance</div>
+        </div>
+      </div>
+
+      <div class="module-mini">
+        <div class="module-mini-icon">📖</div>
+        <div class="module-mini-body">
+          <div class="module-mini-name">Procédures &amp; bonnes pratiques</div>
+          <div class="module-mini-desc">Bibliothèque documentaire SSI : runbooks, guides</div>
+          <div class="module-mini-cat">Gouvernance</div>
+        </div>
+      </div>
+
+      <div class="module-mini">
+        <div class="module-mini-icon">📊</div>
+        <div class="module-mini-body">
+          <div class="module-mini-name">KPIs CODIR / Direction</div>
+          <div class="module-mini-desc">Tableau de bord direction, indicateurs mensuels, tendances</div>
+          <div class="module-mini-cat">Gouvernance</div>
+        </div>
+      </div>
+
+      <div class="module-mini">
+        <div class="module-mini-icon">📇</div>
+        <div class="module-mini-body">
+          <div class="module-mini-name">ROPA</div>
+          <div class="module-mini-desc">Registre traitements RGPD art. 30 : finalités, base légale, durées</div>
+          <div class="module-mini-cat">Privacy</div>
+        </div>
+      </div>
+
+      <div class="module-mini">
+        <div class="module-mini-icon">🔍</div>
+        <div class="module-mini-body">
+          <div class="module-mini-name">DPIA</div>
+          <div class="module-mini-desc">Analyses d'impact RGPD, traitements à risque</div>
+          <div class="module-mini-cat">Privacy</div>
+        </div>
+      </div>
+
+      <div class="module-mini">
+        <div class="module-mini-icon">✉️</div>
+        <div class="module-mini-body">
+          <div class="module-mini-name">Demandes CNIL &amp; droits</div>
+          <div class="module-mini-desc">Accès, effacement, portabilité, plaintes, suivi</div>
+          <div class="module-mini-cat">Privacy</div>
+        </div>
+      </div>
+
+      <div class="module-mini">
+        <div class="module-mini-icon">📡</div>
+        <div class="module-mini-body">
+          <div class="module-mini-name">Veille réglementaire</div>
+          <div class="module-mini-desc">NIS 2, DORA, RGPD, EU AI Act, alertes &amp; jurisprudence</div>
+          <div class="module-mini-cat">Conformité</div>
+        </div>
+      </div>
+
+      <div class="module-mini">
+        <div class="module-mini-icon">🌍</div>
+        <div class="module-mini-body">
+          <div class="module-mini-name">Cartographie des données</div>
+          <div class="module-mini-desc">Data mapping RGPD/HDS, flux PII, transferts hors UE</div>
+          <div class="module-mini-cat">Privacy</div>
+        </div>
+      </div>
+
+      <div class="module-mini">
+        <div class="module-mini-icon">🛡️</div>
+        <div class="module-mini-body">
+          <div class="module-mini-name">Trust Center</div>
+          <div class="module-mini-desc">Page de confiance partagée clients/prospects, certificats publics</div>
+          <div class="module-mini-cat">Trust</div>
+        </div>
+      </div>
+
+      <div class="module-mini">
+        <div class="module-mini-icon">📃</div>
+        <div class="module-mini-body">
+          <div class="module-mini-name">Contrats &amp; DPA</div>
+          <div class="module-mini-desc">Registre contrats sécu, DPA RGPD, clauses signées, échéances</div>
+          <div class="module-mini-cat">Trust</div>
+        </div>
+      </div>
+
+      <div class="module-mini">
+        <div class="module-mini-icon">📥</div>
+        <div class="module-mini-body">
+          <div class="module-mini-name">Due diligence reçue</div>
+          <div class="module-mini-desc">Questionnaires sécu envoyés par clients, centralisation des réponses</div>
+          <div class="module-mini-cat">Trust</div>
+        </div>
+      </div>
+
+      <div class="module-mini">
+        <div class="module-mini-icon">👥</div>
+        <div class="module-mini-body">
+          <div class="module-mini-name">Gestion utilisateurs</div>
+          <div class="module-mini-desc">Administration users, rôles, comptes temporaires, MFA TOTP</div>
+          <div class="module-mini-cat">Support</div>
+        </div>
+      </div>
+
+      <div class="module-mini">
+        <div class="module-mini-icon">📓</div>
+        <div class="module-mini-body">
+          <div class="module-mini-name">Journal d'audit technique</div>
+          <div class="module-mini-desc">Traçabilité des actions admin / utilisateur (audit log)</div>
+          <div class="module-mini-cat">Support</div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
-<!-- VISION PLATEFORME (modules à venir) -->
+<!-- À VENIR (1 module + ouverture) -->
 <section id="vision">
   <div class="container">
     <div class="section-header">
       <div class="section-eyebrow">Sur la feuille de route</div>
-      <h2>Ce qui s'ajoute aux 6 modules déjà livrés</h2>
-      <p>15 modules supplémentaires sur la roadmap, livrés <strong>par sprints</strong> et activables individuellement par tenant. Aucun module imposé. Si l'un est critique pour vous, parlons-en : on priorise selon les besoins clients.</p>
+      <h2>Et après ?</h2>
+      <p>Notre roadmap suit les besoins concrets des clients. Voici ce qui arrive prochainement - et si un module vous manque, parlons-en : on priorise.</p>
     </div>
 
-    <div class="vision-categories">
-
+    <div class="vision-categories" style="grid-template-columns: 1fr; max-width: 720px; margin: 0 auto;">
       <div class="vision-category">
         <div class="vision-cat-head">
-          <div class="vision-cat-icon">🔎</div>
-          <div class="vision-cat-title">Audit &amp; Contrôle</div>
+          <div class="vision-cat-icon">🎓</div>
+          <div class="vision-cat-title">Sensibilisation cyber</div>
         </div>
         <ul class="vision-modules-list">
           <li class="vision-mod">
-            <div><span class="vision-mod-name">Self-assessment</span><div class="vision-mod-desc">Auto-évaluation rapide filiales / équipes</div></div>
+            <div><span class="vision-mod-name">Formation &amp; phishing simulé</span><div class="vision-mod-desc">Modules e-learning, campagnes de phishing simulées, reporting CODIR. Active une boucle « former / mesurer / corriger » alignée NIS 2 art. 21.2.g.</div></div>
             <span class="vision-status soon">Bientôt</span>
-          </li>
-          <li class="vision-mod">
-            <div><span class="vision-mod-name">Plan d'audit annuel</span><div class="vision-mod-desc">Planning, cycles, périmètres, ressources</div></div>
-            <span class="vision-status planned">Roadmap</span>
           </li>
         </ul>
       </div>
-
-      <div class="vision-category">
-        <div class="vision-cat-head">
-          <div class="vision-cat-icon">🗺️</div>
-          <div class="vision-cat-title">Risques &amp; Cartographie</div>
-        </div>
-        <ul class="vision-modules-list">
-          <li class="vision-mod">
-            <div><span class="vision-mod-name">Cartographie des actifs</span><div class="vision-mod-desc">Inventaire SI, classification, criticité</div></div>
-            <span class="vision-status soon">Bientôt</span>
-          </li>
-          <li class="vision-mod">
-            <div><span class="vision-mod-name">Registre central des risques</span><div class="vision-mod-desc">Vue cross-projets, heatmap G×V globale</div></div>
-            <span class="vision-status soon">Bientôt</span>
-          </li>
-          <li class="vision-mod">
-            <div><span class="vision-mod-name">Registre des dérogations</span><div class="vision-mod-desc">Acceptation formelle des risques, revues</div></div>
-            <span class="vision-status planned">Roadmap</span>
-          </li>
-        </ul>
-      </div>
-
-      <div class="vision-category">
-        <div class="vision-cat-head">
-          <div class="vision-cat-icon">📊</div>
-          <div class="vision-cat-title">Gouvernance &amp; Pilotage</div>
-        </div>
-        <ul class="vision-modules-list">
-          <li class="vision-mod">
-            <div><span class="vision-mod-name">KPIs CODIR / Direction</span><div class="vision-mod-desc">Tableau de bord direction, tendances</div></div>
-            <span class="vision-status soon">Bientôt</span>
-          </li>
-          <li class="vision-mod">
-            <div><span class="vision-mod-name">Veille réglementaire</span><div class="vision-mod-desc">NIS 2, DORA, RGPD, EU AI Act, alertes &amp; jurisprudence</div></div>
-            <span class="vision-status planned">Roadmap</span>
-          </li>
-        </ul>
-      </div>
-
-      <div class="vision-category">
-        <div class="vision-cat-head">
-          <div class="vision-cat-icon">⚖️</div>
-          <div class="vision-cat-title">Conformité &amp; Privacy</div>
-        </div>
-        <ul class="vision-modules-list">
-          <li class="vision-mod">
-            <div><span class="vision-mod-name">ROPA (Registre des traitements)</span><div class="vision-mod-desc">RGPD art. 30, durées de conservation, base légale</div></div>
-            <span class="vision-status soon">Bientôt</span>
-          </li>
-          <li class="vision-mod">
-            <div><span class="vision-mod-name">DPIA</span><div class="vision-mod-desc">Analyses d'impact RGPD, traitements à risque</div></div>
-            <span class="vision-status soon">Bientôt</span>
-          </li>
-          <li class="vision-mod">
-            <div><span class="vision-mod-name">Demandes CNIL &amp; droits</span><div class="vision-mod-desc">Accès, effacement, portabilité, plaintes</div></div>
-            <span class="vision-status planned">Roadmap</span>
-          </li>
-          <li class="vision-mod">
-            <div><span class="vision-mod-name">Cartographie des données</span><div class="vision-mod-desc">Data mapping RGPD/HDS, flux PII, transferts hors UE</div></div>
-            <span class="vision-status planned">Roadmap</span>
-          </li>
-        </ul>
-      </div>
-
-      <div class="vision-category">
-        <div class="vision-cat-head">
-          <div class="vision-cat-icon">🤝</div>
-          <div class="vision-cat-title">Trust &amp; Relations externes</div>
-        </div>
-        <ul class="vision-modules-list">
-          <li class="vision-mod">
-            <div><span class="vision-mod-name">Trust Center</span><div class="vision-mod-desc">Page de confiance partagée clients/prospects</div></div>
-            <span class="vision-status soon">Bientôt</span>
-          </li>
-          <li class="vision-mod">
-            <div><span class="vision-mod-name">Contrats &amp; DPA</span><div class="vision-mod-desc">Registre contrats sécurité, DPA RGPD, échéances</div></div>
-            <span class="vision-status planned">Roadmap</span>
-          </li>
-          <li class="vision-mod">
-            <div><span class="vision-mod-name">Due diligence reçue</span><div class="vision-mod-desc">Questionnaires sécurité reçus, centralisation des réponses</div></div>
-            <span class="vision-status planned">Roadmap</span>
-          </li>
-        </ul>
-      </div>
-
     </div>
   </div>
 </section>
@@ -1837,11 +2024,11 @@
       <div>
         <h5>Produit</h5>
         <ul>
-          <li><a href="#modules">6 modules livrés</a></li>
-          <li><a href="#vision">Vision plateforme (21 modules)</a></li>
+          <li><a href="#modules">26 modules livrés</a></li>
+          <li><a href="#vision">Sur la feuille de route</a></li>
           <li><a href="#fonctionnalites">Fonctionnalités</a></li>
           <li><a href="#referentiels">Référentiels</a></li>
-          <li><a href="#scenarios">Scénarios &amp; processus</a></li>
+          <li><a href="#scenarios">Scénarios</a></li>
           <li><a href="#contact">Demander une démo</a></li>
         </ul>
       </div>

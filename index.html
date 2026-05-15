@@ -3138,41 +3138,35 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 })();
 
-// Animation mock hero : compteur risques + barres au scroll-into-view.
+// Animation mock hero : compteur risques + barres - declenche au load
 (function(){
-  var mock = document.querySelector('.mock');
-  if(!mock || !('IntersectionObserver' in window)) {
-    if(mock) mock.classList.add('in-view');
-    return;
-  }
-  var animated = false;
-  function animateCounter(){
-    var el = mock.querySelector('[data-count-to]');
-    if(!el) return;
-    var target = parseInt(el.getAttribute('data-count-to'), 10) || 0;
-    var duration = 1200; // ms
-    var start = performance.now();
-    function step(now){
-      var t = Math.min((now - start) / duration, 1);
-      // ease-out cubic
-      var eased = 1 - Math.pow(1 - t, 3);
-      el.textContent = Math.round(target * eased);
-      if(t < 1) requestAnimationFrame(step);
-      else el.textContent = target;
-    }
-    requestAnimationFrame(step);
-  }
-  var obs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting && !animated){
-        animated = true;
-        mock.classList.add('in-view');
-        animateCounter();
-        obs.disconnect();
+  function init(){
+    var mock = document.querySelector('.mock');
+    if(!mock) return;
+    function animateCounter(){
+      var el = mock.querySelector('[data-count-to]');
+      if(!el) return;
+      var target = parseInt(el.getAttribute('data-count-to'), 10) || 0;
+      var duration = 1200; // ms
+      var start = performance.now();
+      function step(now){
+        var t = Math.min((now - start) / duration, 1);
+        var eased = 1 - Math.pow(1 - t, 3);
+        el.textContent = Math.round(target * eased);
+        if(t < 1) requestAnimationFrame(step);
+        else el.textContent = target;
       }
-    });
-  }, { threshold: 0.4 });
-  obs.observe(mock);
+      requestAnimationFrame(step);
+    }
+    // Trigger immediately + a tiny delay for paint
+    mock.classList.add('in-view');
+    setTimeout(animateCounter, 200);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 })();
 </script>
 

@@ -2089,7 +2089,7 @@
       <li><a href="#pourqui" data-fr="Pour qui" data-en="Who for">Pour qui</a></li>
       <li><a href="#fonctionnalites" data-fr="Fonctionnalités" data-en="Features">Fonctionnalités</a></li>
       <li><a href="#referentiels" data-fr="Référentiels" data-en="Frameworks">Référentiels</a></li>
-      <li><button type="button" class="lang-toggle" onclick="toggleLang()" aria-label="Switch language" title="Switch language">EN</button></li>
+      <li><button type="button" class="lang-toggle" id="lang-toggle-btn" aria-label="Switch language" title="Switch language">EN</button></li>
       <li><a href="#contact" class="nav-cta" data-fr="Demander une démo" data-en="Request a demo">Demander une démo</a></li>
     </ul>
     <button class="mobile-toggle" onclick="document.getElementById('nav-links').classList.toggle('open')" aria-label="Menu">☰</button>
@@ -3075,27 +3075,42 @@
 
 <script>
 // ===== Language toggle (FR <-> EN) =====
-function applyLang(lang) {
-  document.documentElement.lang = lang;
-  document.querySelectorAll('[data-fr][data-en]').forEach(function(el){
-    el.textContent = el.getAttribute('data-' + lang);
-  });
-  document.querySelectorAll('[data-fr-html][data-en-html]').forEach(function(el){
-    el.innerHTML = el.getAttribute('data-' + lang + '-html');
-  });
-  var btn = document.querySelector('.lang-toggle');
-  if (btn) btn.textContent = lang === 'fr' ? 'EN' : 'FR';
-  try { localStorage.setItem('cyberact-lang', lang); } catch(e){}
-}
-function toggleLang() {
+window.applyLang = function (lang) {
+  try {
+    document.documentElement.lang = lang;
+    var n1 = 0, n2 = 0;
+    document.querySelectorAll('[data-fr][data-en]').forEach(function (el) {
+      var v = el.getAttribute('data-' + lang);
+      if (v !== null) { el.textContent = v; n1++; }
+    });
+    document.querySelectorAll('[data-fr-html][data-en-html]').forEach(function (el) {
+      var v = el.getAttribute('data-' + lang + '-html');
+      if (v !== null) { el.innerHTML = v; n2++; }
+    });
+    var btn = document.querySelector('.lang-toggle');
+    if (btn) btn.textContent = lang === 'fr' ? 'EN' : 'FR';
+    try { localStorage.setItem('cyberact-lang', lang); } catch (e) {}
+    console.log('[CYBERACT] Lang switched to', lang, '- text=' + n1 + ' html=' + n2);
+  } catch (err) {
+    console.error('[CYBERACT] applyLang error', err);
+  }
+};
+window.toggleLang = function () {
   var current = document.documentElement.lang === 'en' ? 'en' : 'fr';
-  applyLang(current === 'en' ? 'fr' : 'en');
-}
-(function(){
+  window.applyLang(current === 'en' ? 'fr' : 'en');
+};
+document.addEventListener('DOMContentLoaded', function () {
+  var btn = document.getElementById('lang-toggle-btn');
+  if (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      window.toggleLang();
+    });
+  }
   var saved = null;
-  try { saved = localStorage.getItem('cyberact-lang'); } catch(e){}
-  if (saved === 'en') applyLang('en');
-})();
+  try { saved = localStorage.getItem('cyberact-lang'); } catch (e) {}
+  if (saved === 'en') window.applyLang('en');
+});
 
 (function(){
   document.querySelectorAll('.module-card').forEach(function(card){

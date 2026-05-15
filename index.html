@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CyberAct - Plateforme GRC complète : 30 modules livrés (ISP, TPRM, RFP, Audit, ROPA, DPIA…)</title>
-<meta name="description" content="CyberAct : plateforme GRC modulaire pour RSSI et DPO. 30 modules livrés couvrant tout le cycle GRC : évaluation sécurité projets (EBIOS RM), qualification fournisseurs (TPRM), appels d'offres (RFP), audits de maturité (ISO 19011), conformité documentaire, registre des risques, ROPA, DPIA, demandes CNIL, Trust Center, KPIs CODIR... IA locale souveraine ou API externe au choix.">
-<meta property="og:title" content="CyberAct - 30 modules GRC livrés, multi-tenant, IA souveraine">
-<meta property="og:description" content="Plateforme GRC modulaire pour RSSI, DPO et auditeurs. 30 modules livrés : ISP, TPRM, RFP, Audit ISO 19011, Compliance Center, Roadmap, Cartographie, Registre des risques, Dérogations, Incidents NIS 2, KPIs CODIR, ROPA, DPIA, Demandes CNIL, Veille réglementaire, Trust Center, Contrats & DPA, Due diligence, Plan d'audit annuel, Self-assessment et plus. Multi-tenant, MFA TOTP, IA locale souveraine ou API externe au choix.">
+<title>CyberAct - Plateforme GRC complète : 31 modules livrés, EBIOS RM pré-chargé, IA souveraine</title>
+<meta name="description" content="CyberAct : plateforme GRC modulaire pour RSSI et DPO. 31 modules livrés couvrant tout le cycle GRC : évaluation sécurité projets (wizard EBIOS RM 8 étapes), qualification fournisseurs (TPRM 5 phases), appels d'offres (RFP), audits de maturité (ISO 19011 4 phases), conformité documentaire, analyses de risques polymorphes, registre des risques (3 états : inhérent, ajusté, résiduel), ROPA, DPIA CNIL PIA-3, demandes CNIL, Trust Center, KPIs CODIR... 4 modes de saisie (manuel, import, IA génère, IA restructure). IA locale souveraine ou API externe au choix.">
+<meta property="og:title" content="CyberAct - 31 modules GRC livrés, EBIOS RM pré-chargé, multi-tenant, IA souveraine">
+<meta property="og:description" content="Plateforme GRC modulaire pour RSSI, DPO et auditeurs. 31 modules livrés organisés en 5 hubs métier (Gouvernance, Risques, Conformité, Risque Tiers, Organisation). Wizard ISP 8 étapes (EBIOS RM), TPRM 5 phases, Audit ISO 19011 4 phases assistées IA, RFP campagne multi-fournisseurs, DPIA CNIL PIA-3, Roadmap polymorphe Gantt/Kanban/Liste, Compliance Center 3 onglets, Trust Center, KPIs CODIR. Multi-tenant RLS, MFA TOTP + WebAuthn passkeys, 18 principes security by design. IA locale souveraine ou API externe au choix.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cyberact.fr">
 <style>
@@ -1673,7 +1673,7 @@
     </a>
     <ul class="nav-links" id="nav-links">
       <li><a href="#modules">Modules</a></li>
-      <li><a href="#vision">Roadmap</a></li>
+      <li><a href="#workflows">Workflows</a></li>
       <li><a href="#pourqui">Pour qui</a></li>
       <li><a href="#fonctionnalites">Fonctionnalités</a></li>
       <li><a href="#referentiels">Référentiels</a></li>
@@ -1692,11 +1692,11 @@
       <div>
         <div class="hero-eyebrow">
           <span class="hero-eyebrow-pulse"></span>
-          <span>Approche par le risque · 30 modules livrés</span>
+          <span>Approche par le risque · 31 modules livrés · 5 hubs métier</span>
         </div>
         <h1>La conformité, <span class="accent">pilotée par le risque.</span></h1>
         <p class="lead">
-          Une plateforme GRC où <strong>chaque exigence est rattachée à un risque réel chez vous</strong>. Trois états de risque suivis (inhérent, ajusté, résiduel), méthodologie EBIOS RM, et chaque non-conformité d'audit alimente automatiquement le registre. 30 modules activables un par un, selon votre maturité et vos priorités. <strong>IA locale 100% souveraine ou API externe au choix.</strong>
+          Une plateforme GRC où <strong>chaque exigence est rattachée à un risque réel chez vous</strong>. Trois états de risque suivis (inhérent, ajusté, résiduel) selon la formule ISO 27005, méthodologie EBIOS RM <strong>pré-chargée</strong> (catalogues VM/ER/BS/FLUX prêts à l'emploi), et chaque non-conformité d'audit alimente automatiquement le registre. 31 modules activables un par un, organisés en 5 hubs métier, selon votre maturité et vos priorités. <strong>4 modes de saisie</strong> sur chaque module (manuel, import fichier, IA génère, IA restructure) - vous validez tout. <strong>IA locale souveraine ou API externe au choix.</strong>
         </p>
         <div class="hero-ctas">
           <a href="mailto:grc@cyberact.fr?subject=Demande%20de%20d%C3%A9mo%20CyberAct&body=Bonjour%2C%0A%0AJe%20souhaite%20planifier%20une%20d%C3%A9monstration.%0A%0AMon%20organisation%20%3A%20%0ANombre%20d%27utilisateurs%20estim%C3%A9%20%3A%20%0ACr%C3%A9neaux%20souhait%C3%A9s%20%3A%20%0A%0AMerci." class="btn btn-primary btn-lg">
@@ -1742,24 +1742,24 @@
 <aside class="stat-band" aria-label="Chiffres clés">
   <div class="stat-band-grid">
     <div class="stat-band-item">
-      <div class="stat-band-num">30<small>modules</small></div>
+      <div class="stat-band-num">31<small>modules</small></div>
       <div class="stat-band-label">Livrés à ce jour</div>
-      <div class="stat-band-hint">Activables un par un, par tenant</div>
+      <div class="stat-band-hint">5 hubs métier · activation par tenant</div>
     </div>
     <div class="stat-band-item">
       <div class="stat-band-num"><span class="accent">3</span><small>états</small></div>
       <div class="stat-band-label">de risque suivis</div>
-      <div class="stat-band-hint">Inhérent · ajusté · résiduel</div>
+      <div class="stat-band-hint">Inhérent · ajusté · résiduel (ISO 27005)</div>
     </div>
     <div class="stat-band-item">
-      <div class="stat-band-num">100<small>%</small></div>
-      <div class="stat-band-label">Souverain</div>
-      <div class="stat-band-hint">IA locale ou API externe au choix</div>
+      <div class="stat-band-num">4<small>modes</small></div>
+      <div class="stat-band-label">de saisie sur chaque module</div>
+      <div class="stat-band-hint">Manuel · import · IA génère · IA restructure</div>
     </div>
     <div class="stat-band-item">
       <div class="stat-band-num">EBIOS<small>RM</small></div>
-      <div class="stat-band-label">Méthodologie ANSSI</div>
-      <div class="stat-band-hint">+ ISO 27005 · NIS 2 · DORA · RGPD</div>
+      <div class="stat-band-label">Méthodologie ANSSI pré-chargée</div>
+      <div class="stat-band-hint">+ ISO 27001/27005/22301 · NIS 2 · DORA · RGPD</div>
     </div>
   </div>
 </aside>
@@ -1768,9 +1768,9 @@
 <section id="modules">
   <div class="container">
     <div class="section-header">
-      <div class="section-eyebrow">30 modules livrés · pilotés par le risque</div>
+      <div class="section-eyebrow">31 modules livrés · pilotés par le risque · 5 hubs métier</div>
       <h2>Un registre des risques au centre. Six piliers métier autour.</h2>
-      <p>Le <strong>registre central des risques</strong> est le cœur de la plateforme : tous les modules y convergent. Chaque exigence applicable est rattachée à un risque, chaque non-conformité d'audit alimente le registre, chaque action de traitement recalcule les risques résiduels. Six piliers métier orchestrent ce flux, vingt-trois modules complémentaires l'enrichissent. <strong>Activez ce dont vous avez besoin</strong>, ajoutez le reste plus tard - votre maturité, vos priorités, votre rythme.</p>
+      <p>Le <strong>registre central des risques</strong> est le cœur de la plateforme : tous les modules y convergent. Chaque exigence applicable est rattachée à un risque, chaque non-conformité d'audit alimente le registre, chaque action de traitement recalcule les risques résiduels. Six piliers métier orchestrent ce flux, vingt-cinq modules complémentaires l'enrichissent, le tout réparti en cinq hubs (Gouvernance, Risques, Conformité, Risque Tiers, Organisation). <strong>Activez ce dont vous avez besoin</strong>, ajoutez le reste plus tard - votre maturité, vos priorités, votre rythme.</p>
     </div>
 
     <!-- SOCLE : Registre central des risques (le cœur de la plateforme) -->
@@ -2002,76 +2002,63 @@
       </div>
     </div>
 
-    <!-- 19 modules complémentaires livrés -->
+    <!-- 25 modules complémentaires livrés -->
     <div class="modules-extra-header">
-      <div class="modules-extra-eyebrow">+ 23 modules complémentaires</div>
+      <div class="modules-extra-eyebrow">+ 25 modules complémentaires</div>
       <div class="modules-extra-title">L'écosystème GRC autour des 6 piliers</div>
-      <p class="modules-extra-sub">Tous livrés et activables par tenant. Tous alimentent ou consomment le registre central des risques. Du Trust Center aux obligations RGPD/NIS 2, en passant par le pilotage CODIR.</p>
+      <p class="modules-extra-sub">Tous livrés et activables par tenant, organisés en 5 hubs métier (Gouvernance, Risques, Conformité, Risque Tiers, Organisation). Tous alimentent ou consomment le registre central des risques. Du Trust Center aux obligations RGPD/NIS 2, en passant par le pilotage CODIR et le moteur d'analyse de risques polymorphe.</p>
     </div>
 
-    <!-- BLOC 1 : Tiers & Trust -->
+    <!-- HUB 1 : RISQUES -->
     <div class="modules-block">
       <div class="modules-block-head">
         <div>
-          <div class="modules-block-eyebrow">Bloc 1</div>
-          <div class="modules-block-title">Tiers &amp; Trust</div>
+          <div class="modules-block-eyebrow">Hub Risques</div>
+          <div class="modules-block-title">Registres, analyses, cartographies, incidents</div>
         </div>
-        <div class="modules-block-sub">Vitrine externe et relations clients / fournisseurs</div>
+        <div class="modules-block-sub">Tout ce qui converge vers le registre central : analyses EBIOS polymorphes, inventaires SI, surface externe, dérogations, incidents NIS 2, continuité</div>
       </div>
       <div class="modules-block-grid">
         <div class="module-mini">
-          <div class="module-mini-icon">📥</div>
+          <div class="module-mini-icon">📒</div>
           <div class="module-mini-body">
-            <div class="module-mini-name">Due diligence reçue</div>
-            <div class="module-mini-desc">Questionnaires sécu envoyés par clients, centralisation des réponses</div>
+            <div class="module-mini-name">Registre des risques</div>
+            <div class="module-mini-desc">Consolidation cross-projets, heatmap G×V, 3 états (inhérent/ajusté/résiduel), KPI résiduel par référentiel</div>
           </div>
         </div>
         <div class="module-mini">
-          <div class="module-mini-icon">🛡️</div>
+          <div class="module-mini-icon">🧮</div>
           <div class="module-mini-body">
-            <div class="module-mini-name">Trust Center</div>
-            <div class="module-mini-desc">Page de confiance partagée clients/prospects, certificats publics</div>
+            <div class="module-mini-name">Analyses de risques</div>
+            <div class="module-mini-desc">Moteur EBIOS RM / ISO 27005 polymorphe : projet, actif, système IA, fournisseur, processus, autonome</div>
           </div>
         </div>
-      </div>
-    </div>
-
-    <!-- BLOC 2 : Risques -->
-    <div class="modules-block">
-      <div class="modules-block-head">
-        <div>
-          <div class="modules-block-eyebrow">Bloc 2</div>
-          <div class="modules-block-title">Risques</div>
-        </div>
-        <div class="modules-block-sub">Inventaires, surface d'exposition, dérogations, incidents, continuité</div>
-      </div>
-      <div class="modules-block-grid">
         <div class="module-mini">
           <div class="module-mini-icon">🗂️</div>
           <div class="module-mini-body">
             <div class="module-mini-name">Cartographie des actifs</div>
-            <div class="module-mini-desc">Inventaire SI, classification, propriétaires, criticité</div>
+            <div class="module-mini-desc">Inventaire SI, classification, propriétaires, criticité, 4 modes de saisie</div>
           </div>
         </div>
         <div class="module-mini">
           <div class="module-mini-icon">✋</div>
           <div class="module-mini-body">
             <div class="module-mini-name">Registre des dérogations</div>
-            <div class="module-mini-desc">Acceptation formelle des risques, revues périodiques</div>
+            <div class="module-mini-desc">Acceptation formelle des risques, revues périodiques, alertes 30j avant expiration</div>
           </div>
         </div>
         <div class="module-mini">
           <div class="module-mini-icon">🛰️</div>
           <div class="module-mini-body">
-            <div class="module-mini-name">Radar</div>
-            <div class="module-mini-desc">Découverte des sous-domaines exposés, scoring 0-100 (A-F), expositions HTTPS / DNS / TLS</div>
+            <div class="module-mini-name">Radar surface externe</div>
+            <div class="module-mini-desc">Découverte passive des sous-domaines exposés, scoring 0-100 (A-F), expositions HTTPS / DNS / TLS</div>
           </div>
         </div>
         <div class="module-mini">
           <div class="module-mini-icon">🚨</div>
           <div class="module-mini-body">
             <div class="module-mini-name">Incidents NIS 2</div>
-            <div class="module-mini-desc">Notification NIS 2 art. 23 (24h / 72h / 30j), workflow complet</div>
+            <div class="module-mini-desc">Notification NIS 2 art. 23 (24h / 72h / 30j), workflow complet, classification ISO 27035</div>
           </div>
         </div>
         <div class="module-mini">
@@ -2081,154 +2068,148 @@
             <div class="module-mini-desc">Bilan d'impact, RTO/RPO/MTPD, plans de continuité (ISO 22301 + NIS 2 art. 21.2.c)</div>
           </div>
         </div>
-        <div class="module-mini">
-          <div class="module-mini-icon">🌍</div>
-          <div class="module-mini-body">
-            <div class="module-mini-name">Cartographie des données</div>
-            <div class="module-mini-desc">Data mapping RGPD/HDS, flux PII, transferts hors UE</div>
-          </div>
-        </div>
       </div>
     </div>
 
-    <!-- BLOC 3 : Conformité documentaire -->
+    <!-- HUB 2 : CONFORMITÉ -->
     <div class="modules-block">
       <div class="modules-block-head">
         <div>
-          <div class="modules-block-eyebrow">Bloc 3</div>
-          <div class="modules-block-title">Conformité documentaire</div>
+          <div class="modules-block-eyebrow">Hub Conformité</div>
+          <div class="modules-block-title">Référentiels, RGPD, audits réglementaires</div>
         </div>
-        <div class="modules-block-sub">Référentiels, politiques, procédures et veille réglementaire</div>
+        <div class="modules-block-sub">Le cycle de vérification réglementaire : référentiels normatifs, RGPD complet (ROPA, DPIA, demandes CNIL), audits, veille</div>
       </div>
       <div class="modules-block-grid">
         <div class="module-mini">
           <div class="module-mini-icon">📑</div>
           <div class="module-mini-body">
             <div class="module-mini-name">Référentiels &amp; exigences</div>
-            <div class="module-mini-desc">ISO, NIS 2, RGPD, PCI, SOC 2 - couverture risques + KPI résiduels</div>
-          </div>
-        </div>
-        <div class="module-mini">
-          <div class="module-mini-icon">📜</div>
-          <div class="module-mini-body">
-            <div class="module-mini-name">Politique &amp; Charte SSI</div>
-            <div class="module-mini-desc">PSSI formalisée, charte user/admin, validation direction</div>
-          </div>
-        </div>
-        <div class="module-mini">
-          <div class="module-mini-icon">📖</div>
-          <div class="module-mini-body">
-            <div class="module-mini-name">Procédures &amp; bonnes pratiques</div>
-            <div class="module-mini-desc">Bibliothèque documentaire SSI : runbooks, guides</div>
+            <div class="module-mini-desc">ISO 27001/27002/27005/27036/27701/22301/42001, NIS 2, RGPD, DORA, HDS, PCI, SOC 2 - couverture risques + KPI résiduels + mapping cross-frameworks</div>
           </div>
         </div>
         <div class="module-mini">
           <div class="module-mini-icon">📡</div>
           <div class="module-mini-body">
             <div class="module-mini-name">Veille réglementaire</div>
-            <div class="module-mini-desc">NIS 2, DORA, RGPD, EU AI Act, alertes &amp; jurisprudence</div>
+            <div class="module-mini-desc">NIS 2, DORA, RGPD, EU AI Act, alertes &amp; jurisprudence, comparateur cross-textes</div>
           </div>
         </div>
-      </div>
-    </div>
-
-    <!-- BLOC 4 : Audit & Contrôle -->
-    <div class="modules-block">
-      <div class="modules-block-head">
-        <div>
-          <div class="modules-block-eyebrow">Bloc 4</div>
-          <div class="modules-block-title">Audit &amp; Contrôle</div>
-        </div>
-        <div class="modules-block-sub">Cycle de vérification - planning, auto-évaluation, traçabilité</div>
-      </div>
-      <div class="modules-block-grid">
-        <div class="module-mini">
-          <div class="module-mini-icon">📅</div>
-          <div class="module-mini-body">
-            <div class="module-mini-name">Plan d'audit annuel</div>
-            <div class="module-mini-desc">Planning, cycles, périmètres, ressources auditeurs</div>
-          </div>
-        </div>
-        <div class="module-mini">
-          <div class="module-mini-icon">📋</div>
-          <div class="module-mini-body">
-            <div class="module-mini-name">Self-assessment</div>
-            <div class="module-mini-desc">Auto-évaluation rapide filiales / équipes (light vs Audit complet)</div>
-          </div>
-        </div>
-        <div class="module-mini">
-          <div class="module-mini-icon">📓</div>
-          <div class="module-mini-body">
-            <div class="module-mini-name">Journal d'audit technique</div>
-            <div class="module-mini-desc">Traçabilité des actions admin / utilisateur (audit log)</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- BLOC 5 : Privacy RGPD -->
-    <div class="modules-block">
-      <div class="modules-block-head">
-        <div>
-          <div class="modules-block-eyebrow">Bloc 5</div>
-          <div class="modules-block-title">Privacy RGPD</div>
-        </div>
-        <div class="modules-block-sub">RGPD - traitements, impacts, droits des personnes, contrats</div>
-      </div>
-      <div class="modules-block-grid">
         <div class="module-mini">
           <div class="module-mini-icon">📇</div>
           <div class="module-mini-body">
             <div class="module-mini-name">ROPA</div>
-            <div class="module-mini-desc">Registre traitements RGPD art. 30 : finalités, base légale, durées</div>
+            <div class="module-mini-desc">Registre traitements RGPD art. 30 : finalités, base légale, durées, transferts UE, workflow DPO</div>
           </div>
         </div>
         <div class="module-mini">
           <div class="module-mini-icon">🔍</div>
           <div class="module-mini-body">
-            <div class="module-mini-name">DPIA</div>
-            <div class="module-mini-desc">Analyses d'impact RGPD, traitements à risque</div>
+            <div class="module-mini-name">DPIA (CNIL PIA-3)</div>
+            <div class="module-mini-desc">Analyses d'impact RGPD, mesures référencées CNIL §X (S1 pseudonymisation, S2 authentification forte, S4 chiffrement AES-256...), workflow DPO</div>
           </div>
         </div>
         <div class="module-mini">
           <div class="module-mini-icon">✉️</div>
           <div class="module-mini-body">
             <div class="module-mini-name">Demandes CNIL &amp; droits</div>
-            <div class="module-mini-desc">Accès, effacement, portabilité, plaintes, suivi</div>
+            <div class="module-mini-desc">Accès, rectification, effacement, portabilité, opposition, plaintes - SLA 30j/90j, audit trail</div>
+          </div>
+        </div>
+        <div class="module-mini">
+          <div class="module-mini-icon">🌍</div>
+          <div class="module-mini-body">
+            <div class="module-mini-name">Cartographie des données</div>
+            <div class="module-mini-desc">Data mapping RGPD/HDS, flux PII, transferts hors UE, lien automatique avec ROPA</div>
+          </div>
+        </div>
+        <div class="module-mini">
+          <div class="module-mini-icon">📅</div>
+          <div class="module-mini-body">
+            <div class="module-mini-name">Plan d'audit annuel</div>
+            <div class="module-mini-desc">Planning multi-auditeurs, cycles, périmètres, ressources, archivage par année</div>
+          </div>
+        </div>
+        <div class="module-mini">
+          <div class="module-mini-icon">📋</div>
+          <div class="module-mini-body">
+            <div class="module-mini-name">Self-assessment</div>
+            <div class="module-mini-desc">Auto-évaluation rapide filiales / équipes (light vs Audit complet), score CMMI agrégé</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HUB 3 : RISQUE TIERS -->
+    <div class="modules-block">
+      <div class="modules-block-head">
+        <div>
+          <div class="modules-block-eyebrow">Hub Risque Tiers</div>
+          <div class="modules-block-title">Trust Center, due diligence, contrats DPA</div>
+        </div>
+        <div class="modules-block-sub">Au-delà du workflow TPRM / RFP : vitrine externe partagée, questionnaires reçus de clients, registre des contrats DPA</div>
+      </div>
+      <div class="modules-block-grid">
+        <div class="module-mini">
+          <div class="module-mini-icon">🛡️</div>
+          <div class="module-mini-body">
+            <div class="module-mini-name">Trust Center</div>
+            <div class="module-mini-desc">Page de confiance partagée clients/prospects, certifications publiques, lien security.txt</div>
+          </div>
+        </div>
+        <div class="module-mini">
+          <div class="module-mini-icon">📥</div>
+          <div class="module-mini-body">
+            <div class="module-mini-name">Due diligence reçue</div>
+            <div class="module-mini-desc">Questionnaires sécu envoyés par clients, centralisation des réponses, matrice de comparaison</div>
           </div>
         </div>
         <div class="module-mini">
           <div class="module-mini-icon">📃</div>
           <div class="module-mini-body">
             <div class="module-mini-name">Contrats &amp; DPA</div>
-            <div class="module-mini-desc">Registre contrats sécu, DPA RGPD, clauses signées, échéances</div>
+            <div class="module-mini-desc">Registre contrats sécu, DPA RGPD, clauses signées, échéances avec alertes 30j</div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- BLOC 6 : Gouvernance & Pilotage -->
+    <!-- HUB 4 : GOUVERNANCE -->
     <div class="modules-block">
       <div class="modules-block-head">
         <div>
-          <div class="modules-block-eyebrow">Bloc 6</div>
-          <div class="modules-block-title">Gouvernance &amp; Pilotage</div>
+          <div class="modules-block-eyebrow">Hub Gouvernance</div>
+          <div class="modules-block-title">Cadre documentaire, pilotage, animation</div>
         </div>
-        <div class="modules-block-sub">Reporting, RH sécurité, animation filière, administration</div>
+        <div class="modules-block-sub">Le cycle stratégique RSSI : politiques formalisées, procédures, indicateurs CODIR, animation filière, sensibilisation</div>
       </div>
       <div class="modules-block-grid">
+        <div class="module-mini">
+          <div class="module-mini-icon">📜</div>
+          <div class="module-mini-body">
+            <div class="module-mini-name">Politique &amp; Charte SSI</div>
+            <div class="module-mini-desc">PSSI formalisée, charte user/admin, validation direction, versioning, signature horodatée</div>
+          </div>
+        </div>
+        <div class="module-mini">
+          <div class="module-mini-icon">📖</div>
+          <div class="module-mini-body">
+            <div class="module-mini-name">Procédures &amp; bonnes pratiques</div>
+            <div class="module-mini-desc">Bibliothèque documentaire SSI : runbooks, guides, 10 templates pré-chargés (incidents, PRA/PCA, télétravail...)</div>
+          </div>
+        </div>
         <div class="module-mini">
           <div class="module-mini-icon">📊</div>
           <div class="module-mini-body">
             <div class="module-mini-name">KPIs CODIR / Direction</div>
-            <div class="module-mini-desc">Tableau de bord direction, indicateurs mensuels, tendances</div>
+            <div class="module-mini-desc">Tableau de bord direction, 30+ indicateurs mensuels/trimestriels, tendances, seuils d'alerte configurables</div>
           </div>
         </div>
         <div class="module-mini">
           <div class="module-mini-icon">🌐</div>
           <div class="module-mini-body">
             <div class="module-mini-name">Animation filière Cyber</div>
-            <div class="module-mini-desc">Pilotage Groupe → filiales : décisions, communications, ateliers, points réguliers</div>
+            <div class="module-mini-desc">Pilotage Groupe → filiales : décisions, communications, ateliers, points réguliers, héritage des cibles</div>
           </div>
         </div>
         <div class="module-mini">
@@ -2238,13 +2219,76 @@
             <div class="module-mini-desc">Campagnes, formations, simulations phishing, reporting CODIR (NIS 2 art. 21.2.g)</div>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- HUB 5 : ORGANISATION -->
+    <div class="modules-block">
+      <div class="modules-block-head">
+        <div>
+          <div class="modules-block-eyebrow">Hub Organisation</div>
+          <div class="modules-block-title">Utilisateurs, traçabilité, paramètres</div>
+        </div>
+        <div class="modules-block-sub">Le socle administratif : gestion fine des utilisateurs et des rôles, journal d'audit ISO 27001 A.5.34, paramètres du tenant</div>
+      </div>
+      <div class="modules-block-grid">
         <div class="module-mini">
           <div class="module-mini-icon">👥</div>
           <div class="module-mini-body">
             <div class="module-mini-name">Gestion utilisateurs</div>
-            <div class="module-mini-desc">Administration users, rôles, comptes temporaires, MFA TOTP</div>
+            <div class="module-mini-desc">5 rôles RBAC (SUPER_ADMIN, ORG_ADMIN, RSSI, AUDITOR, USER), comptes temporaires auto-lock, MFA TOTP, passkeys WebAuthn</div>
           </div>
         </div>
+        <div class="module-mini">
+          <div class="module-mini-icon">📓</div>
+          <div class="module-mini-body">
+            <div class="module-mini-name">Journal d'audit technique</div>
+            <div class="module-mini-desc">Traçabilité des actions admin / utilisateur (ISO 27001 A.5.34), export syslog SIEM-ready, rétention 10 ans</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKFLOWS PHARES -->
+<section id="workflows">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">Six workflows phares</div>
+      <h2>Des parcours guidés de bout en bout, pas des écrans isolés.</h2>
+      <p>Chaque module phare implémente un parcours métier réel - de l'initialisation à la décision formalisée. L'assistant IA propose à chaque étape, l'humain valide. Aucun verdict n'est appliqué sans signature.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature">
+        <div class="feature-icon">📐</div>
+        <h3>ISP - Wizard EBIOS RM 8 étapes</h3>
+        <p><strong>S0 Cadrage</strong> (contexte, parties, régulations) → <strong>S1-S5 Ateliers EBIOS</strong> (valeurs métier DICT, événements redoutés, biens supports, flux, scénarios de risque) → <strong>S6 Exigences</strong> (mapping référentiels, couverture % en temps réel) → <strong>S7 Plan de traitement</strong> → <strong>S8 Décision RSSI</strong> (GO / GOC / NO-GO signée). Catalogues EBIOS pré-chargés (VM/ER/BS/FLUX). Export Excel 9 onglets + PDF multi-signatures.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🔎</div>
+        <h3>Audit - 4 phases ISO 19011</h3>
+        <p><strong>Cadrage</strong> (objectifs, périmètre, équipe) → <strong>Entretiens</strong> (guide IA contextualisé par fonction, résumé des notes) → <strong>Évaluation</strong> (notation CMMI 0-5, constats Critique / Majeure / Mineure) → <strong>Rapport</strong> (synthèse exécutive, avis Favorable / Réserves / Défavorable). Grilles prêtes à l'emploi : ReCyF NIS 2 (ANSSI), ISO 27001:2022, ISO 27002:2022. Chaque NC Majeure remonte automatiquement dans la roadmap.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🤝</div>
+        <h3>TPRM - 5 phases fournisseur</h3>
+        <p><strong>Identification</strong> (périmètre, criticité, fiche) → <strong>Évaluation</strong> (12 domaines : gouvernance, IAM, crypto, réseau, app, logs, incident, continuité, data, audit, sous-traitance, sensibilisation) → <strong>Décision RSSI</strong> (GO / GOC / NO-GO) → <strong>Contrat &amp; PAS</strong> (clauses, droit d'audit, notification 24h) → <strong>Surveillance</strong> (KPIs, alertes, revues périodiques). Auto-liaison depuis les prestataires saisis en ISP S0.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">📋</div>
+        <h3>RFP - Campagne multi-fournisseurs</h3>
+        <p><strong>Conception du questionnaire</strong> (contextualisé à partir du projet ISP, des risques à couvrir, d'une palette de référentiels) → <strong>Envoi</strong> Excel pré-rempli par fournisseur → <strong>Import des réponses</strong> avec contrôle d'intégrité → <strong>Matrice comparative</strong> colorée (questions × fournisseurs, tooltips preuves) → <strong>Scoring pondéré</strong> avec règle stricte sur les bloquants → <strong>Décision RSSI</strong> sur classement consultatif ajustable.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🛡️</div>
+        <h3>DPIA - CNIL PIA-3</h3>
+        <p>Import du traitement depuis ROPA (pré-remplissage : finalité, DCP, destinataires, transferts UE) → <strong>Questionnaire PIA-3</strong> (~80 questions) → <strong>Mesures référencées CNIL §X</strong> (S1 pseudonymisation, S2 authentification forte, S4 chiffrement AES-256, S6 droit d'audit...) → <strong>Avis DPO</strong> (APPROUVÉE, APPROUVÉE AVEC MESURES, REJETÉE). Export PDF conforme CNIL, archivable pour audit.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🗺️</div>
+        <h3>Roadmap - Polymorphe Gantt/Kanban/Liste</h3>
+        <p><strong>3 vues commutables</strong> sur le même fond : Gantt (planning, dépendances, chemin critique), Kanban (TODO → IN_PROGRESS → BLOCKED → DONE), Liste (filtres avancés). <strong>8 types d'entités</strong> sur la même timeline (projet, audit, programme, fournisseur, incident, initiative, objectif, item manuel). <strong>Auto-alimentation</strong> : verdicts GO/GOC d'ISP, NC Majeures d'audit, surveillance TPRM, mesures DPIA - tous arrivent en tâches. Le RSSI valide chaque recalcul de risque résiduel après action terminée.</p>
       </div>
     </div>
   </div>
@@ -2255,7 +2299,7 @@
   <div class="container">
     <div class="section-header">
       <div class="section-eyebrow">// ROADMAP</div>
-      <h2>30 modules livrés. La roadmap continue.</h2>
+      <h2>31 modules livrés. La roadmap continue.</h2>
       <p>L'ensemble des modules présentés ci-dessus est livré et activable dès maintenant. Notre roadmap évolue en fonction des besoins concrets remontés par les clients - <strong>si un cas d'usage vous manque, parlons-en : on priorise.</strong></p>
     </div>
   </div>
@@ -2283,12 +2327,12 @@
       <div class="persona">
         <div class="persona-icon">⚖️</div>
         <h3>DPO</h3>
-        <p>Hand-off automatique depuis ISP/TPRM si données personnelles, registre des politiques RGPD, modèles AIPD, ROPA et DPIA à venir, alignement EU AI Act.</p>
+        <p>Hand-off automatique depuis ISP/TPRM si données personnelles. Registre des traitements (ROPA art. 30 RGPD), DPIA méthodologie CNIL PIA-3 avec mesures référencées §X, demandes CNIL (accès, rectification, effacement, portabilité) avec SLA 30j/90j, contrats &amp; DPA, cartographie des données et transferts UE. Alignement EU AI Act.</p>
       </div>
       <div class="persona">
         <div class="persona-icon">🔎</div>
         <h3>Auditeur interne</h3>
-        <p>Audit ISO 19011 outillé : cadrage, entretiens guidés, notation CMMI, constats priorisés, rapport pré-rempli modifiable. Plan d'audit annuel à venir.</p>
+        <p>Audit ISO 19011 outillé : cadrage, entretiens guidés assistés IA, notation CMMI 0-5, constats Critique/Majeure/Mineure, rapport pré-rempli modifiable. <strong>Plan d'audit annuel</strong> avec planning multi-auditeurs et <strong>self-assessment</strong> rapide pour les filiales.</p>
       </div>
       <div class="persona">
         <div class="persona-icon">📋</div>
@@ -2298,7 +2342,7 @@
       <div class="persona">
         <div class="persona-icon">⚙️</div>
         <h3>Direction SI / CODIR</h3>
-        <p>Visibilité consolidée sur la conformité, les décisions, les risques résiduels et la feuille de route - KPIs CODIR à venir pour le pilotage stratégique.</p>
+        <p>Visibilité consolidée sur la conformité, les décisions, les risques résiduels et la feuille de route. <strong>KPIs CODIR livrés</strong> : 30+ indicateurs mensuels/trimestriels (couverture référentiels, risque résiduel moyen, taux GO/GOC/NO-GO projets, maturité TPRM, MTTR incidents, conformité audit, backlog actions...) avec seuils d'alerte configurables.</p>
       </div>
     </div>
   </div>
@@ -2331,7 +2375,7 @@
       <div class="feature">
         <div class="feature-icon">🤖</div>
         <h3>L'IA propose, vous décidez</h3>
-        <p>L'assistance IA accélère votre travail : suggestions d'exigences, mesures correctives, synthèses. <strong>Rien n'est écrit à la place de l'analyste</strong> - chaque proposition est revue, modifiée, validée ou rejetée par un humain. <strong>IA locale 100% souveraine</strong> (aucun appel API externe, données qui ne quittent jamais votre infrastructure) ou <strong>API externe</strong> selon votre choix et votre politique. En parallèle de l'IA, un <strong>moteur de règles déterministe</strong> calcule un verdict GO / GOC / NO-GO en aide à la décision, à partir des indicateurs (risques résiduels, risques bloquants, niveau de conformité des exigences, TPRM) - traçable, reproductible, auditable (ISO 27001 cl. 6.1.3). Le RSSI tranche.</p>
+        <p>L'assistance IA accélère votre travail : suggestions d'exigences, mesures correctives, synthèses. <strong>Rien n'est écrit à la place de l'analyste</strong> - chaque proposition est revue, modifiée, validée ou rejetée par un humain. <strong>IA locale souveraine</strong> (aucun appel API externe, données qui ne quittent jamais votre infrastructure) ou <strong>API externe</strong> au choix de votre politique. <strong>Orchestration multi-fournisseurs</strong> avec chaîne de repli automatique tracée dans l'audit log (si un fournisseur ne répond pas, le suivant prend la main, sans interruption de service). En parallèle de l'IA, un <strong>moteur de règles déterministe</strong> calcule un verdict GO / GOC / NO-GO en aide à la décision, à partir des indicateurs (risques résiduels, risques bloquants, niveau de conformité des exigences, TPRM) - traçable, reproductible, auditable (ISO 27001 cl. 6.1.3). Le RSSI tranche.</p>
       </div>
       <div class="feature">
         <div class="feature-icon">✏️</div>
@@ -2361,7 +2405,17 @@
       <div class="feature">
         <div class="feature-icon">🔐</div>
         <h3>Sécurité de vos données</h3>
-        <p>Chiffrement au repos <strong>AES-256-GCM</strong>, HTTPS avec HSTS, JWT court, protection CSRF, CSP stricte, audit log des opérations sensibles, partages expirables 90j. <strong>Authentification multi-facteurs (TOTP RFC 6238)</strong> compatible Google Authenticator, Authy, KeePassXC, avec codes de récupération - exigée pour les rôles administrateur et RSSI (NIS 2 art. 21.2.d, ISO 27001:2022 A.5.17 et A.8.5).</p>
+        <p>Chiffrement au repos <strong>AES-256-GCM</strong>, HTTPS avec HSTS, JWT court, protection CSRF, CSP stricte, partages expirables 90j. <strong>Authentification multi-facteurs</strong> : TOTP RFC 6238 (compatible Google Authenticator, Authy, KeePassXC, avec codes de récupération) <strong>+ passkeys WebAuthn / FIDO2</strong> (clé physique ou biométrique). Exigée pour les rôles administrateur et RSSI (NIS 2 art. 21.2.d, ISO 27001:2022 A.5.17 et A.8.5). Architecture conçue selon <strong>18 principes security by design</strong> (defense en profondeur, fail securely, input sanitization, isolation des tenants RLS Postgres, audit logs, etc.).</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">📓</div>
+        <h3>Audit logs ISO 27001 A.5.34</h3>
+        <p><strong>100% des actions admin et utilisateur sont tracées</strong> (timestamp, IP, user, action, détail, statut) : connexions, créations, modifications, suppressions, exports, décisions GO/GOC/NO-GO, signatures, fallbacks IA. <strong>Rétention 10 ans minimum</strong>, export syslog compatible SIEM, filtres action / user / date range, rate-limiting anti-DoS. Alignement ISO 27001:2022 A.5.34, A.8.15, NIS 2 art. 21.2.h.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">📚</div>
+        <h3>Catalogues EBIOS RM pré-chargés</h3>
+        <p>Démarrez votre première analyse en quelques heures, pas en plusieurs semaines. <strong>Catalogues VM (valeurs métier), ER (événements redoutés), BS (biens supports) et FLUX</strong> issus de la doctrine ANSSI sont pré-chargés et réutilisables. Ajustez, complétez, dupliquez - les catalogues sont éditables et propres à votre contexte. Catalogues TPRM (12 domaines), mesures CNIL PIA-3 référencées §X et 10 templates de politiques SSI (PSSI, charte, mot de passe, accès, incident, PRA/PCA, télétravail...) sont également livrés.</p>
       </div>
       <div class="feature">
         <div class="feature-icon">📡</div>
@@ -2389,6 +2443,8 @@
           <span class="ref-badge">LPM / OIV</span>
           <span class="ref-badge">EU AI Act</span>
           <span class="ref-badge">DORA</span>
+          <span class="ref-badge">ACPR Cyber</span>
+          <span class="ref-badge">PSD2</span>
           <span class="ref-badge">HDS</span>
           <span class="ref-badge">PGSSI-S</span>
           <span class="ref-badge">SecNumCloud</span>
@@ -2419,7 +2475,7 @@
         </div>
       </div>
       <div class="ref-group">
-        <h4>Standards techniques</h4>
+        <h4>Standards techniques &amp; red teaming</h4>
         <div class="ref-badges">
           <span class="ref-badge">PCI-DSS v4.0.1</span>
           <span class="ref-badge">OWASP Top 10</span>
@@ -2427,6 +2483,7 @@
           <span class="ref-badge">OWASP LLM Top 10</span>
           <span class="ref-badge">CSA CCM</span>
           <span class="ref-badge">MITRE ATT&amp;CK</span>
+          <span class="ref-badge">TIBER-EU</span>
         </div>
       </div>
       <div class="ref-group">
@@ -2601,7 +2658,7 @@
       <div>
         <h5>Produit</h5>
         <ul>
-          <li><a href="#modules">30 modules livrés</a></li>
+          <li><a href="#modules">31 modules livrés</a></li>
           <li><a href="#vision">Sur la feuille de route</a></li>
           <li><a href="#fonctionnalites">Fonctionnalités</a></li>
           <li><a href="#referentiels">Référentiels</a></li>

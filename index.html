@@ -134,6 +134,23 @@
     box-shadow: 0 4px 12px rgba(0, 184, 107, 0.25);
     transition: all 0.15s;
   }
+  .lang-toggle {
+    background: transparent;
+    border: 1px solid var(--gray-300, #d1d5db);
+    color: var(--navy);
+    padding: 7px 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .lang-toggle:hover {
+    background: var(--navy);
+    color: white;
+    border-color: var(--navy);
+  }
   .nav-cta:hover {
     background: var(--accent-deep) !important;
     transform: translateY(-1px);
@@ -2067,12 +2084,13 @@
       <span>CYBERACT</span>
     </a>
     <ul class="nav-links" id="nav-links">
-      <li><a href="#modules">Modules</a></li>
-      <li><a href="#workflows">Workflows</a></li>
-      <li><a href="#pourqui">Pour qui</a></li>
-      <li><a href="#fonctionnalites">Fonctionnalités</a></li>
-      <li><a href="#referentiels">Référentiels</a></li>
-      <li><a href="#contact" class="nav-cta">Demander une démo</a></li>
+      <li><a href="#modules" data-fr="Modules" data-en="Modules">Modules</a></li>
+      <li><a href="#workflows" data-fr="Workflows" data-en="Workflows">Workflows</a></li>
+      <li><a href="#pourqui" data-fr="Pour qui" data-en="Who for">Pour qui</a></li>
+      <li><a href="#fonctionnalites" data-fr="Fonctionnalités" data-en="Features">Fonctionnalités</a></li>
+      <li><a href="#referentiels" data-fr="Référentiels" data-en="Frameworks">Référentiels</a></li>
+      <li><button type="button" class="lang-toggle" onclick="toggleLang()" aria-label="Switch language" title="Switch language">EN</button></li>
+      <li><a href="#contact" class="nav-cta" data-fr="Demander une démo" data-en="Request a demo">Demander une démo</a></li>
     </ul>
     <button class="mobile-toggle" onclick="document.getElementById('nav-links').classList.toggle('open')" aria-label="Menu">☰</button>
   </div>
@@ -2086,18 +2104,18 @@
       <div>
         <div class="hero-eyebrow">
           <span class="hero-eyebrow-pulse"></span>
-          <span>Approche par le risque · 31 modules livrés · 5 hubs métier</span>
+          <span data-fr="Approche par le risque · 31 modules livrés · 5 hubs métier" data-en="Risk-driven approach · 31 modules · 5 business hubs">Approche par le risque · 31 modules livrés · 5 hubs métier</span>
         </div>
-        <h1>Gouvernance SSI, <span class="accent">pilotée par le risque.</span></h1>
+        <h1 data-fr-html='Gouvernance SSI, <span class="accent">pilotée par le risque.</span>' data-en-html='SSI Governance, <span class="accent">driven by risk.</span>'>Gouvernance SSI, <span class="accent">pilotée par le risque.</span></h1>
         <p class="lead">
-          Chaque exigence est rattachée à un <strong>risque réel de votre entreprise</strong>. Trois états de risque suivis : <strong>inhérent → ajusté → résiduel</strong>. EBIOS RM pré-chargé. <strong>5 hubs métiers</strong>, à activer à votre rythme. <strong>IA locale souveraine possible ou API externe au choix</strong> - vous validez tout.
+          <span data-fr-html="Chaque exigence est rattachée à un <strong>risque réel de votre entreprise</strong>. Trois états de risque suivis : <strong>inhérent → ajusté → résiduel</strong>. EBIOS RM pré-chargé. <strong>5 hubs métiers</strong>, à activer à votre rythme. <strong>IA locale souveraine possible ou API externe au choix</strong> - vous validez tout." data-en-html="Every requirement is mapped to a <strong>real risk in your organization</strong>. Three risk states tracked: <strong>inherent → adjusted → residual</strong>. EBIOS RM pre-loaded. <strong>5 business hubs</strong>, activate at your own pace. <strong>Sovereign on-prem AI or your choice of external API</strong> - you validate everything.">Chaque exigence est rattachée à un <strong>risque réel de votre entreprise</strong>. Trois états de risque suivis : <strong>inhérent → ajusté → résiduel</strong>. EBIOS RM pré-chargé. <strong>5 hubs métiers</strong>, à activer à votre rythme. <strong>IA locale souveraine possible ou API externe au choix</strong> - vous validez tout.</span>
         </p>
         <div class="hero-ctas">
           <a href="mailto:grc@cyberact.fr?subject=Demande%20de%20d%C3%A9mo%20CyberAct&body=Bonjour%2C%0A%0AJe%20souhaite%20planifier%20une%20d%C3%A9monstration.%0A%0AMon%20organisation%20%3A%20%0ANombre%20d%27utilisateurs%20estim%C3%A9%20%3A%20%0ACr%C3%A9neaux%20souhait%C3%A9s%20%3A%20%0A%0AMerci." class="btn btn-primary btn-lg">
-            Demander une démo →
+            <span data-fr="Demander une démo →" data-en="Request a demo →">Demander une démo →</span>
           </a>
           <a href="#modules" class="btn btn-ghost btn-lg">
-            Voir les modules
+            <span data-fr="Voir les modules" data-en="See modules">Voir les modules</span>
           </a>
         </div>
       </div>
@@ -2137,23 +2155,23 @@
   <div class="stat-band-grid">
     <div class="stat-band-item">
       <div class="stat-band-num">31<small>modules</small></div>
-      <div class="stat-band-label">Livrés à ce jour</div>
-      <div class="stat-band-hint">5 hubs métier · activation par tenant</div>
+      <div class="stat-band-label" data-fr="Livrés à ce jour" data-en="Delivered to date">Livrés à ce jour</div>
+      <div class="stat-band-hint" data-fr="5 hubs métier · activation par tenant" data-en="5 hubs · activation per tenant">5 hubs métier · activation par tenant</div>
     </div>
     <div class="stat-band-item">
       <div class="stat-band-num"><span class="accent">3</span><small>états</small></div>
-      <div class="stat-band-label">de risque suivis</div>
-      <div class="stat-band-hint">Inhérent · ajusté · résiduel (ISO 27005)</div>
+      <div class="stat-band-label" data-fr="de risque suivis" data-en="risk states tracked">de risque suivis</div>
+      <div class="stat-band-hint" data-fr="Inhérent · ajusté · résiduel (ISO 27005)" data-en="Inherent · adjusted · residual (ISO 27005)">Inhérent · ajusté · résiduel (ISO 27005)</div>
     </div>
     <div class="stat-band-item">
       <div class="stat-band-num">4<small>modes</small></div>
-      <div class="stat-band-label">de saisie sur chaque module</div>
-      <div class="stat-band-hint">Manuel · import · IA génère · IA restructure</div>
+      <div class="stat-band-label" data-fr="de saisie sur chaque module" data-en="input modes per module">de saisie sur chaque module</div>
+      <div class="stat-band-hint" data-fr="Manuel · import · IA génère · IA restructure" data-en="Manual · import · AI generates · AI restructures">Manuel · import · IA génère · IA restructure</div>
     </div>
     <div class="stat-band-item">
       <div class="stat-band-num">EBIOS<small>RM</small></div>
-      <div class="stat-band-label">Méthodologie ANSSI pré-chargée</div>
-      <div class="stat-band-hint">+ ISO 27001/27005/22301 · NIS 2 · DORA · RGPD</div>
+      <div class="stat-band-label" data-fr="Méthodologie ANSSI pré-chargée" data-en="ANSSI methodology pre-loaded">Méthodologie ANSSI pré-chargée</div>
+      <div class="stat-band-hint" data-fr="+ ISO 27001/27005/22301 · NIS 2 · DORA · RGPD" data-en="+ ISO 27001/27005/22301 · NIS 2 · DORA · GDPR">+ ISO 27001/27005/22301 · NIS 2 · DORA · RGPD</div>
     </div>
   </div>
 </aside>
@@ -2162,8 +2180,8 @@
 <section id="modules">
   <div class="container">
     <div class="section-header">
-      <div class="section-eyebrow">31 modules livrés · pilotés par le risque · 5 hubs métier</div>
-      <h2>Un registre des risques au centre. Cinq hubs métier autour.</h2>
+      <div class="section-eyebrow" data-fr="31 modules livrés · pilotés par le risque · 5 hubs métier" data-en="31 modules · risk-driven · 5 business hubs">31 modules livrés · pilotés par le risque · 5 hubs métier</div>
+      <h2 data-fr="Un registre des risques au centre. Cinq hubs métier autour." data-en="A central risk register. Five business hubs around it.">Un registre des risques au centre. Cinq hubs métier autour.</h2>
     </div>
 
     <!-- SOCLE : Registre central des risques (le cœur de la plateforme) -->
@@ -2235,9 +2253,9 @@
     <!-- WORKFLOWS PHARES (embedded after socle) -->
     <div id="workflows" style="margin-top: 40px; margin-bottom: 32px;">
 <div class="section-header">
-      <div class="section-eyebrow">Modules clés</div>
-      <h2>Des parcours guidés, pas des écrans isolés.</h2>
-      <p>L'IA propose à chaque étape. L'humain valide. Aucun verdict n'est appliqué sans signature.</p>
+      <div class="section-eyebrow" data-fr="Modules clés" data-en="Key modules">Modules clés</div>
+      <h2 data-fr="Des parcours guidés, pas des écrans isolés." data-en="Guided journeys, not isolated screens.">Des parcours guidés, pas des écrans isolés.</h2>
+      <p data-fr="L'IA propose à chaque étape. L'humain valide. Aucun verdict n'est appliqué sans signature." data-en="AI proposes at each step. Humans validate. No verdict is applied without a signature.">L'IA propose à chaque étape. L'humain valide. Aucun verdict n'est appliqué sans signature.</p>
     </div>
     <div class="workflow-grid">
 
@@ -2745,9 +2763,9 @@
 <section id="apercu">
   <div class="container">
     <div class="section-header">
-      <div class="section-eyebrow">Aperçu produit</div>
-      <h2>Le risque rendu lisible.</h2>
-      <p>Heatmap, feuille de route, indicateurs CODIR : ce que vous voyez, dans CYBERACT.</p>
+      <div class="section-eyebrow" data-fr="Aperçu produit" data-en="Product preview">Aperçu produit</div>
+      <h2 data-fr="Le risque rendu lisible." data-en="Risk made readable.">Le risque rendu lisible.</h2>
+      <p data-fr="Heatmap, feuille de route, indicateurs CODIR : ce que vous voyez, dans CYBERACT." data-en="Heatmap, roadmap, board KPIs: what you see in CYBERACT.">Heatmap, feuille de route, indicateurs CODIR : ce que vous voyez, dans CYBERACT.</p>
     </div>
     <div class="apercu-grid">
 
@@ -2875,33 +2893,33 @@
 <section id="pourqui">
   <div class="container">
     <div class="section-header">
-      <div class="section-eyebrow">Pour qui</div>
-      <h2>Un outil conçu pour vos équipes sécurité</h2>
-      <p>Chaque profil trouve son espace de travail - et travaille sur les mêmes données, en temps réel.</p>
+      <div class="section-eyebrow" data-fr="Pour qui" data-en="Who for">Pour qui</div>
+      <h2 data-fr="Un outil conçu pour vos équipes sécurité" data-en="Built for your security teams">Un outil conçu pour vos équipes sécurité</h2>
+      <p data-fr="Chaque profil trouve son espace de travail - et travaille sur les mêmes données, en temps réel." data-en="Every role gets its own workspace, working on the same data in real time.">Chaque profil trouve son espace de travail - et travaille sur les mêmes données, en temps réel.</p>
     </div>
     <div class="personas-grid">
       <div class="persona">
-        <h3>RSSI</h3>
+        <h3 data-fr="RSSI" data-en="CISO">RSSI</h3>
         <p>Tableau de bord cross-projets, arbitrage <strong>GO / GOC / NO-GO</strong>, portefeuille fournisseurs et feuille de route consolidée.</p>
       </div>
       <div class="persona">
-        <h3>Analyste SSI</h3>
+        <h3 data-fr="Analyste SSI" data-en="Security analyst">Analyste SSI</h3>
         <p>Wizard EBIOS RM guidé, saisie des exigences, suivi des 3 états de risque, IA assistée à chaque étape.</p>
       </div>
       <div class="persona">
-        <h3>DPO</h3>
+        <h3 data-fr="DPO" data-en="DPO">DPO</h3>
         <p>Hand-off automatique depuis ISP/TPRM. Registre des traitements, DPIA CNIL PIA-3, demandes CNIL, contrats &amp; DPA.</p>
       </div>
       <div class="persona">
-        <h3>Auditeur interne</h3>
+        <h3 data-fr="Auditeur interne" data-en="Internal auditor">Auditeur interne</h3>
         <p>Audit SSI 4 phases ISO 19011, plan d'audit annuel, self-assessment pour les filiales, rapport pré-rempli modifiable.</p>
       </div>
       <div class="persona">
-        <h3>Chef de projet</h3>
+        <h3 data-fr="Chef de projet" data-en="Project manager">Chef de projet</h3>
         <p>Soumission structurée, suivi de la demande, exigences applicables visibles, points de cadrage collaboratifs.</p>
       </div>
       <div class="persona">
-        <h3>Direction SI / CODIR</h3>
+        <h3 data-fr="Direction SI / CODIR" data-en="IT executive / Board">Direction SI / CODIR</h3>
         <p>Visibilité conso conformité &amp; risques. <strong>30+ KPIs CODIR</strong> avec tendances et seuils d'alerte configurables.</p>
       </div>
     </div>
@@ -2912,33 +2930,33 @@
 <section id="fonctionnalites">
   <div class="container">
     <div class="section-header">
-      <div class="section-eyebrow">Capacités transverses</div>
-      <h2>L'approche par le risque, partout</h2>
-      <p>Mêmes données, même registre, même langage à chaque étape.</p>
+      <div class="section-eyebrow" data-fr="Capacités transverses" data-en="Cross-cutting capabilities">Capacités transverses</div>
+      <h2 data-fr="L'approche par le risque, partout" data-en="Risk-driven, everywhere">L'approche par le risque, partout</h2>
+      <p data-fr="Mêmes données, même registre, même langage à chaque étape." data-en="Same data, same register, same language at every step.">Mêmes données, même registre, même langage à chaque étape.</p>
     </div>
     <div class="features-grid">
       <div class="feature">
-        <h3>Boucle risque ↔ conformité</h3>
+        <h3 data-fr="Boucle risque ↔ conformité" data-en="Risk ↔ compliance loop">Boucle risque ↔ conformité</h3>
         <p>Chaque exigence rattachée à un risque réel. Chaque non-conformité d'audit alimente automatiquement le registre. <strong>3 états suivis</strong> : inhérent → ajusté → résiduel (ISO 27005).</p>
       </div>
       <div class="feature">
-        <h3>4 modes de saisie partout</h3>
+        <h3 data-fr="4 modes de saisie partout" data-en="4 input modes everywhere">4 modes de saisie partout</h3>
         <p><strong>Manuel · import fichier · IA génère · IA restructure</strong>, plus le mode <strong>catalogue</strong> là où c'est pertinent. Aucune option imposée, l'humain valide tout.</p>
       </div>
       <div class="feature">
-        <h3>Multi-tenant &amp; multi-filiales</h3>
+        <h3 data-fr="Multi-tenant &amp; multi-filiales" data-en="Multi-tenant &amp; multi-subsidiary">Multi-tenant &amp; multi-filiales</h3>
         <p>Isolation forte par <strong>Row-Level Security Postgres</strong>. Politiques groupe → filiales avec exports consolidés et annexes locales.</p>
       </div>
       <div class="feature">
-        <h3>L'IA propose, l'humain décide</h3>
+        <h3 data-fr="L'IA propose, l'humain décide" data-en="AI proposes, humans decide">L'IA propose, l'humain décide</h3>
         <p><strong>IA locale souveraine ou API externe</strong>, orchestration multi-fournisseurs avec repli automatique. Un moteur de règles déterministe propose le verdict GO / GOC / NO-GO. Le RSSI tranche.</p>
       </div>
       <div class="feature">
-        <h3>Sécurité by design</h3>
+        <h3 data-fr="Sécurité by design" data-en="Security by design">Sécurité by design</h3>
         <p><strong>AES-256-GCM</strong>, MFA TOTP + passkeys WebAuthn/FIDO2, HSTS, CSP stricte. Architecture conçue selon <strong>18 principes security by design</strong>. OWASP LLM Top 10 intégré.</p>
       </div>
       <div class="feature">
-        <h3>Audit logs ISO 27001 A.5.34</h3>
+        <h3 data-fr="Audit logs ISO 27001 A.5.34" data-en="Audit logs ISO 27001 A.5.34">Audit logs ISO 27001 A.5.34</h3>
         <p><strong>100% des actions tracées</strong> (timestamp, IP, user, action). Export syslog compatible SIEM, filtres avancés, rate-limiting anti-DoS. NIS 2 art. 21.2.h.</p>
       </div>
     </div>
@@ -2949,8 +2967,8 @@
 <section id="referentiels">
   <div class="container">
     <div class="section-header">
-      <div class="section-eyebrow">Conformité</div>
-      <h2>Réglementations, normes et grilles d'audit</h2>
+      <div class="section-eyebrow" data-fr="Conformité" data-en="Compliance">Conformité</div>
+      <h2 data-fr="Réglementations, normes et grilles d'audit" data-en="Regulations, standards and audit grids">Réglementations, normes et grilles d'audit</h2>
       <p>Basculez d'un référentiel à l'autre - ou appliquez-en plusieurs simultanément à un même projet. Filtre de pertinence contextuelle automatique (RGPD si données personnelles, HDS si Santé, OWASP LLM Top 10 si IA…). Chargement de vos référentiels internes pris en charge.</p>
     </div>
     <div class="ref-groups">
@@ -3031,7 +3049,7 @@
 <!-- CONTACT -->
 <section id="contact">
   <div class="container">
-    <h2>Prêt à structurer votre démarche SSI ?</h2>
+    <h2 data-fr="Prêt à structurer votre démarche SSI ?" data-en="Ready to structure your security program?">Prêt à structurer votre démarche SSI ?</h2>
     <p class="lead">Planifions une démonstration adaptée à votre contexte. 30 minutes pour voir la plateforme en action et répondre à vos questions.</p>
     <div class="contact-ctas">
       <a href="mailto:grc@cyberact.fr?subject=Demande%20de%20d%C3%A9mo%20CyberAct&body=Bonjour%2C%0A%0AJe%20souhaite%20planifier%20une%20d%C3%A9monstration.%0A%0AMon%20organisation%20%3A%20%0ANombre%20d%27utilisateurs%20estim%C3%A9%20%3A%20%0ACr%C3%A9neaux%20souhait%C3%A9s%20%3A%20%0A%0AMerci." class="btn btn-white">
@@ -3084,6 +3102,29 @@
 </footer>
 
 <script>
+// ===== Language toggle (FR <-> EN) =====
+function applyLang(lang) {
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-fr][data-en]').forEach(function(el){
+    el.textContent = el.getAttribute('data-' + lang);
+  });
+  document.querySelectorAll('[data-fr-html][data-en-html]').forEach(function(el){
+    el.innerHTML = el.getAttribute('data-' + lang + '-html');
+  });
+  var btn = document.querySelector('.lang-toggle');
+  if (btn) btn.textContent = lang === 'fr' ? 'EN' : 'FR';
+  try { localStorage.setItem('cyberact-lang', lang); } catch(e){}
+}
+function toggleLang() {
+  var current = document.documentElement.lang === 'en' ? 'en' : 'fr';
+  applyLang(current === 'en' ? 'fr' : 'en');
+}
+(function(){
+  var saved = null;
+  try { saved = localStorage.getItem('cyberact-lang'); } catch(e){}
+  if (saved === 'en') applyLang('en');
+})();
+
 (function(){
   document.querySelectorAll('.module-card').forEach(function(card){
     var btn = card.querySelector('.module-toggle');

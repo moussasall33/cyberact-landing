@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CyberAct - Plateforme GRC complète : 31 modules livrés, EBIOS RM pré-chargé, IA souveraine</title>
-<meta name="description" content="CyberAct : plateforme GRC modulaire pour RSSI et DPO. 31 modules livrés couvrant tout le cycle GRC : évaluation sécurité projets (wizard EBIOS RM 8 étapes), qualification fournisseurs (TPRM 5 phases), appels d'offres (RFP), audits de maturité (ISO 19011 4 phases), conformité documentaire, analyses de risques polymorphes, registre des risques (3 états : inhérent, ajusté, résiduel), ROPA, DPIA CNIL PIA-3, demandes CNIL, Trust Center, KPIs CODIR... 4 modes de saisie (manuel, import, IA génère, IA restructure). IA locale souveraine ou API externe au choix.">
+<meta name="description" content="CyberAct : plateforme GRC modulaire pour RSSI et DPO. 31 modules livrés couvrant tout le cycle GRC : évaluation sécurité projets (wizard EBIOS RM 8 étapes), qualification fournisseurs (TPRM 5 phases), appels d'offres (RFP), audits de maturité (ISO 19011 4 phases), conformité documentaire, analyses de risques polymorphes, registre des risques (3 états : inhérent, ajusté, résiduel), registre des traitements, DPIA CNIL PIA-3, demandes CNIL, Trust Center, KPIs CODIR... 4 modes de saisie (manuel, import, IA génère, IA restructure). IA locale souveraine ou API externe au choix.">
 <meta property="og:title" content="CyberAct - 31 modules GRC livrés, EBIOS RM pré-chargé, multi-tenant, IA souveraine">
-<meta property="og:description" content="Plateforme GRC modulaire pour RSSI, DPO et auditeurs. 31 modules livrés organisés en 5 hubs métier (Gouvernance, Risques, Conformité, Risque Tiers, Organisation). Wizard ISP 8 étapes (EBIOS RM), TPRM 5 phases, Audit ISO 19011 4 phases assistées IA, RFP campagne multi-fournisseurs, DPIA CNIL PIA-3, Roadmap polymorphe Gantt/Kanban/Liste, Compliance Center 3 onglets, Trust Center, KPIs CODIR. Multi-tenant RLS, MFA TOTP + WebAuthn passkeys, 18 principes security by design. IA locale souveraine ou API externe au choix.">
+<meta property="og:description" content="Plateforme GRC modulaire pour RSSI, DPO et auditeurs. 31 modules livrés organisés en 5 hubs métier (Gouvernance, Risques, Conformité, Risque Tiers, Organisation). Wizard ISP 8 étapes (EBIOS RM), TPRM 5 phases, Audit SSI 4 phases assistées IA, RFP campagne multi-fournisseurs, DPIA CNIL PIA-3, Roadmap polymorphe Gantt/Kanban/Liste, Compliance Center 3 onglets, Trust Center, KPIs CODIR. Multi-tenant RLS, MFA TOTP + WebAuthn passkeys, 18 principes security by design. IA locale souveraine ou API externe au choix.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cyberact.fr">
 <style>
@@ -1863,7 +1863,7 @@
     <div class="modules-extra-header">
       <div class="modules-extra-eyebrow">31 modules livrés · activables un par un</div>
       <div class="modules-extra-title">Cinq hubs métier, un seul registre des risques</div>
-      <p class="modules-extra-sub">Tous livrés et activables par tenant, organisés en cinq hubs métier (Gouvernance, Risques, Conformité, Risque Tiers, Organisation). Tous alimentent ou consomment le registre central des risques. Les workflows phares de chaque hub (ISP, TPRM, RFP, Audit ISO 19011, Compliance Center, Roadmap) sont détaillés plus bas.</p>
+      <p class="modules-extra-sub">Tous livrés et activables par tenant, organisés en cinq hubs métier (Gouvernance, Risques, Conformité, Risque Tiers, Organisation). Tous alimentent ou consomment le registre central des risques. Les workflows phares de chaque hub (ISP, TPRM, RFP, Audit SSI, Compliance Center, Roadmap) sont détaillés plus bas.</p>
     </div>
 
     <!-- HUB 1 : GOUVERNANCE -->
@@ -1997,7 +1997,7 @@
           <div class="modules-block-eyebrow">Hub Conformité</div>
           <div class="modules-block-title">Référentiels, RGPD, audits réglementaires</div>
         </div>
-        <div class="modules-block-sub">Le cycle de vérification réglementaire : centre de conformité multi-filiales, audits ISO 19011 assistés IA, référentiels normatifs, RGPD complet (ROPA, DPIA, demandes CNIL), veille</div>
+        <div class="modules-block-sub">Le cycle de vérification réglementaire : centre de conformité multi-filiales, audits ISO 19011 assistés IA, référentiels normatifs, RGPD complet (registre des traitements, DPIA, demandes CNIL), veille</div>
       </div>
       <div class="modules-block-grid">
         <div class="module-mini is-phare">
@@ -2010,7 +2010,7 @@
         <div class="module-mini is-phare">
           <div class="module-mini-icon">🔎</div>
           <div class="module-mini-body">
-            <div class="module-mini-name">Audit ISO 19011</div>
+            <div class="module-mini-name">Audit SSI</div>
             <div class="module-mini-desc">4 phases (cadrage, entretiens IA-assistés, évaluation CMMI 0-5, rapport) avec verdict Favorable / Réserves / Défavorable signé</div>
           </div>
         </div>
@@ -2031,7 +2031,7 @@
         <div class="module-mini">
           <div class="module-mini-icon">📇</div>
           <div class="module-mini-body">
-            <div class="module-mini-name">ROPA</div>
+            <div class="module-mini-name">Registre des traitements</div>
             <div class="module-mini-desc">Registre traitements RGPD art. 30 : finalités, base légale, durées, transferts UE, workflow DPO</div>
           </div>
         </div>
@@ -2053,7 +2053,7 @@
           <div class="module-mini-icon">🌍</div>
           <div class="module-mini-body">
             <div class="module-mini-name">Cartographie des données</div>
-            <div class="module-mini-desc">Data mapping RGPD/HDS, flux PII, transferts hors UE, lien automatique avec ROPA</div>
+            <div class="module-mini-desc">Data mapping RGPD/HDS, flux PII, transferts hors UE, lien automatique avec le registre des traitements</div>
           </div>
         </div>
         <div class="module-mini">
@@ -2182,7 +2182,7 @@
       <div class="feature">
         <div class="feature-icon">🛡️</div>
         <h3>DPIA - CNIL PIA-3</h3>
-        <p>Import du traitement depuis ROPA (pré-remplissage : finalité, DCP, destinataires, transferts UE) → <strong>Questionnaire PIA-3</strong> (~80 questions) → <strong>Mesures référencées CNIL §X</strong> (S1 pseudonymisation, S2 authentification forte, S4 chiffrement AES-256, S6 droit d'audit...) → <strong>Avis DPO</strong> (APPROUVÉE, APPROUVÉE AVEC MESURES, REJETÉE). Export PDF conforme CNIL, archivable pour audit.</p>
+        <p>Import depuis le registre des traitements (pré-remplissage : finalité, DCP, destinataires, transferts UE) → <strong>Questionnaire PIA-3</strong> (~80 questions) → <strong>Mesures référencées CNIL §X</strong> (S1 pseudonymisation, S2 authentification forte, S4 chiffrement AES-256, S6 droit d'audit...) → <strong>Avis DPO</strong> (APPROUVÉE, APPROUVÉE AVEC MESURES, REJETÉE). Export PDF conforme CNIL, archivable pour audit.</p>
       </div>
       <div class="feature">
         <div class="feature-icon">🗺️</div>
@@ -2226,12 +2226,12 @@
       <div class="persona">
         <div class="persona-icon">⚖️</div>
         <h3>DPO</h3>
-        <p>Hand-off automatique depuis ISP/TPRM si données personnelles. Registre des traitements (ROPA art. 30 RGPD), DPIA méthodologie CNIL PIA-3 avec mesures référencées §X, demandes CNIL (accès, rectification, effacement, portabilité) avec SLA 30j/90j, contrats &amp; DPA, cartographie des données et transferts UE. Alignement EU AI Act.</p>
+        <p>Hand-off automatique depuis ISP/TPRM si données personnelles. Registre des traitements (art. 30 RGPD), DPIA méthodologie CNIL PIA-3 avec mesures référencées §X, demandes CNIL (accès, rectification, effacement, portabilité) avec SLA 30j/90j, contrats &amp; DPA, cartographie des données et transferts UE. Alignement EU AI Act.</p>
       </div>
       <div class="persona">
         <div class="persona-icon">🔎</div>
         <h3>Auditeur interne</h3>
-        <p>Audit ISO 19011 outillé : cadrage, entretiens guidés assistés IA, notation CMMI 0-5, constats Critique/Majeure/Mineure, rapport pré-rempli modifiable. <strong>Plan d'audit annuel</strong> avec planning multi-auditeurs et <strong>self-assessment</strong> rapide pour les filiales.</p>
+        <p>Audit SSI outillé : cadrage, entretiens guidés assistés IA, notation CMMI 0-5, constats Critique/Majeure/Mineure, rapport pré-rempli modifiable. <strong>Plan d'audit annuel</strong> avec planning multi-auditeurs et <strong>self-assessment</strong> rapide pour les filiales.</p>
       </div>
       <div class="persona">
         <div class="persona-icon">📋</div>

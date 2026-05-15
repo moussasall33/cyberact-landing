@@ -3078,10 +3078,15 @@
 window.applyLang = function (lang) {
   try {
     document.documentElement.lang = lang;
-    var n1 = 0, n2 = 0;
+    var n1 = 0, n2 = 0, samples = [];
     document.querySelectorAll('[data-fr][data-en]').forEach(function (el) {
       var v = el.getAttribute('data-' + lang);
-      if (v !== null) { el.textContent = v; n1++; }
+      var before = el.textContent;
+      if (v !== null && v !== before) {
+        el.textContent = v;
+        n1++;
+        if (samples.length < 5) samples.push('"' + before.substring(0, 30) + '" -> "' + v.substring(0, 30) + '"');
+      }
     });
     document.querySelectorAll('[data-fr-html][data-en-html]').forEach(function (el) {
       var v = el.getAttribute('data-' + lang + '-html');
@@ -3091,6 +3096,7 @@ window.applyLang = function (lang) {
     if (btn) btn.textContent = lang === 'fr' ? 'EN' : 'FR';
     try { localStorage.setItem('cyberact-lang', lang); } catch (e) {}
     console.log('[CYBERACT] Lang switched to', lang, '- text=' + n1 + ' html=' + n2);
+    samples.forEach(function (s) { console.log('  ' + s); });
   } catch (err) {
     console.error('[CYBERACT] applyLang error', err);
   }

@@ -3031,6 +3031,63 @@
 </div>
 </div>
 </footer>
+<script>
+}
+  var saved = null;
+  try { saved = localStorage.getItem('cyberact-lang'); } catch (e) {}
+  if (saved === 'en') window.applyLang('en');
+});
 
+(function(){
+  document.querySelectorAll('.module-card').forEach(function(card){
+    var btn = card.querySelector('.module-toggle');
+    if(!btn) return;
+    var labelClosed = 'Voir les capacités';
+    var labelOpen = 'Réduire';
+    var chev = '<span class="chev">▾</span>';
+    function setBtn(){
+      var open = card.classList.contains('expanded');
+      btn.innerHTML = (open ? labelOpen : labelClosed) + ' ' + chev;
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      card.classList.toggle('expanded');
+      setBtn();
+    });
+  });
+})();
+
+// Animation mock hero : compteur risques + barres - declenche au load
+(function(){
+  function init(){
+    var mock = document.querySelector('.mock');
+    if(!mock) return;
+    function animateCounter(){
+      var el = mock.querySelector('[data-count-to]');
+      if(!el) return;
+      var target = parseInt(el.getAttribute('data-count-to'), 10) || 0;
+      var duration = 1200; // ms
+      var start = performance.now();
+      function step(now){
+        var t = Math.min((now - start) / duration, 1);
+        var eased = 1 - Math.pow(1 - t, 3);
+        el.textContent = Math.round(target * eased);
+        if(t < 1) requestAnimationFrame(step);
+        else el.textContent = target;
+      }
+      requestAnimationFrame(step);
+    }
+    // Trigger immediately + a tiny delay for paint
+    mock.classList.add('in-view');
+    setTimeout(animateCounter, 200);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
 </body>
 </html>

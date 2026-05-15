@@ -1669,31 +1669,62 @@
 
   .ref-groups {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+  }
+  .ref-group {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 14px;
+    padding: 24px 22px;
+    transition: border-color 0.25s, background 0.25s;
+  }
+  .ref-group:hover {
+    border-color: rgba(77, 208, 225, 0.4);
+    background: rgba(255, 255, 255, 0.06);
   }
   .ref-group h4 {
-    font-size: 13px;
+    font-size: 12px;
     color: #4dd0e1;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     margin-bottom: 16px;
     font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .ref-group h4::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #4dd0e1;
+    display: inline-block;
   }
   .ref-badges {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 7px;
   }
   .ref-badge {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     color: white;
-    padding: 8px 14px;
-    border-radius: 20px;
-    font-size: 14px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 12.5px;
     font-weight: 500;
     transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .ref-badge::before {
+    content: '✓';
+    font-size: 9px;
+    color: #4dd0e1;
+    font-weight: 700;
   }
   .ref-badge:hover {
     background: rgba(15, 123, 140, 0.3);
@@ -3054,27 +3085,27 @@
       <div class="timeline">
         <div class="timeline-step">
           <div class="timeline-when">Lundi 9h<br><span style="opacity:.7;font-weight:500;font-size:12px">Lancement</span></div>
-          <div class="timeline-what">Mehdi se connecte à CyberAct, choisit le module <strong>TPRM</strong>, crée le projet « Signature électronique - Éditeur X ». Il importe le contrat brouillon (.docx) : CyberAct détecte éditeur, scope, données concernées (signataires = données personnelles) et pays d'hébergement (Irlande). Mehdi relit, corrige, valide.</div>
+          <div class="timeline-what">Mehdi ouvre le module <strong>TPRM</strong> et importe le contrat brouillon. CYBERACT détecte éditeur, scope, données personnelles et hébergement Irlande. Mehdi relit, valide.</div>
         </div>
         <div class="timeline-step">
           <div class="timeline-when">Lundi 10h<br><span style="opacity:.7;font-weight:500;font-size:12px">Hand-off DPO</span></div>
-          <div class="timeline-what">Comme l'éditeur traite des données personnelles avec un transfert intra-UE, CyberAct affiche un encart : <em>« Données personnelles détectées. Envoyer un compte-rendu au DPO ? »</em>. Mehdi clique : un mail structuré part au DPO avec contexte, types de données, base légale présumée, recommandation AIPD.</div>
+          <div class="timeline-what">Données personnelles détectées : un mail structuré part au DPO (contexte, base légale, recommandation AIPD).</div>
         </div>
         <div class="timeline-step">
           <div class="timeline-when">Lundi 14h<br><span style="opacity:.7;font-weight:500;font-size:12px">Questionnaire</span></div>
-          <div class="timeline-what">Mehdi sélectionne le catalogue <strong>ISO 27001:2022 + RGPD</strong> (filtre auto par contexte). CyberAct lui propose 67 exigences pertinentes. Il en retire 12 non applicables, en ajoute 3 spécifiques au métier bancaire. Il envoie le questionnaire au fournisseur via lien sécurisé.</div>
+          <div class="timeline-what">Catalogue <strong>ISO 27001 + RGPD</strong> proposé. 67 exigences pertinentes, Mehdi en retire 12 et ajoute 3 spécifiques métier bancaire. Envoi au fournisseur.</div>
         </div>
         <div class="timeline-step">
           <div class="timeline-when">Mardi<br><span style="opacity:.7;font-weight:500;font-size:12px">Réception</span></div>
-          <div class="timeline-what">Le fournisseur répond avec preuves : extraits de politique, rapport SOC 2, certificats ISO.</div>
+          <div class="timeline-what">Réponses avec preuves : politique, rapport SOC 2, certificats ISO.</div>
         </div>
         <div class="timeline-step">
           <div class="timeline-when">Mercredi<br><span style="opacity:.7;font-weight:500;font-size:12px">Analyse</span></div>
-          <div class="timeline-what">CyberAct score automatiquement chaque réponse en aide à la décision, signale 4 incohérences (ex. : le fournisseur déclare « MFA généralisée » mais le SOC 2 montre une exception sur les comptes admin de niveau 2). Mehdi peut <strong>modifier le score en justifiant</strong>. Il marque 2 incohérences comme bloquantes.</div>
+          <div class="timeline-what">Scoring automatique en aide à la décision. <strong>4 incohérences flaguées</strong> (ex. MFA généralisée déclarée mais exception SOC 2). Mehdi modifie 2 scores avec justification et marque les incohérences bloquantes.</div>
         </div>
         <div class="timeline-step">
           <div class="timeline-when">Jeudi<br><span style="opacity:.7;font-weight:500;font-size:12px">Verdict</span></div>
-          <div class="timeline-what">Score global <strong>78/100</strong>. Risque résiduel « modéré ». Mehdi valide avec deux conditions contractuelles : engagement de notification d'incident sous 24h (au lieu de 72h proposé), et audit annuel autorisé. Il exporte un rapport Word de 12 pages signé horodaté, le transmet au juridique.</div>
+          <div class="timeline-what">Score <strong>78/100</strong>, risque résiduel « modéré ». Validation conditionnelle : notification incident 24h + audit annuel. Rapport Word 12 pages exporté, signé, transmis.</div>
         </div>
       </div>
 

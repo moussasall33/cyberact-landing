@@ -1022,46 +1022,57 @@
     margin: 0 auto;
   }
   .modules-block {
-    background: white;
+    background: linear-gradient(180deg, #fff 0%, var(--bg) 100%);
     border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 22px 24px 24px;
-    margin-bottom: 16px;
-    box-shadow: var(--shadow-sm);
-    transition: box-shadow 0.2s, border-color 0.2s;
+    border-radius: 18px;
+    padding: 28px 30px 30px;
+    margin-bottom: 22px;
+    box-shadow: 0 4px 14px rgba(15, 31, 75, 0.04);
+    transition: box-shadow 0.25s, border-color 0.25s, transform 0.25s;
   }
   .modules-block:hover {
     border-color: var(--ice);
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 10px 32px rgba(15, 31, 75, 0.08);
+    transform: translateY(-2px);
   }
   .modules-block-head {
     display: flex;
     align-items: baseline;
     gap: 14px;
     flex-wrap: wrap;
-    margin-bottom: 16px;
-    padding-bottom: 14px;
+    margin-bottom: 22px;
+    padding-bottom: 18px;
     border-bottom: 1px solid var(--border);
   }
   .modules-block-eyebrow {
-    color: var(--teal);
-    font-size: 11px;
+    display: inline-block;
+    color: var(--white);
+    background: var(--navy);
+    font-size: 10px;
     font-weight: 800;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     line-height: 1.2;
+    padding: 4px 10px;
+    border-radius: 999px;
   }
   .modules-block-title {
-    font-size: 18px;
+    font-size: 20px;
     color: var(--navy);
     font-weight: 800;
-    letter-spacing: -0.2px;
+    letter-spacing: -0.3px;
     line-height: 1.25;
   }
   .modules-block-sub {
     font-size: 13.5px;
     color: var(--gray-600);
     margin-left: auto;
+    max-width: 480px;
+    text-align: right;
+    line-height: 1.5;
+  }
+  @media (max-width: 900px) {
+    .modules-block-sub { text-align: left; }
   }
   .modules-block-grid {
     display: grid;
@@ -1078,22 +1089,32 @@
   .module-mini {
     background: white;
     border: 1px solid var(--gray-200);
-    border-radius: 10px;
-    padding: 14px 16px;
+    border-radius: 12px;
+    padding: 16px 18px;
     transition: all 0.2s;
     display: flex;
     align-items: flex-start;
-    gap: 11px;
+    gap: 13px;
   }
   .module-mini:hover {
     border-color: var(--teal);
     transform: translateY(-2px);
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 6px 18px rgba(15, 31, 75, 0.08);
   }
   .module-mini-icon {
-    font-size: 20px;
+    width: 36px;
+    height: 36px;
+    background: var(--ice);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
     flex-shrink: 0;
-    line-height: 1.2;
+    line-height: 1;
+  }
+  .module-mini.is-phare .module-mini-icon {
+    background: var(--navy);
   }
   .module-mini-body {
     flex: 1;

@@ -3029,11 +3029,8 @@
 </div>
 </footer>
 <script>
-}
-  var saved = null;
-  try { saved = localStorage.getItem('cyberact-lang'); } catch (e) {}
-  if (saved === 'en') window.applyLang('en');
-});
+// Clear any legacy language preference from previous JS-toggle mechanism
+try { localStorage.removeItem('cyberact-lang'); } catch (e) {}
 
 (function(){
   document.querySelectorAll('.module-card').forEach(function(card){

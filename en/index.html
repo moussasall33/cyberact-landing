@@ -134,23 +134,6 @@
     box-shadow: 0 4px 12px rgba(0, 184, 107, 0.25);
     transition: all 0.15s;
   }
-  .lang-toggle {
-    background: transparent;
-    border: 1px solid var(--gray-300, #d1d5db);
-    color: var(--navy);
-    padding: 7px 12px;
-    border-radius: 8px;
-    font-weight: 700;
-    font-size: 12px;
-    letter-spacing: 0.5px;
-    cursor: pointer;
-    transition: all 0.15s;
-  }
-  .lang-toggle:hover {
-    background: var(--navy);
-    color: white;
-    border-color: var(--navy);
-  }
   .nav-cta:hover {
     background: var(--accent-deep) !important;
     transform: translateY(-1px);
@@ -426,8 +409,11 @@
     height: 100%;
     background: var(--accent);
     border-radius: 999px;
-    width: var(--target, 0%);
+    width: 0;
     transition: width 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .mock.in-view .mock-pill-bar i {
+    width: var(--target, 0%);
   }
   /* Spark line décorative dans le bloc score */
   .mock-spark {
@@ -1036,57 +1022,46 @@
     margin: 0 auto;
   }
   .modules-block {
-    background: linear-gradient(180deg, #fff 0%, var(--bg) 100%);
+    background: white;
     border: 1px solid var(--border);
-    border-radius: 18px;
-    padding: 28px 30px 30px;
-    margin-bottom: 22px;
-    box-shadow: 0 4px 14px rgba(15, 31, 75, 0.04);
-    transition: box-shadow 0.25s, border-color 0.25s, transform 0.25s;
+    border-radius: 14px;
+    padding: 22px 24px 24px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s, border-color 0.2s;
   }
   .modules-block:hover {
     border-color: var(--ice);
-    box-shadow: 0 10px 32px rgba(15, 31, 75, 0.08);
-    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
   }
   .modules-block-head {
     display: flex;
     align-items: baseline;
     gap: 14px;
     flex-wrap: wrap;
-    margin-bottom: 22px;
-    padding-bottom: 18px;
+    margin-bottom: 16px;
+    padding-bottom: 14px;
     border-bottom: 1px solid var(--border);
   }
   .modules-block-eyebrow {
-    display: inline-block;
-    color: var(--white);
-    background: var(--navy);
-    font-size: 10px;
+    color: var(--teal);
+    font-size: 11px;
     font-weight: 800;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     line-height: 1.2;
-    padding: 4px 10px;
-    border-radius: 999px;
   }
   .modules-block-title {
-    font-size: 20px;
+    font-size: 18px;
     color: var(--navy);
     font-weight: 800;
-    letter-spacing: -0.3px;
+    letter-spacing: -0.2px;
     line-height: 1.25;
   }
   .modules-block-sub {
     font-size: 13.5px;
     color: var(--gray-600);
     margin-left: auto;
-    max-width: 480px;
-    text-align: right;
-    line-height: 1.5;
-  }
-  @media (max-width: 900px) {
-    .modules-block-sub { text-align: left; }
   }
   .modules-block-grid {
     display: grid;
@@ -1103,32 +1078,22 @@
   .module-mini {
     background: white;
     border: 1px solid var(--gray-200);
-    border-radius: 12px;
-    padding: 16px 18px;
+    border-radius: 10px;
+    padding: 14px 16px;
     transition: all 0.2s;
     display: flex;
     align-items: flex-start;
-    gap: 13px;
+    gap: 11px;
   }
   .module-mini:hover {
     border-color: var(--teal);
     transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(15, 31, 75, 0.08);
+    box-shadow: var(--shadow-sm);
   }
   .module-mini-icon {
-    width: 36px;
-    height: 36px;
-    background: var(--ice);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
+    font-size: 20px;
     flex-shrink: 0;
-    line-height: 1;
-  }
-  .module-mini.is-phare .module-mini-icon {
-    background: var(--navy);
+    line-height: 1.2;
   }
   .module-mini-body {
     flex: 1;
@@ -1146,28 +1111,6 @@
     font-size: 12.5px;
     color: var(--gray-600);
     line-height: 1.4;
-  }
-  .module-mini.is-phare {
-    border-color: var(--navy);
-    background: linear-gradient(135deg, #ffffff 0%, var(--ice) 100%);
-    position: relative;
-  }
-  .module-mini.is-phare::before {
-    content: 'Workflow phare';
-    position: absolute;
-    top: -9px;
-    left: 12px;
-    background: var(--navy);
-    color: #fff;
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    padding: 2px 7px;
-    border-radius: 4px;
-    text-transform: uppercase;
-  }
-  .module-mini.is-phare .module-mini-name {
-    color: var(--navy);
   }
 
   /* ===== VISION PLATEFORME ===== */
@@ -1309,327 +1252,6 @@
   }
   .vision-note strong { color: var(--navy); }
 
-  /* ===== WORKFLOWS PHARES (cartes visuelles) ===== */
-  .workflow-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 24px;
-  }
-  .workflow-card {
-    background: linear-gradient(135deg, #fff 0%, var(--ice) 100%);
-    border: 1px solid var(--gray-200);
-    border-radius: 16px;
-    padding: 28px;
-    transition: all 0.25s;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-  }
-  .workflow-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 28px rgba(15, 31, 75, 0.10);
-    border-color: var(--navy);
-  }
-  .workflow-card-head {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-  .workflow-icon {
-    width: 48px;
-    height: 48px;
-    background: var(--navy);
-    color: #fff;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-    flex-shrink: 0;
-  }
-  .workflow-title {
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--navy);
-    line-height: 1.25;
-  }
-  .workflow-subtitle {
-    font-size: 12.5px;
-    color: var(--gray-600);
-    margin-top: 2px;
-  }
-  .workflow-tagline {
-    font-size: 14px;
-    color: var(--navy-dark);
-    line-height: 1.5;
-    font-weight: 500;
-  }
-  .workflow-steps {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 12px 0;
-    overflow-x: auto;
-  }
-  .workflow-step {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-    flex-shrink: 0;
-  }
-  .workflow-step-dot {
-    width: 11px;
-    height: 11px;
-    border-radius: 50%;
-    background: var(--navy);
-    border: 2px solid #fff;
-    box-shadow: 0 0 0 1px var(--navy);
-  }
-  .workflow-step-label {
-    font-size: 10px;
-    color: var(--navy);
-    font-weight: 600;
-    letter-spacing: 0.3px;
-    white-space: nowrap;
-  }
-  .workflow-step-line {
-    flex: 1;
-    height: 2px;
-    background: var(--navy);
-    opacity: 0.3;
-    min-width: 8px;
-    margin-bottom: 18px;
-  }
-  .workflow-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-  .workflow-tag {
-    font-size: 11px;
-    padding: 4px 10px;
-    background: var(--white);
-    border: 1px solid var(--gray-200);
-    border-radius: 12px;
-    color: var(--navy);
-    font-weight: 500;
-  }
-  .workflow-result {
-    font-size: 12.5px;
-    color: var(--accent-deep);
-    font-weight: 600;
-    margin-top: auto;
-    padding-top: 8px;
-    border-top: 1px dashed var(--gray-200);
-  }
-
-  /* ===== APERCU PRODUIT (mockups visuels) ===== */
-  #apercu {
-    background: linear-gradient(180deg, var(--bg) 0%, #fff 100%);
-  }
-  .apercu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-    gap: 28px;
-    margin-top: 12px;
-  }
-  .apercu-card {
-    background: white;
-    border: 1px solid var(--gray-200);
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 4px 14px rgba(15, 31, 75, 0.05);
-    transition: all 0.25s;
-  }
-  .apercu-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 14px 32px rgba(15, 31, 75, 0.10);
-  }
-  .apercu-chrome {
-    background: var(--navy);
-    color: #fff;
-    padding: 10px 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 12px;
-    font-weight: 500;
-  }
-  .apercu-chrome-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.25);
-  }
-  .apercu-chrome-dot:first-child { background: #ff6058; }
-  .apercu-chrome-dot:nth-child(2) { background: #ffbd2e; }
-  .apercu-chrome-dot:nth-child(3) { background: #28ca42; }
-  .apercu-chrome-url {
-    margin-left: 14px;
-    font-family: 'SF Mono', Consolas, Monaco, monospace;
-    color: rgba(255,255,255,0.7);
-    font-size: 11px;
-  }
-  .apercu-body {
-    padding: 24px 24px 26px;
-  }
-  .apercu-title {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--navy);
-    margin-bottom: 4px;
-  }
-  .apercu-subtitle {
-    font-size: 11.5px;
-    color: var(--gray-600);
-    margin-bottom: 18px;
-  }
-  .apercu-caption {
-    margin-top: 16px;
-    padding-top: 14px;
-    border-top: 1px solid var(--gray-200);
-    font-size: 12.5px;
-    color: var(--gray-700);
-    line-height: 1.5;
-  }
-  .apercu-caption strong { color: var(--navy); }
-
-  /* ----- Heatmap risques 5x5 ----- */
-  .mock-heatmap {
-    display: grid;
-    grid-template-columns: 22px repeat(5, 1fr);
-    grid-template-rows: repeat(5, 38px) 22px;
-    gap: 4px;
-    font-size: 9px;
-    color: var(--gray-600);
-    font-weight: 600;
-  }
-  .mock-heatmap-y {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: rotate(-90deg);
-    white-space: nowrap;
-    letter-spacing: 0.5px;
-  }
-  .mock-heatmap-x {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    letter-spacing: 0.5px;
-  }
-  .mock-heatmap-cell {
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 10px;
-    font-weight: 700;
-    color: var(--navy);
-    position: relative;
-  }
-  .mock-heatmap-cell.lvl-1 { background: #e7f7ed; }
-  .mock-heatmap-cell.lvl-2 { background: #d2efd9; }
-  .mock-heatmap-cell.lvl-3 { background: #fff4cc; }
-  .mock-heatmap-cell.lvl-4 { background: #ffd9b3; color: #884a00; }
-  .mock-heatmap-cell.lvl-5 { background: #ffc1c1; color: #8a1c1c; }
-  .mock-heatmap-cell strong { font-weight: 800; }
-
-  .mock-legend {
-    display: flex;
-    gap: 14px;
-    flex-wrap: wrap;
-    margin-top: 14px;
-    font-size: 10.5px;
-    color: var(--gray-600);
-  }
-  .mock-legend-item {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-  .mock-legend-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 3px;
-  }
-
-  /* ----- Gantt Roadmap ----- */
-  .mock-gantt-tabs {
-    display: flex;
-    gap: 4px;
-    margin-bottom: 14px;
-  }
-  .mock-gantt-tab {
-    font-size: 10.5px;
-    padding: 5px 11px;
-    border-radius: 6px;
-    background: var(--gray-100);
-    color: var(--gray-700);
-    font-weight: 600;
-  }
-  .mock-gantt-tab.active {
-    background: var(--navy);
-    color: white;
-  }
-  .mock-gantt-months {
-    display: grid;
-    grid-template-columns: 90px repeat(6, 1fr);
-    gap: 0;
-    border-bottom: 1px solid var(--gray-200);
-    padding-bottom: 6px;
-    margin-bottom: 8px;
-    font-size: 9.5px;
-    color: var(--gray-600);
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.3px;
-  }
-  .mock-gantt-months > div { text-align: center; }
-  .mock-gantt-months > div:first-child { text-align: left; }
-  .mock-gantt-row {
-    display: grid;
-    grid-template-columns: 90px 1fr;
-    align-items: center;
-    gap: 0;
-    padding: 5px 0;
-    border-bottom: 1px dotted var(--gray-100);
-  }
-  .mock-gantt-label {
-    font-size: 11px;
-    color: var(--navy);
-    font-weight: 600;
-    padding-right: 8px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .mock-gantt-track {
-    position: relative;
-    height: 18px;
-    background: var(--gray-100);
-    border-radius: 4px;
-  }
-  .mock-gantt-bar {
-    position: absolute;
-    top: 2px;
-    height: 14px;
-    border-radius: 3px;
-    font-size: 9px;
-    color: white;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    padding: 0 6px;
-    letter-spacing: 0.2px;
-  }
-  .mock-gantt-bar.b-navy { background: var(--navy); }
-  .mock-gantt-bar.b-teal { background: var(--teal); }
-  .mock-gantt-bar.b-steel { background: var(--steel); }
-  .mock-gantt-bar.b-done { background: var(--accent); }
-  .mock-gantt-bar.b-warn { background: #c87f00; }
-
   /* ===== FONCTIONNALITÉS ===== */
   .features-grid {
     display: grid;
@@ -1683,62 +1305,31 @@
 
   .ref-groups {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 24px;
-  }
-  .ref-group {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    border-radius: 14px;
-    padding: 24px 22px;
-    transition: border-color 0.25s, background 0.25s;
-  }
-  .ref-group:hover {
-    border-color: rgba(77, 208, 225, 0.4);
-    background: rgba(255, 255, 255, 0.06);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
   }
   .ref-group h4 {
-    font-size: 12px;
+    font-size: 13px;
     color: #4dd0e1;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     margin-bottom: 16px;
     font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .ref-group h4::before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #4dd0e1;
-    display: inline-block;
   }
   .ref-badges {
     display: flex;
     flex-wrap: wrap;
-    gap: 7px;
+    gap: 8px;
   }
   .ref-badge {
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     color: white;
-    padding: 6px 12px;
-    border-radius: 999px;
-    font-size: 12.5px;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 14px;
     font-weight: 500;
     transition: all 0.2s;
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-  }
-  .ref-badge::before {
-    content: '✓';
-    font-size: 9px;
-    color: #4dd0e1;
-    font-weight: 700;
   }
   .ref-badge:hover {
     background: rgba(15, 123, 140, 0.3);
@@ -2080,11 +1671,11 @@
 </a>
 <ul class="nav-links" id="nav-links">
 <li><a href="#modules">Modules</a></li>
-<li><a href="#workflows">Workflows</a></li>
-<li><a href="#pourqui">Who for</a></li>
-<li><a href="#fonctionnalites">Features</a></li>
-<li><a href="#referentiels">Frameworks</a></li>
-<li><a aria-label="Switch to French" class="lang-toggle" href="/" id="lang-toggle-btn" title="Switch to French">FR</a></li>
+<li><a href="#vision">Roadmap</a></li>
+<li><a href="#pourqui">Pour qui</a></li>
+<li><a href="#fonctionnalites">Fonctionnalités</a></li>
+<li><a href="#referentiels">Référentiels</a></li>
+<li><a href="#scenarios">Scénarios</a></li>
 <li><a class="nav-cta" href="#contact">Request a demo</a></li>
 </ul>
 <button aria-label="Menu" class="mobile-toggle" onclick="document.getElementById('nav-links').classList.toggle('open')">☰</button>
@@ -2096,17 +1687,21 @@
 <div class="container">
 <div class="hero-grid">
 <div>
-<h1><p>SSI Governance, <span class="accent">driven by risk.</span></p></h1>
+<div class="hero-eyebrow">
+<span class="hero-eyebrow-pulse"></span>
+<span>Approche par le risque · 30 modules livrés</span>
+</div>
+<h1>La conformité, <span class="accent">pilotée par le risque.</span></h1>
 <p class="lead">
-<span><p>Every requirement is mapped to a <strong>real risk in your organization</strong>. Three risk states tracked: <strong>inherent → adjusted → residual</strong>. EBIOS RM pre-loaded. <strong>4 business hubs</strong>, activate at your own pace. <strong>Sovereign on-prem AI or your choice of external API</strong> - you validate everything.</p></span>
+          Une plateforme GRC où <strong>chaque exigence est rattachée à un risque réel chez vous</strong>. Trois états de risque suivis (inhérent, ajusté, résiduel), méthodologie EBIOS RM, et chaque non-conformité d'audit alimente automatiquement le registre. 30 modules activables un par un, selon votre maturité et vos priorités. <strong>IA locale 100% souveraine ou API externe au choix.</strong>
 </p>
 <div class="hero-ctas">
 <a class="btn btn-primary btn-lg" href="mailto:grc@cyberact.fr?subject=Demo%20request%20CyberAct&amp;body=Bonjour%2C%0A%0AJe%20souhaite%20planifier%20une%20d%C3%A9monstration.%0A%0AMon%20organisation%20%3A%20%0ANombre%20d%27utilisateurs%20estim%C3%A9%20%3A%20%0ACr%C3%A9neaux%20souhait%C3%A9s%20%3A%20%0A%0AMerci.">
-<span>Request a demo →</span>
-</a>
+            Demander une démo →
+          </a>
 <a class="btn btn-ghost btn-lg" href="#modules">
-<span>See modules</span>
-</a>
+            Voir les modules
+          </a>
 </div>
 </div>
 <div class="hero-visual">
@@ -2120,7 +1715,7 @@
 <div class="mock-body">
 <div class="mock-hero">
 <div class="mock-caps">Active residual risks</div>
-<div class="mock-score" data-count-to="24">24</div>
+<div class="mock-score" data-count-to="24">0</div>
 <div class="mock-trend">3 critical · 12 moderate · 9 minor</div>
 <svg aria-hidden="true" class="mock-spark" preserveaspectratio="none" viewbox="0 0 200 40">
 <polyline points="0,32 20,28 40,30 60,22 80,24 100,18 120,20 140,12 160,14 180,8 200,6"></polyline>
@@ -2138,69 +1733,244 @@
 </div>
 </div>
 </section>
+<!-- STATS BAND -->
+<aside aria-label="Chiffres clés" class="stat-band">
+<div class="stat-band-grid">
+<div class="stat-band-item">
+<div class="stat-band-num">30<small>modules</small></div>
+<div class="stat-band-label">Livrés à ce jour</div>
+<div class="stat-band-hint">Activables un par un, par tenant</div>
+</div>
+<div class="stat-band-item">
+<div class="stat-band-num"><span class="accent">3</span><small>states</small></div>
+<div class="stat-band-label">de risque suivis</div>
+<div class="stat-band-hint">Inhérent · ajusté · résiduel</div>
+</div>
+<div class="stat-band-item">
+<div class="stat-band-num">100<small>%</small></div>
+<div class="stat-band-label">Souverain</div>
+<div class="stat-band-hint">IA locale ou API externe au choix</div>
+</div>
+<div class="stat-band-item">
+<div class="stat-band-num">EBIOS<small>RM</small></div>
+<div class="stat-band-label">Méthodologie ANSSI</div>
+<div class="stat-band-hint">+ ISO 27005 · NIS 2 · DORA · RGPD</div>
+</div>
+</div>
+</aside>
 <!-- MODULES (hero produit) -->
 <section id="modules">
 <div class="container">
 <div class="section-header">
-<div class="section-eyebrow">31 modules · risk-driven · 4 business hubs</div>
-<h2>A central risk register. 4 business hubs around it.</h2>
-</div>
-<!-- Encart à la carte (proche H2 - reprise du bloc d'origine) -->
-<div class="modules-alacarte">
-<div class="modules-alacarte-icon">🎛️</div>
-<div class="modules-alacarte-text">
-<div class="modules-alacarte-title">Activate modules to match your needs.</div>
-<div class="modules-alacarte-sub"><p>Start with <strong>1 or 2 modules</strong> based on your current priority - NIS 2 compliance, audit, tender, GDPR rollout - then <strong>activate the others as you go</strong>. Each module configures independently and feeds the central risk register. Activation per tenant, at your own pace.</p></div>
-</div>
+<div class="section-eyebrow">30 modules livrés · pilotés par le risque</div>
+<h2>Un registre des risques au centre. Six piliers métier autour.</h2>
+<p>Le <strong>registre central des risques</strong> est le cœur de la plateforme : tous les modules y convergent. Chaque exigence applicable est rattachée à un risque, chaque non-conformité d'audit alimente le registre, chaque action de traitement recalcule les risques résiduels. Six piliers métier orchestrent ce flux, vingt-trois modules complémentaires l'enrichissent. <strong>Activez ce dont vous avez besoin</strong>, ajoutez le reste plus tard - votre maturité, vos priorités, votre rythme.</p>
 </div>
 <!-- SOCLE: Central risk register (platform core) -->
 <div class="modules-socle">
 <div class="modules-socle-body">
-<div class="modules-socle-eyebrow">Platform core</div>
-<h3>Central risk register</h3>
-<p class="modules-socle-pitch"><p>A unified register consolidates risks from every module. <strong>Three risk states are tracked</strong> at each step: from inherent risk to residual risk, via adjusted risk after existing controls. The G×V heatmap updates in real time.</p></p>
+<div class="modules-socle-eyebrow">Le cœur de la plateforme</div>
+<h3>Registre central des risques</h3>
+<p class="modules-socle-pitch">
+          Un registre unique consolide les risques issus de tous les modules. <strong>Trois états de risque sont suivis</strong> à chaque étape : du risque inhérent au risque résiduel, en passant par le risque ajusté après mesures existantes. La heatmap G×V s'actualise en temps réel.
+        </p>
 <div class="modules-socle-states">
 <div class="modules-socle-state">
-<div class="modules-socle-state-num">State 1</div>
-<div class="modules-socle-state-label">Inherent risk</div>
-<div class="modules-socle-state-desc">Before any control, based on EBIOS RM scenarios.</div>
+<div class="modules-socle-state-num">État 1</div>
+<div class="modules-socle-state-label">Risque inhérent</div>
+<div class="modules-socle-state-desc">Avant toute mesure, sur la base des scénarios EBIOS RM.</div>
 </div>
 <div class="modules-socle-state">
-<div class="modules-socle-state-num">State 2</div>
-<div class="modules-socle-state-label">Adjusted risk</div>
-<div class="modules-socle-state-desc">After accounting for existing security controls.</div>
+<div class="modules-socle-state-num">État 2</div>
+<div class="modules-socle-state-label">Risque ajusté</div>
+<div class="modules-socle-state-desc">Après prise en compte des mesures de sécurité existantes.</div>
 </div>
 <div class="modules-socle-state">
-<div class="modules-socle-state-num">State 3</div>
-<div class="modules-socle-state-label">Residual risk</div>
-<div class="modules-socle-state-desc">After applying the validated treatment plan.</div>
+<div class="modules-socle-state-num">État 3</div>
+<div class="modules-socle-state-label">Risque résiduel</div>
+<div class="modules-socle-state-desc">Après application du plan de traitement validé.</div>
 </div>
 </div>
 </div>
 <div class="modules-socle-visual">
 <div class="modules-socle-flow-row">
 <span class="modules-socle-flow-source">ISP</span>
-<span>EBIOS RM scenarios</span>
+<span>Scénarios EBIOS RM</span>
 <span class="modules-socle-flow-arrow">→</span>
 <span>inherent risks</span>
 </div>
 <div class="modules-socle-flow-row">
 <span class="modules-socle-flow-source">Audit</span>
-<span>Identified non-conformities</span>
+<span>Non-conformités constatées</span>
 <span class="modules-socle-flow-arrow">→</span>
 <span>residual risks</span>
 </div>
 <div class="modules-socle-flow-row">
 <span class="modules-socle-flow-source">TPRM</span>
-<span>Vendor gaps</span>
+<span>Écarts fournisseurs</span>
 <span class="modules-socle-flow-arrow">→</span>
 <span>residual risks</span>
 </div>
 <div class="modules-socle-flow-row">
 <span class="modules-socle-flow-source">Roadmap</span>
-<span>Closed treatment plans</span>
+<span>Plans de traitement clos</span>
 <span class="modules-socle-flow-arrow">→</span>
-<span>residual recalculation</span>
+<span>recalcul des résiduels</span>
+</div>
+</div>
+</div>
+<div class="modules-socle-after">Six piliers métier alimentent le registre</div>
+<div class="modules-intro">
+<div class="modules-intro-item"><strong>📐 ISP</strong>Évaluer un projet</div>
+<div class="modules-intro-item"><strong>🤝 TPRM</strong>Qualifier un fournisseur</div>
+<div class="modules-intro-item"><strong>📋 RFP</strong>Lancer un appel d'offres</div>
+<div class="modules-intro-item"><strong>🔎 Audit</strong>Auditer la maturité</div>
+<div class="modules-intro-item"><strong>📚 Compliance</strong>Politiques &amp; procédures</div>
+<div class="modules-intro-item"><strong>🗺️ Roadmap</strong>Pilotage consolidé</div>
+</div>
+<div class="modules-grid">
+<!-- MODULE 1 : ISP -->
+<div class="module-card navy">
+<div class="module-icon-box">📐</div>
+<div class="module-name">ISP</div>
+<div class="module-sub">Intégration de la Sécurité dans les Projets - méthodologie EBIOS RM (ANSSI)</div>
+<div class="module-when"><strong>Quand :</strong> nouveau projet, service ou prestation à cadrer avant production.</div>
+<div class="module-headline">Parcours guidé multi-étapes, assistance IA à chaque étape : vous validez, ajustez, décidez. Aboutit à un dossier d'arbitrage défendable en comité.</div>
+<button aria-expanded="false" class="module-toggle" type="button">Voir les capacités <span class="chev">▾</span></button>
+<div class="module-details">
+<div class="module-pitch">
+            Du <strong>cadrage du contexte</strong> jusqu'à la <strong>décision RSSI</strong>, le parcours couvre les valeurs métier, les biens supports, les scénarios de risque, les exigences applicables, les <strong>inherent risks</strong>, le plan de traitement et l'évaluation des tiers. À chaque étape, un assistant IA propose - vous restez décideur.
+          </div>
+<ul class="module-features-list">
+<li>Scoring DICT (Disponibilité, Intégrité, Confidentialité, Traçabilité) par valeur métier</li>
+<li>Scénarios de risque générés selon EBIOS RM, référencés MITRE ATT&amp;CK</li>
+<li>Exigences contextuelles depuis une bibliothèque de référentiels, synchronisation automatique entre exigences et risques</li>
+<li><strong>Trois états de risque suivis</strong> : risque inhérent (brut), risque ajusté (après mesures existantes), risque résiduel (après plan de traitement)</li>
+<li>Plan de traitement avec responsable, échéance, preuve ; relances automatiques selon les échéances que vous définissez</li>
+<li>Workflow RSSI : soumission → notification → verdict <strong>GO / GOC / NO-GO</strong> décidé par le RSSI, tracé et horodaté. Le moteur de règles propose un verdict en aide à la décision, le RSSI tranche.</li>
+<li>Hand-off DPO automatique si données personnelles ou usage IA détecté</li>
+<li>Exports Excel, PDF, Word, PowerPoint - ou reconstruction d'un projet à partir d'un PDF d'archive</li>
+</ul>
+<div class="module-outcome">→ Dossier d'arbitrage complet, horodaté, prêt pour comité sécurité</div>
+</div>
+</div>
+<!-- MODULE 2 : TPRM -->
+<div class="module-card teal">
+<div class="module-icon-box">🤝</div>
+<div class="module-name">TPRM</div>
+<div class="module-sub">Third Party Risk Management - qualification complète d'un fournisseur</div>
+<div class="module-when"><strong>Quand :</strong> contractualisation, renouvellement ou revue annuelle d'un prestataire critique.</div>
+<div class="module-headline">Qualification d'un fournisseur de bout en bout : Identification → Évaluation → Décision → Contrat &amp; PAS → Surveillance. Plusieurs fournisseurs gérés en parallèle sur le même projet.</div>
+<button aria-expanded="false" class="module-toggle" type="button">Voir les capacités <span class="chev">▾</span></button>
+<div class="module-details">
+<div class="module-pitch">
+            Un workspace dédié par fournisseur, le contexte du projet ISP est hérité automatiquement. Le module couvre toute la vie du prestataire : cadrage du périmètre, évaluation sécurité, décision formelle, contractualisation, puis surveillance continue.
+          </div>
+<ul class="module-features-list">
+<li><strong>Identification</strong> : périmètre, criticité, fiche fournisseur</li>
+<li><strong>Évaluation</strong> : grille de critères contextuelle alignée référentiels secteur (ISO 27036, CSA, HDS, SecNumCloud, OWASP…), scoring pondéré configurable, exigences modifiables et complétables</li>
+<li><strong>Décision</strong> formalisée par le RSSI : verdict <strong>GO / GOC / NO-GO</strong> tracé et horodaté, en s'appuyant sur le scoring et les conditions du contexte</li>
+<li><strong>Contrat &amp; PAS</strong> : génération de clauses contractuelles sécurité, droit d'audit, Plan d'Assurance Sécurité</li>
+<li><strong>Surveillance</strong> : plan de suivi avec fréquence, KPI et déclencheurs de réévaluation que vous définissez</li>
+<li>Multi-fournisseurs sur un même projet : un workspace par fournisseur, vue consolidée du portefeuille</li>
+<li>Transfert direct du fournisseur retenu depuis une campagne RFP, sans ressaisie</li>
+</ul>
+<div class="module-outcome">→ Fournisseur qualifié et rattaché au portefeuille, réutilisable sans nouvelle évaluation</div>
+</div>
+</div>
+<!-- MODULE 3 : RFP -->
+<div class="module-card steel">
+<div class="module-icon-box">📋</div>
+<div class="module-name">RFP</div>
+<div class="module-sub">Appel d'offres multi-fournisseurs avec scoring comparatif</div>
+<div class="module-when"><strong>Quand :</strong> sourcing, sélection prestataire, consultation de plusieurs soumissionnaires sur un même besoin.</div>
+<div class="module-headline">Une campagne où plusieurs fournisseurs répondent au même questionnaire contextualisé sur votre projet réel - pas un CDC générique.</div>
+<button aria-expanded="false" class="module-toggle" type="button">Voir les capacités <span class="chev">▾</span></button>
+<div class="module-details">
+<div class="module-pitch">
+            Construction du questionnaire à partir des <strong>exigences du projet ISP</strong>, des <strong>risques à couvrir</strong>, d'une <strong>palette de référentiels</strong> ou en saisie libre. Distribution email, import Excel, matrice comparative et décision finale - tout est centralisé sur la même campagne.
+          </div>
+<ul class="module-features-list">
+<li>Questionnaire contextualisé sur votre projet réel, pas un CDC générique</li>
+<li>Statut de suivi par fournisseur : Brouillon → Envoyé → Reçu → Analysé</li>
+<li>Envoi email avec Excel pré-rempli par fournisseur</li>
+<li>Import des réponses avec contrôle d'intégrité (bon projet, bon fournisseur) et association automatique</li>
+<li>Matrice comparative colorée : lignes = questions, colonnes = fournisseurs, tooltips preuves</li>
+<li>Scoring pondéré configurable (criticité bloquante / majeure / mineure) calculé en aide à la décision, avec règle stricte sur les bloquants - le verdict <strong>GO / GOC / NO-GO</strong> reste validé par le RSSI</li>
+<li>Classement consultatif des soumissionnaires (détail Oui / Partiel / Non, bloquants non couverts) - ajustable, vous gardez la main sur le choix final</li>
+</ul>
+<div class="module-outcome">→ Décision factuelle et traçable, défendable devant comité d'investissement</div>
+</div>
+</div>
+<!-- MODULE 4 : AUDIT -->
+<div class="module-card deepteal">
+<div class="module-icon-box">🔎</div>
+<div class="module-name">Audit</div>
+<div class="module-sub">Audit de maturité SSI - méthodologie ISO 19011</div>
+<div class="module-when"><strong>Quand :</strong> audit périodique interne, audit externe (certification / tierce partie / renouvellement), revue de conformité.</div>
+<div class="module-headline">Quatre phases structurées avec assistance IA à chaque étape - l'auditeur garde toujours la main. Le rapport est pré-rempli à partir de vos saisies, modifiable, conforme ISO 19011.</div>
+<button aria-expanded="false" class="module-toggle" type="button">Voir les capacités <span class="chev">▾</span></button>
+<div class="module-details">
+<div class="module-pitch">
+            Quatre phases : <strong>Cadrage → Entretiens → Évaluation → Constats &amp; Synthèse</strong>. Notation graduée CMMI, pondération obligatoire / recommandée, niveau de maturité agrégé de 1 (Initial) à 5 (Optimisé). Plusieurs assistances IA couvrent chaque phase.
+          </div>
+<ul class="module-features-list">
+<li><strong>Cadrage</strong> : objectifs, périmètre, exclusions, méthodes (entretiens, revue doc, observation, tests, échantillonnage, revue de logs), équipe</li>
+<li><strong>Entretiens</strong> : suggestion IA des personnes à interviewer, guide d'entretien proposé, résumé IA des notes - tout est modifiable</li>
+<li><strong>Évaluation</strong> : pré-notation IA depuis les entretiens, findings proposés pour les risques identifiés - chaque notation et chaque finding restent validés ou réécrits par l'auditeur</li>
+<li><strong>Constats</strong> structurés (risque inhérent, point sensible, observation, opportunité d'amélioration, bonne pratique…) avec criticité Critique / Majeure / Mineure</li>
+<li>Synthèse exécutive proposée par IA, modifiable, et proposition d'<strong>avis Favorable / Favorable avec réserves / Défavorable</strong> - décision finale par l'auditeur</li>
+<li>Grilles d'audit prêtes à l'emploi : ReCyF NIS2 (ANSSI), ISO 27001:2022, ISO 27002:2022 - et chargement de vos propres grilles</li>
+<li>Score pondéré temps réel, niveau CMMI agrégé, tableau de bord des entretiens, exigences évaluées et constats</li>
+<li>Rapport d'audit structuré (cadrage, synthèse exécutive, constats priorisés, entretiens, conclusion, grille en annexe) - conforme ISO 19011</li>
+</ul>
+<div class="module-outcome">→ Rapport d'audit complet avec traçabilité ISO 19011 de bout en bout</div>
+</div>
+</div>
+<!-- MODULE 5 : COMPLIANCE CENTER -->
+<div class="module-card ice">
+<div class="module-icon-box">📚</div>
+<div class="module-name">Compliance</div>
+<div class="module-sub">Centre de conformité - référentiels, politiques, procédures, multi-filiales</div>
+<div class="module-when"><strong>Quand :</strong> rédaction et déclinaison de la PSSI, déploiement multi-filiales, contrôle de conformité aux référentiels.</div>
+<div class="module-headline">Une bibliothèque vivante : référentiels (ISO 27001/27701/42001, RGPD, NIS 2, DORA, HDS, PCI...), 10 modèles de politiques prêts à l'emploi, registre des procédures, déclinaisons par filiale avec annexes consolidées.</div>
+<button aria-expanded="false" class="module-toggle" type="button">Voir les capacités <span class="chev">▾</span></button>
+<div class="module-details">
+<div class="module-pitch">
+            Trois onglets : <strong>Référentiels</strong> (catalogue activable par tenant, mapping cross-frameworks anti-doublons), <strong>Politiques</strong> (10 templates : PSSI, charte utilisateur, gestion des accès, sauvegarde, gestion des incidents, PRA/PCA, notifications RGPD/NIS 2/DORA, classification...), <strong>Procédures</strong> (runbooks, guides). Mode multi-filiales avec variantes documentaires et exports consolidés.
+          </div>
+<ul class="module-features-list">
+<li><strong>Référentiels</strong> : activation par tenant, mapping cross-frameworks (ISO 27001 ↔ NIS 2 ↔ RGPD ↔ DORA ↔ NIST CSF), Statement of Applicability, suivi de couverture en temps réel</li>
+<li><strong>Politiques</strong> : 10 templates aux standards français (PSSI, charte, accès, sauvegarde, incidents, PRA/PCA, notifications, classification, télétravail, sous-traitance), workflow d'approbation, versioning, signature horodatée</li>
+<li><strong>Procédures</strong> : bibliothèque de runbooks et guides opérationnels, rattachement aux contrôles ISO/Annexe A, calendrier de revue</li>
+<li><strong>Multi-filiales</strong> : politique groupe + variantes par filiale, exports consolidés avec annexes locales</li>
+<li><strong>Bouton « Déclencher contrôle »</strong> : transforme une politique en mission d'audit (module Audit) en un clic</li>
+<li>4 modes de saisie : <strong>manuel</strong>, <strong>import fichier</strong>, <strong>IA génère</strong> (à partir du contexte tenant), <strong>IA restructure</strong> (mise en forme d'un document existant) - humain valide tout</li>
+</ul>
+<div class="module-outcome">→ Corpus documentaire à jour, opposable, prêt pour audit externe</div>
+</div>
+</div>
+<!-- MODULE 6 : ROADMAP -->
+<div class="module-card midnight">
+<div class="module-icon-box">🗺️</div>
+<div class="module-name">Roadmap</div>
+<div class="module-sub">Feuille de route consolidée - vue Gantt, Kanban et Liste, polymorphe</div>
+<div class="module-when"><strong>Quand :</strong> pilotage cross-modules, comité de direction, suivi des plans de traitement, vue d'ensemble RSSI.</div>
+<div class="module-headline">Une feuille de route polymorphe (projet, audit, programme, fournisseur, incident, initiative, objectif, manuelle), 3 vues (Gantt, Kanban, Liste), 2 niveaux (par entité ou portfolio global). Auto-alimentée par les autres modules, mais l'humain valide tout recalcul de risque.</div>
+<button aria-expanded="false" class="module-toggle" type="button">Voir les capacités <span class="chev">▾</span></button>
+<div class="module-details">
+<div class="module-pitch">
+            Toutes les actions du système (plans de traitement ISP, écarts d'audit, surveillance TPRM, dérogations, mesures correctives) remontent dans une feuille de route unique. Le RSSI pilote, valide les recalculs de risque, communique au CODIR avec des vues lisibles.
+          </div>
+<ul class="module-features-list">
+<li><strong>3 vues interchangeables</strong> : Gantt (planning), Kanban (avancement), Liste (filtres avancés)</li>
+<li><strong>2 niveaux</strong> : feuille de route par entité (1 projet, 1 audit, 1 fournisseur) ou globale portfolio (cross-tenant)</li>
+<li><strong>Polymorphe</strong> : sources hétérogènes (projets ISP, audits, fournisseurs TPRM, incidents, programmes, objectifs, items manuels) sur la même timeline</li>
+<li><strong>Auto-alimentation</strong> : actions plan TRAITER ISP, écarts audit, plan d'assurance sécurité TPRM créés automatiquement comme tâches</li>
+<li><strong>Validation humaine</strong> du recalcul des risques résiduels après une action terminée - le système propose, le RSSI valide</li>
+<li>Alertes contextuelles : actions en retard, échéances proches, dépendances bloquantes, risques résiduels élevés non couverts</li>
+</ul>
+<div class="module-outcome">→ Consolidated CISO steering, board visibility, plus rien ne tombe entre les chaises</div>
 </div>
 </div>
 </div>
@@ -2208,599 +1978,258 @@
 <div class="modules-alacarte">
 <div class="modules-alacarte-icon">🎛️</div>
 <div class="modules-alacarte-text">
-<div class="modules-alacarte-title">Activate modules to match your needs.</div>
+<div class="modules-alacarte-title">Activez les modules selon vos besoins.</div>
 <div class="modules-alacarte-sub">Start with <strong>1 or 2 modules</strong> based on your current priority - NIS 2 compliance, audit, tender, GDPR rollout - then <strong>activate the others as you go</strong>. Each module configures independently and feeds the central risk register. Activation per tenant, at your own pace.</div>
 </div>
 </div>
-<!-- WORKFLOWS PHARES (embedded after socle) -->
-<div id="workflows" style="margin-top: 40px; margin-bottom: 32px;">
-<div class="section-header">
-<div class="section-eyebrow">Key modules</div>
-<h2>Guided journeys, not isolated screens.</h2>
-<p>AI proposes at each step. Humans validate. No verdict is applied without a signature.</p>
-</div>
-<div class="workflow-grid">
-<div class="workflow-card">
-<div class="workflow-card-head">
-<div>
-<div class="workflow-title">Risk analyses</div>
-<div class="workflow-subtitle">Polymorphic EBIOS RM / ISO 27005 engine</div>
-</div>
-</div>
-<div class="workflow-tagline">Assess risk on any object: project, asset, AI system, vendor, process.</div>
-<div class="workflow-steps">
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Scoping</div></div>
-<div class="workflow-step-line"></div>
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Scenarios</div></div>
-<div class="workflow-step-line"></div>
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Assessment</div></div>
-<div class="workflow-step-line"></div>
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Treatment</div></div>
-<div class="workflow-step-line"></div>
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Validation</div></div>
-</div>
-<div class="workflow-tags">
-<span class="workflow-tag">6 object types</span>
-<span class="workflow-tag">EBIOS RM pre-loaded</span>
-<span class="workflow-tag">ISO 27005</span>
-</div>
-<div class="workflow-result">→ Signed analysis, feeds the central risk register</div>
-</div>
-<div class="workflow-card">
-<div class="workflow-card-head">
-<div>
-<div class="workflow-title">Risk register</div>
-<div class="workflow-subtitle">Cross-project consolidation</div>
-</div>
-</div>
-<div class="workflow-tagline">All risks in one place, real-time G×V heatmap and 3 tracked states.</div>
-<div class="workflow-steps">
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Collection</div></div>
-<div class="workflow-step-line"></div>
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Consolidation</div></div>
-<div class="workflow-step-line"></div>
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Heatmap</div></div>
-<div class="workflow-step-line"></div>
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Residual KPI</div></div>
-<div class="workflow-step-line"></div>
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Trends</div></div>
-</div>
-<div class="workflow-tags">
-<span class="workflow-tag">3 states · inherent · adjusted · residual</span>
-<span class="workflow-tag">Deduplication</span>
-<span class="workflow-tag">KPI per framework</span>
-</div>
-<div class="workflow-result">→ Consolidated risk steering for the CISO</div>
-</div>
-<div class="workflow-card">
-<div class="workflow-card-head">
-<div>
-<div class="workflow-title">External attack surface radar</div>
-<div class="workflow-subtitle">Passive external discovery</div>
-</div>
-</div>
-<div class="workflow-tagline">Map the company's digital attack surface before an attacker does.</div>
-<div class="workflow-steps">
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Discovery</div></div>
-<div class="workflow-step-line"></div>
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Subdomains</div></div>
-<div class="workflow-step-line"></div>
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Scoring</div></div>
-<div class="workflow-step-line"></div>
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Exposures</div></div>
-<div class="workflow-step-line"></div>
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Monitoring</div></div>
-</div>
-<div class="workflow-tags">
-<span class="workflow-tag">DNS / HTTPS / TLS</span>
-<span class="workflow-tag">0-100 scoring (A-F)</span>
-<span class="workflow-tag">Passive</span>
-</div>
-<div class="workflow-result">→ Pre-audit / pre-pentest, prioritised exposures</div>
-</div>
-<div class="workflow-card">
-<div class="workflow-card-head">
-<div>
-<div class="workflow-title">Board KPIs</div>
-<div class="workflow-subtitle">Executive dashboard</div>
-</div>
-</div>
-<div class="workflow-tagline">30+ monthly and quarterly indicators for strategic security steering.</div>
-<div class="workflow-steps">
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Collection</div></div>
-<div class="workflow-step-line"></div>
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Aggregation</div></div>
-<div class="workflow-step-line"></div>
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Trends</div></div>
-<div class="workflow-step-line"></div>
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Alerts</div></div>
-<div class="workflow-step-line"></div>
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Reporting</div></div>
-</div>
-<div class="workflow-tags">
-<span class="workflow-tag">30+ KRIs</span>
-<span class="workflow-tag">Configurable thresholds</span>
-<span class="workflow-tag">Board export</span>
-</div>
-<div class="workflow-result">→ Ready-to-use quarterly board reporting</div>
-</div>
-<div class="workflow-card">
-<div class="workflow-card-head">
-<div>
-<div class="workflow-title">Polymorphic roadmap</div>
-<div class="workflow-subtitle">Gantt · Kanban · List</div>
-</div>
-</div>
-<div class="workflow-tagline">8 entity types on the same timeline, auto-fed by every module.</div>
-<div class="workflow-steps">
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Auto-source</div></div>
-<div class="workflow-step-line"></div>
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Prioritisation</div></div>
-<div class="workflow-step-line"></div>
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Execution</div></div>
-<div class="workflow-step-line"></div>
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Recalculation</div></div>
-</div>
-<div class="workflow-tags">
-<span class="workflow-tag">3 switchable views</span>
-<span class="workflow-tag">Project · Audit · Vendor</span>
-<span class="workflow-tag">Human validation</span>
-</div>
-<div class="workflow-result">→ Consolidated CISO steering, board visibility</div>
-</div>
-<div class="workflow-card">
-<div class="workflow-card-head">
-<div>
-<div class="workflow-title">Incident management</div>
-<div class="workflow-subtitle">NIS 2 art. 23 workflow</div>
-</div>
-</div>
-<div class="workflow-tagline">NIS 2 notification (24h / 72h / 30j) and ISO 27035 classification tooled.</div>
-<div class="workflow-steps">
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Detection</div></div>
-<div class="workflow-step-line"></div>
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Classification</div></div>
-<div class="workflow-step-line"></div>
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Notification</div></div>
-<div class="workflow-step-line"></div>
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Investigation</div></div>
-<div class="workflow-step-line"></div>
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Closure</div></div>
-</div>
-<div class="workflow-tags">
-<span class="workflow-tag">NIS 2 art. 23</span>
-<span class="workflow-tag">ISO 27035</span>
-<span class="workflow-tag">Tiering 24h / 72h / 30j</span>
-</div>
-<div class="workflow-result">→ ANSSI notifications, time-stamped and traceable</div>
-</div>
-<div class="workflow-card">
-<div class="workflow-card-head">
-<div>
-<div class="workflow-title">Asset inventory</div>
-<div class="workflow-subtitle">Consolidated IT inventory</div>
-</div>
-</div>
-<div class="workflow-tagline">Full inventory with classification, owners, criticality and dependencies.</div>
-<div class="workflow-steps">
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Inventory</div></div>
-<div class="workflow-step-line"></div>
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Classification</div></div>
-<div class="workflow-step-line"></div>
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Owners</div></div>
-<div class="workflow-step-line"></div>
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Criticality</div></div>
-<div class="workflow-step-line"></div>
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Heatmap</div></div>
-</div>
-<div class="workflow-tags">
-<span class="workflow-tag">4 input modes</span>
-<span class="workflow-tag">RTO / RPO</span>
-<span class="workflow-tag">Dependencies</span>
-</div>
-<div class="workflow-result">→ Solid base for EBIOS RM and business continuity</div>
-</div>
-<div class="workflow-card">
-<div class="workflow-card-head">
-<div>
-<div class="workflow-title">Security audit</div>
-<div class="workflow-subtitle">ISO 19011 methodology · 4 phases</div>
-</div>
-</div>
-<div class="workflow-tagline">From scoping to report, guided interviews and CMMI 0-5 scoring.</div>
-<div class="workflow-steps">
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Scoping</div></div>
-<div class="workflow-step-line"></div>
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Interviews</div></div>
-<div class="workflow-step-line"></div>
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Assessment</div></div>
-<div class="workflow-step-line"></div>
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Report</div></div>
-</div>
-<div class="workflow-tags">
-<span class="workflow-tag">ReCyF NIS 2</span>
-<span class="workflow-tag">ISO 27001:2022</span>
-<span class="workflow-tag">CMMI 0-5</span>
-</div>
-<div class="workflow-result">→ Favorable / Reserved / Unfavorable opinion · NCs → Roadmap</div>
-</div>
-<div class="workflow-card">
-<div class="workflow-card-head">
-<div>
-<div class="workflow-title">Third Party Risk Mgmt</div>
-<div class="workflow-subtitle">Vendor qualification · 5 phases</div>
-</div>
-</div>
-<div class="workflow-tagline">From identification to continuous monitoring, assessment across 12 domains.</div>
-<div class="workflow-steps">
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Identification</div></div>
-<div class="workflow-step-line"></div>
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Assessment</div></div>
-<div class="workflow-step-line"></div>
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Decision</div></div>
-<div class="workflow-step-line"></div>
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Contract</div></div>
-<div class="workflow-step-line"></div>
-<div class="workflow-step"><div class="workflow-step-dot"></div><div class="workflow-step-label">Monitoring</div></div>
-</div>
-<div class="workflow-tags">
-<span class="workflow-tag">12 domains</span>
-<span class="workflow-tag">ISP auto-link</span>
-<span class="workflow-tag">SAP &amp; clauses</span>
-</div>
-<div class="workflow-result">→ Qualified vendor, reusable without re-evaluation</div>
-</div>
-</div>
-</div>
-<!-- 31 modules in 4 hubs -->
+<!-- 19 modules complémentaires livrés -->
 <div class="modules-extra-header">
-<div class="modules-extra-eyebrow">31 modules delivered · activate one by one</div>
-<div class="modules-extra-title">4 business hubs, one risk register</div>
-<p class="modules-extra-sub">All delivered and activable per tenant, organized into 4 business hubs (Governance, Risk, Compliance, Third Party Risk). All feed into or read from the central risk register. Each hub's flagship workflows (ISP, TPRM, RFP, Security Audit, Compliance Center, Roadmap) are detailed below.</p>
+<div class="modules-extra-eyebrow">+ 23 modules complémentaires</div>
+<div class="modules-extra-title">L'écosystème GRC autour des 6 piliers</div>
+<p class="modules-extra-sub">Tous livrés et activables par tenant. Tous alimentent ou consomment le registre central des risques. Du Trust Center aux obligations RGPD/NIS 2, en passant par le pilotage CODIR.</p>
 </div>
-<!-- HUB 1 : GOUVERNANCE -->
+<!-- BLOC 1 : Tiers & Trust -->
 <div class="modules-block">
 <div class="modules-block-head">
 <div>
-<div class="modules-block-eyebrow">Governance Hub</div>
-<div class="modules-block-title">Policies, steering, awareness</div>
+<div class="modules-block-eyebrow">Bloc 1</div>
+<div class="modules-block-title">Tiers &amp; Trust</div>
 </div>
-<div class="modules-block-sub">CISO strategic cycle: consolidated roadmap, formal policies, procedures, board KPIs, program animation, awareness</div>
-</div>
-<div class="modules-block-grid">
-<div class="module-mini is-phare">
-<div class="module-mini-body">
-<div class="module-mini-name">Polymorphic roadmap</div>
-<div class="module-mini-desc">Consolidated roadmap Gantt / Kanban / List, 8 entity types, auto-fed by modules - you validate every risk recalculation</div>
-</div>
-</div>
-<div class="module-mini">
-<div class="module-mini-body">
-<div class="module-mini-name">Security Policy &amp; Charter</div>
-<div class="module-mini-desc">Formal ISMS policy, user/admin charter, executive approval, versioning, time-stamped signature</div>
-</div>
-</div>
-<div class="module-mini">
-<div class="module-mini-body">
-<div class="module-mini-name">Procedures &amp; best practices</div>
-<div class="module-mini-desc">Security documentation library: runbooks, guides, 10 pre-loaded templates (incidents, BCP/DRP, remote work...)</div>
-</div>
-</div>
-<div class="module-mini">
-<div class="module-mini-body">
-<div class="module-mini-name">Board KPIs / Executive</div>
-<div class="module-mini-desc">Executive dashboard, 30+ monthly/quarterly indicators, trends, configurable alert thresholds</div>
-</div>
-</div>
-<div class="module-mini">
-<div class="module-mini-body">
-<div class="module-mini-name">Cyber program animation</div>
-<div class="module-mini-desc">Group → subsidiaries steering: decisions, communications, workshops, regular reviews, inherited targets</div>
-</div>
-</div>
-<div class="module-mini">
-<div class="module-mini-body">
-<div class="module-mini-name">Cyber awareness</div>
-<div class="module-mini-desc">Campaigns, training, phishing simulations, board reporting (NIS 2 art. 21.2.g)</div>
-</div>
-</div>
-</div>
-</div>
-<!-- HUB 2 : RISQUES -->
-<div class="modules-block">
-<div class="modules-block-head">
-<div>
-<div class="modules-block-eyebrow">Risk Hub</div>
-<div class="modules-block-title">Registers, analyses, mappings, incidents</div>
-</div>
-<div class="modules-block-sub">Everything that feeds the central register: EBIOS RM project assessment, polymorphic analyses, IT inventories, external surface, exceptions, NIS 2 incidents, continuity</div>
+<div class="modules-block-sub">Vitrine externe et relations clients / fournisseurs</div>
 </div>
 <div class="modules-block-grid">
-<div class="module-mini is-phare">
+<div class="module-mini">
+<div class="module-mini-icon">📥</div>
 <div class="module-mini-body">
-<div class="module-mini-name">Project security integration</div>
-<div class="module-mini-desc">Project Security Integration: 8-step wizard S0-S8 (scoping, EBIOS workshops, requirements, treatment plan, CISO GO/GOC/NO-GO decision)</div>
+<div class="module-mini-name">Due diligence reçue</div>
+<div class="module-mini-desc">Questionnaires sécu envoyés par clients, centralisation des réponses</div>
 </div>
 </div>
 <div class="module-mini">
-<div class="module-mini-body">
-<div class="module-mini-name">Risk register</div>
-<div class="module-mini-desc">Cross-project consolidation, G×V heatmap, 3 states (inherent/adjusted/residual), residual KPI per framework</div>
-</div>
-</div>
-<div class="module-mini">
-<div class="module-mini-body">
-<div class="module-mini-name">Risk analyses</div>
-<div class="module-mini-desc">Polymorphic EBIOS RM / ISO 27005 engine: project, asset, AI system, vendor, process, standalone</div>
-</div>
-</div>
-<div class="module-mini">
-<div class="module-mini-body">
-<div class="module-mini-name">Asset inventory</div>
-<div class="module-mini-desc">IT inventory, classification, owners, criticality, 4 input modes</div>
-</div>
-</div>
-<div class="module-mini">
-<div class="module-mini-body">
-<div class="module-mini-name">Exceptions register</div>
-<div class="module-mini-desc">Formal risk acceptance, periodic reviews, 30-day expiry alerts</div>
-</div>
-</div>
-<div class="module-mini">
-<div class="module-mini-body">
-<div class="module-mini-name">External surface radar</div>
-<div class="module-mini-desc">Passive discovery of exposed subdomains, 0-100 scoring (A-F), HTTPS / DNS / TLS exposure</div>
-</div>
-</div>
-<div class="module-mini">
-<div class="module-mini-body">
-<div class="module-mini-name">NIS 2 incidents</div>
-<div class="module-mini-desc">NIS 2 art. 23 notification (24h / 72h / 30j), full workflow, ISO 27035 classification</div>
-</div>
-</div>
-<div class="module-mini">
-<div class="module-mini-body">
-<div class="module-mini-name">BIA / BCP / DRP</div>
-<div class="module-mini-desc">Business impact analysis, RTO/RPO/MTPD, continuity plans (ISO 22301 + NIS 2 art. 21.2.c)</div>
-</div>
-</div>
-</div>
-</div>
-<!-- HUB 3 : CONFORMITÉ -->
-<div class="modules-block">
-<div class="modules-block-head">
-<div>
-<div class="modules-block-eyebrow">Compliance Hub</div>
-<div class="modules-block-title">Frameworks, GDPR, regulatory audits</div>
-</div>
-<div class="modules-block-sub">Regulatory verification cycle: multi-subsidiary compliance center, AI-assisted ISO 19011 audits, normative frameworks, full GDPR (processing register, DPIA, data subject requests), regulatory watch</div>
-</div>
-<div class="modules-block-grid">
-<div class="module-mini is-phare">
-<div class="module-mini-body">
-<div class="module-mini-name">Compliance Center</div>
-<div class="module-mini-desc">3 tabs (Frameworks / Policies / Procedures), 10 ready-to-use policy templates, multi-subsidiary mode with consolidated annexes</div>
-</div>
-</div>
-<div class="module-mini is-phare">
-<div class="module-mini-body">
-<div class="module-mini-name">Security audit</div>
-<div class="module-mini-desc">4 phases (scoping, AI-assisted interviews, CMMI 0-5 evaluation, report) with signed verdict Favorable / Reserved / Unfavorable</div>
-</div>
-</div>
-<div class="module-mini">
-<div class="module-mini-body">
-<div class="module-mini-name">Frameworks &amp; requirements</div>
-<div class="module-mini-desc">ISO 27001/27002/27005/27036/27701/22301/42001, NIS 2, GDPR, DORA, HDS, PCI, SOC 2 - risk coverage + residual KPIs + cross-framework mapping</div>
-</div>
-</div>
-<div class="module-mini">
-<div class="module-mini-body">
-<div class="module-mini-name">Regulatory watch</div>
-<div class="module-mini-desc">NIS 2, DORA, RGPD, EU AI Act, alertes &amp; jurisprudence, comparateur cross-textes</div>
-</div>
-</div>
-<div class="module-mini">
-<div class="module-mini-body">
-<div class="module-mini-name">Processing register</div>
-<div class="module-mini-desc">GDPR art. 30 register: purposes, legal basis, retention, EU transfers, DPO workflow</div>
-</div>
-</div>
-<div class="module-mini">
-<div class="module-mini-body">
-<div class="module-mini-name">DPIA (CNIL PIA-3)</div>
-<div class="module-mini-desc">GDPR impact analyses, CNIL-referenced measures §X (S1 pseudonymisation, S2 strong authentication, S4 AES-256 encryption...), DPO workflow</div>
-</div>
-</div>
-<div class="module-mini">
-<div class="module-mini-body">
-<div class="module-mini-name">Data subject requests</div>
-<div class="module-mini-desc">Access, rectification, erasure, portability, objection, complaints - 30/90-day SLA, audit trail</div>
-</div>
-</div>
-<div class="module-mini">
-<div class="module-mini-body">
-<div class="module-mini-name">Data mapping</div>
-<div class="module-mini-desc">GDPR/HDS data mapping, PII flows, non-EU transfers, automatic link with processing register</div>
-</div>
-</div>
-<div class="module-mini">
-<div class="module-mini-body">
-<div class="module-mini-name">Annual audit plan</div>
-<div class="module-mini-desc">Multi-auditor planning, cycles, scopes, resources, yearly archiving</div>
-</div>
-</div>
-<div class="module-mini">
-<div class="module-mini-body">
-<div class="module-mini-name">Self-assessment</div>
-<div class="module-mini-desc">Fast self-assessment for subsidiaries / teams (light vs full audit), aggregated CMMI score</div>
-</div>
-</div>
-</div>
-</div>
-<!-- HUB 4 : RISQUE TIERS -->
-<div class="modules-block">
-<div class="modules-block-head">
-<div>
-<div class="modules-block-eyebrow">Third Party Risk Hub</div>
-<div class="modules-block-title">Trust Center, due diligence, DPA contracts</div>
-</div>
-<div class="modules-block-sub">Full vendor relationship cycle: vendor qualification (TPRM), tenders (RFP), public trust page, due diligence, DPA contracts</div>
-</div>
-<div class="modules-block-grid">
-<div class="module-mini is-phare">
-<div class="module-mini-body">
-<div class="module-mini-name">TPRM (vendor qualification)</div>
-<div class="module-mini-desc">Third Party Risk Management: 5 phases (Identification / Evaluation across 12 domains / GO-GOC-NO-GO decision / Contract &amp; SAP / Monitoring), auto-link from ISP S0</div>
-</div>
-</div>
-<div class="module-mini is-phare">
-<div class="module-mini-body">
-<div class="module-mini-name">RFP (tender campaign)</div>
-<div class="module-mini-desc">Multi-vendor on a single project-contextualised questionnaire, colour-coded comparison matrix, weighted scoring, adjustable CISO decision</div>
-</div>
-</div>
-<div class="module-mini">
+<div class="module-mini-icon">🛡️</div>
 <div class="module-mini-body">
 <div class="module-mini-name">Trust Center</div>
-<div class="module-mini-desc">Trust page shared with clients/prospects, public certifications, security.txt link</div>
+<div class="module-mini-desc">Page de confiance partagée clients/prospects, certificats publics</div>
 </div>
 </div>
+</div>
+</div>
+<!-- BLOC 2 : Risques -->
+<div class="modules-block">
+<div class="modules-block-head">
+<div>
+<div class="modules-block-eyebrow">Bloc 2</div>
+<div class="modules-block-title">Risques</div>
+</div>
+<div class="modules-block-sub">Inventaires, surface d'exposition, dérogations, incidents, continuité</div>
+</div>
+<div class="modules-block-grid">
 <div class="module-mini">
+<div class="module-mini-icon">🗂️</div>
 <div class="module-mini-body">
-<div class="module-mini-name">Inbound due diligence</div>
-<div class="module-mini-desc">Security questionnaires sent by clients, centralised answers, comparison matrix</div>
+<div class="module-mini-name">Cartographie des actifs</div>
+<div class="module-mini-desc">Inventaire SI, classification, propriétaires, criticité</div>
 </div>
 </div>
 <div class="module-mini">
+<div class="module-mini-icon">✋</div>
+<div class="module-mini-body">
+<div class="module-mini-name">Registre des dérogations</div>
+<div class="module-mini-desc">Acceptation formelle des risques, revues périodiques</div>
+</div>
+</div>
+<div class="module-mini">
+<div class="module-mini-icon">🛰️</div>
+<div class="module-mini-body">
+<div class="module-mini-name">Radar</div>
+<div class="module-mini-desc">Découverte des sous-domaines exposés, scoring 0-100 (A-F), expositions HTTPS / DNS / TLS</div>
+</div>
+</div>
+<div class="module-mini">
+<div class="module-mini-icon">🚨</div>
+<div class="module-mini-body">
+<div class="module-mini-name">Incidents NIS 2</div>
+<div class="module-mini-desc">Notification NIS 2 art. 23 (24h / 72h / 30j), workflow complet</div>
+</div>
+</div>
+<div class="module-mini">
+<div class="module-mini-icon">🛟</div>
+<div class="module-mini-body">
+<div class="module-mini-name">BIA / PCA / PRA</div>
+<div class="module-mini-desc">Bilan d'impact, RTO/RPO/MTPD, plans de continuité (ISO 22301 + NIS 2 art. 21.2.c)</div>
+</div>
+</div>
+<div class="module-mini">
+<div class="module-mini-icon">🌍</div>
+<div class="module-mini-body">
+<div class="module-mini-name">Cartographie des données</div>
+<div class="module-mini-desc">Data mapping RGPD/HDS, flux PII, transferts hors UE</div>
+</div>
+</div>
+</div>
+</div>
+<!-- BLOC 3 : Conformité documentaire -->
+<div class="modules-block">
+<div class="modules-block-head">
+<div>
+<div class="modules-block-eyebrow">Bloc 3</div>
+<div class="modules-block-title">Conformité documentaire</div>
+</div>
+<div class="modules-block-sub">Référentiels, politiques, procédures et veille réglementaire</div>
+</div>
+<div class="modules-block-grid">
+<div class="module-mini">
+<div class="module-mini-icon">📑</div>
+<div class="module-mini-body">
+<div class="module-mini-name">Frameworks &amp; requirements</div>
+<div class="module-mini-desc">ISO, NIS 2, RGPD, PCI, SOC 2 - couverture risques + KPI résiduels</div>
+</div>
+</div>
+<div class="module-mini">
+<div class="module-mini-icon">📜</div>
+<div class="module-mini-body">
+<div class="module-mini-name">Security Policy &amp; Charter</div>
+<div class="module-mini-desc">PSSI formalisée, charte user/admin, validation direction</div>
+</div>
+</div>
+<div class="module-mini">
+<div class="module-mini-icon">📖</div>
+<div class="module-mini-body">
+<div class="module-mini-name">Procedures &amp; best practices</div>
+<div class="module-mini-desc">Bibliothèque documentaire SSI : runbooks, guides</div>
+</div>
+</div>
+<div class="module-mini">
+<div class="module-mini-icon">📡</div>
+<div class="module-mini-body">
+<div class="module-mini-name">Veille réglementaire</div>
+<div class="module-mini-desc">NIS 2, DORA, RGPD, EU AI Act, alertes &amp; jurisprudence</div>
+</div>
+</div>
+</div>
+</div>
+<!-- BLOC 4 : Audit & Contrôle -->
+<div class="modules-block">
+<div class="modules-block-head">
+<div>
+<div class="modules-block-eyebrow">Bloc 4</div>
+<div class="modules-block-title">Audit &amp; Contrôle</div>
+</div>
+<div class="modules-block-sub">Cycle de vérification - planning, auto-évaluation, traçabilité</div>
+</div>
+<div class="modules-block-grid">
+<div class="module-mini">
+<div class="module-mini-icon">📅</div>
+<div class="module-mini-body">
+<div class="module-mini-name">Plan d'audit annuel</div>
+<div class="module-mini-desc">Planning, cycles, périmètres, ressources auditeurs</div>
+</div>
+</div>
+<div class="module-mini">
+<div class="module-mini-icon">📋</div>
+<div class="module-mini-body">
+<div class="module-mini-name">Self-assessment</div>
+<div class="module-mini-desc">Auto-évaluation rapide filiales / équipes (light vs Audit complet)</div>
+</div>
+</div>
+<div class="module-mini">
+<div class="module-mini-icon">📓</div>
+<div class="module-mini-body">
+<div class="module-mini-name">Journal d'audit technique</div>
+<div class="module-mini-desc">Traçabilité des actions admin / utilisateur (audit log)</div>
+</div>
+</div>
+</div>
+</div>
+<!-- BLOC 5 : Privacy RGPD -->
+<div class="modules-block">
+<div class="modules-block-head">
+<div>
+<div class="modules-block-eyebrow">Bloc 5</div>
+<div class="modules-block-title">Privacy RGPD</div>
+</div>
+<div class="modules-block-sub">RGPD - traitements, impacts, droits des personnes, contrats</div>
+</div>
+<div class="modules-block-grid">
+<div class="module-mini">
+<div class="module-mini-icon">📇</div>
+<div class="module-mini-body">
+<div class="module-mini-name">ROPA</div>
+<div class="module-mini-desc">Registre traitements RGPD art. 30 : finalités, base légale, durées</div>
+</div>
+</div>
+<div class="module-mini">
+<div class="module-mini-icon">🔍</div>
+<div class="module-mini-body">
+<div class="module-mini-name">DPIA</div>
+<div class="module-mini-desc">Analyses d'impact RGPD, traitements à risque</div>
+</div>
+</div>
+<div class="module-mini">
+<div class="module-mini-icon">✉️</div>
+<div class="module-mini-body">
+<div class="module-mini-name">Data subject requests</div>
+<div class="module-mini-desc">Accès, effacement, portabilité, plaintes, suivi</div>
+</div>
+</div>
+<div class="module-mini">
+<div class="module-mini-icon">📃</div>
 <div class="module-mini-body">
 <div class="module-mini-name">Contracts &amp; DPA</div>
-<div class="module-mini-desc">Security contracts register, GDPR DPA, signed clauses, deadlines with 30-day alerts</div>
+<div class="module-mini-desc">Registre contrats sécu, DPA RGPD, clauses signées, échéances</div>
+</div>
+</div>
+</div>
+</div>
+<!-- BLOC 6 : Gouvernance & Pilotage -->
+<div class="modules-block">
+<div class="modules-block-head">
+<div>
+<div class="modules-block-eyebrow">Bloc 6</div>
+<div class="modules-block-title">Gouvernance &amp; Pilotage</div>
+</div>
+<div class="modules-block-sub">Reporting, RH sécurité, animation filière, administration</div>
+</div>
+<div class="modules-block-grid">
+<div class="module-mini">
+<div class="module-mini-icon">📊</div>
+<div class="module-mini-body">
+<div class="module-mini-name">KPIs CODIR / Direction</div>
+<div class="module-mini-desc">Tableau de bord direction, indicateurs mensuels, tendances</div>
+</div>
+</div>
+<div class="module-mini">
+<div class="module-mini-icon">🌐</div>
+<div class="module-mini-body">
+<div class="module-mini-name">Animation filière Cyber</div>
+<div class="module-mini-desc">Pilotage Groupe → filiales : décisions, communications, ateliers, points réguliers</div>
+</div>
+</div>
+<div class="module-mini">
+<div class="module-mini-icon">🎓</div>
+<div class="module-mini-body">
+<div class="module-mini-name">Sensibilisation cyber</div>
+<div class="module-mini-desc">Campagnes, formations, simulations phishing, reporting CODIR (NIS 2 art. 21.2.g)</div>
+</div>
+</div>
+<div class="module-mini">
+<div class="module-mini-icon">👥</div>
+<div class="module-mini-body">
+<div class="module-mini-name">Gestion utilisateurs</div>
+<div class="module-mini-desc">Administration users, rôles, comptes temporaires, MFA TOTP</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<!-- APERCU PRODUIT (mockups visuels) -->
-<section id="apercu">
+<!-- ENGAGEMENT CO-CONSTRUCTION (remplace ancienne section "à venir") -->
+<section id="vision">
 <div class="container">
 <div class="section-header">
-<div class="section-eyebrow">Product preview</div>
-<h2>Risk made readable.</h2>
-<p>Heatmap, roadmap, board KPIs: what you see in CYBERACT.</p>
-</div>
-<div class="apercu-grid">
-<!-- MOCKUP 1 : HEATMAP RISQUES RÉSIDUELS -->
-<div class="apercu-card">
-<div class="apercu-chrome">
-<span class="apercu-chrome-dot"></span>
-<span class="apercu-chrome-dot"></span>
-<span class="apercu-chrome-dot"></span>
-<span class="apercu-chrome-url">app.cyberact.fr / risks / heatmap</span>
-</div>
-<div class="apercu-body">
-<div class="apercu-title">Residual risk heatmap</div>
-<div class="apercu-subtitle">Severity × Likelihood matrix, EBIOS RM scoring</div>
-<div class="mock-heatmap">
-<div class="mock-heatmap-y">Severity</div>
-<div class="mock-heatmap-cell lvl-3">2</div>
-<div class="mock-heatmap-cell lvl-4">3</div>
-<div class="mock-heatmap-cell lvl-5"><strong>5</strong></div>
-<div class="mock-heatmap-cell lvl-5"><strong>4</strong></div>
-<div class="mock-heatmap-cell lvl-5">2</div>
-<div></div>
-<div class="mock-heatmap-cell lvl-2">3</div>
-<div class="mock-heatmap-cell lvl-3">4</div>
-<div class="mock-heatmap-cell lvl-4"><strong>6</strong></div>
-<div class="mock-heatmap-cell lvl-4">3</div>
-<div class="mock-heatmap-cell lvl-5">1</div>
-<div></div>
-<div class="mock-heatmap-cell lvl-2">5</div>
-<div class="mock-heatmap-cell lvl-2">2</div>
-<div class="mock-heatmap-cell lvl-3"><strong>8</strong></div>
-<div class="mock-heatmap-cell lvl-4">3</div>
-<div class="mock-heatmap-cell lvl-4">1</div>
-<div></div>
-<div class="mock-heatmap-cell lvl-1">4</div>
-<div class="mock-heatmap-cell lvl-2">7</div>
-<div class="mock-heatmap-cell lvl-2">3</div>
-<div class="mock-heatmap-cell lvl-3">2</div>
-<div class="mock-heatmap-cell lvl-3">1</div>
-<div></div>
-<div class="mock-heatmap-cell lvl-1">6</div>
-<div class="mock-heatmap-cell lvl-1">2</div>
-<div class="mock-heatmap-cell lvl-2">1</div>
-<div class="mock-heatmap-cell lvl-2">2</div>
-<div class="mock-heatmap-cell lvl-2">0</div>
-<div></div>
-<div class="mock-heatmap-x">Very low</div>
-<div class="mock-heatmap-x">Low</div>
-<div class="mock-heatmap-x">Moderate</div>
-<div class="mock-heatmap-x">High</div>
-<div class="mock-heatmap-x">Critical</div>
-</div>
-<div class="mock-legend">
-<div class="mock-legend-item"><span class="mock-legend-dot" style="background:#e7f7ed"></span> Acceptable</div>
-<div class="mock-legend-item"><span class="mock-legend-dot" style="background:#fff4cc"></span> Moderate</div>
-<div class="mock-legend-item"><span class="mock-legend-dot" style="background:#ffd9b3"></span> High</div>
-<div class="mock-legend-item"><span class="mock-legend-dot" style="background:#ffc1c1"></span> Critical</div>
-</div>
-<div class="apercu-caption"><strong>3 risk states tracked</strong> in parallel: inherent, adjusted (post-existing controls), residual (post-treatment plan). Automatic recalculation on every closed action.</div>
-</div>
-</div>
-<!-- MOCKUP 2 : ROADMAP POLYMORPHE (Gantt) -->
-<div class="apercu-card">
-<div class="apercu-chrome">
-<span class="apercu-chrome-dot"></span>
-<span class="apercu-chrome-dot"></span>
-<span class="apercu-chrome-dot"></span>
-<span class="apercu-chrome-url">app.cyberact.fr / roadmap</span>
-</div>
-<div class="apercu-body">
-<div class="apercu-title">Consolidated polymorphic roadmap</div>
-<div class="apercu-subtitle">Projects, audits, vendors, incidents on the same timeline</div>
-<div class="mock-gantt-tabs">
-<div class="mock-gantt-tab active">Gantt</div>
-<div class="mock-gantt-tab">Kanban</div>
-<div class="mock-gantt-tab">List</div>
-</div>
-<div class="mock-gantt-months">
-<div></div>
-<div>Jan</div>
-<div>Feb</div>
-<div>Mar</div>
-<div>Apr</div>
-<div>May</div>
-<div>Jun</div>
-</div>
-<div class="mock-gantt-row">
-<div class="mock-gantt-label">AI-HR project</div>
-<div class="mock-gantt-track"><div class="mock-gantt-bar b-navy" style="left:4%;width:36%">EBIOS RM</div></div>
-</div>
-<div class="mock-gantt-row">
-<div class="mock-gantt-label">NIS 2 audit</div>
-<div class="mock-gantt-track"><div class="mock-gantt-bar b-teal" style="left:16%;width:24%">ISO 19011</div></div>
-</div>
-<div class="mock-gantt-row">
-<div class="mock-gantt-label">TPRM Acme</div>
-<div class="mock-gantt-track"><div class="mock-gantt-bar b-steel" style="left:30%;width:22%">Qualif.</div></div>
-</div>
-<div class="mock-gantt-row">
-<div class="mock-gantt-label">Incident #42</div>
-<div class="mock-gantt-track"><div class="mock-gantt-bar b-warn" style="left:48%;width:10%">NIS 2</div></div>
-</div>
-<div class="mock-gantt-row">
-<div class="mock-gantt-label">Cloud RFP</div>
-<div class="mock-gantt-track"><div class="mock-gantt-bar b-done" style="left:54%;width:18%">Closed GO</div></div>
-</div>
-<div class="mock-gantt-row">
-<div class="mock-gantt-label">App DPIA</div>
-<div class="mock-gantt-track"><div class="mock-gantt-bar b-navy" style="left:60%;width:28%">CNIL Measures</div></div>
-</div>
-<div class="apercu-caption"><strong>8 entity types</strong> on the same timeline. Interchangeable Gantt, Kanban and List views. The CISO validates every risk recalculation after a completed action.</div>
-</div>
-</div>
+<div class="section-eyebrow">// ROADMAP</div>
+<h2>30 modules livrés. La roadmap continue.</h2>
+<p>L'ensemble des modules présentés ci-dessus est livré et activable dès maintenant. Notre roadmap évolue en fonction des besoins concrets remontés par les clients - <strong>si un cas d'usage vous manque, parlons-en : on priorise.</strong></p>
 </div>
 </div>
 </section>
@@ -2808,34 +2237,40 @@
 <section id="pourqui">
 <div class="container">
 <div class="section-header">
-<div class="section-eyebrow">Who for</div>
-<h2>Built for your security teams</h2>
-<p>Every role gets its own workspace, working on the same data in real time.</p>
+<div class="section-eyebrow">Pour qui</div>
+<h2>Un outil conçu pour vos équipes sécurité</h2>
+<p>Chaque profil trouve son espace de travail - et travaille sur les mêmes données, en temps réel.</p>
 </div>
 <div class="personas-grid">
 <div class="persona">
-<h3>CISO</h3>
-<p>Cross-project dashboard, <strong>GO / GOC / NO-GO</strong> decisions, vendor portfolio and consolidated roadmap.</p>
+<div class="persona-icon">🎯</div>
+<h3>RSSI</h3>
+<p>Tableau de bord global, validation des projets, arbitrage GO / GOC / NO-GO, pilotage du portefeuille fournisseurs et de la feuille de route consolidée.</p>
 </div>
 <div class="persona">
-<h3>Security analyst</h3>
-<p>Guided EBIOS RM wizard, requirements capture, 3 risk states tracking, AI assisted at every step.</p>
+<div class="persona-icon">🔍</div>
+<h3>Analyste SSI</h3>
+<p>Workflow guidé EBIOS RM, saisie des exigences, identification et suivi des risques (inhérent, ajusté, résiduel), IA assistée à chaque étape.</p>
 </div>
 <div class="persona">
+<div class="persona-icon">⚖️</div>
 <h3>DPO</h3>
-<p>Automatic hand-off from ISP/TPRM. Processing register, CNIL PIA-3 DPIA, data subject requests, contracts &amp; DPA.</p>
+<p>Hand-off automatique depuis ISP/TPRM si données personnelles, registre des politiques RGPD, modèles AIPD, ROPA et DPIA à venir, alignement EU AI Act.</p>
 </div>
 <div class="persona">
-<h3>Internal auditor</h3>
-<p>ISO 19011 4-phase security audit, annual audit plan, subsidiary self-assessment, editable pre-filled report.</p>
+<div class="persona-icon">🔎</div>
+<h3>Auditeur interne</h3>
+<p>Audit ISO 19011 outillé : cadrage, entretiens guidés, notation CMMI, constats priorisés, rapport pré-rempli modifiable. Plan d'audit annuel à venir.</p>
 </div>
 <div class="persona">
-<h3>Project manager</h3>
-<p>Structured submission, request tracking, visible applicable requirements, collaborative scoping meetings.</p>
+<div class="persona-icon">📋</div>
+<h3>Chef de projet</h3>
+<p>Formulaire de soumission structuré, suivi de sa demande, exigences applicables visibles, points de cadrage et de revue collaboratifs.</p>
 </div>
 <div class="persona">
-<h3>IT executive / Board</h3>
-<p>Consolidated compliance &amp; risk visibility. <strong>30+ board KPIs</strong> with trends and configurable alert thresholds.</p>
+<div class="persona-icon">⚙️</div>
+<h3>Direction SI / CODIR</h3>
+<p>Visibilité consolidée sur la conformité, les décisions, les risques résiduels et la feuille de route - KPIs CODIR à venir pour le pilotage stratégique.</p>
 </div>
 </div>
 </div>
@@ -2844,34 +2279,65 @@
 <section id="fonctionnalites">
 <div class="container">
 <div class="section-header">
-<div class="section-eyebrow">Cross-cutting capabilities</div>
-<h2>Risk-driven, everywhere</h2>
-<p>Same data, same register, same language at every step.</p>
+<div class="section-eyebrow">Capacités transverses</div>
+<h2>L'approche par le risque, partout</h2>
+<p>La plateforme tisse le risque et la conformité dans tous les modules. Mêmes données, même registre, même langage à chaque étape.</p>
 </div>
 <div class="features-grid">
 <div class="feature">
-<h3>Risk ↔ compliance loop</h3>
-<p>Every requirement mapped to a real risk. Every audit non-conformity automatically feeds the register. <strong>3 states tracked</strong>: inherent → adjusted → residual (ISO 27005).</p>
+<div class="feature-icon">🎯</div>
+<h3>Boucle risque ↔ conformité</h3>
+<p>Chaque exigence applicable est <strong>rattachée à un risque dans votre contexte</strong>. Toute non-conformité constatée en audit alimente <strong>automatiquement le registre des risques</strong> sous forme de risque résiduel, avec son scoring G×V. À l'inverse, la clôture d'une mesure de traitement déclenche le recalcul des risques résiduels concernés. <strong>Trois états de risque suivis</strong> (inhérent, ajusté, résiduel) à chaque étape, conforme méthodologie EBIOS RM et ISO 27005.</p>
 </div>
 <div class="feature">
-<h3>4 input modes everywhere</h3>
-<p><strong>Manual · file import · AI generates · AI restructures</strong>, plus the <strong>catalogue</strong> mode where relevant. No option imposed, humans validate everything.</p>
+<div class="feature-icon">📝</div>
+<h3>Quatre modes de saisie sur chaque module</h3>
+<p>Chaque écran propose les <strong>quatre modes de saisie</strong> : <strong>manuel</strong> (vous tapez), <strong>import fichier</strong> (Excel/CSV/Word/PDF), <strong>IA génère</strong> (à partir du contexte projet ou tenant), <strong>IA restructure</strong> (mise en forme d'un document existant). Là où c'est pertinent, un cinquième mode <strong>catalogue</strong> tire des bibliothèques de référentiels et de templates. Aucune option n'est imposée, l'humain valide tout.</p>
 </div>
 <div class="feature">
-<h3>Multi-tenant &amp; multi-subsidiary</h3>
-<p>Strong isolation via <strong>Postgres Row-Level Security</strong>. Group policies → subsidiaries with consolidated exports and local annexes.</p>
+<div class="feature-icon">🏢</div>
+<h3>Multi-tenant et multi-filiales</h3>
+<p>Architecture <strong>multi-tenant avec isolation forte (RLS Postgres)</strong> : chaque organisation et chaque filiale travaille dans son propre espace sécurisé. JWT court, gestion fine des rôles. Les politiques groupes/filiales (Compliance Center) déclinent une PSSI mère vers ses entités, avec exports consolidés et annexes locales.</p>
 </div>
 <div class="feature">
-<h3>AI proposes, humans decide</h3>
-<p><strong>Sovereign on-prem AI or external API</strong>, multi-provider orchestration with automatic fallback. A deterministic rule engine proposes the GO / GOC / NO-GO verdict. The CISO decides.</p>
+<div class="feature-icon">🤖</div>
+<h3>L'IA propose, vous décidez</h3>
+<p>L'assistance IA accélère votre travail : suggestions d'exigences, mesures correctives, synthèses. <strong>Rien n'est écrit à la place de l'analyste</strong> - chaque proposition est revue, modifiée, validée ou rejetée par un humain. <strong>IA locale 100% souveraine</strong> (aucun appel API externe, données qui ne quittent jamais votre infrastructure) ou <strong>API externe</strong> selon votre choix et votre politique. En parallèle de l'IA, un <strong>moteur de règles déterministe</strong> calcule un verdict GO / GOC / NO-GO en aide à la décision, à partir des indicateurs (risques résiduels, risques bloquants, niveau de conformité des exigences, TPRM) - traçable, reproductible, auditable (ISO 27001 cl. 6.1.3). Le RSSI tranche.</p>
 </div>
 <div class="feature">
-<h3>Security by design</h3>
-<p><strong>AES-256-GCM</strong>, MFA TOTP + WebAuthn/FIDO2 passkeys, HSTS, strict CSP. Architecture designed around <strong>18 security-by-design principles</strong>. OWASP LLM Top 10 integrated.</p>
+<div class="feature-icon">✏️</div>
+<h3>Vous gardez la main sur tout</h3>
+<p>Chaque exigence, risque, mesure, scénario est <strong>modifiable, complétable, supprimable</strong> à tout moment. Ajoutez vos propres référentiels internes, importez vos questionnaires Excel, adaptez les catalogues à votre contexte.</p>
 </div>
 <div class="feature">
-<h3>Audit logs ISO 27001 A.5.34</h3>
-<p><strong>100% of actions traced</strong> (timestamp, IP, user, action). SIEM-compatible syslog export, advanced filters, anti-DoS rate-limiting. NIS 2 art. 21.2.h.</p>
+<div class="feature-icon">🛡️</div>
+<h3>Sécurité IA intégrée</h3>
+<p>Référentiel OWASP LLM Top 10 : prompt injection, fuite d'informations, poisoning, supply chain, hallucinations, cost exhaustion. Activation automatique dès qu'un projet utilise de l'IA.</p>
+</div>
+<div class="feature">
+<div class="feature-icon">⚖️</div>
+<h3>Hand-off DPO assisté</h3>
+<p>Détection contextuelle : dès que des données personnelles ou de l'IA sont identifiées, un compte-rendu structuré est pré-rempli pour le DPO. Vous le relisez, le complétez si besoin et déclenchez l'envoi - pour RGPD et EU AI Act, sans bloquer l'analyse sécurité.</p>
+</div>
+<div class="feature">
+<div class="feature-icon">✅</div>
+<h3>Workflow RSSI</h3>
+<p>Soumission → validation → décision formalisée (GO / GOC / NO-GO) par le RSSI, avec traçabilité, notifications et historique complet. <strong>Synchronisation entre étapes EBIOS RM</strong> : toute modification d'une étape amont (valeurs métier, biens supports, scénarios de risque, exigences) propage les recalculs aux étapes aval (risques, plan de traitement, arbitrage). Vous gardez la main à chaque étape - le recalcul est une aide, pas une substitution.</p>
+</div>
+<div class="feature">
+<div class="feature-icon">📄</div>
+<h3>Import / export multiformat</h3>
+<p>Exports Excel, PDF, Word, PowerPoint en un clic - synthèse exécutive, dossier détaillé, présentation comité. Imports Excel / CSV pour charger vos données existantes, questionnaires fournisseurs, catalogues maison.</p>
+</div>
+<div class="feature">
+<div class="feature-icon">🔐</div>
+<h3>Sécurité de vos données</h3>
+<p>Chiffrement au repos <strong>AES-256-GCM</strong>, HTTPS avec HSTS, JWT court, protection CSRF, CSP stricte, audit log des opérations sensibles, partages expirables 90j. <strong>Authentification multi-facteurs (TOTP RFC 6238)</strong> compatible Google Authenticator, Authy, KeePassXC, avec codes de récupération - exigée pour les rôles administrateur et RSSI (NIS 2 art. 21.2.d, ISO 27001:2022 A.5.17 et A.8.5).</p>
+</div>
+<div class="feature">
+<div class="feature-icon">📡</div>
+<h3>Tableau de bord RSSI consolidé</h3>
+<p>Vue cross-projets en temps réel : <strong>alertes contextuelles</strong> sur l'ensemble du portefeuille (actions en retard, échéances proches, risques bloquants ouverts, dérogations à réviser, projets inactifs). Alignement ISO 27001:2022 cl. 9.1 (mesure de performance ISMS), A.5.24, A.8.16 et DORA art. 17.</p>
 </div>
 </div>
 </div>
@@ -2880,8 +2346,8 @@
 <section id="referentiels">
 <div class="container">
 <div class="section-header">
-<div class="section-eyebrow">Compliance</div>
-<h2>Regulations, standards and audit grids</h2>
+<div class="section-eyebrow">Conformité</div>
+<h2>Réglementations, normes et grilles d'audit</h2>
 <p>Switch between frameworks - or apply several at once to a single project. Automatic context-aware filtering (GDPR for personal data, HDS for healthcare, OWASP LLM Top 10 for AI...). Internal framework upload supported.</p>
 </div>
 <div class="ref-groups">
@@ -2893,8 +2359,6 @@
 <span class="ref-badge">LPM / OIV</span>
 <span class="ref-badge">EU AI Act</span>
 <span class="ref-badge">DORA</span>
-<span class="ref-badge">ACPR Cyber</span>
-<span class="ref-badge">PSD2</span>
 <span class="ref-badge">HDS</span>
 <span class="ref-badge">PGSSI-S</span>
 <span class="ref-badge">SecNumCloud</span>
@@ -2925,7 +2389,7 @@
 </div>
 </div>
 <div class="ref-group">
-<h4>Technical standards &amp; red teaming</h4>
+<h4>Standards techniques</h4>
 <div class="ref-badges">
 <span class="ref-badge">PCI-DSS v4.0.1</span>
 <span class="ref-badge">OWASP Top 10</span>
@@ -2933,7 +2397,6 @@
 <span class="ref-badge">OWASP LLM Top 10</span>
 <span class="ref-badge">CSA CCM</span>
 <span class="ref-badge">MITRE ATT&amp;CK</span>
-<span class="ref-badge">TIBER-EU</span>
 </div>
 </div>
 <div class="ref-group">
@@ -2958,10 +2421,119 @@
 </div>
 </section>
 <!-- SCÉNARIOS -->
+<section id="scenarios">
+<div class="container">
+<div class="section-header">
+<div class="section-eyebrow">Trois scénarios, une plateforme</div>
+<h2>Choisissez la combinaison de modules adaptée à votre besoin</h2>
+<p>D'un projet 100% interne à un appel d'offres concurrentiel : CyberAct s'adapte à la complexité réelle de vos arbitrages.</p>
+</div>
+<div class="scenarios-grid">
+<!-- Scénario 1 -->
+<div class="scenario-card">
+<div class="scenario-num">Scénario 1</div>
+<h3>Projet 100% interne</h3>
+<div class="scenario-modules">
+<span class="scenario-mod">ISP</span>
+</div>
+<div class="scenario-context">Une DSI lance un nouveau service en interne (par exemple : refonte du portail RH hébergé en cloud privé).</div>
+<ol class="scenario-flow">
+<li>Cadrage du contexte (étape 0 ISP) : périmètre, données RH = données personnelles, hand-off DPO automatique.</li>
+<li>EBIOS RM (étapes 1 à 7) : valeurs métier, biens supports, scénarios stratégiques et opérationnels.</li>
+<li>Plan de traitement aligné ISO 27001 + RGPD.</li>
+<li>Validation RSSI, mise en production conditionnée.</li>
+</ol>
+<div class="scenario-output">
+<strong>Sortie</strong>
+          Note de cadrage SSI, plan de traitement, registre des risques résiduels.
+        </div>
+</div>
+<!-- Scénario 2 -->
+<div class="scenario-card">
+<div class="scenario-num">Scénario 2</div>
+<h3>Projet avec fournisseurs</h3>
+<div class="scenario-modules">
+<span class="scenario-mod">ISP</span>
+<span class="scenario-mod">TPRM</span>
+</div>
+<div class="scenario-context">Le projet inclut un éditeur SaaS pour la paie (Cegid, ADP, etc.) ou un infogérant externe.</div>
+<ol class="scenario-flow">
+<li>Cadrage ISP comme en scénario 1.</li>
+<li>À l'étape « biens supports », déclaration d'un fournisseur externe : ouverture automatique du module TPRM.</li>
+<li>Envoi du questionnaire sécurité au fournisseur (ou import de son rapport SOC 2 / ISO 27001).</li>
+<li>Détection d'incohérences : l'outil compare les déclarations avec les exigences du projet et signale les écarts.</li>
+<li>Décision contractuelle : exiger des engagements supplémentaires, accepter, refuser.</li>
+</ol>
+<div class="scenario-output">
+<strong>Sortie</strong>
+          Fiche fournisseur, écarts identifiés, clauses contractuelles recommandées.
+        </div>
+</div>
+<!-- Scénario 3 -->
+<div class="scenario-card">
+<div class="scenario-num">Scénario 3</div>
+<h3>Appel d'offres compétitif</h3>
+<div class="scenario-modules">
+<span class="scenario-mod">ISP</span>
+<span class="scenario-mod">TPRM</span>
+<span class="scenario-mod">RFP</span>
+</div>
+<div class="scenario-context">L'organisation lance un appel d'offres pour sélectionner un fournisseur cloud parmi trois candidats.</div>
+<ol class="scenario-flow">
+<li>Cadrage ISP (mêmes étapes).</li>
+<li>Construction du questionnaire RFP : sélection des exigences à poser aux candidats (catalogue ou Excel).</li>
+<li>Envoi du même questionnaire aux 3 fournisseurs.</li>
+<li>Réception des réponses, scoring automatique (pondérations ISO / NIST / PCI / CyberAct).</li>
+<li>Tableau comparatif : score global, écarts par exigence, points forts et faibles.</li>
+<li>Décision sourcing tracée et défendable.</li>
+</ol>
+<div class="scenario-output">
+<strong>Sortie</strong>
+          Matrice comparative, justification de choix, plan de remédiation pour le fournisseur retenu.
+        </div>
+</div>
+</div>
+<!-- Exemple concret -->
+<div class="scenario-example">
+<div class="example-eyebrow">Exemple concret</div>
+<h3>Mehdi qualifie un éditeur SaaS de signature électronique en 3 jours</h3>
+<p class="example-intro">Mehdi est RSSI dans une banque mutualiste. Il doit qualifier un éditeur SaaS de signature électronique avant que la direction juridique ne signe le contrat de 3 ans.</p>
+<div class="timeline">
+<div class="timeline-step">
+<div class="timeline-when">Lundi 9h<br/><span style="opacity:.7;font-weight:500;font-size:12px">Lancement</span></div>
+<div class="timeline-what">Mehdi se connecte à CyberAct, choisit le module <strong>TPRM</strong>, crée le projet « Signature électronique - Éditeur X ». Il importe le contrat brouillon (.docx) : CyberAct détecte éditeur, scope, données concernées (signataires = données personnelles) et pays d'hébergement (Irlande). Mehdi relit, corrige, valide.</div>
+</div>
+<div class="timeline-step">
+<div class="timeline-when">Lundi 10h<br/><span style="opacity:.7;font-weight:500;font-size:12px">Hand-off DPO</span></div>
+<div class="timeline-what">Comme l'éditeur traite des données personnelles avec un transfert intra-UE, CyberAct affiche un encart : <em>« Données personnelles détectées. Envoyer un compte-rendu au DPO ? »</em>. Mehdi clique : un mail structuré part au DPO avec contexte, types de données, base légale présumée, recommandation AIPD.</div>
+</div>
+<div class="timeline-step">
+<div class="timeline-when">Lundi 14h<br/><span style="opacity:.7;font-weight:500;font-size:12px">Questionnaire</span></div>
+<div class="timeline-what">Mehdi sélectionne le catalogue <strong>ISO 27001:2022 + RGPD</strong> (filtre auto par contexte). CyberAct lui propose 67 exigences pertinentes. Il en retire 12 non applicables, en ajoute 3 spécifiques au métier bancaire. Il envoie le questionnaire au fournisseur via lien sécurisé.</div>
+</div>
+<div class="timeline-step">
+<div class="timeline-when">Mardi<br/><span style="opacity:.7;font-weight:500;font-size:12px">Réception</span></div>
+<div class="timeline-what">Le fournisseur répond avec preuves : extraits de politique, rapport SOC 2, certificats ISO.</div>
+</div>
+<div class="timeline-step">
+<div class="timeline-when">Mercredi<br/><span style="opacity:.7;font-weight:500;font-size:12px">Analyse</span></div>
+<div class="timeline-what">CyberAct score automatiquement chaque réponse en aide à la décision, signale 4 incohérences (ex. : le fournisseur déclare « MFA généralisée » mais le SOC 2 montre une exception sur les comptes admin de niveau 2). Mehdi peut <strong>modifier le score en justifiant</strong>. Il marque 2 incohérences comme bloquantes.</div>
+</div>
+<div class="timeline-step">
+<div class="timeline-when">Jeudi<br/><span style="opacity:.7;font-weight:500;font-size:12px">Verdict</span></div>
+<div class="timeline-what">Score global <strong>78/100</strong>. Risque résiduel « modéré ». Mehdi valide avec deux conditions contractuelles : engagement de notification d'incident sous 24h (au lieu de 72h proposé), et audit annuel autorisé. Il exporte un rapport Word de 12 pages signé horodaté, le transmet au juridique.</div>
+</div>
+</div>
+<div class="scenario-result">
+<strong>Cycle complet : 3 jours.</strong> Le RSSI conserve la décision finale, la plateforme porte la rigueur méthodologique et la traçabilité.
+      </div>
+</div>
+</div>
+</section>
 <!-- CONTACT -->
 <section id="contact">
 <div class="container">
-<h2>Ready to structure your security program?</h2>
+<h2>Prêt à structurer votre démarche SSI ?</h2>
 <p class="lead">Let us schedule a demo tailored to your context. 30 minutes to see the platform in action and answer your questions.</p>
 <div class="contact-ctas">
 <a class="btn btn-white" href="mailto:grc@cyberact.fr?subject=Demo%20request%20CyberAct&amp;body=Bonjour%2C%0A%0AJe%20souhaite%20planifier%20une%20d%C3%A9monstration.%0A%0AMon%20organisation%20%3A%20%0ANombre%20d%27utilisateurs%20estim%C3%A9%20%3A%20%0ACr%C3%A9neaux%20souhait%C3%A9s%20%3A%20%0A%0AMerci.">
@@ -2990,10 +2562,11 @@
 <div>
 <h5>Produit</h5>
 <ul>
-<li><a href="#modules">31 modules delivered</a></li>
-<li><a href="#workflows">Workflows phares</a></li>
-<li><a href="#fonctionnalites">Features</a></li>
-<li><a href="#referentiels">Frameworks</a></li>
+<li><a href="#modules">30 modules livrés</a></li>
+<li><a href="#vision">Sur la feuille de route</a></li>
+<li><a href="#fonctionnalites">Fonctionnalités</a></li>
+<li><a href="#referentiels">Référentiels</a></li>
+<li><a href="#scenarios">Scénarios</a></li>
 <li><a href="#contact">Request a demo</a></li>
 </ul>
 </div>
@@ -3012,9 +2585,6 @@
 </div>
 </footer>
 <script>
-// Clear any legacy language preference from previous JS-toggle mechanism
-try { localStorage.removeItem('cyberact-lang'); } catch (e) {}
-
 (function(){
   document.querySelectorAll('.module-card').forEach(function(card){
     var btn = card.querySelector('.module-toggle');
@@ -3035,35 +2605,41 @@ try { localStorage.removeItem('cyberact-lang'); } catch (e) {}
   });
 })();
 
-// Animation mock hero : compteur risques + barres - declenche au load
+// Animation mock hero : compteur risques + barres au scroll-into-view.
 (function(){
-  function init(){
-    var mock = document.querySelector('.mock');
-    if(!mock) return;
-    function animateCounter(){
-      var el = mock.querySelector('[data-count-to]');
-      if(!el) return;
-      var target = parseInt(el.getAttribute('data-count-to'), 10) || 0;
-      var duration = 1200; // ms
-      var start = performance.now();
-      function step(now){
-        var t = Math.min((now - start) / duration, 1);
-        var eased = 1 - Math.pow(1 - t, 3);
-        el.textContent = Math.round(target * eased);
-        if(t < 1) requestAnimationFrame(step);
-        else el.textContent = target;
-      }
-      requestAnimationFrame(step);
+  var mock = document.querySelector('.mock');
+  if(!mock || !('IntersectionObserver' in window)) {
+    if(mock) mock.classList.add('in-view');
+    return;
+  }
+  var animated = false;
+  function animateCounter(){
+    var el = mock.querySelector('[data-count-to]');
+    if(!el) return;
+    var target = parseInt(el.getAttribute('data-count-to'), 10) || 0;
+    var duration = 1200; // ms
+    var start = performance.now();
+    function step(now){
+      var t = Math.min((now - start) / duration, 1);
+      // ease-out cubic
+      var eased = 1 - Math.pow(1 - t, 3);
+      el.textContent = Math.round(target * eased);
+      if(t < 1) requestAnimationFrame(step);
+      else el.textContent = target;
     }
-    // Trigger immediately + a tiny delay for paint
-    mock.classList.add('in-view');
-    setTimeout(animateCounter, 200);
+    requestAnimationFrame(step);
   }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting && !animated){
+        animated = true;
+        mock.classList.add('in-view');
+        animateCounter();
+        obs.disconnect();
+      }
+    });
+  }, { threshold: 0.4 });
+  obs.observe(mock);
 })();
 </script>
 </body>

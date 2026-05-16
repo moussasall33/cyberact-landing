@@ -426,11 +426,8 @@
     height: 100%;
     background: var(--accent);
     border-radius: 999px;
-    width: 0;
-    transition: width 1.6s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-  .mock.in-view .mock-pill-bar i {
     width: var(--target, 0%);
+    transition: width 1.6s cubic-bezier(0.22, 1, 0.36, 1);
   }
   /* Spark line décorative dans le bloc score */
   .mock-spark {
@@ -2127,7 +2124,7 @@
           <div class="mock-body">
             <div class="mock-hero">
               <div class="mock-caps">Risques résiduels actifs</div>
-              <div class="mock-score" data-count-to="24">0</div>
+              <div class="mock-score" data-count-to="24">24</div>
               <div class="mock-trend">3 critiques · 12 modérés · 9 mineurs</div>
               <svg class="mock-spark" viewBox="0 0 200 40" preserveAspectRatio="none" aria-hidden="true">
                 <polyline points="0,32 20,28 40,30 60,22 80,24 100,18 120,20 140,12 160,14 180,8 200,6" />

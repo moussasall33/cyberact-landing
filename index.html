@@ -3,12 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CyberAct - Plateforme GRC complète : des modules GRC livrés au choix, EBIOS RM pré-chargé, IA souveraine</title>
-<meta name="description" content="CyberAct : plateforme GRC modulaire pour RSSI et DPO, couvrant tout le cycle GRC : évaluation sécurité projets (orientée EBIOS RM), qualification fournisseurs (TPRM 5 phases), assistance SSI dans les appels d'offres (RFP), audits de maturité (ISO 27001 ou exigences personnalisées), conformité documentaire, analyses de risques polymorphes, registre des risques (3 états : inhérent, ajusté, résiduel), registre des traitements, DPIA CNIL PIA-3, demandes CNIL, Trust Center, KPIs CODIR... 4 modes de saisie (manuel, import, IA génère, IA restructure). IA locale souveraine ou API externe au choix.">
-<meta property="og:title" content="CyberAct - des modules GRC ativés selon le besoin du client, EBIOS RM pré-chargé, multi-tenant, IA souveraine">
-<meta property="og:description" content="Plateforme GRC modulaire pour RSSI, DPO et auditeurs, organisés en 4 hubs métier (Gouvernance, Risques, Conformité, Risque Tiers). EBIOS RM, TPRM 5 phases, Audit SSI 4 phases assistées IA, RFP campagne multi-fournisseurs, DPIA CNIL PIA-3, Roadmap polymorphe Gantt/Kanban/Liste, Compliance Center 3 onglets, Trust Center, KPIs CODIR. Multi-tenant RLS, MFA TOTP + WebAuthn passkeys, 18 principes security by design. IA locale souveraine ou API externe au choix.">
+<title>CYBERACT - Gouvernance SSI : NIS 2, DORA, RGPD, ISO 27001 | Plateforme GRC souveraine française</title>
+<meta name="description" content="CYBERACT : plateforme GRC souveraine française pour gouvernance SSI, NIS 2, DORA, RGPD, ISO 27001. EBIOS RM pré-chargé, 30+ référentiels, 31 modules activables à la carte. Threat Intelligence 6 sources NIS 2 incluse. Hébergement France. IA locale ou cloud au choix. Démo gratuite 30 min.">
+<meta name="keywords" content="GRC, NIS 2, DORA, RGPD, ISO 27001, EBIOS RM, gouvernance SSI, logiciel conformité, plateforme GRC française, IA souveraine, threat intelligence, CISA KEV, ANSSI, RSSI, DPO, DPIA, ROPA, TPRM, audit ISO 19011, EU AI Act">
+<meta property="og:title" content="CYBERACT - Gouvernance SSI : NIS 2, DORA, RGPD. Tout votre pilotage dans un seul outil.">
+<meta property="og:description" content="Plateforme GRC souveraine française. 30+ référentiels pré-chargés (NIS 2, DORA, RGPD, ISO 27001, EU AI Act). 31 modules activables à la carte. Threat Intelligence 6 sources incluse. Hébergement France. IA locale souveraine ou cloud au choix. Démo gratuite 30 min.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://cyberact.fr">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CYBERACT - Gouvernance SSI : NIS 2, DORA, RGPD souverains">
+<meta name="twitter:description" content="Tout votre pilotage GRC dans un seul outil souverain français. 31 modules activables à la carte.">
+<link rel="canonical" href="https://cyberact.fr/">
 <style>
   :root {
     /* Brand tokens - alignés sur le design system CYBERACT V8 */
@@ -261,6 +268,18 @@
     max-width: 560px;
   }
   .hero p.lead strong { color: var(--text); }
+  .hero-tagline {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 20px;
+    line-height: 1.35;
+    letter-spacing: -0.005em;
+    max-width: 580px;
+  }
+  @media (max-width: 720px) {
+    .hero-tagline { font-size: 18px; }
+  }
   .hero-ctas {
     display: flex;
     gap: 14px;
@@ -1672,6 +1691,421 @@
     line-height: 1.65;
   }
 
+  /* ===== URGENCE REGLEMENTAIRE ===== */
+  .urgence-section {
+    background: linear-gradient(180deg, #fff 0%, var(--bg) 100%);
+  }
+  .urgence-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .urgence-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px 26px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+  .urgence-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+  .urgence-card--active {
+    border-left: 4px solid #DC2626;
+  }
+  .urgence-card--soon {
+    border-left: 4px solid #F59E0B;
+  }
+  .urgence-card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+  }
+  .urgence-card-title {
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+  }
+  .urgence-badge {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 999px;
+  }
+  .urgence-badge--active {
+    background: #FEE2E2;
+    color: #B91C1C;
+  }
+  .urgence-badge--soon {
+    background: #FEF3C7;
+    color: #B45309;
+  }
+  .urgence-card-sub {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+  .urgence-card-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .urgence-card-list li {
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.5;
+    padding-left: 22px;
+    position: relative;
+  }
+  .urgence-card-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 12px;
+    height: 12px;
+    border: 1.5px solid var(--gray-400);
+    border-radius: 3px;
+    background: white;
+  }
+  .urgence-card-answer {
+    margin-top: auto;
+    padding-top: 18px;
+    border-top: 1px solid var(--gray-200);
+  }
+  .urgence-card-answer-label {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--accent-deep);
+    margin-bottom: 8px;
+  }
+  .urgence-card-answer p {
+    font-size: 13.5px;
+    color: var(--text);
+    line-height: 1.55;
+  }
+  @media (max-width: 900px) {
+    .urgence-grid { grid-template-columns: 1fr; gap: 18px; }
+    .urgence-card { padding: 22px 20px; }
+    .urgence-card-title { font-size: 20px; }
+  }
+
+  /* ===== THREAT INTELLIGENCE LIVE ===== */
+  .threat-section {
+    background: linear-gradient(135deg, #0c1a36 0%, #1f3866 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .threat-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 12% 22%, rgba(255,255,255,0.35), transparent),
+      radial-gradient(1px 1px at 78% 14%, rgba(255,255,255,0.30), transparent),
+      radial-gradient(1px 1px at 42% 68%, rgba(255,255,255,0.25), transparent),
+      radial-gradient(1.5px 1.5px at 90% 80%, rgba(255,255,255,0.20), transparent),
+      radial-gradient(1px 1px at 22% 88%, rgba(255,255,255,0.30), transparent);
+    pointer-events: none;
+  }
+  .threat-section .container { position: relative; z-index: 1; }
+  .threat-section .section-header h2 { color: white; }
+  .threat-section .section-header p { color: rgba(220, 232, 255, 0.78); }
+  .threat-section .section-eyebrow { color: #4dd0e1; }
+  .threat-sources-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 14px;
+    margin-bottom: 50px;
+  }
+  .threat-source {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    padding: 16px 12px;
+    text-align: center;
+    transition: all 0.2s;
+  }
+  .threat-source:hover {
+    background: rgba(255, 255, 255, 0.10);
+    transform: translateY(-2px);
+  }
+  .threat-source-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #4ade80;
+    margin: 0 auto 10px;
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.6);
+    animation: threatPulse 2s infinite;
+  }
+  @keyframes threatPulse {
+    0% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.55); }
+    70% { box-shadow: 0 0 0 8px rgba(74, 222, 128, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
+  }
+  .threat-source-code {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.10);
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+  .threat-source-num {
+    font-size: 22px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 2px;
+    font-family: var(--font-mono);
+  }
+  .threat-source-label {
+    font-size: 10.5px;
+    color: rgba(220, 232, 255, 0.65);
+    line-height: 1.3;
+  }
+  .threat-capacities {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .threat-capacity {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .threat-capacity-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  .threat-capacity-body {
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(220, 232, 255, 0.75);
+  }
+  @media (max-width: 900px) {
+    .threat-sources-grid { grid-template-columns: repeat(3, 1fr); }
+    .threat-capacities { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 520px) {
+    .threat-sources-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ===== PRICING ===== */
+  .pricing-section {
+    background: var(--bg);
+  }
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    align-items: stretch;
+  }
+  .pricing-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s;
+    position: relative;
+  }
+  .pricing-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+  .pricing-card--featured {
+    border: 2px solid var(--accent);
+    box-shadow: 0 12px 40px rgba(0, 184, 107, 0.15);
+  }
+  .pricing-card--featured:hover { box-shadow: 0 16px 48px rgba(0, 184, 107, 0.22); }
+  .pricing-card-flag {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: white;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    text-transform: uppercase;
+  }
+  .pricing-card-name {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 6px;
+  }
+  .pricing-card-tagline {
+    font-size: 14px;
+    font-style: italic;
+    color: var(--muted);
+    margin-bottom: 22px;
+  }
+  .pricing-card-price {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-bottom: 4px;
+  }
+  .pricing-card-price-prefix {
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .pricing-card-price-num {
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--navy);
+    letter-spacing: -1px;
+  }
+  .pricing-card-price-period {
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .pricing-card-price-note {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+  .pricing-card-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex-grow: 1;
+  }
+  .pricing-card-list li {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text);
+    padding-left: 26px;
+    position: relative;
+  }
+  .pricing-card-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--accent);
+    font-weight: 900;
+    font-size: 15px;
+  }
+  .pricing-card-fit {
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.5;
+    margin-bottom: 20px;
+    padding: 12px 14px;
+    background: var(--bg);
+    border-radius: 8px;
+  }
+  .pricing-card-btn {
+    width: 100%;
+    text-align: center;
+  }
+  .pricing-foot {
+    margin-top: 32px;
+    text-align: center;
+    font-size: 13.5px;
+    color: var(--muted);
+    line-height: 1.6;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media (max-width: 900px) {
+    .pricing-grid { grid-template-columns: 1fr; }
+    .pricing-card { padding: 28px 24px; }
+  }
+
+  /* ===== FAQ ===== */
+  .faq-section {
+    background: white;
+  }
+  .faq-grid {
+    max-width: 820px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .faq-item {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.15s;
+  }
+  .faq-item[open] {
+    background: white;
+    border-color: var(--steel);
+    box-shadow: var(--shadow-sm);
+  }
+  .faq-summary {
+    padding: 20px 26px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy);
+    list-style: none;
+    position: relative;
+    padding-right: 56px;
+  }
+  .faq-summary::-webkit-details-marker { display: none; }
+  .faq-summary::after {
+    content: '+';
+    position: absolute;
+    right: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--steel);
+    transition: transform 0.2s;
+  }
+  .faq-item[open] .faq-summary::after {
+    content: '−';
+  }
+  .faq-body {
+    padding: 0 26px 22px;
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--muted);
+  }
+  .faq-body strong { color: var(--text); }
+  @media (max-width: 720px) {
+    .faq-summary { padding: 18px 20px; padding-right: 50px; font-size: 15px; }
+    .faq-body { padding: 0 20px 18px; }
+  }
+
   /* ===== REFERENTIELS ===== */
   #referentiels {
     background: var(--navy);
@@ -2081,11 +2515,11 @@
       <span>CYBERACT</span>
     </a>
     <ul class="nav-links" id="nav-links">
+      <li><a href="#urgence" data-fr="NIS 2 · DORA" data-en="NIS 2 · DORA">NIS 2 · DORA</a></li>
       <li><a href="#modules" data-fr="Modules" data-en="Modules">Modules</a></li>
-      <li><a href="#workflows" data-fr="Workflows" data-en="Workflows">Workflows</a></li>
-      <li><a href="#pourqui" data-fr="Pour qui" data-en="Who for">Pour qui</a></li>
-      <li><a href="#fonctionnalites" data-fr="Fonctionnalités" data-en="Features">Fonctionnalités</a></li>
-      <li><a href="#referentiels" data-fr="Référentiels" data-en="Frameworks">Référentiels</a></li>
+      <li><a href="#threat-intel" data-fr="Threat Intel" data-en="Threat Intel">Threat Intel</a></li>
+      <li><a href="#pricing" data-fr="Tarifs" data-en="Pricing">Tarifs</a></li>
+      <li><a href="#faq" data-fr="FAQ" data-en="FAQ">FAQ</a></li>
       <li><a href="/en/" class="lang-toggle" id="lang-toggle-btn" aria-label="Switch to English" title="Switch to English">EN</a></li>
       <li><a href="#contact" class="nav-cta" data-fr="Demander une démo" data-en="Request a demo">Demander une démo</a></li>
     </ul>
@@ -2099,9 +2533,10 @@
   <div class="container">
     <div class="hero-grid">
       <div>
-        <h1 data-fr-html='Gouvernance SSI, <span class="accent">pilotée par le risque.</span>' data-en-html='SSI Governance, <span class="accent">driven by risk.</span>'>Gouvernance SSI, <span class="accent">pilotée par le risque.</span></h1>
+        <h1 data-fr-html='Gouvernance SSI - <span class="accent">NIS 2, DORA, RGPD.</span>' data-en-html='ISMS Governance - <span class="accent">NIS 2, DORA, GDPR.</span>'>Gouvernance SSI - <span class="accent">NIS 2, DORA, RGPD.</span></h1>
+        <p class="hero-tagline" data-fr="Tout votre pilotage dans un seul outil." data-en="All your security steering in one platform.">Tout votre pilotage dans un seul outil.</p>
         <p class="lead">
-          <span data-fr-html="Chaque exigence est rattachée à un <strong>risque réel de votre entreprise</strong>. Trois états de risque suivis : <strong>inhérent → ajusté → résiduel</strong>. EBIOS RM pré-chargé. <strong>4 hubs métiers</strong>, à activer à votre rythme. <strong>IA locale souveraine possible ou API externe au choix</strong> - vous validez tout." data-en-html="Every requirement is mapped to a <strong>real risk in your organization</strong>. Three risk states tracked: <strong>inherent → adjusted → residual</strong>. EBIOS RM pre-loaded. <strong>4 business hubs</strong>, activate at your own pace. <strong>Sovereign on-prem AI or your choice of external API</strong> - you validate everything.">Chaque exigence est rattachée à un <strong>risque réel de votre entreprise</strong>. Trois états de risque suivis : <strong>inhérent → ajusté → résiduel</strong>. EBIOS RM pré-chargé. <strong>4 hubs métiers</strong>, à activer à votre rythme. <strong>IA locale souveraine possible ou API externe au choix</strong> - vous validez tout.</span>
+          <span data-fr-html="EBIOS RM pré-chargé, <strong>30+ référentiels</strong> (ISO 27001, NIS 2, RGPD, DORA, EU AI Act). 31 modules activables un par un. Trois états de risque suivis : <strong>inhérent → ajusté → résiduel</strong>. Hébergement France. <strong>IA locale souveraine ou API externe au choix</strong> - vous validez tout." data-en-html="EBIOS RM pre-loaded, <strong>30+ frameworks</strong> (ISO 27001, NIS 2, GDPR, DORA, EU AI Act). 31 modules activable one by one. Three tracked risk states: <strong>inherent → adjusted → residual</strong>. Hosted in France. <strong>Sovereign on-prem AI or external API of your choice</strong> - you validate everything.">EBIOS RM pré-chargé, <strong>30+ référentiels</strong> (ISO 27001, NIS 2, RGPD, DORA, EU AI Act). 31 modules activables un par un. Trois états de risque suivis : <strong>inhérent → ajusté → résiduel</strong>. Hébergement France. <strong>IA locale souveraine ou API externe au choix</strong> - vous validez tout.</span>
         </p>
         <div class="hero-ctas">
           <a href="mailto:grc@cyberact.fr?subject=Demande%20de%20d%C3%A9mo%20CyberAct&body=Bonjour%2C%0A%0AJe%20souhaite%20planifier%20une%20d%C3%A9monstration.%0A%0AMon%20organisation%20%3A%20%0ANombre%20d%27utilisateurs%20estim%C3%A9%20%3A%20%0ACr%C3%A9neaux%20souhait%C3%A9s%20%3A%20%0A%0AMerci." class="btn btn-primary btn-lg">
@@ -2139,6 +2574,70 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- URGENCE RÉGLEMENTAIRE -->
+<section id="urgence" class="urgence-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow" data-fr="Les échéances qui arrivent" data-en="Upcoming deadlines">Les échéances qui arrivent</div>
+      <h2 data-fr="3 réglementations majeures. Une seule plateforme pour y répondre." data-en="3 major regulations. One platform to handle them all.">3 réglementations majeures. Une seule plateforme pour y répondre.</h2>
+    </div>
+    <div class="urgence-grid">
+
+      <article class="urgence-card urgence-card--active">
+        <div class="urgence-card-head">
+          <div class="urgence-card-title">NIS 2</div>
+          <span class="urgence-badge urgence-badge--active" data-fr="En vigueur" data-en="In force">En vigueur</span>
+        </div>
+        <div class="urgence-card-sub" data-fr="Transposée en France le 30 octobre 2024" data-en="Transposed in France on Oct 30, 2024">Transposée en France le 30 octobre 2024</div>
+        <ul class="urgence-card-list">
+          <li data-fr="Sanctions jusqu'à 10 M€ ou 2 % du CA mondial" data-en="Fines up to €10M or 2% of global turnover">Sanctions jusqu'à 10 M€ ou 2 % du CA mondial</li>
+          <li data-fr="Notification incidents 24h / 72h / 30j" data-en="Incident notification 24h / 72h / 30d">Notification incidents 24h / 72h / 30j</li>
+          <li data-fr="Responsabilité personnelle des dirigeants" data-en="Personal liability of executives">Responsabilité personnelle des dirigeants</li>
+        </ul>
+        <div class="urgence-card-answer">
+          <div class="urgence-card-answer-label" data-fr="Comment CYBERACT y répond" data-en="How CYBERACT addresses it">Comment CYBERACT y répond</div>
+          <p data-fr="Workflow notification 3 paliers + Registre des risques + Mesures techniques + Plan de traitement + Acceptation signée des risques résiduels (art. 21.3)." data-en="3-tier notification workflow + Risk register + Technical measures + Treatment plan + Signed acceptance of residual risks (art. 21.3).">Workflow notification 3 paliers + Registre des risques + Mesures techniques + Plan de traitement + Acceptation signée des risques résiduels (art. 21.3).</p>
+        </div>
+      </article>
+
+      <article class="urgence-card urgence-card--active">
+        <div class="urgence-card-head">
+          <div class="urgence-card-title">DORA</div>
+          <span class="urgence-badge urgence-badge--active" data-fr="En vigueur" data-en="In force">En vigueur</span>
+        </div>
+        <div class="urgence-card-sub" data-fr="Régulation UE finance / banque / assurance · 17 janvier 2025" data-en="EU finance/banking/insurance regulation · Jan 17, 2025">Régulation UE finance / banque / assurance · 17 janvier 2025</div>
+        <ul class="urgence-card-list">
+          <li data-fr="Registre prestataires TIC critiques obligatoire" data-en="Mandatory ICT critical providers register">Registre prestataires TIC critiques obligatoire</li>
+          <li data-fr="Tests de résilience opérationnelle (TLPT)" data-en="Operational resilience testing (TLPT)">Tests de résilience opérationnelle (TLPT)</li>
+          <li data-fr="Notification incidents majeurs en 4h" data-en="Major incident notification within 4h">Notification incidents majeurs en 4h</li>
+        </ul>
+        <div class="urgence-card-answer">
+          <div class="urgence-card-answer-label" data-fr="Comment CYBERACT y répond" data-en="How CYBERACT addresses it">Comment CYBERACT y répond</div>
+          <p data-fr="Module TPRM 5 phases + Cartographie dépendances + Plan continuité (BIA / PCA / PRA) + Roadmap tests résilience." data-en="5-phase TPRM module + Dependency mapping + Business continuity (BIA / BCP / DRP) + Resilience test roadmap.">Module TPRM 5 phases + Cartographie dépendances + Plan continuité (BIA / PCA / PRA) + Roadmap tests résilience.</p>
+        </div>
+      </article>
+
+      <article class="urgence-card urgence-card--soon">
+        <div class="urgence-card-head">
+          <div class="urgence-card-title">EU AI Act</div>
+          <span class="urgence-badge urgence-badge--soon" id="aiActCountdown" data-fr="J-…" data-en="D-…">J-…</span>
+        </div>
+        <div class="urgence-card-sub" data-fr="Modèles GPAI applicables 2 août 2026" data-en="GPAI models applicable Aug 2, 2026">Modèles GPAI applicables 2 août 2026</div>
+        <ul class="urgence-card-list">
+          <li data-fr="Inventaire systèmes IA obligatoire" data-en="Mandatory AI systems inventory">Inventaire systèmes IA obligatoire</li>
+          <li data-fr="Évaluation risques IA + DPIA dédiée" data-en="AI risk assessment + dedicated DPIA">Évaluation risques IA + DPIA dédiée</li>
+          <li data-fr="Transparence + traçabilité des décisions" data-en="Transparency + decision traceability">Transparence + traçabilité des décisions</li>
+        </ul>
+        <div class="urgence-card-answer">
+          <div class="urgence-card-answer-label" data-fr="Comment CYBERACT y répond" data-en="How CYBERACT addresses it">Comment CYBERACT y répond</div>
+          <p data-fr="Module Analyses de risques polymorphe avec type AI_SYSTEM + Référentiels OWASP LLM Top 10 et ISO 42001 pré-chargés." data-en="Polymorphic risk analysis module with AI_SYSTEM type + OWASP LLM Top 10 and ISO 42001 frameworks pre-loaded.">Module Analyses de risques polymorphe avec type AI_SYSTEM + Référentiels OWASP LLM Top 10 et ISO 42001 pré-chargés.</p>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
@@ -2837,6 +3336,73 @@
     </div>
   </div>
 </section>
+
+<!-- THREAT INTELLIGENCE LIVE -->
+<section id="threat-intel" class="threat-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow" data-fr="Capacité unique sur le marché GRC" data-en="Unique capability on the GRC market">Capacité unique sur le marché GRC</div>
+      <h2 data-fr="6 sources de veille reconnues NIS 2. Live. Inclus." data-en="6 NIS 2-recognised intelligence sources. Live. Included.">6 sources de veille reconnues NIS 2. Live. Inclus.</h2>
+      <p data-fr="La plupart des outils GRC concurrents vous demandent de remplir manuellement vos vulnérabilités. CYBERACT branche nativement 6 flux officiels et croise avec votre périmètre actifs. Argument NIS 2 Art. 21.2.e : traçabilité des sources de veille." data-en="Most competing GRC tools ask you to fill in vulnerabilities manually. CYBERACT natively connects 6 official feeds and crosses with your asset perimeter. NIS 2 Art. 21.2.e argument: traceability of intelligence sources.">La plupart des outils GRC concurrents vous demandent de remplir manuellement vos vulnérabilités. CYBERACT branche nativement 6 flux officiels et croise avec votre périmètre actifs. Argument NIS 2 Art. 21.2.e : traçabilité des sources de veille.</p>
+    </div>
+
+    <div class="threat-sources-grid">
+      <div class="threat-source">
+        <div class="threat-source-dot" aria-hidden="true"></div>
+        <div class="threat-source-code">CISA</div>
+        <div class="threat-source-num">1.6k</div>
+        <div class="threat-source-label" data-fr="KEV exploitées" data-en="Exploited KEVs">KEV exploitées</div>
+      </div>
+      <div class="threat-source">
+        <div class="threat-source-dot" aria-hidden="true"></div>
+        <div class="threat-source-code">NVD</div>
+        <div class="threat-source-num">23k</div>
+        <div class="threat-source-label" data-fr="CVE indexées NIST" data-en="NIST-indexed CVEs">CVE indexées NIST</div>
+      </div>
+      <div class="threat-source">
+        <div class="threat-source-dot" aria-hidden="true"></div>
+        <div class="threat-source-code">ENISA</div>
+        <div class="threat-source-num">22k</div>
+        <div class="threat-source-label" data-fr="Mirror EUVD" data-en="EUVD mirror">Mirror EUVD</div>
+      </div>
+      <div class="threat-source">
+        <div class="threat-source-dot" aria-hidden="true"></div>
+        <div class="threat-source-code">CERT-FR</div>
+        <div class="threat-source-num">478</div>
+        <div class="threat-source-label" data-fr="Bulletins ANSSI" data-en="ANSSI bulletins">Bulletins ANSSI</div>
+      </div>
+      <div class="threat-source">
+        <div class="threat-source-dot" aria-hidden="true"></div>
+        <div class="threat-source-code">MITRE</div>
+        <div class="threat-source-num">697</div>
+        <div class="threat-source-label" data-fr="Techniques ATT&CK" data-en="ATT&CK techniques">Techniques ATT&CK</div>
+      </div>
+      <div class="threat-source">
+        <div class="threat-source-dot" aria-hidden="true"></div>
+        <div class="threat-source-code">OSV</div>
+        <div class="threat-source-num">15k</div>
+        <div class="threat-source-label" data-fr="Advisories Google" data-en="Google advisories">Advisories Google</div>
+      </div>
+    </div>
+
+    <div class="threat-capacities">
+      <div class="threat-capacity">
+        <div class="threat-capacity-title" data-fr="Surveillance continue" data-en="Continuous monitoring">Surveillance continue</div>
+        <div class="threat-capacity-body" data-fr="6 sources branchées 24/7, refresh quotidien. Aucune saisie manuelle, aucune subscription tierce à gérer - tout est inclus dans la plateforme." data-en="6 sources connected 24/7, daily refresh. No manual entry, no third-party subscription to manage - everything included in the platform.">6 sources branchées 24/7, refresh quotidien. Aucune saisie manuelle, aucune subscription tierce à gérer - tout est inclus dans la plateforme.</div>
+      </div>
+      <div class="threat-capacity">
+        <div class="threat-capacity-title" data-fr="Croisement périmètre actifs" data-en="Asset perimeter crossing">Croisement périmètre actifs</div>
+        <div class="threat-capacity-body" data-fr="Vos actifs déclarés sont automatiquement croisés avec les KEV CISA. Si une de vos technologies est ciblée, une tâche CRITICAL s'ouvre dans la Roadmap (SLA 14 jours)." data-en="Your declared assets are automatically crossed with CISA KEVs. If one of your technologies is targeted, a CRITICAL task opens in the Roadmap (14-day SLA).">Vos actifs déclarés sont automatiquement croisés avec les KEV CISA. Si une de vos technologies est ciblée, une tâche CRITICAL s'ouvre dans la Roadmap (SLA 14 jours).</div>
+      </div>
+      <div class="threat-capacity">
+        <div class="threat-capacity-title" data-fr="Argument NIS 2 Art. 21.2.e" data-en="NIS 2 Art. 21.2.e argument">Argument NIS 2 Art. 21.2.e</div>
+        <div class="threat-capacity-body" data-fr="Traçabilité d'origine conservée pour chaque CVE indexée. Démontre à l'ANSSI que vous suivez les sources autorisées - sans dépenser un euro de plus." data-en="Source traceability preserved for every indexed CVE. Demonstrates to ANSSI that you follow authorised sources - without spending an extra euro.">Traçabilité d'origine conservée pour chaque CVE indexée. Démontre à l'ANSSI que vous suivez les sources autorisées - sans dépenser un euro de plus.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- POUR QUI -->
 <section id="pourqui">
   <div class="container">
@@ -2993,7 +3559,157 @@
   </div>
 </section>
 
-<!-- SCÉNARIOS -->
+<!-- PRICING -->
+<section id="pricing" class="pricing-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow" data-fr="Tarifs" data-en="Pricing">Tarifs</div>
+      <h2 data-fr="Activez par module. Tarif transparent." data-en="Activate per module. Transparent pricing.">Activez par module. Tarif transparent.</h2>
+      <p data-fr="Vous payez les modules activés - rien de plus. Facturation annuelle. Aucun engagement long terme." data-en="You pay for the modules you activate - nothing more. Annual billing. No long-term commitment.">Vous payez les modules activés - rien de plus. Facturation annuelle. Aucun engagement long terme.</p>
+    </div>
+
+    <div class="pricing-grid">
+
+      <article class="pricing-card">
+        <div class="pricing-card-name">Starter</div>
+        <div class="pricing-card-tagline" data-fr="« Je démarre ma démarche »" data-en="“I am starting my program”">« Je démarre ma démarche »</div>
+        <div class="pricing-card-price">
+          <span class="pricing-card-price-prefix" data-fr="À partir de" data-en="From">À partir de</span>
+          <span class="pricing-card-price-num">490 €</span>
+          <span class="pricing-card-price-period" data-fr="/ mois" data-en="/ month">/ mois</span>
+        </div>
+        <div class="pricing-card-price-note" data-fr="HT · facturation annuelle" data-en="excl. VAT · annual billing">HT · facturation annuelle</div>
+        <ul class="pricing-card-list">
+          <li data-fr="Jusqu'à 25 utilisateurs" data-en="Up to 25 users">Jusqu'à 25 utilisateurs</li>
+          <li data-fr="3 modules au choix" data-en="3 modules of your choice">3 modules au choix</li>
+          <li data-fr="1 référentiel principal" data-en="1 primary framework">1 référentiel principal</li>
+          <li data-fr="Support email J+1" data-en="Email support, D+1">Support email J+1</li>
+          <li data-fr="Hébergement France" data-en="Hosted in France">Hébergement France</li>
+        </ul>
+        <div class="pricing-card-fit" data-fr="Idéal pour PME 50-250 collaborateurs qui démarrent leur démarche GRC." data-en="Ideal for SMEs 50-250 employees starting their GRC program.">Idéal pour PME 50-250 collaborateurs qui démarrent leur démarche GRC.</div>
+        <a href="mailto:grc@cyberact.fr?subject=Devis%20Starter%20CYBERACT" class="btn btn-ghost pricing-card-btn">
+          <span data-fr="Demander un devis" data-en="Request a quote">Demander un devis</span>
+        </a>
+      </article>
+
+      <article class="pricing-card pricing-card--featured">
+        <span class="pricing-card-flag" data-fr="Le plus choisi" data-en="Most chosen">Le plus choisi</span>
+        <div class="pricing-card-name">Essential</div>
+        <div class="pricing-card-tagline" data-fr="« Je suis NIS 2 ou DORA »" data-en="“I am subject to NIS 2 or DORA”">« Je suis NIS 2 ou DORA »</div>
+        <div class="pricing-card-price">
+          <span class="pricing-card-price-prefix" data-fr="À partir de" data-en="From">À partir de</span>
+          <span class="pricing-card-price-num">1 290 €</span>
+          <span class="pricing-card-price-period" data-fr="/ mois" data-en="/ month">/ mois</span>
+        </div>
+        <div class="pricing-card-price-note" data-fr="HT · facturation annuelle" data-en="excl. VAT · annual billing">HT · facturation annuelle</div>
+        <ul class="pricing-card-list">
+          <li data-fr="Jusqu'à 100 utilisateurs" data-en="Up to 100 users">Jusqu'à 100 utilisateurs</li>
+          <li data-fr="8 modules au choix" data-en="8 modules of your choice">8 modules au choix</li>
+          <li data-fr="Multi-référentiels illimités" data-en="Unlimited frameworks">Multi-référentiels illimités</li>
+          <li data-fr="Threat Intelligence incluse (6 sources)" data-en="Threat Intelligence included (6 sources)">Threat Intelligence incluse (6 sources)</li>
+          <li data-fr="Multi-filiales (jusqu'à 5)" data-en="Multi-subsidiaries (up to 5)">Multi-filiales (jusqu'à 5)</li>
+          <li data-fr="Support prioritaire J+0" data-en="Priority support, same day">Support prioritaire J+0</li>
+        </ul>
+        <div class="pricing-card-fit" data-fr="Idéal pour ETI 250-2000 collaborateurs soumises NIS 2 ou DORA." data-en="Ideal for mid-sized firms 250-2000 employees under NIS 2 or DORA.">Idéal pour ETI 250-2000 collaborateurs soumises NIS 2 ou DORA.</div>
+        <a href="mailto:grc@cyberact.fr?subject=D%C3%A9mo%20Essential%20CYBERACT" class="btn btn-primary pricing-card-btn">
+          <span data-fr="Demander une démo" data-en="Request a demo">Demander une démo</span>
+        </a>
+      </article>
+
+      <article class="pricing-card">
+        <div class="pricing-card-name">Enterprise</div>
+        <div class="pricing-card-tagline" data-fr="« Je pilote un groupe »" data-en="“I steer a group”">« Je pilote un groupe »</div>
+        <div class="pricing-card-price">
+          <span class="pricing-card-price-num" data-fr="Sur devis" data-en="On quote">Sur devis</span>
+        </div>
+        <div class="pricing-card-price-note" data-fr="Contractualisation sur-mesure" data-en="Tailored contract">Contractualisation sur-mesure</div>
+        <ul class="pricing-card-list">
+          <li data-fr="Utilisateurs illimités" data-en="Unlimited users">Utilisateurs illimités</li>
+          <li data-fr="Tous modules activables" data-en="All modules available">Tous modules activables</li>
+          <li data-fr="CRQ FAIR (quantification financière)" data-en="CRQ FAIR (financial quantification)">CRQ FAIR (quantification financière)</li>
+          <li data-fr="Multi-filiales illimitées" data-en="Unlimited subsidiaries">Multi-filiales illimitées</li>
+          <li data-fr="IA on-premise dédiée" data-en="Dedicated on-prem AI">IA on-premise dédiée</li>
+          <li data-fr="SLA 99,9 % + support 24/7" data-en="99.9% SLA + 24/7 support">SLA 99,9 % + support 24/7</li>
+          <li data-fr="Customer Success dédié" data-en="Dedicated Customer Success">Customer Success dédié</li>
+        </ul>
+        <div class="pricing-card-fit" data-fr="Pour grands comptes, OIV, holdings, opérateurs de services essentiels NIS 2 entité essentielle." data-en="For large accounts, critical operators, holdings, NIS 2 essential entities.">Pour grands comptes, OIV, holdings, opérateurs de services essentiels NIS 2 entité essentielle.</div>
+        <a href="mailto:grc@cyberact.fr?subject=Contact%20Enterprise%20CYBERACT" class="btn btn-ghost pricing-card-btn">
+          <span data-fr="Contacter notre équipe" data-en="Contact our team">Contacter notre équipe</span>
+        </a>
+      </article>
+
+    </div>
+
+    <p class="pricing-foot" data-fr="Tous les paliers incluent : hébergement France, sauvegardes quotidiennes, mises à jour incluses, 30+ référentiels pré-chargés, onboarding guidé et essai gratuit 30 jours sans engagement." data-en="All tiers include: France hosting, daily backups, updates included, 30+ pre-loaded frameworks, guided onboarding and free 30-day trial.">
+      Tous les paliers incluent : hébergement France, sauvegardes quotidiennes, mises à jour incluses, 30+ référentiels pré-chargés, onboarding guidé et essai gratuit 30 jours sans engagement.
+    </p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="faq-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow" data-fr="Questions fréquentes" data-en="Frequently asked questions">Questions fréquentes</div>
+      <h2 data-fr="Ce que les RSSI et DPO nous demandent le plus souvent" data-en="What CISOs and DPOs ask us most often">Ce que les RSSI et DPO nous demandent le plus souvent</h2>
+    </div>
+
+    <div class="faq-grid">
+
+      <details class="faq-item">
+        <summary class="faq-summary" data-fr="En combien de temps suis-je opérationnel ?" data-en="How long until I am operational?">En combien de temps suis-je opérationnel ?</summary>
+        <div class="faq-body" data-fr="2 semaines pour un module unique avec un référentiel pré-chargé. 6 à 8 semaines pour un déploiement multi-modules / multi-filiales. L'onboarding guidé est inclus dans tous les paliers." data-en="2 weeks for a single module with a pre-loaded framework. 6 to 8 weeks for a multi-module / multi-subsidiary rollout. Guided onboarding is included in every tier.">2 semaines pour un module unique avec un référentiel pré-chargé. 6 à 8 semaines pour un déploiement multi-modules / multi-filiales. L'onboarding guidé est inclus dans tous les paliers.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-summary" data-fr="Mes données sortent-elles de France ?" data-en="Do my data leave France?">Mes données sortent-elles de France ?</summary>
+        <div class="faq-body" data-fr="<strong>Non.</strong> Hébergement OVH Roubaix par défaut. Possibilité d'hébergement client (on-premise) pour les paliers Enterprise. Chiffrement AES-256-GCM au repos et en transit, clés tenant-scope." data-en="<strong>No.</strong> OVH Roubaix hosting by default. On-premise hosting available for Enterprise tier. AES-256-GCM encryption at rest and in transit, tenant-scoped keys."><strong>Non.</strong> Hébergement OVH Roubaix par défaut. Possibilité d'hébergement client (on-premise) pour les paliers Enterprise. Chiffrement AES-256-GCM au repos et en transit, clés tenant-scope.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-summary" data-fr="L'IA voit-elle nos documents sensibles ?" data-en="Does the AI see our sensitive documents?">L'IA voit-elle nos documents sensibles ?</summary>
+        <div class="faq-body" data-fr="<strong>Vous choisissez.</strong> En mode IA locale (Ollama on-premise), aucun document ne sort de votre tenant. En mode cloud (OpenRouter, OpenAI, Anthropic au choix), les documents sont envoyés avec votre consentement explicite, masqués des PII." data-en="<strong>You choose.</strong> Local AI mode (on-prem Ollama): no document leaves your tenant. Cloud mode (OpenRouter, OpenAI, Anthropic): documents are sent with your explicit consent, PII-masked."><strong>Vous choisissez.</strong> En mode IA locale (Ollama on-premise), aucun document ne sort de votre tenant. En mode cloud (OpenRouter, OpenAI, Anthropic au choix), les documents sont envoyés avec votre consentement explicite, masqués des PII.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-summary" data-fr="Est-ce compatible avec mon SIEM / IAM existant ?" data-en="Compatible with my existing SIEM / IAM?">Est-ce compatible avec mon SIEM / IAM existant ?</summary>
+        <div class="faq-body" data-fr="Oui. Export syslog standard pour Splunk, Elastic, QRadar, Sentinel. API REST documentée OpenAPI 3.0. SSO SAML 2.0 / OIDC supporté nativement." data-en="Yes. Standard syslog export for Splunk, Elastic, QRadar, Sentinel. REST API documented in OpenAPI 3.0. SAML 2.0 / OIDC SSO supported natively.">Oui. Export syslog standard pour Splunk, Elastic, QRadar, Sentinel. API REST documentée OpenAPI 3.0. SSO SAML 2.0 / OIDC supporté nativement.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-summary" data-fr="Combien de référentiels sont pré-chargés ?" data-en="How many frameworks are pre-loaded?">Combien de référentiels sont pré-chargés ?</summary>
+        <div class="faq-body" data-fr="30+ : ISO 27001/27002/27005/27701/42001, NIS 2, RGPD, DORA, EU AI Act, ACPR Cyber, PSD2, HDS, SecNumCloud, SOC 2, NIST CSF 2.0, CIS Controls v8, PCI-DSS v4.0.1, OWASP, MITRE ATT&CK, et plus. Filtre de pertinence contextuel automatique." data-en="30+: ISO 27001/27002/27005/27701/42001, NIS 2, GDPR, DORA, EU AI Act, ACPR Cyber, PSD2, HDS, SecNumCloud, SOC 2, NIST CSF 2.0, CIS Controls v8, PCI-DSS v4.0.1, OWASP, MITRE ATT&CK, and more. Automatic contextual relevance filter.">30+ : ISO 27001/27002/27005/27701/42001, NIS 2, RGPD, DORA, EU AI Act, ACPR Cyber, PSD2, HDS, SecNumCloud, SOC 2, NIST CSF 2.0, CIS Controls v8, PCI-DSS v4.0.1, OWASP, MITRE ATT&CK, et plus. Filtre de pertinence contextuel automatique.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-summary" data-fr="Puis-je charger mon propre référentiel interne ?" data-en="Can I load my own internal framework?">Puis-je charger mon propre référentiel interne ?</summary>
+        <div class="faq-body" data-fr="Oui. Import Excel ou JSON avec mapping cross-référentiels automatique. Vos exigences internes apparaissent côte à côte avec les référentiels publics dans le tableau de couverture." data-en="Yes. Excel or JSON import with automatic cross-framework mapping. Your internal requirements appear side by side with public frameworks in the coverage matrix.">Oui. Import Excel ou JSON avec mapping cross-référentiels automatique. Vos exigences internes apparaissent côte à côte avec les référentiels publics dans le tableau de couverture.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-summary" data-fr="Comment gérez-vous les filiales d'un groupe ?" data-en="How do you handle a group's subsidiaries?">Comment gérez-vous les filiales d'un groupe ?</summary>
+        <div class="faq-body" data-fr="Module <strong>Folders</strong> : arborescence Groupe → Division → BU → Site sur 5 niveaux. Politiques héritées du groupe, exceptions locales, consolidation cross-filiales avec exports unifiés ou par filiale." data-en="<strong>Folders</strong> module: 5-level Group → Division → BU → Site tree. Policies inherited from the group, local exceptions, cross-subsidiary consolidation with unified or per-subsidiary exports.">Module <strong>Folders</strong> : arborescence Groupe → Division → BU → Site sur 5 niveaux. Politiques héritées du groupe, exceptions locales, consolidation cross-filiales avec exports unifiés ou par filiale.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-summary" data-fr="Une démo ou un essai coûtent-ils quelque chose ?" data-en="Does a demo or trial cost anything?">Une démo ou un essai coûtent-ils quelque chose ?</summary>
+        <div class="faq-body" data-fr="<strong>Non.</strong> Démo de 30 minutes gratuite. Essai gratuit de 30 jours sur votre propre tenant dédié, avec un référentiel et un module au choix. Sans CB requise." data-en="<strong>No.</strong> 30-minute free demo. 30-day free trial on your own dedicated tenant, with one framework and one module of your choice. No credit card required."><strong>Non.</strong> Démo de 30 minutes gratuite. Essai gratuit de 30 jours sur votre propre tenant dédié, avec un référentiel et un module au choix. Sans CB requise.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-summary" data-fr="Êtes-vous certifiés ISO 27001 vous-mêmes ?" data-en="Are you ISO 27001 certified yourselves?">Êtes-vous certifiés ISO 27001 vous-mêmes ?</summary>
+        <div class="faq-body" data-fr="Certification ISO 27001:2022 visée Q4 2026. Audit blanc réussi en Q1 2026. Sécurité by design dès la conception : 18 principes appliqués, OWASP LLM Top 10 intégré, AES-256-GCM, MFA TOTP + Passkeys WebAuthn/FIDO2." data-en="ISO 27001:2022 certification targeted Q4 2026. Successful blank audit in Q1 2026. Security by design from inception: 18 principles applied, OWASP LLM Top 10 integrated, AES-256-GCM, MFA TOTP + Passkeys WebAuthn/FIDO2.">Certification ISO 27001:2022 visée Q4 2026. Audit blanc réussi en Q1 2026. Sécurité by design dès la conception : 18 principes appliqués, OWASP LLM Top 10 intégré, AES-256-GCM, MFA TOTP + Passkeys WebAuthn/FIDO2.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-summary" data-fr="Et si je veux changer de plateforme plus tard ?" data-en="What if I want to switch platform later?">Et si je veux changer de plateforme plus tard ?</summary>
+        <div class="faq-body" data-fr="<strong>Aucun verrouillage propriétaire.</strong> Export ZIP complet de votre tenant (RGPD art. 20 portabilité). Données dans des formats ouverts : CSV, JSON, PDF. Vos référentiels personnalisés et vos analyses de risques sont récupérables intégralement." data-en="<strong>No vendor lock-in.</strong> Full ZIP export of your tenant (GDPR art. 20 portability). Data in open formats: CSV, JSON, PDF. Your custom frameworks and risk analyses are fully recoverable."><strong>Aucun verrouillage propriétaire.</strong> Export ZIP complet de votre tenant (RGPD art. 20 portabilité). Données dans des formats ouverts : CSV, JSON, PDF. Vos référentiels personnalisés et vos analyses de risques sont récupérables intégralement.</div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="container">
@@ -3027,11 +3743,14 @@
       <div>
         <h5>Produit</h5>
         <ul>
+          <li><a href="#urgence" data-fr="NIS 2 · DORA · AI Act" data-en="NIS 2 · DORA · AI Act">NIS 2 · DORA · AI Act</a></li>
           <li><a href="#modules" data-fr="31 modules livrés" data-en="31 modules delivered">31 modules livrés</a></li>
-          <li><a href="#workflows">Workflows phares</a></li>
-          <li><a href="#fonctionnalites" data-fr="Fonctionnalités" data-en="Features">Fonctionnalités</a></li>
+          <li><a href="#threat-intel" data-fr="Threat Intelligence" data-en="Threat Intelligence">Threat Intelligence</a></li>
+          <li><a href="#workflows" data-fr="Workflows" data-en="Workflows">Workflows</a></li>
           <li><a href="#referentiels" data-fr="Référentiels" data-en="Frameworks">Référentiels</a></li>
-          <li><a href="#contact">Demander une démo</a></li>
+          <li><a href="#pricing" data-fr="Tarifs" data-en="Pricing">Tarifs</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact" data-fr="Demander une démo" data-en="Request a demo">Demander une démo</a></li>
         </ul>
       </div>
       <div>
@@ -3071,6 +3790,26 @@ try { localStorage.removeItem('cyberact-lang'); } catch (e) {}
       setBtn();
     });
   });
+})();
+
+// Compteur EU AI Act - J-X jusqu'au 2 août 2026 (GPAI applicable)
+(function(){
+  var el = document.getElementById('aiActCountdown');
+  if (!el) return;
+  var target = new Date('2026-08-02T00:00:00Z').getTime();
+  var now = Date.now();
+  var diffDays = Math.ceil((target - now) / (1000 * 60 * 60 * 24));
+  if (diffDays > 0) {
+    el.textContent = 'J-' + diffDays;
+    el.setAttribute('data-fr', 'J-' + diffDays);
+    el.setAttribute('data-en', 'D-' + diffDays);
+  } else {
+    el.textContent = 'En vigueur';
+    el.setAttribute('data-fr', 'En vigueur');
+    el.setAttribute('data-en', 'In force');
+    el.classList.remove('urgence-badge--soon');
+    el.classList.add('urgence-badge--active');
+  }
 })();
 
 // Animation mock hero : compteur risques + barres - declenche au load

@@ -1211,6 +1211,166 @@
     color: var(--navy);
   }
 
+  /* ===== FICHE PRODUIT (modal) ===== */
+  .module-mini[data-fiche] { cursor: pointer; }
+  .module-mini[data-fiche]::after {
+    content: 'Voir la fiche →';
+    position: absolute;
+    right: 14px;
+    bottom: 10px;
+    font-size: 10.5px;
+    font-weight: 700;
+    color: var(--teal);
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: all 0.2s;
+    letter-spacing: 0.2px;
+  }
+  .module-mini[data-fiche] { position: relative; padding-bottom: 26px; }
+  .module-mini[data-fiche]:hover::after { opacity: 1; transform: translateX(0); }
+  .module-mini.is-phare[data-fiche]::after { color: var(--navy); }
+
+  .fiche-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 22, 55, 0.55);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 1000;
+    display: none;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 5vh 20px;
+    overflow-y: auto;
+  }
+  .fiche-overlay.open { display: flex; }
+  .fiche-panel {
+    background: var(--white);
+    border-radius: 18px;
+    max-width: 760px;
+    width: 100%;
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    animation: ficheIn 0.22s ease-out;
+  }
+  @keyframes ficheIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fiche-head {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--steel) 100%);
+    color: #fff;
+    padding: 24px 28px 22px;
+    position: relative;
+  }
+  .fiche-head-icon {
+    width: 46px; height: 46px;
+    background: rgba(255,255,255,0.14);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; line-height: 1;
+    margin-bottom: 12px;
+  }
+  .fiche-head h3 {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    margin-bottom: 8px;
+    color: #fff;
+  }
+  .fiche-badges { display: flex; flex-wrap: wrap; gap: 7px; }
+  .fiche-badge {
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    background: rgba(255,255,255,0.16);
+    border: 1px solid rgba(255,255,255,0.22);
+    color: #eaf1ff;
+    padding: 3px 9px;
+    border-radius: 999px;
+  }
+  .fiche-close {
+    position: absolute;
+    top: 18px; right: 18px;
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    line-height: 1;
+    transition: background 0.15s;
+  }
+  .fiche-close:hover { background: rgba(255,255,255,0.3); }
+  .fiche-body { padding: 24px 28px 8px; }
+  .fiche-pitch {
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--text);
+    background: var(--gray-50);
+    border-left: 3px solid var(--accent);
+    padding: 12px 16px;
+    border-radius: 0 10px 10px 0;
+    margin-bottom: 22px;
+  }
+  .fiche-rubric { margin-bottom: 20px; }
+  .fiche-rubric-title {
+    display: flex; align-items: center; gap: 9px;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+  .fiche-rubric-title::before {
+    content: '';
+    width: 14px; height: 14px;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+  .fiche-rubric.r-fonctionnel .fiche-rubric-title::before { background: var(--navy); }
+  .fiche-rubric.r-conformite .fiche-rubric-title::before { background: var(--accent); }
+  .fiche-rubric.r-technique .fiche-rubric-title::before { background: var(--steel); }
+  .fiche-rubric.r-logique .fiche-rubric-title::before { background: var(--teal); }
+  .fiche-rubric ul { list-style: none; display: grid; gap: 7px; }
+  .fiche-rubric li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--gray-800);
+  }
+  .fiche-rubric li::before {
+    content: '';
+    position: absolute;
+    left: 2px; top: 7px;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gray-400);
+  }
+  .fiche-rubric.r-fonctionnel li::before { background: var(--navy); }
+  .fiche-rubric.r-conformite li::before { background: var(--accent); }
+  .fiche-rubric.r-technique li::before { background: var(--steel); }
+  .fiche-rubric.r-logique li::before { background: var(--teal); }
+  .fiche-foot {
+    border-top: 1px solid var(--gray-200);
+    padding: 18px 28px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .fiche-foot-note { font-size: 12px; color: var(--muted); }
+  .fiche-foot .btn { white-space: nowrap; }
+  @media (max-width: 600px) {
+    .fiche-head, .fiche-body, .fiche-foot { padding-left: 18px; padding-right: 18px; }
+    .fiche-head h3 { font-size: 19px; }
+  }
+
   /* ===== VISION PLATEFORME ===== */
   #vision {
     background: var(--gray-50);
@@ -2814,6 +2974,24 @@
 <div class="module-mini-desc">Business impact analysis, RTO/RPO/MTPD, continuity plans (ISO 22301 + NIS 2 art. 21.2.c)</div>
 </div>
 </div>
+<div class="module-mini">
+<div class="module-mini-body">
+<div class="module-mini-name">Risk acceptance</div>
+<div class="module-mini-desc">Formal multi-level workflow, electronic signature, audit, expiry (NIS 2 art. 21.3)</div>
+</div>
+</div>
+<div class="module-mini">
+<div class="module-mini-body">
+<div class="module-mini-name">Threat Intelligence</div>
+<div class="module-mini-desc">CVE/KEV/ATT&amp;CK watch from 6 sources (CISA, ENISA, CERT-FR, EPSS, MITRE, OSV), crossed with your assets</div>
+</div>
+</div>
+<div class="module-mini">
+<div class="module-mini-body">
+<div class="module-mini-name">Financial risk quantification</div>
+<div class="module-mini-desc">FAIR method: annual loss expectancy (ALE) in euros, COMEX/CFO and cyber insurance argument</div>
+</div>
+</div>
 </div>
 </div>
 <!-- HUB 3 : CONFORMITÉ -->
@@ -2884,6 +3062,12 @@
 <div class="module-mini-body">
 <div class="module-mini-name">Self-assessment</div>
 <div class="module-mini-desc">Fast self-assessment for subsidiaries / teams (light vs full audit), aggregated CMMI score</div>
+</div>
+</div>
+<div class="module-mini">
+<div class="module-mini-body">
+<div class="module-mini-name">Compliance assessments</div>
+<div class="module-mini-desc">Dated sessions on a framework, versioning, over-time comparison, forensic PDF/CSV export</div>
 </div>
 </div>
 </div>
@@ -3398,6 +3582,1102 @@ try { localStorage.removeItem('cyberact-lang'); } catch (e) {}
   } else {
     init();
   }
+})();
+</script>
+<!-- ===== FICHES PRODUIT (modal détaillée par module) ===== -->
+<div aria-labelledby="ficheTitle" aria-modal="true" class="fiche-overlay" id="ficheOverlay" role="dialog">
+<div class="fiche-panel" id="fichePanel"></div>
+</div>
+<script>
+(function(){
+  // Données des fiches produit, keyées par slug (source : module.catalog.ts).
+  // 4 rubriques : fonctionnel / conformité / technique / logique.
+  var FICHES = {
+    // ---------- HUB GOUVERNANCE ----------
+    "roadmap": {
+      icon: "🗺️", name: "Roadmap transverse", badges: ["Hub Gouvernance", "Pilotage", "v1.2"],
+      pitch: "Une feuille de route unique, rattachable à n'importe quel objet de la plateforme, qui agrège automatiquement les actions issues des autres modules.",
+      fonctionnel: [
+        "Vue consolidée des plans d'action, du projet isolé au programme Groupe",
+        "3 vues interchangeables : Gantt (échéances), Kanban (avancement), Liste (priorisation)",
+        "8 types d'entités rattachables : projet, audit, programme, fournisseur, incident, initiative, objectif, manuelle",
+        "Suivi des jalons, responsables, charges et dépendances"
+      ],
+      conformite: [
+        "Trace les plans de traitement exigés par ISO 27001 (clauses 6.1.3 et 8.1)",
+        "NIS 2 art. 21 : suivi des mesures de gestion des risques",
+        "Preuve d'avancement des actions correctives pour les auditeurs"
+      ],
+      technique: [
+        "Modèle polymorphe : une entrée pointe vers n'importe quel objet via une référence typée",
+        "Auto-alimentation depuis ISP, Audits, TPRM et Incidents (pas de ressaisie)",
+        "Export PDF / Excel, isolation stricte par tenant (RLS PostgreSQL)"
+      ],
+      logique: [
+        "Les non-conformités d'audit créent automatiquement des entrées de roadmap",
+        "À la clôture d'une action, le recalcul du risque résiduel est proposé puis validé par l'humain",
+        "4 modes de saisie : manuel, import, IA génère, IA restructure"
+      ]
+    },
+    "politique-ssi": {
+      icon: "📄", name: "Politique & Charte SSI", badges: ["Hub Gouvernance", "Documentaire", "v1.0"],
+      pitch: "Formalisez votre PSSI et vos chartes utilisateur / admin, avec circuit de validation direction et signature horodatée.",
+      fonctionnel: [
+        "Rédaction de la politique de sécurité (PSSI) et des chartes user / admin",
+        "Versioning complet, historique des révisions, diffusion suivie",
+        "Signature électronique horodatée de la direction",
+        "10 modèles pré-chargés à adapter"
+      ],
+      conformite: [
+        "ISO 27001 clause 5.2 (politique) + Annexe A 5.1",
+        "NIS 2 art. 21.2.a (politiques d'analyse des risques et de sécurité)",
+        "RGPD : charte de protection des données"
+      ],
+      technique: [
+        "Stockage chiffré AES-256-GCM, audit trail des accès et validations",
+        "Export PDF signé, RBAC : seuls les rôles habilités valident la mise en vigueur"
+      ],
+      logique: [
+        "Workflow documentaire : brouillon → en revue → en vigueur → archivée",
+        "Pas de mise en vigueur sans validation hiérarchique",
+        "Rappels automatiques pour la revue périodique"
+      ]
+    },
+    "procedures-ssi": {
+      icon: "📖", name: "Procédures & bonnes pratiques", badges: ["Hub Gouvernance", "Documentaire", "v1.0"],
+      pitch: "Une bibliothèque documentaire SSI vivante : runbooks, guides et 10 modèles pré-chargés prêts à adapter.",
+      fonctionnel: [
+        "Bibliothèque de procédures, runbooks et guides opérationnels",
+        "10 templates pré-chargés (incident, PRA/PCA, télétravail, gestion des accès...)",
+        "Classement par thème, recherche, versioning",
+        "Diffusion ciblée par rôle / périmètre"
+      ],
+      conformite: [
+        "ISO 27001 Annexe A : procédures opérationnelles documentées",
+        "NIS 2 : mesures techniques et organisationnelles tracées"
+      ],
+      technique: [
+        "Mêmes états documentaires que les politiques (brouillon → en vigueur → archivée)",
+        "Import de documents existants, export PDF, isolation tenant"
+      ],
+      logique: [
+        "4 modes de saisie dont IA restructure (transforme un document brut en procédure normée)",
+        "Liens vers les modules concernés (incident, continuité...)"
+      ]
+    },
+    "kpis-codir": {
+      icon: "📊", name: "KPIs exécutifs / CODIR", badges: ["Hub Gouvernance", "Pilotage", "v1.1"],
+      pitch: "Le tableau de bord qui parle à la direction : 30+ indicateurs cyber, tendances et seuils d'alerte configurables.",
+      fonctionnel: [
+        "Tableau de bord direction (CODIR / COMEX) en lecture immédiate",
+        "Bibliothèque de 30+ KRI / KPI mensuels et trimestriels",
+        "Tendances, comparaison de période, seuils d'alerte configurables",
+        "Rapport CODIR exportable en un clic"
+      ],
+      conformite: [
+        "NIS 2 art. 20 (responsabilité des organes de direction)",
+        "ISO 27001 clause 9.1 (surveillance, mesure, analyse, évaluation)"
+      ],
+      technique: [
+        "Indicateurs calculés à chaud sur les données des autres modules (zéro ressaisie)",
+        "Export PDF / Excel, planification d'envoi, RBAC vue direction"
+      ],
+      logique: [
+        "Les KPI agrègent automatiquement risques, audits, incidents et conformité",
+        "Alertes déclenchées au franchissement de seuil",
+        "Snapshots datés pour le suivi dans le temps"
+      ]
+    },
+    "animation-filiere": {
+      icon: "📣", name: "Animation filière Cyber", badges: ["Hub Gouvernance", "Multi-filiales", "v1.0"],
+      pitch: "Pilotez la cyber d'un groupe vers ses filiales : décisions, communications, ateliers et héritage des cibles.",
+      fonctionnel: [
+        "Pilotage des initiatives cyber transverses Groupe → filiales",
+        "Suivi des décisions, communications, ateliers et points réguliers",
+        "Héritage des objectifs / cibles vers les entités filles",
+        "Vue consolidée de l'avancement par filiale"
+      ],
+      conformite: [
+        "Gouvernance NIS 2 à l'échelle d'un groupe (chaîne de responsabilité multi-entités)",
+        "ISO 27001 : pilotage de l'ISMS sur un périmètre groupe"
+      ],
+      technique: [
+        "S'appuie sur l'arborescence des sous-organisations (Groupe → Division → BU → Site)",
+        "Isolation tenant + périmètres filiales"
+      ],
+      logique: [
+        "Les cibles définies au niveau Groupe se propagent et restent ajustables par filiale",
+        "Validation humaine des arbitrages et recalculs"
+      ]
+    },
+    "awareness-training": {
+      icon: "🎓", name: "Sensibilisation cyber", badges: ["Hub Gouvernance", "Formation", "v1.0"],
+      pitch: "Campagnes de sensibilisation, formations et simulations de phishing, avec reporting prêt pour le CODIR.",
+      fonctionnel: [
+        "Campagnes de sensibilisation et parcours de formation",
+        "Simulations de phishing : taux de clic, de signalement, de complétion",
+        "Suivi de la couverture par population / filiale",
+        "Reporting CODIR de la culture cyber"
+      ],
+      conformite: [
+        "NIS 2 art. 21.2.g (sensibilisation et formation)",
+        "ISO 27001 clause 7.3 (sensibilisation) + Annexe A 6.3"
+      ],
+      technique: [
+        "Suivi par utilisateur, agrégation par périmètre, export",
+        "Alimente directement le module KPIs CODIR"
+      ],
+      logique: [
+        "Les résultats nourrissent les indicateurs de gouvernance",
+        "Relances automatiques des populations non couvertes"
+      ]
+    },
+
+    // ---------- HUB RISQUES ----------
+    "isp": {
+      icon: "🛡️", name: "Intégration de la sécurité dans les projets", badges: ["Hub Risques", "Workflow phare", "EBIOS RM"],
+      pitch: "Le wizard 8 étapes (S0 → S8) qui sécurise chaque projet : du cadrage aux ateliers EBIOS RM jusqu'à la décision GO / GOC / NO-GO du RSSI.",
+      fonctionnel: [
+        "Parcours guidé en 8 étapes, du cadrage à la décision finale",
+        "Ateliers EBIOS RM : valeurs métier, sources de risque, scénarios",
+        "Expression des exigences de sécurité et plan de traitement",
+        "Décision RSSI traçable : GO / GO sous conditions / NO-GO"
+      ],
+      conformite: [
+        "EBIOS RM (méthode ANSSI) + ISO 27005",
+        "ISO 27001 clause 6.1 (appréciation et traitement du risque)",
+        "NIS 2 art. 21.2.a (analyse des risques)"
+      ],
+      technique: [
+        "Génère les risques inhérents qui alimentent le registre central",
+        "Auto-création du fournisseur dans TPRM dès l'étape S0",
+        "8 prompts IA pré-réglés (locale ou cloud), exports PDF / Excel"
+      ],
+      logique: [
+        "L'IA propose à chaque étape, l'humain valide",
+        "Aucune décision GO / NO-GO sans signature du RSSI",
+        "Les écarts deviennent des plans de traitement sur la Roadmap"
+      ]
+    },
+    "registre-risques": {
+      icon: "⚠️", name: "Registre central des risques", badges: ["Hub Risques", "Cœur plateforme", "v1.1"],
+      pitch: "Le cœur de la plateforme : un registre unique qui consolide les risques de tous les modules, avec heatmap G×V en temps réel.",
+      fonctionnel: [
+        "Consolidation cross-projets et cross-modules des risques",
+        "Heatmap Gravité × Vraisemblance actualisée en temps réel",
+        "3 états : risque inhérent / ajusté / résiduel",
+        "Suivi du traitement et KPI résiduel par référentiel"
+      ],
+      conformite: [
+        "ISO 27005 (gestion du risque) + ISO 27001 clauses 6.1 et 8.2-8.3",
+        "NIS 2 art. 21 (mesures fondées sur le risque)"
+      ],
+      technique: [
+        "Agrège ISP (inhérents) et Audits / TPRM (résiduels via non-conformités)",
+        "Échelles G×V configurables, isolation tenant, export PDF / Excel / CSV"
+      ],
+      logique: [
+        "Formule officielle des résiduels : SR non traités + RI issus de NC + SR non couverts",
+        "Recalcul proposé à la clôture d'un plan de traitement, validé par l'humain"
+      ]
+    },
+    "analyse-risques": {
+      icon: "🎯", name: "Analyses de risques", badges: ["Hub Risques", "Polymorphe", "v1.0"],
+      pitch: "Un moteur EBIOS RM / ISO 27005 / NIST détaché du projet : analysez n'importe quel objet — actif, système IA, fournisseur, processus.",
+      fonctionnel: [
+        "Moteur d'analyse polymorphe (6 cibles : projet, actif, système IA, fournisseur, processus, autonome)",
+        "Méthodes EBIOS RM, ISO 27005, NIST au choix",
+        "Scénarios, vraisemblance, gravité, mesures",
+        "Réutilisable hors du cadre projet ISP"
+      ],
+      conformite: [
+        "EBIOS RM, ISO 27005, NIST RMF",
+        "EU AI Act : analyse de risque des systèmes IA"
+      ],
+      technique: [
+        "Cible typée (PROJECT | ASSET | AI_SYSTEM | VENDOR | PROCESS | STANDALONE)",
+        "Résultats versés au registre central, IA locale ou cloud, exports"
+      ],
+      logique: [
+        "4 modes de saisie, validation humaine des scénarios",
+        "Héritage de risque depuis les actifs cartographiés"
+      ]
+    },
+    "cartography": {
+      icon: "🗂️", name: "Cartographie des actifs", badges: ["Hub Risques", "Inventaire", "v1.0"],
+      pitch: "L'inventaire vivant de votre SI : classification, propriétaires et criticité, socle de toute analyse de risque.",
+      fonctionnel: [
+        "Inventaire du SI : matériels, logiciels, services, données",
+        "Classification, propriétaires, criticité (DICP)",
+        "Vues et filtres par type / périmètre",
+        "Import en masse"
+      ],
+      conformite: [
+        "ISO 27001 Annexe A 5.9 (inventaire des actifs)",
+        "NIS 2 : connaissance et maîtrise du périmètre"
+      ],
+      technique: [
+        "Lien vers la cartographie des données (flux PII)",
+        "Héritage de criticité vers les analyses de risque, import CSV, export"
+      ],
+      logique: [
+        "Les actifs critiques nourrissent les scénarios de risque",
+        "Mise à jour incrémentale et historisée"
+      ]
+    },
+    "registre-derogations": {
+      icon: "✋", name: "Registre des dérogations", badges: ["Hub Risques", "Acceptation", "v1.0"],
+      pitch: "L'acceptation formelle des risques, tracée et datée, avec revues périodiques et alertes avant expiration.",
+      fonctionnel: [
+        "Enregistrement des dérogations / acceptations de risque",
+        "Justification, périmètre, durée de validité",
+        "Revues périodiques planifiées",
+        "Alertes 30 jours avant expiration"
+      ],
+      conformite: [
+        "ISO 27001 clauses 6.1.3 (acceptation du risque) et 8.3",
+        "NIS 2 art. 21.3 (acceptation par la direction)"
+      ],
+      technique: [
+        "Workflow de validation multi-niveau, audit trail",
+        "Signature, échéancier, export"
+      ],
+      logique: [
+        "Pas d'acceptation sans validation hiérarchique",
+        "L'expiration force une nouvelle revue"
+      ]
+    },
+    "radar": {
+      icon: "🌐", name: "Radar surface externe", badges: ["Hub Risques", "Exposition", "v1.0"],
+      pitch: "La découverte passive de votre surface d'exposition externe : sous-domaines, scoring A-F et expositions HTTPS / DNS / TLS.",
+      fonctionnel: [
+        "Découverte des sous-domaines exposés (sources publiques)",
+        "Scoring 0-100 / note A-F",
+        "Détection d'expositions HTTPS, DNS, TLS",
+        "Vue d'évolution dans le temps"
+      ],
+      conformite: [
+        "NIS 2 : gestion des vulnérabilités et de la surface d'attaque",
+        "ISO 27001 Annexe A 8.8 (gestion des vulnérabilités techniques)"
+      ],
+      technique: [
+        "V1 passive : crt.sh, HEAD HTTP, DNS, contrôle TLS — aucun scan actif agressif",
+        "Résultats croisables avec la cartographie des actifs"
+      ],
+      logique: [
+        "Une exposition critique peut générer un risque ou une action",
+        "Sources publiques uniquement (non intrusif)"
+      ]
+    },
+    "incidents": {
+      icon: "🚨", name: "Incidents NIS 2", badges: ["Hub Risques", "ISO 27035", "v1.0"],
+      pitch: "Un registre d'incidents ISO 27035 qui, dès qu'un incident est jugé significatif, déclenche le workflow de notification NIS 2 (24h / 72h / 30j).",
+      fonctionnel: [
+        "Registre des incidents : qualification, gravité, statut",
+        "Flag « significatif » qui active le circuit de notification",
+        "Échéancier réglementaire 24h / 72h / 30j",
+        "Suivi des actions et clôture"
+      ],
+      conformite: [
+        "ISO 27035 (gestion des incidents de sécurité)",
+        "NIS 2 art. 23 : alerte précoce 24h, notification 72h, rapport final 30j"
+      ],
+      technique: [
+        "Minuteurs réglementaires, modèles de notification",
+        "Audit trail horodaté, export"
+      ],
+      logique: [
+        "Le passage en « significatif » enclenche les obligations applicables",
+        "Lien automatique vers la Roadmap pour les actions correctives"
+      ]
+    },
+    "bia-pca-pra": {
+      icon: "🔄", name: "BIA / PCA / PRA", badges: ["Hub Risques", "ISO 22301", "v1.0"],
+      pitch: "Le bilan d'impact sur l'activité et les plans de continuité : processus critiques, RTO / RPO / MTPD et dépendances.",
+      fonctionnel: [
+        "Bilan d'impact (BIA) des processus métier critiques",
+        "RTO / RPO / MTPD, dépendances, ressources",
+        "Plans de continuité (PCA) et de reprise (PRA)",
+        "Distinct de la cartographie des actifs : ici ce sont les processus"
+      ],
+      conformite: [
+        "ISO 22301 (continuité d'activité)",
+        "NIS 2 art. 21.2.c (continuité et gestion de crise)"
+      ],
+      technique: [
+        "Lien vers actifs et risques, export",
+        "4 modes de saisie"
+      ],
+      logique: [
+        "Les processus critiques alimentent l'analyse de risque",
+        "Tests de plan planifiables"
+      ]
+    },
+    "risk-acceptance": {
+      icon: "🤝", name: "Acceptation des risques", badges: ["Hub Risques", "NIS 2 art. 21.3", "v1.0"],
+      pitch: "Le workflow formel d'acceptation des risques, multi-niveau, avec signature électronique, audit et expiration.",
+      fonctionnel: [
+        "Acceptation formelle d'un risque par les niveaux habilités",
+        "Workflow multi-niveau : proposition → validation → signature",
+        "Signature électronique et date d'expiration",
+        "Revue obligatoire avant échéance"
+      ],
+      conformite: [
+        "NIS 2 art. 21.3 (acceptation des risques par la direction)",
+        "ISO 27001 clauses 6.1.3 et 8.3"
+      ],
+      technique: [
+        "Audit trail complet, clé de signature dédiée",
+        "Isolation tenant, export"
+      ],
+      logique: [
+        "Aucune acceptation sans circuit de validation complet",
+        "L'expiration rouvre automatiquement le risque pour réexamen"
+      ]
+    },
+    "threat-intelligence": {
+      icon: "🛰️", name: "Threat Intelligence", badges: ["Hub Risques", "6 sources NIS 2", "v1.0"],
+      pitch: "La veille CVE / KEV / ATT&CK branchée sur 6 sources officielles, croisée automatiquement avec votre périmètre d'actifs.",
+      fonctionnel: [
+        "Agrégation de 6 sources : CISA, ENISA, CERT-FR, EPSS, MITRE ATT&CK, OSV",
+        "Veille CVE, KEV (vulnérabilités activement exploitées), techniques ATT&CK",
+        "Croisement avec la cartographie de vos actifs",
+        "Priorisation par exploitabilité (score EPSS)"
+      ],
+      conformite: [
+        "NIS 2 art. 21.2.e (traçabilité des sources de veille)",
+        "ISO 27001 Annexe A 8.8 (gestion des vulnérabilités techniques)"
+      ],
+      technique: [
+        "Connexion native aux 6 flux officiels — pas de saisie manuelle",
+        "Croisement automatique avec le périmètre actifs, export"
+      ],
+      logique: [
+        "Une CVE touchant un actif inventorié remonte en risque ou en action",
+        "Sources reconnues NIS 2, entièrement traçables"
+      ]
+    },
+    "crq-fair": {
+      icon: "💶", name: "Quantification financière des risques", badges: ["Hub Risques", "Méthode FAIR", "Premium"],
+      pitch: "Chiffrer vos risques en euros avec la méthode FAIR : pertes annuelles attendues (ALE) pour parler au COMEX et à l'assurance cyber.",
+      fonctionnel: [
+        "Quantification financière des risques (méthode FAIR)",
+        "Calcul de la perte annuelle attendue (ALE)",
+        "Scénarios fréquence × impact monétaire",
+        "Argumentaire COMEX / CFO et assurance cyber"
+      ],
+      conformite: [
+        "Complément quantitatif à l'approche qualitative ISO 27005",
+        "Aide à la décision d'investissement sécurité"
+      ],
+      technique: [
+        "Moteur FAIR : fréquence d'événement × magnitude de perte",
+        "S'appuie sur les risques du registre central, export"
+      ],
+      logique: [
+        "Traduit un risque qualitatif en euros, validé par l'humain",
+        "Module premium (palier Enterprise)"
+      ]
+    },
+
+    // ---------- HUB CONFORMITÉ ----------
+    "compliance-center": {
+      icon: "📑", name: "Compliance Center", badges: ["Hub Conformité", "Workflow phare", "Multi-filiales"],
+      pitch: "Le centre de conformité 3-en-1 : référentiels, politiques et procédures, avec 10 templates et un mode multi-filiales.",
+      fonctionnel: [
+        "3 onglets : Référentiels / Politiques / Procédures",
+        "10 templates de politiques prêts à l'emploi (PSSI, charte...)",
+        "Mode multi-filiales avec annexes consolidées",
+        "Déclenchement de contrôles de conformité"
+      ],
+      conformite: [
+        "ISO 27001 (documentation de l'ISMS), NIS 2, RGPD",
+        "Couverture multi-référentiels"
+      ],
+      technique: [
+        "Reprend les templates V7, états documentaires gouvernés",
+        "Multi-filiales (sous-organisations), export PDF"
+      ],
+      logique: [
+        "Workflow brouillon → en revue → en vigueur → archivé",
+        "L'IA propose une trame, l'humain valide"
+      ]
+    },
+    "audit-iso19011": {
+      icon: "🔍", name: "Audit SSI", badges: ["Hub Conformité", "Workflow phare", "ISO 19011"],
+      pitch: "L'audit de conformité SSI en 4 phases méthode ISO 19011, avec entretiens assistés IA, notation CMMI 0-5 et verdict signé.",
+      fonctionnel: [
+        "4 phases : cadrage → entretiens → évaluation → rapport",
+        "Entretiens assistés par IA, grilles par référentiel",
+        "Notation de maturité CMMI 0 à 5",
+        "Verdict signé : Favorable / Réserves / Défavorable"
+      ],
+      conformite: [
+        "ISO 19011 (méthodologie d'audit)",
+        "Référentiels audités : ISO 27001:2022, NIS 2, RGPD, ANSSI"
+      ],
+      technique: [
+        "Constats reliés aux exigences, génération de rapport",
+        "IA locale ou cloud, exports PDF / Excel"
+      ],
+      logique: [
+        "Les non-conformités créent des plans sur la Roadmap et des risques résiduels",
+        "Aucun verdict appliqué sans signature de l'auditeur"
+      ]
+    },
+    "referentiels": {
+      icon: "✅", name: "Référentiels & exigences", badges: ["Hub Conformité", "30+ référentiels", "v1.1"],
+      pitch: "30+ référentiels normatifs pré-chargés, avec couverture des risques, KPI résiduels et mapping cross-frameworks anti-doublons.",
+      fonctionnel: [
+        "Bibliothèque : ISO 27001/27002/27005/27701/22301/42001, NIS 2, RGPD, DORA, HDS, PCI, SOC 2...",
+        "Suivi de couverture des exigences",
+        "KPI résiduel par référentiel",
+        "Mapping cross-frameworks : une mesure couvre plusieurs normes"
+      ],
+      conformite: [
+        "Tous les grands référentiels GRC pré-chargés",
+        "Règle d'or : on enrichit, on ne supprime jamais une exigence"
+      ],
+      technique: [
+        "Exigences seedées, mapping de correspondances, suggestions de contrôles compensatoires",
+        "Dépend du registre des risques pour le KPI résiduel"
+      ],
+      logique: [
+        "Anti-doublons : un contrôle satisfait plusieurs exigences à la fois",
+        "Les exigences non couvertes deviennent des risques"
+      ]
+    },
+    "veille-reglementaire": {
+      icon: "📡", name: "Veille réglementaire", badges: ["Hub Conformité", "Veille", "v1.0"],
+      pitch: "La veille NIS 2 / DORA / RGPD / EU AI Act : alertes, jurisprudence et comparateur cross-textes.",
+      fonctionnel: [
+        "Suivi des évolutions réglementaires (NIS 2, DORA, RGPD, EU AI Act)",
+        "Alertes et jurisprudence",
+        "Comparateur cross-textes",
+        "Rattachement des impacts aux référentiels internes"
+      ],
+      conformite: [
+        "NIS 2 art. 21.2.e (traçabilité des sources de veille)",
+        "Couverture multi-réglementations"
+      ],
+      technique: [
+        "Sources réglementaires classées par texte",
+        "Lien vers les exigences internes impactées"
+      ],
+      logique: [
+        "Un changement réglementaire peut générer une action sur la Roadmap"
+      ]
+    },
+    "ropa": {
+      icon: "📋", name: "Registre des traitements (ROPA)", badges: ["Hub Conformité", "RGPD art. 30", "v1.0"],
+      pitch: "Le registre des traitements RGPD art. 30 : finalités, base légale, durées, transferts UE, avec workflow DPO.",
+      fonctionnel: [
+        "Registre des activités de traitement (RGPD art. 30)",
+        "Finalités, base légale, catégories de données, durées de conservation",
+        "Transferts hors UE et garanties associées",
+        "Workflow de validation DPO"
+      ],
+      conformite: [
+        "RGPD art. 30 (registre des traitements)",
+        "Lien avec la cartographie des données"
+      ],
+      technique: [
+        "Export Excel / PDF, audit trail",
+        "L'IA propose les mentions, le DPO valide"
+      ],
+      logique: [
+        "Une DPIA peut être déclenchée depuis un traitement à risque",
+        "4 modes de saisie"
+      ]
+    },
+    "dpia": {
+      icon: "🔎", name: "DPIA (CNIL PIA-3)", badges: ["Hub Conformité", "RGPD art. 35", "v1.0"],
+      pitch: "Les analyses d'impact RGPD avec mesures référencées CNIL PIA-3, obligatoires pour les traitements à risque élevé.",
+      fonctionnel: [
+        "Analyse d'impact (DPIA) portant sur un traitement du ROPA",
+        "Évaluation des risques pour les personnes concernées",
+        "Mesures référencées CNIL §X (pseudonymisation, authentification forte, chiffrement AES-256...)",
+        "Workflow de décision DPO"
+      ],
+      conformite: [
+        "RGPD art. 35 (analyse d'impact relative à la protection des données)",
+        "Méthode CNIL PIA-3"
+      ],
+      technique: [
+        "Dépend du ROPA (une DPIA porte sur un traitement)",
+        "Base de connaissance CNIL PIA-3 injectée dans les prompts IA, export"
+      ],
+      logique: [
+        "L'IA propose des mesures référencées, le DPO valide",
+        "Décision tracée et signée"
+      ]
+    },
+    "demandes-cnil": {
+      icon: "📨", name: "Demandes CNIL & droits", badges: ["Hub Conformité", "RGPD art. 12-22", "v1.0"],
+      pitch: "Le guichet des droits RGPD : accès, effacement, portabilité, opposition, avec SLA réglementaire et audit trail.",
+      fonctionnel: [
+        "Réception et suivi des demandes d'exercice de droits",
+        "Accès, rectification, effacement, portabilité, opposition, plaintes",
+        "SLA réglementaire (30j / 90j) avec relances",
+        "Traçabilité complète des réponses"
+      ],
+      conformite: [
+        "RGPD art. 12 à 22 (droits des personnes)",
+        "SLA art. 12 (délais de réponse)"
+      ],
+      technique: [
+        "Échéancier SLA, modèles de réponse, audit trail, export"
+      ],
+      logique: [
+        "Chaque demande suit un workflow daté, sans perte de délai",
+        "Liens vers ROPA et cartographie des données"
+      ]
+    },
+    "cartographie-donnees": {
+      icon: "🌍", name: "Cartographie des données", badges: ["Hub Conformité", "Data mapping", "v1.0"],
+      pitch: "Le data mapping RGPD / HDS : flux PII et transferts hors UE, relié automatiquement au registre des traitements.",
+      fonctionnel: [
+        "Cartographie des données personnelles et des flux PII",
+        "Transferts hors UE et garanties associées",
+        "Vue des circulations entre systèmes",
+        "Lien automatique avec le ROPA"
+      ],
+      conformite: [
+        "RGPD (flux et transferts, art. 44 et suivants)",
+        "HDS (données de santé)"
+      ],
+      technique: [
+        "Dépend de la cartographie des actifs",
+        "Représentation des flux, export"
+      ],
+      logique: [
+        "Un flux hors UE non couvert devient un point d'attention RGPD"
+      ]
+    },
+    "plan-audit-annuel": {
+      icon: "📅", name: "Plan d'audit annuel", badges: ["Hub Conformité", "ISO 19011", "v1.0"],
+      pitch: "La planification pluriannuelle des audits : cycles, périmètres, ressources et auditeurs.",
+      fonctionnel: [
+        "Planning des audits sur l'année",
+        "Cycles, périmètres, ressources, auditeurs",
+        "Archivage par année",
+        "Vue de charge et de couverture"
+      ],
+      conformite: [
+        "ISO 27001 clause 9.2 (audit interne)",
+        "ISO 19011 (programme d'audit)"
+      ],
+      technique: [
+        "S'articule avec le module Audit SSI",
+        "Export"
+      ],
+      logique: [
+        "Le plan alimente les audits exécutés",
+        "Couverture des périmètres dans le temps"
+      ]
+    },
+    "self-assessment": {
+      icon: "☑️", name: "Self-assessment", badges: ["Hub Conformité", "Auto-évaluation", "v1.0"],
+      pitch: "L'auto-évaluation rapide pour filiales et équipes : une alternative légère à l'audit complet, avec score CMMI agrégé.",
+      fonctionnel: [
+        "Auto-évaluation guidée (light vs audit complet)",
+        "Score CMMI agrégé",
+        "Comparaison entre filiales / équipes",
+        "Identification rapide des écarts"
+      ],
+      conformite: [
+        "ISO 27001 (revue de maturité)",
+        "Préparation aux audits formels"
+      ],
+      technique: [
+        "Partage le moteur d'évaluation des audits",
+        "Export"
+      ],
+      logique: [
+        "Les écarts repérés peuvent déclencher un audit complet",
+        "4 modes de saisie"
+      ]
+    },
+    "compliance-assessment": {
+      icon: "🧾", name: "Évaluations de conformité", badges: ["Hub Conformité", "Sessions datées", "v1.0"],
+      pitch: "Des sessions d'évaluation datées sur un référentiel, avec versioning, comparaison dans le temps et export forensic.",
+      fonctionnel: [
+        "Sessions d'évaluation datées sur un référentiel (ISO 27001, NIS 2, RGPD...)",
+        "Versioning des sessions, comparaison entre deux dates",
+        "Score de conformité par exigence / domaine",
+        "Export PDF / CSV forensic"
+      ],
+      conformite: [
+        "ISO 27001 clause 9 (évaluation des performances)",
+        "Applicable à tous les référentiels pré-chargés"
+      ],
+      technique: [
+        "Sessions immuables horodatées, comparaison de deux versions",
+        "Export forensic, isolation tenant"
+      ],
+      logique: [
+        "Photographie datée de la conformité, comparable d'une période à l'autre",
+        "Les écarts alimentent risques et Roadmap"
+      ]
+    },
+
+    // ---------- HUB RISQUE TIERS ----------
+    "tprm": {
+      icon: "🏪", name: "TPRM (qualification fournisseur)", badges: ["Hub Risque Tiers", "Workflow phare", "5 phases"],
+      pitch: "La qualification fournisseur en 5 phases, de l'identification à la surveillance continue, sur 12 domaines de sécurité.",
+      fonctionnel: [
+        "5 phases : Identification → Évaluation (12 domaines) → Décision → Contrat & PAS → Surveillance",
+        "Décision GO / GOC / NO-GO",
+        "Liaison automatique depuis ISP S0",
+        "Fournisseur qualifié réutilisable sans réévaluation"
+      ],
+      conformite: [
+        "ISO 27036 (sécurité des relations fournisseurs)",
+        "NIS 2 art. 21.2.d (sécurité de la chaîne d'approvisionnement)",
+        "ISO 27001 Annexe A 5.19 à 5.22"
+      ],
+      technique: [
+        "Score par domaine, plan d'assurance sécurité (PAS), clauses",
+        "Écarts versés au registre des risques (résiduels), export"
+      ],
+      logique: [
+        "Décision RSSI signée, pas de qualification automatique",
+        "Surveillance périodique avec réévaluation"
+      ]
+    },
+    "rfp": {
+      icon: "📊", name: "RFP (campagne appels d'offres)", badges: ["Hub Risque Tiers", "Workflow phare", "v1.0"],
+      pitch: "L'appel d'offres sécurité multi-fournisseurs sur un questionnaire contextualisé au projet, avec matrice comparative et scoring pondéré.",
+      fonctionnel: [
+        "Campagne multi-fournisseurs sur un même questionnaire",
+        "Questionnaire contextualisé au projet",
+        "Matrice comparative colorée, scoring pondéré",
+        "Décision RSSI ajustable"
+      ],
+      conformite: [
+        "ISO 27036 (exigences de sécurité fournisseurs)",
+        "Cohérence avec les exigences ISP du projet"
+      ],
+      technique: [
+        "Import des réponses, pondération configurable, export comparatif"
+      ],
+      logique: [
+        "Le scoring éclaire ; le RSSI arbitre et peut ajuster",
+        "Le fournisseur retenu bascule en qualification TPRM"
+      ]
+    },
+    "trust-center": {
+      icon: "🛡️", name: "Trust Center", badges: ["Hub Risque Tiers", "Vitrine externe", "v1.0"],
+      pitch: "La page de confiance partagée à vos clients et prospects : certifications publiques et lien security.txt, avec accès maîtrisé.",
+      fonctionnel: [
+        "Page de confiance publique pour clients / prospects",
+        "Certifications et documents publics",
+        "Lien security.txt",
+        "Accès maîtrisé (gating email + approbation admin)"
+      ],
+      conformite: [
+        "Démonstration de conformité ISO 27001 / RGPD",
+        "Réduction du volume de questionnaires entrants"
+      ],
+      technique: [
+        "Gating : approbation admin + validité 30 jours",
+        "Documents publiés sous contrôle, audit des accès"
+      ],
+      logique: [
+        "Rien n'est public sans validation admin",
+        "Tarit les demandes de due diligence répétitives"
+      ]
+    },
+    "due-diligence": {
+      icon: "📥", name: "Due diligence reçue", badges: ["Hub Risque Tiers", "Questionnaires", "v1.0"],
+      pitch: "La centralisation des questionnaires sécurité envoyés par vos clients, avec réponses réutilisables et matrice de comparaison.",
+      fonctionnel: [
+        "Réception des questionnaires sécurité clients",
+        "Centralisation et réutilisation des réponses",
+        "Matrice de comparaison entre questionnaires",
+        "Suivi des échéances"
+      ],
+      conformite: [
+        "Réponses alignées sur ISO 27001 / RGPD",
+        "S'appuie sur le capital TPRM"
+      ],
+      technique: [
+        "Bibliothèque de réponses, export",
+        "Lien avec le Trust Center"
+      ],
+      logique: [
+        "Les réponses validées se réutilisent d'un client à l'autre",
+        "Gain de temps sur les questionnaires répétitifs"
+      ]
+    },
+    "contrats-dpa": {
+      icon: "📃", name: "Contrats & DPA", badges: ["Hub Risque Tiers", "RGPD art. 28", "v1.0"],
+      pitch: "Le registre des contrats sécurité et DPA RGPD : clauses signées et échéances avec alertes 30 jours.",
+      fonctionnel: [
+        "Registre des contrats sécurité et DPA RGPD",
+        "Clauses signées, parties, périmètre",
+        "Échéances avec alertes 30 jours",
+        "Rattachement aux fournisseurs"
+      ],
+      conformite: [
+        "RGPD art. 28 (contrat de sous-traitance / DPA)",
+        "ISO 27036 (clauses fournisseurs)"
+      ],
+      technique: [
+        "Échéancier, stockage chiffré, export",
+        "Lien avec TPRM"
+      ],
+      logique: [
+        "Les échéances déclenchent des alertes de renouvellement",
+        "Traçabilité des clauses de sécurité"
+      ]
+    }
+  };
+
+  // Mapping nom affiché (FR) → slug. Évite d'éditer chaque carte du HTML.
+  var NAME_TO_SLUG = {
+    "Roadmap polymorphe": "roadmap",
+    "Politique & Charte SSI": "politique-ssi",
+    "Procédures & bonnes pratiques": "procedures-ssi",
+    "KPIs CODIR / Direction": "kpis-codir",
+    "Animation filière Cyber": "animation-filiere",
+    "Sensibilisation cyber": "awareness-training",
+    "Intégration de la sécurité dans les projets": "isp",
+    "Registre des risques": "registre-risques",
+    "Analyses de risques": "analyse-risques",
+    "Cartographie des actifs": "cartography",
+    "Registre des dérogations": "registre-derogations",
+    "Radar surface externe": "radar",
+    "Incidents NIS 2": "incidents",
+    "BIA / PCA / PRA": "bia-pca-pra",
+    "Compliance Center": "compliance-center",
+    "Audit SSI": "audit-iso19011",
+    "Référentiels & exigences": "referentiels",
+    "Veille réglementaire": "veille-reglementaire",
+    "Registre des traitements": "ropa",
+    "DPIA (CNIL PIA-3)": "dpia",
+    "Demandes CNIL & droits": "demandes-cnil",
+    "Cartographie des données": "cartographie-donnees",
+    "Plan d'audit annuel": "plan-audit-annuel",
+    "Self-assessment": "self-assessment",
+    "TPRM (qualification fournisseur)": "tprm",
+    "RFP (campagne appels d'offres)": "rfp",
+    "Trust Center": "trust-center",
+    "Due diligence reçue": "due-diligence",
+    "Contrats & DPA": "contrats-dpa",
+    "Acceptation des risques": "risk-acceptance",
+    "Threat Intelligence": "threat-intelligence",
+    "Quantification financière des risques": "crq-fair",
+    "Évaluations de conformité": "compliance-assessment"
+  };
+
+  // Version anglaise des fiches (la page EN est générée par _build_en.py qui
+  // pose lang="en" ; le même script s'adapte alors automatiquement).
+  var FICHES_EN = {
+    "roadmap": { icon: "🗺️", name: "Cross-functional roadmap", badges: ["Governance Hub", "Steering", "v1.2"],
+      pitch: "A single roadmap, attachable to any object in the platform, that automatically aggregates actions coming from the other modules.",
+      fonctionnel: ["Consolidated view of action plans, from a single project to a Group programme", "3 interchangeable views: Gantt (deadlines), Kanban (progress), List (prioritisation)", "8 attachable entity types: project, audit, programme, vendor, incident, initiative, objective, manual", "Tracking of milestones, owners, workload and dependencies"],
+      conformite: ["Tracks the treatment plans required by ISO 27001 (clauses 6.1.3 and 8.1)", "NIS 2 art. 21: follow-up of risk management measures", "Evidence of corrective action progress for auditors"],
+      technique: ["Polymorphic model: an entry points to any object via a typed reference", "Auto-fed from ISP, Audits, TPRM and Incidents (no re-entry)", "PDF / Excel export, strict per-tenant isolation (PostgreSQL RLS)"],
+      logique: ["Audit non-conformities automatically create roadmap entries", "On action closure, residual risk recalculation is proposed then validated by a human", "4 input modes: manual, import, AI generates, AI restructures"] },
+    "politique-ssi": { icon: "📄", name: "Security Policy & Charter", badges: ["Governance Hub", "Documentation", "v1.0"],
+      pitch: "Formalise your ISMS policy and your user / admin charters, with an executive validation workflow and time-stamped signature.",
+      fonctionnel: ["Drafting of the security policy (ISMS) and user / admin charters", "Full versioning, revision history, tracked distribution", "Time-stamped electronic signature by executives", "10 pre-loaded templates to adapt"],
+      conformite: ["ISO 27001 clause 5.2 (policy) + Annex A 5.1", "NIS 2 art. 21.2.a (risk analysis and security policies)", "GDPR: data protection charter"],
+      technique: ["AES-256-GCM encrypted storage, audit trail of access and approvals", "Signed PDF export, RBAC: only authorised roles approve enforcement"],
+      logique: ["Document workflow: draft → review → in force → archived", "No enforcement without hierarchical validation", "Automatic reminders for periodic review"] },
+    "procedures-ssi": { icon: "📖", name: "Procedures & best practices", badges: ["Governance Hub", "Documentation", "v1.0"],
+      pitch: "A living security documentation library: runbooks, guides and 10 pre-loaded templates ready to adapt.",
+      fonctionnel: ["Library of procedures, runbooks and operational guides", "10 pre-loaded templates (incident, BCP/DRP, remote work, access management...)", "Classification by theme, search, versioning", "Targeted distribution by role / scope"],
+      conformite: ["ISO 27001 Annex A: documented operating procedures", "NIS 2: documented technical and organisational measures"],
+      technique: ["Same document states as policies (draft → in force → archived)", "Import of existing documents, PDF export, tenant isolation"],
+      logique: ["4 input modes incl. AI restructures (turns a raw document into a standardised procedure)", "Links to the relevant modules (incident, continuity...)"] },
+    "kpis-codir": { icon: "📊", name: "Board KPIs / Executive", badges: ["Governance Hub", "Steering", "v1.1"],
+      pitch: "The dashboard that speaks to the board: 30+ cyber indicators, trends and configurable alert thresholds.",
+      fonctionnel: ["Executive dashboard (board / exec committee) at a glance", "Library of 30+ monthly and quarterly KRIs / KPIs", "Trends, period comparison, configurable alert thresholds", "Board report exportable in one click"],
+      conformite: ["NIS 2 art. 20 (management body responsibility)", "ISO 27001 clause 9.1 (monitoring, measurement, analysis, evaluation)"],
+      technique: ["Indicators computed live from the other modules' data (zero re-entry)", "PDF / Excel export, scheduled sending, RBAC executive view"],
+      logique: ["KPIs automatically aggregate risks, audits, incidents and compliance", "Alerts triggered when a threshold is crossed", "Dated snapshots for tracking over time"] },
+    "animation-filiere": { icon: "📣", name: "Cyber program animation", badges: ["Governance Hub", "Multi-subsidiary", "v1.0"],
+      pitch: "Steer a group's cyber program down to its subsidiaries: decisions, communications, workshops and inherited targets.",
+      fonctionnel: ["Steering of cross-cutting cyber initiatives Group → subsidiaries", "Tracking of decisions, communications, workshops and regular reviews", "Inheritance of objectives / targets down to child entities", "Consolidated progress view per subsidiary"],
+      conformite: ["NIS 2 governance at group scale (multi-entity chain of responsibility)", "ISO 27001: steering the ISMS across a group perimeter"],
+      technique: ["Relies on the sub-organisation tree (Group → Division → BU → Site)", "Tenant isolation + subsidiary scopes"],
+      logique: ["Targets set at Group level propagate and stay adjustable per subsidiary", "Human validation of trade-offs and recalculations"] },
+    "awareness-training": { icon: "🎓", name: "Cyber awareness", badges: ["Governance Hub", "Training", "v1.0"],
+      pitch: "Awareness campaigns, training and phishing simulations, with board-ready reporting.",
+      fonctionnel: ["Awareness campaigns and training paths", "Phishing simulations: click, report and completion rates", "Coverage tracking per population / subsidiary", "Board reporting on cyber culture"],
+      conformite: ["NIS 2 art. 21.2.g (awareness and training)", "ISO 27001 clause 7.3 (awareness) + Annex A 6.3"],
+      technique: ["Per-user tracking, scope aggregation, export", "Feeds directly into the Board KPIs module"],
+      logique: ["Results feed governance indicators", "Automatic follow-ups for uncovered populations"] },
+    "isp": { icon: "🛡️", name: "Project security integration", badges: ["Risk Hub", "Flagship workflow", "EBIOS RM"],
+      pitch: "The 8-step wizard (S0 → S8) that secures every project: from scoping through EBIOS RM workshops to the CISO's GO / GOC / NO-GO decision.",
+      fonctionnel: ["Guided 8-step journey, from scoping to the final decision", "EBIOS RM workshops: business values, risk sources, scenarios", "Expression of security requirements and treatment plan", "Traceable CISO decision: GO / GO with conditions / NO-GO"],
+      conformite: ["EBIOS RM (French ANSSI method) + ISO 27005", "ISO 27001 clause 6.1 (risk assessment and treatment)", "NIS 2 art. 21.2.a (risk analysis)"],
+      technique: ["Generates the inherent risks that feed the central register", "Auto-creation of the vendor in TPRM from step S0", "8 preset AI prompts (local or cloud), PDF / Excel exports"],
+      logique: ["AI proposes at each step, the human validates", "No GO / NO-GO decision without the CISO's signature", "Gaps become treatment plans on the Roadmap"] },
+    "registre-risques": { icon: "⚠️", name: "Central risk register", badges: ["Risk Hub", "Platform core", "v1.1"],
+      pitch: "The platform core: a single register consolidating risks from every module, with a real-time G×V heatmap.",
+      fonctionnel: ["Cross-project and cross-module risk consolidation", "Gravity × Likelihood heatmap updated in real time", "3 states: inherent / adjusted / residual risk", "Treatment tracking and residual KPI per framework"],
+      conformite: ["ISO 27005 (risk management) + ISO 27001 clauses 6.1 and 8.2-8.3", "NIS 2 art. 21 (risk-based measures)"],
+      technique: ["Aggregates ISP (inherent) and Audits / TPRM (residual via non-conformities)", "Configurable G×V scales, tenant isolation, PDF / Excel / CSV export"],
+      logique: ["Official residual formula: untreated SR + RI from NC + uncovered SR", "Recalculation proposed on treatment plan closure, validated by a human"] },
+    "analyse-risques": { icon: "🎯", name: "Risk analyses", badges: ["Risk Hub", "Polymorphic", "v1.0"],
+      pitch: "An EBIOS RM / ISO 27005 / NIST engine detached from the project: analyse any object — asset, AI system, vendor, process.",
+      fonctionnel: ["Polymorphic analysis engine (6 targets: project, asset, AI system, vendor, process, standalone)", "EBIOS RM, ISO 27005, NIST methods at choice", "Scenarios, likelihood, gravity, measures", "Reusable outside the ISP project frame"],
+      conformite: ["EBIOS RM, ISO 27005, NIST RMF", "EU AI Act: risk analysis of AI systems"],
+      technique: ["Typed target (PROJECT | ASSET | AI_SYSTEM | VENDOR | PROCESS | STANDALONE)", "Results posted to the central register, local or cloud AI, exports"],
+      logique: ["4 input modes, human validation of scenarios", "Risk inheritance from mapped assets"] },
+    "cartography": { icon: "🗂️", name: "Asset inventory", badges: ["Risk Hub", "Inventory", "v1.0"],
+      pitch: "A living inventory of your IS: classification, owners and criticality, the foundation of every risk analysis.",
+      fonctionnel: ["IS inventory: hardware, software, services, data", "Classification, owners, criticality (CIA + traceability)", "Views and filters by type / scope", "Bulk import"],
+      conformite: ["ISO 27001 Annex A 5.9 (asset inventory)", "NIS 2: knowledge and control of the perimeter"],
+      technique: ["Link to data mapping (PII flows)", "Criticality inheritance to risk analyses, CSV import, export"],
+      logique: ["Critical assets feed risk scenarios", "Incremental, historised updates"] },
+    "registre-derogations": { icon: "✋", name: "Exceptions register", badges: ["Risk Hub", "Acceptance", "v1.0"],
+      pitch: "Formal risk acceptance, traced and dated, with periodic reviews and pre-expiry alerts.",
+      fonctionnel: ["Recording of exceptions / risk acceptances", "Justification, scope, validity period", "Scheduled periodic reviews", "Alerts 30 days before expiry"],
+      conformite: ["ISO 27001 clauses 6.1.3 (risk acceptance) and 8.3", "NIS 2 art. 21.3 (acceptance by management)"],
+      technique: ["Multi-level validation workflow, audit trail", "Signature, schedule, export"],
+      logique: ["No acceptance without hierarchical validation", "Expiry forces a new review"] },
+    "radar": { icon: "🌐", name: "External surface radar", badges: ["Risk Hub", "Exposure", "v1.0"],
+      pitch: "Passive discovery of your external attack surface: subdomains, A-F scoring and HTTPS / DNS / TLS exposures.",
+      fonctionnel: ["Discovery of exposed subdomains (public sources)", "0-100 scoring / A-F grade", "Detection of HTTPS, DNS, TLS exposures", "Trend view over time"],
+      conformite: ["NIS 2: vulnerability and attack-surface management", "ISO 27001 Annex A 8.8 (technical vulnerability management)"],
+      technique: ["V1 passive: crt.sh, HTTP HEAD, DNS, TLS check — no aggressive active scan", "Results crossable with the asset inventory"],
+      logique: ["A critical exposure can generate a risk or an action", "Public sources only (non-intrusive)"] },
+    "incidents": { icon: "🚨", name: "NIS 2 incidents", badges: ["Risk Hub", "ISO 27035", "v1.0"],
+      pitch: "An ISO 27035 incident register that, as soon as an incident is deemed significant, triggers the NIS 2 notification workflow (24h / 72h / 30j).",
+      fonctionnel: ["Incident register: qualification, severity, status", "\"Significant\" flag that activates the notification process", "Regulatory schedule 24h / 72h / 30j", "Action tracking and closure"],
+      conformite: ["ISO 27035 (security incident management)", "NIS 2 art. 23: early warning 24h, notification 72h, final report 30j"],
+      technique: ["Regulatory timers, notification templates", "Time-stamped audit trail, export"],
+      logique: ["Marking as \"significant\" triggers the applicable obligations", "Automatic link to the Roadmap for corrective actions"] },
+    "bia-pca-pra": { icon: "🔄", name: "BIA / BCP / DRP", badges: ["Risk Hub", "ISO 22301", "v1.0"],
+      pitch: "Business impact analysis and continuity plans: critical processes, RTO / RPO / MTPD and dependencies.",
+      fonctionnel: ["Business impact analysis (BIA) of critical business processes", "RTO / RPO / MTPD, dependencies, resources", "Continuity (BCP) and recovery (DRP) plans", "Distinct from the asset inventory: here it is processes"],
+      conformite: ["ISO 22301 (business continuity)", "NIS 2 art. 21.2.c (continuity and crisis management)"],
+      technique: ["Link to assets and risks, export", "4 input modes"],
+      logique: ["Critical processes feed risk analysis", "Plan tests can be scheduled"] },
+    "risk-acceptance": { icon: "🤝", name: "Risk acceptance", badges: ["Risk Hub", "NIS 2 art. 21.3", "v1.0"],
+      pitch: "The formal, multi-level risk acceptance workflow, with electronic signature, audit and expiry.",
+      fonctionnel: ["Formal acceptance of a risk by authorised levels", "Multi-level workflow: proposal → validation → signature", "Electronic signature and expiry date", "Mandatory review before due date"],
+      conformite: ["NIS 2 art. 21.3 (risk acceptance by management)", "ISO 27001 clauses 6.1.3 and 8.3"],
+      technique: ["Full audit trail, dedicated signing key", "Tenant isolation, export"],
+      logique: ["No acceptance without a complete validation circuit", "Expiry automatically reopens the risk for re-examination"] },
+    "threat-intelligence": { icon: "🛰️", name: "Threat Intelligence", badges: ["Risk Hub", "6 NIS 2 sources", "v1.0"],
+      pitch: "CVE / KEV / ATT&CK watch wired to 6 official sources, automatically crossed with your asset perimeter.",
+      fonctionnel: ["Aggregation of 6 sources: CISA, ENISA, CERT-FR, EPSS, MITRE ATT&CK, OSV", "CVE, KEV (actively exploited vulnerabilities), ATT&CK techniques watch", "Crossing with your asset inventory", "Prioritisation by exploitability (EPSS score)"],
+      conformite: ["NIS 2 art. 21.2.e (traceability of intelligence sources)", "ISO 27001 Annex A 8.8 (technical vulnerability management)"],
+      technique: ["Native connection to the 6 official feeds — no manual entry", "Automatic crossing with the asset perimeter, export"],
+      logique: ["A CVE hitting an inventoried asset surfaces as a risk or action", "NIS 2-recognised, fully traceable sources"] },
+    "crq-fair": { icon: "💶", name: "Financial risk quantification", badges: ["Risk Hub", "FAIR method", "Premium"],
+      pitch: "Quantify your risks in euros with the FAIR method: annual loss expectancy (ALE) to speak to the board and cyber insurers.",
+      fonctionnel: ["Financial risk quantification (FAIR method)", "Annual loss expectancy (ALE) calculation", "Frequency × monetary impact scenarios", "Board / CFO and cyber insurance argument"],
+      conformite: ["Quantitative complement to the qualitative ISO 27005 approach", "Support for security investment decisions"],
+      technique: ["FAIR engine: event frequency × loss magnitude", "Relies on the central register's risks, export"],
+      logique: ["Translates a qualitative risk into euros, validated by a human", "Premium module (Enterprise tier)"] },
+    "compliance-center": { icon: "📑", name: "Compliance Center", badges: ["Compliance Hub", "Flagship workflow", "Multi-subsidiary"],
+      pitch: "The 3-in-1 compliance hub: frameworks, policies and procedures, with 10 templates and a multi-subsidiary mode.",
+      fonctionnel: ["3 tabs: Frameworks / Policies / Procedures", "10 ready-to-use policy templates (ISMS policy, charter...)", "Multi-subsidiary mode with consolidated annexes", "Triggering of compliance controls"],
+      conformite: ["ISO 27001 (ISMS documentation), NIS 2, GDPR", "Multi-framework coverage"],
+      technique: ["Reuses the V7 templates, governed document states", "Multi-subsidiary (sub-organisations), PDF export"],
+      logique: ["Workflow draft → review → in force → archived", "AI proposes a draft, the human validates"] },
+    "audit-iso19011": { icon: "🔍", name: "Security audit", badges: ["Compliance Hub", "Flagship workflow", "ISO 19011"],
+      pitch: "The 4-phase ISO 19011 security compliance audit, with AI-assisted interviews, CMMI 0-5 scoring and a signed verdict.",
+      fonctionnel: ["4 phases: scoping → interviews → assessment → report", "AI-assisted interviews, grids per framework", "CMMI 0 to 5 maturity scoring", "Signed verdict: Favourable / Reserved / Unfavourable"],
+      conformite: ["ISO 19011 (audit methodology)", "Audited frameworks: ISO 27001:2022, NIS 2, GDPR, ANSSI"],
+      technique: ["Findings linked to requirements, report generation", "Local or cloud AI, PDF / Excel exports"],
+      logique: ["Non-conformities create plans on the Roadmap and residual risks", "No verdict applied without the auditor's signature"] },
+    "referentiels": { icon: "✅", name: "Frameworks & requirements", badges: ["Compliance Hub", "30+ frameworks", "v1.1"],
+      pitch: "30+ pre-loaded normative frameworks, with risk coverage, residual KPIs and anti-duplication cross-framework mapping.",
+      fonctionnel: ["Library: ISO 27001/27002/27005/27701/22301/42001, NIS 2, GDPR, DORA, HDS, PCI, SOC 2...", "Requirement coverage tracking", "Residual KPI per framework", "Cross-framework mapping: one measure covers several standards"],
+      conformite: ["All major GRC frameworks pre-loaded", "Golden rule: we enrich, we never delete a requirement"],
+      technique: ["Seeded requirements, correspondence mapping, compensating-control suggestions", "Depends on the risk register for the residual KPI"],
+      logique: ["Anti-duplication: one control satisfies several requirements at once", "Uncovered requirements become risks"] },
+    "veille-reglementaire": { icon: "📡", name: "Regulatory watch", badges: ["Compliance Hub", "Watch", "v1.0"],
+      pitch: "NIS 2 / DORA / GDPR / EU AI Act watch: alerts, case law and a cross-text comparator.",
+      fonctionnel: ["Tracking of regulatory changes (NIS 2, DORA, GDPR, EU AI Act)", "Alerts and case law", "Cross-text comparator", "Linking impacts to internal frameworks"],
+      conformite: ["NIS 2 art. 21.2.e (traceability of intelligence sources)", "Multi-regulation coverage"],
+      technique: ["Regulatory sources classified by text", "Link to the impacted internal requirements"],
+      logique: ["A regulatory change can generate an action on the Roadmap"] },
+    "ropa": { icon: "📋", name: "Processing register (ROPA)", badges: ["Compliance Hub", "GDPR art. 30", "v1.0"],
+      pitch: "The GDPR art. 30 records of processing: purposes, legal basis, retention, EU transfers, with a DPO workflow.",
+      fonctionnel: ["Records of processing activities (GDPR art. 30)", "Purposes, legal basis, data categories, retention periods", "Non-EU transfers and associated safeguards", "DPO validation workflow"],
+      conformite: ["GDPR art. 30 (records of processing)", "Link with data mapping"],
+      technique: ["Excel / PDF export, audit trail", "AI proposes the entries, the DPO validates"],
+      logique: ["A DPIA can be triggered from a high-risk processing", "4 input modes"] },
+    "dpia": { icon: "🔎", name: "DPIA (CNIL PIA-3)", badges: ["Compliance Hub", "GDPR art. 35", "v1.0"],
+      pitch: "GDPR impact assessments with CNIL PIA-3 referenced measures, mandatory for high-risk processing.",
+      fonctionnel: ["Impact assessment (DPIA) on a ROPA processing", "Assessment of risks to data subjects", "Measures referenced to CNIL §X (pseudonymisation, strong authentication, AES-256 encryption...)", "DPO decision workflow"],
+      conformite: ["GDPR art. 35 (data protection impact assessment)", "CNIL PIA-3 method"],
+      technique: ["Depends on the ROPA (a DPIA covers a processing)", "CNIL PIA-3 knowledge base injected into AI prompts, export"],
+      logique: ["AI proposes referenced measures, the DPO validates", "Decision traced and signed"] },
+    "demandes-cnil": { icon: "📨", name: "Data subject requests", badges: ["Compliance Hub", "GDPR art. 12-22", "v1.0"],
+      pitch: "The GDPR rights desk: access, erasure, portability, objection, with regulatory SLA and audit trail.",
+      fonctionnel: ["Reception and tracking of rights exercise requests", "Access, rectification, erasure, portability, objection, complaints", "Regulatory SLA (30d / 90d) with reminders", "Full traceability of responses"],
+      conformite: ["GDPR art. 12 to 22 (data subject rights)", "SLA art. 12 (response deadlines)"],
+      technique: ["SLA scheduler, response templates, audit trail, export"],
+      logique: ["Each request follows a dated workflow, with no missed deadline", "Links to ROPA and data mapping"] },
+    "cartographie-donnees": { icon: "🌍", name: "Data mapping", badges: ["Compliance Hub", "Data mapping", "v1.0"],
+      pitch: "GDPR / HDS data mapping: PII flows and non-EU transfers, automatically linked to the processing register.",
+      fonctionnel: ["Mapping of personal data and PII flows", "Non-EU transfers and associated safeguards", "View of circulations between systems", "Automatic link with the ROPA"],
+      conformite: ["GDPR (flows and transfers, art. 44 et seq.)", "HDS (health data)"],
+      technique: ["Depends on the asset inventory", "Flow representation, export"],
+      logique: ["An uncovered non-EU flow becomes a GDPR point of attention"] },
+    "plan-audit-annuel": { icon: "📅", name: "Annual audit plan", badges: ["Compliance Hub", "ISO 19011", "v1.0"],
+      pitch: "Multi-year audit planning: cycles, scopes, resources and auditors.",
+      fonctionnel: ["Audit planning over the year", "Cycles, scopes, resources, auditors", "Archiving per year", "Workload and coverage view"],
+      conformite: ["ISO 27001 clause 9.2 (internal audit)", "ISO 19011 (audit programme)"],
+      technique: ["Articulates with the Security audit module", "Export"],
+      logique: ["The plan feeds the executed audits", "Perimeter coverage over time"] },
+    "self-assessment": { icon: "☑️", name: "Self-assessment", badges: ["Compliance Hub", "Self-assessment", "v1.0"],
+      pitch: "Fast self-assessment for subsidiaries and teams: a light alternative to the full audit, with an aggregated CMMI score.",
+      fonctionnel: ["Guided self-assessment (light vs full audit)", "Aggregated CMMI score", "Comparison between subsidiaries / teams", "Quick identification of gaps"],
+      conformite: ["ISO 27001 (maturity review)", "Preparation for formal audits"],
+      technique: ["Shares the audits' assessment engine", "Export"],
+      logique: ["Identified gaps can trigger a full audit", "4 input modes"] },
+    "compliance-assessment": { icon: "🧾", name: "Compliance assessments", badges: ["Compliance Hub", "Dated sessions", "v1.0"],
+      pitch: "Dated assessment sessions on a framework, with versioning, over-time comparison and forensic export.",
+      fonctionnel: ["Dated assessment sessions on a framework (ISO 27001, NIS 2, GDPR...)", "Session versioning, comparison between two dates", "Compliance score per requirement / domain", "Forensic PDF / CSV export"],
+      conformite: ["ISO 27001 clause 9 (performance evaluation)", "Applicable to all pre-loaded frameworks"],
+      technique: ["Immutable time-stamped sessions, comparison of two versions", "Forensic export, tenant isolation"],
+      logique: ["A dated snapshot of compliance, comparable from one period to another", "Gaps feed risks and the Roadmap"] },
+    "tprm": { icon: "🏪", name: "TPRM (vendor qualification)", badges: ["Third Party Risk Hub", "Flagship workflow", "5 phases"],
+      pitch: "Vendor qualification in 5 phases, from identification to continuous monitoring, across 12 security domains.",
+      fonctionnel: ["5 phases: Identification → Assessment (12 domains) → Decision → Contract & SAP → Monitoring", "GO / GOC / NO-GO decision", "Automatic link from ISP S0", "Qualified vendor reusable without re-assessment"],
+      conformite: ["ISO 27036 (supplier relationship security)", "NIS 2 art. 21.2.d (supply chain security)", "ISO 27001 Annex A 5.19 to 5.22"],
+      technique: ["Score per domain, security assurance plan (SAP), clauses", "Gaps posted to the risk register (residual), export"],
+      logique: ["Signed CISO decision, no automatic qualification", "Periodic monitoring with re-assessment"] },
+    "rfp": { icon: "📊", name: "RFP (tender campaign)", badges: ["Third Party Risk Hub", "Flagship workflow", "v1.0"],
+      pitch: "The multi-vendor security tender on a project-contextualised questionnaire, with comparison matrix and weighted scoring.",
+      fonctionnel: ["Multi-vendor campaign on a single questionnaire", "Project-contextualised questionnaire", "Colour-coded comparison matrix, weighted scoring", "Adjustable CISO decision"],
+      conformite: ["ISO 27036 (supplier security requirements)", "Consistency with the project's ISP requirements"],
+      technique: ["Response import, configurable weighting, comparison export"],
+      logique: ["Scoring informs; the CISO arbitrates and can adjust", "The selected vendor moves into TPRM qualification"] },
+    "trust-center": { icon: "🛡️", name: "Trust Center", badges: ["Third Party Risk Hub", "External showcase", "v1.0"],
+      pitch: "The trust page shared with your clients and prospects: public certifications and a security.txt link, with controlled access.",
+      fonctionnel: ["Public trust page for clients / prospects", "Certifications and public documents", "security.txt link", "Controlled access (email gating + admin approval)"],
+      conformite: ["Demonstration of ISO 27001 / GDPR compliance", "Reduction of inbound questionnaire volume"],
+      technique: ["Gating: admin approval + 30-day validity", "Documents published under control, access audited"],
+      logique: ["Nothing is public without admin validation", "Dries up repetitive due diligence requests"] },
+    "due-diligence": { icon: "📥", name: "Inbound due diligence", badges: ["Third Party Risk Hub", "Questionnaires", "v1.0"],
+      pitch: "Centralisation of the security questionnaires sent by your clients, with reusable answers and a comparison matrix.",
+      fonctionnel: ["Reception of client security questionnaires", "Centralisation and reuse of answers", "Comparison matrix between questionnaires", "Deadline tracking"],
+      conformite: ["Answers aligned with ISO 27001 / GDPR", "Builds on the TPRM capital"],
+      technique: ["Answer library, export", "Link with the Trust Center"],
+      logique: ["Validated answers are reused from one client to another", "Time saved on repetitive questionnaires"] },
+    "contrats-dpa": { icon: "📃", name: "Contracts & DPA", badges: ["Third Party Risk Hub", "GDPR art. 28", "v1.0"],
+      pitch: "The register of security contracts and GDPR DPAs: signed clauses and deadlines with 30-day alerts.",
+      fonctionnel: ["Register of security contracts and GDPR DPAs", "Signed clauses, parties, scope", "Deadlines with 30-day alerts", "Linked to vendors"],
+      conformite: ["GDPR art. 28 (processor contract / DPA)", "ISO 27036 (supplier clauses)"],
+      technique: ["Scheduler, encrypted storage, export", "Link with TPRM"],
+      logique: ["Deadlines trigger renewal alerts", "Traceability of security clauses"] }
+  };
+
+  var NAME_TO_SLUG_EN = {
+    "Cross-functional roadmap": "roadmap", "Polymorphic roadmap": "roadmap",
+    "Security Policy & Charter": "politique-ssi",
+    "Procedures & best practices": "procedures-ssi",
+    "Board KPIs / Executive": "kpis-codir",
+    "Cyber program animation": "animation-filiere",
+    "Cyber awareness": "awareness-training",
+    "Project security integration": "isp",
+    "Risk register": "registre-risques",
+    "Risk analyses": "analyse-risques",
+    "Asset inventory": "cartography",
+    "Exceptions register": "registre-derogations",
+    "External surface radar": "radar",
+    "NIS 2 incidents": "incidents",
+    "BIA / BCP / DRP": "bia-pca-pra",
+    "Risk acceptance": "risk-acceptance",
+    "Threat Intelligence": "threat-intelligence",
+    "Financial risk quantification": "crq-fair",
+    "Compliance Center": "compliance-center",
+    "Security audit": "audit-iso19011",
+    "Frameworks & requirements": "referentiels",
+    "Regulatory watch": "veille-reglementaire",
+    "Processing register": "ropa",
+    "DPIA (CNIL PIA-3)": "dpia",
+    "Data subject requests": "demandes-cnil",
+    "Data mapping": "cartographie-donnees",
+    "Annual audit plan": "plan-audit-annuel",
+    "Self-assessment": "self-assessment",
+    "Compliance assessments": "compliance-assessment",
+    "TPRM (vendor qualification)": "tprm",
+    "RFP (tender campaign)": "rfp",
+    "Trust Center": "trust-center",
+    "Inbound due diligence": "due-diligence",
+    "Contracts & DPA": "contrats-dpa"
+  };
+
+  var LANG = (document.documentElement.getAttribute("lang") === "en") ? "en" : "fr";
+  var LBL = (LANG === "en")
+    ? { f: "Functional / business", c: "Compliance / frameworks", t: "Technical / architecture", l: "Logic / workflow", foot: "Module available on demand, per tenant.", cta: "Request a demo", subj: "Module demo: ", close: "Close" }
+    : { f: "Fonctionnel / métier", c: "Conformité / référentiels", t: "Technique / architecture", l: "Logique / workflow", foot: "Module activable à la carte, par tenant.", cta: "Demander une démo", subj: "Démo module : ", close: "Fermer" };
+  if (LANG === "en") { FICHES = FICHES_EN; NAME_TO_SLUG = NAME_TO_SLUG_EN; }
+
+  var overlay = document.getElementById("ficheOverlay");
+  var panel = document.getElementById("fichePanel");
+  if (!overlay || !panel) return;
+
+  function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+
+  function rubric(cls, title, items){
+    var lis = items.map(function(i){ return "<li>" + esc(i) + "</li>"; }).join("");
+    return '<div class="fiche-rubric ' + cls + '"><div class="fiche-rubric-title">' + esc(title) + '</div><ul>' + lis + "</ul></div>";
+  }
+
+  function openFiche(slug){
+    var f = FICHES[slug];
+    if (!f) return;
+    var badges = (f.badges || []).map(function(b){ return '<span class="fiche-badge">' + esc(b) + "</span>"; }).join("");
+    panel.innerHTML =
+      '<div class="fiche-head">'
+        + '<button class="fiche-close" type="button" aria-label="' + LBL.close + '">&times;</button>'
+        + '<div class="fiche-head-icon">' + f.icon + "</div>"
+        + '<h3 id="ficheTitle">' + esc(f.name) + "</h3>"
+        + '<div class="fiche-badges">' + badges + "</div>"
+      + "</div>"
+      + '<div class="fiche-body">'
+        + '<p class="fiche-pitch">' + esc(f.pitch) + "</p>"
+        + rubric("r-fonctionnel", LBL.f, f.fonctionnel)
+        + rubric("r-conformite", LBL.c, f.conformite)
+        + rubric("r-technique", LBL.t, f.technique)
+        + rubric("r-logique", LBL.l, f.logique)
+      + "</div>"
+      + '<div class="fiche-foot">'
+        + '<span class="fiche-foot-note">' + esc(LBL.foot) + "</span>"
+        + '<a class="btn btn-primary" href="mailto:grc@cyberact.fr?subject=' + encodeURIComponent(LBL.subj + f.name) + '">' + esc(LBL.cta) + "</a>"
+      + "</div>";
+    overlay.classList.add("open");
+    document.body.style.overflow = "hidden";
+    var btn = panel.querySelector(".fiche-close");
+    if (btn) btn.addEventListener("click", closeFiche);
+  }
+
+  function closeFiche(){
+    overlay.classList.remove("open");
+    document.body.style.overflow = "";
+  }
+
+  overlay.addEventListener("click", function(e){ if (e.target === overlay) closeFiche(); });
+  document.addEventListener("keydown", function(e){ if (e.key === "Escape" && overlay.classList.contains("open")) closeFiche(); });
+
+  // Câblage : pour chaque carte module, retrouver le slug via son nom et la rendre cliquable.
+  document.querySelectorAll(".module-mini").forEach(function(card){
+    var nameEl = card.querySelector(".module-mini-name");
+    if (!nameEl) return;
+    var name = nameEl.textContent.replace(/\s+/g, " ").trim();
+    var slug = card.getAttribute("data-fiche") || NAME_TO_SLUG[name];
+    if (!slug || !FICHES[slug]) return;
+    card.setAttribute("data-fiche", slug);
+    card.setAttribute("role", "button");
+    card.setAttribute("tabindex", "0");
+    card.addEventListener("click", function(){ openFiche(slug); });
+    card.addEventListener("keydown", function(e){
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openFiche(slug); }
+    });
+  });
 })();
 </script>
 </body>

@@ -2955,8 +2955,14 @@
         </div>
         <div class="module-mini">
           <div class="module-mini-body">
+            <div class="module-mini-name" data-fr="Registre de consentement" data-en="Consent register">Registre de consentement</div>
+            <div class="module-mini-desc" data-fr="Consentements RGPD art. 7 (cookies, marketing, tiers) : preuve horodatée, gestion du retrait, historique" data-en="GDPR art. 7 consents (cookies, marketing, third parties): time-stamped proof, withdrawal management, history">Consentements RGPD art. 7 (cookies, marketing, tiers) : preuve horodatée, gestion du retrait, historique</div>
+          </div>
+        </div>
+        <div class="module-mini">
+          <div class="module-mini-body">
             <div class="module-mini-name" data-fr="Cartographie des données" data-en="Data mapping">Cartographie des données</div>
-            <div class="module-mini-desc" data-fr="Data mapping RGPD/HDS, flux PII, transferts hors UE, lien automatique avec le registre des traitements" data-en="GDPR/HDS data mapping, PII flows, non-EU transfers, automatic link with processing register">Data mapping RGPD/HDS, flux PII, transferts hors UE, lien automatique avec le registre des traitements</div>
+            <div class="module-mini-desc" data-fr="Data mapping RGPD/HDS, flux PII, transferts hors UE avec analyse d'impact Schrems II (TIA), lien automatique avec le registre des traitements" data-en="GDPR/HDS data mapping, PII flows, non-EU transfers with Schrems II impact assessment (TIA), automatic link with processing register">Data mapping RGPD/HDS, flux PII, transferts hors UE avec analyse d'impact Schrems II (TIA), lien automatique avec le registre des traitements</div>
           </div>
         </div>
         <div class="module-mini">
@@ -2967,8 +2973,8 @@
         </div>
         <div class="module-mini">
           <div class="module-mini-body">
-            <div class="module-mini-name" data-fr="Self-assessment" data-en="Self-assessment">Self-assessment</div>
-            <div class="module-mini-desc" data-fr="Auto-évaluation rapide filiales / équipes (light vs Audit complet), score CMMI agrégé" data-en="Fast self-assessment for subsidiaries / teams (light vs full audit), aggregated CMMI score">Auto-évaluation rapide filiales / équipes (light vs Audit complet), score CMMI agrégé</div>
+            <div class="module-mini-name" data-fr="Auto-évaluations multi-entités" data-en="Multi-entity self-assessments">Auto-évaluations multi-entités</div>
+            <div class="module-mini-desc" data-fr="Campagnes groupe → filiales : diffusion, réponses des entités, consolidation et scores par échelle configurable" data-en="Group → subsidiaries campaigns: distribution, entity responses, consolidation and scores on a configurable scale">Campagnes groupe → filiales : diffusion, réponses des entités, consolidation et scores par échelle configurable</div>
           </div>
         </div>
         <div class="module-mini">
@@ -4001,18 +4007,40 @@ try { localStorage.removeItem('cyberact-lang'); } catch (e) {}
         "Liens vers ROPA et cartographie des données"
       ]
     },
-    "cartographie-donnees": {
-      icon: "🌍", name: "Cartographie des données", badges: ["Hub Conformité", "Data mapping", "v1.0"],
-      pitch: "Le data mapping RGPD / HDS : flux PII et transferts hors UE, relié automatiquement au registre des traitements.",
+    "consentement": {
+      icon: "📝", name: "Registre de consentement", badges: ["Hub Conformité", "RGPD art. 7", "v1.0"],
+      pitch: "Le registre des consentements RGPD art. 7 : cookies, marketing et tiers, avec preuve horodatée et gestion du retrait.",
       fonctionnel: [
-        "Cartographie des données personnelles et des flux PII",
-        "Transferts hors UE et garanties associées",
-        "Vue des circulations entre systèmes",
-        "Lien automatique avec le ROPA"
+        "Enregistrement des consentements (cookies, marketing, tiers)",
+        "Preuve horodatée du recueil et de sa portée",
+        "Gestion du retrait et historique des versions",
+        "Suivi par finalité et par personne concernée"
       ],
       conformite: [
-        "RGPD (flux et transferts, art. 44 et suivants)",
-        "HDS (données de santé)"
+        "RGPD art. 7 (conditions du consentement)",
+        "Lien avec le registre des traitements (ROPA)"
+      ],
+      technique: [
+        "Horodatage et audit trail, export",
+        "Isolation tenant"
+      ],
+      logique: [
+        "Un consentement retiré reste traçable comme preuve",
+        "Alimente la base légale des traitements ROPA"
+      ]
+    },
+    "cartographie-donnees": {
+      icon: "🌍", name: "Cartographie des données", badges: ["Hub Conformité", "Data mapping", "v1.0"],
+      pitch: "Le data mapping RGPD / HDS : flux PII et transferts hors UE avec analyse d'impact Schrems II, relié automatiquement au registre des traitements.",
+      fonctionnel: [
+        "Cartographie des données personnelles et des flux PII",
+        "Transferts hors UE : pays, mécanisme et garanties art. 46",
+        "Analyse d'impact des transferts (TIA / Schrems II)",
+        "Vue des circulations entre systèmes, lien automatique avec le ROPA"
+      ],
+      conformite: [
+        "RGPD chap. V (transferts internationaux, art. 44 et suivants)",
+        "CJUE Schrems II (C-311/18), HDS (données de santé)"
       ],
       technique: [
         "Dépend de la cartographie des actifs",
@@ -4045,13 +4073,13 @@ try { localStorage.removeItem('cyberact-lang'); } catch (e) {}
       ]
     },
     "self-assessment": {
-      icon: "☑️", name: "Self-assessment", badges: ["Hub Conformité", "Auto-évaluation", "v1.0"],
-      pitch: "L'auto-évaluation rapide pour filiales et équipes : une alternative légère à l'audit complet, avec score CMMI agrégé.",
+      icon: "☑️", name: "Auto-évaluations multi-entités", badges: ["Hub Conformité", "Campagnes multi-entités", "v2.0"],
+      pitch: "Les campagnes d'auto-évaluation multi-entités : le groupe diffuse aux filiales, chacune répond, et la consolidation agrège les scores.",
       fonctionnel: [
-        "Auto-évaluation guidée (light vs audit complet)",
-        "Score CMMI agrégé",
-        "Comparaison entre filiales / équipes",
-        "Identification rapide des écarts"
+        "Campagnes groupe → filiales sur un référentiel commun",
+        "Réponse autonome de chaque entité, suivi d'avancement",
+        "Consolidation et scores par échelle configurable",
+        "Comparaison entre entités, identification des écarts"
       ],
       conformite: [
         "ISO 27001 (revue de maturité)",
@@ -4059,7 +4087,7 @@ try { localStorage.removeItem('cyberact-lang'); } catch (e) {}
       ],
       technique: [
         "Partage le moteur d'évaluation des audits",
-        "Export"
+        "Échelle de notation configurable, export"
       ],
       logique: [
         "Les écarts repérés peuvent déclencher un audit complet",
@@ -4225,9 +4253,10 @@ try { localStorage.removeItem('cyberact-lang'); } catch (e) {}
     "Registre des traitements": "ropa",
     "DPIA (CNIL PIA-3)": "dpia",
     "Demandes CNIL & droits": "demandes-cnil",
+    "Registre de consentement": "consentement",
     "Cartographie des données": "cartographie-donnees",
     "Plan d'audit annuel": "plan-audit-annuel",
-    "Self-assessment": "self-assessment",
+    "Auto-évaluations multi-entités": "self-assessment",
     "TPRM (qualification fournisseur)": "tprm",
     "RFP (campagne appels d'offres)": "rfp",
     "Trust Center": "trust-center",
@@ -4386,10 +4415,16 @@ try { localStorage.removeItem('cyberact-lang'); } catch (e) {}
       conformite: ["GDPR art. 12 to 22 (data subject rights)", "SLA art. 12 (response deadlines)"],
       technique: ["SLA scheduler, response templates, audit trail, export"],
       logique: ["Each request follows a dated workflow, with no missed deadline", "Links to ROPA and data mapping"] },
+    "consentement": { icon: "📝", name: "Consent register", badges: ["Compliance Hub", "GDPR art. 7", "v1.0"],
+      pitch: "The GDPR art. 7 consent register: cookies, marketing and third parties, with time-stamped proof and withdrawal management.",
+      fonctionnel: ["Recording of consents (cookies, marketing, third parties)", "Time-stamped proof of collection and scope", "Withdrawal management and version history", "Tracking per purpose and per data subject"],
+      conformite: ["GDPR art. 7 (conditions for consent)", "Link with the processing register (ROPA)"],
+      technique: ["Time-stamping and audit trail, export", "Tenant isolation"],
+      logique: ["A withdrawn consent stays traceable as proof", "Feeds the legal basis of ROPA processings"] },
     "cartographie-donnees": { icon: "🌍", name: "Data mapping", badges: ["Compliance Hub", "Data mapping", "v1.0"],
-      pitch: "GDPR / HDS data mapping: PII flows and non-EU transfers, automatically linked to the processing register.",
-      fonctionnel: ["Mapping of personal data and PII flows", "Non-EU transfers and associated safeguards", "View of circulations between systems", "Automatic link with the ROPA"],
-      conformite: ["GDPR (flows and transfers, art. 44 et seq.)", "HDS (health data)"],
+      pitch: "GDPR / HDS data mapping: PII flows and non-EU transfers with Schrems II impact assessment, automatically linked to the processing register.",
+      fonctionnel: ["Mapping of personal data and PII flows", "Non-EU transfers: country, mechanism and art. 46 safeguards", "Transfer impact assessment (TIA / Schrems II)", "View of circulations between systems, automatic link with the ROPA"],
+      conformite: ["GDPR chap. V (international transfers, art. 44 et seq.)", "CJEU Schrems II (C-311/18), HDS (health data)"],
       technique: ["Depends on the asset inventory", "Flow representation, export"],
       logique: ["An uncovered non-EU flow becomes a GDPR point of attention"] },
     "plan-audit-annuel": { icon: "📅", name: "Annual audit plan", badges: ["Compliance Hub", "ISO 19011", "v1.0"],
@@ -4398,11 +4433,11 @@ try { localStorage.removeItem('cyberact-lang'); } catch (e) {}
       conformite: ["ISO 27001 clause 9.2 (internal audit)", "ISO 19011 (audit programme)"],
       technique: ["Articulates with the Security audit module", "Export"],
       logique: ["The plan feeds the executed audits", "Perimeter coverage over time"] },
-    "self-assessment": { icon: "☑️", name: "Self-assessment", badges: ["Compliance Hub", "Self-assessment", "v1.0"],
-      pitch: "Fast self-assessment for subsidiaries and teams: a light alternative to the full audit, with an aggregated CMMI score.",
-      fonctionnel: ["Guided self-assessment (light vs full audit)", "Aggregated CMMI score", "Comparison between subsidiaries / teams", "Quick identification of gaps"],
+    "self-assessment": { icon: "☑️", name: "Multi-entity self-assessments", badges: ["Compliance Hub", "Multi-entity campaigns", "v2.0"],
+      pitch: "Multi-entity self-assessment campaigns: the group distributes to subsidiaries, each one responds, and consolidation aggregates the scores.",
+      fonctionnel: ["Group → subsidiaries campaigns on a shared framework", "Autonomous response per entity, progress tracking", "Consolidation and scores on a configurable scale", "Comparison between entities, gap identification"],
       conformite: ["ISO 27001 (maturity review)", "Preparation for formal audits"],
-      technique: ["Shares the audits' assessment engine", "Export"],
+      technique: ["Shares the audits' assessment engine", "Configurable rating scale, export"],
       logique: ["Identified gaps can trigger a full audit", "4 input modes"] },
     "compliance-assessment": { icon: "🧾", name: "Compliance assessments", badges: ["Compliance Hub", "Dated sessions", "v1.0"],
       pitch: "Dated assessment sessions on a framework, with versioning, over-time comparison and forensic export.",
@@ -4467,9 +4502,10 @@ try { localStorage.removeItem('cyberact-lang'); } catch (e) {}
     "Processing register": "ropa",
     "DPIA (CNIL PIA-3)": "dpia",
     "Data subject requests": "demandes-cnil",
+    "Consent register": "consentement",
     "Data mapping": "cartographie-donnees",
     "Annual audit plan": "plan-audit-annuel",
-    "Self-assessment": "self-assessment",
+    "Multi-entity self-assessments": "self-assessment",
     "Compliance assessments": "compliance-assessment",
     "TPRM (vendor qualification)": "tprm",
     "RFP (tender campaign)": "rfp",

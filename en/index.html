@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Security: browser headers while waiting for the Cloudflare proxy (X-Frame-Options/frame-ancestors are ignored in meta, served by Cloudflare over HTTP) -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"/>
+<meta content="strict-origin-when-cross-origin" name="referrer"/>
 <title>CyberAct - Complete GRC platform: 31 modules delivered, EBIOS RM pre-loaded, sovereign AI</title>
 <meta content="CyberAct: modular GRC platform for CISOs and DPOs. 31 modules delivered across the full GRC cycle: project security (EBIOS RM wizard), vendor risk (TPRM), tenders (RFP), audits (ISO 19011), document compliance, polymorphic risk analyses, central risk register (3 states: inherent, adjusted, residual), processing register, CNIL DPIA, data subject requests, Trust Center, board KPIs... 4 input modes (manual, file import, AI generates, AI restructures). Sovereign on-prem AI or your choice of external API." name="description"/>
 <meta content="GRC, NIS 2, DORA, RGPD, ISO 27001, EBIOS RM, gouvernance SSI, logiciel conformité, plateforme GRC française, IA souveraine, threat intelligence, CISA KEV, ANSSI, RSSI, DPO, DPIA, ROPA, TPRM, audit ISO 19011, EU AI Act" name="keywords"/>

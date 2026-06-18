@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Securite : en-tetes navigateur en attendant le proxy Cloudflare (X-Frame-Options/frame-ancestors sont ignores en meta, fournis par Cloudflare en HTTP) -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>CYBERACT - Gouvernance SSI : NIS 2, DORA, RGPD, ISO 27001 | Plateforme GRC souveraine française</title>
 <meta name="description" content="CYBERACT : plateforme GRC souveraine française pour gouvernance SSI, NIS 2, DORA, RGPD, ISO 27001. EBIOS RM pré-chargé, 30+ référentiels, modules activables à la carte. Threat Intelligence 6 sources NIS 2 incluse. Hébergement France. IA locale ou cloud au choix. Démo gratuite 30 min.">
 <meta name="keywords" content="GRC, NIS 2, DORA, RGPD, ISO 27001, EBIOS RM, gouvernance SSI, logiciel conformité, plateforme GRC française, IA souveraine, threat intelligence, CISA KEV, ANSSI, RSSI, DPO, DPIA, ROPA, TPRM, audit ISO 19011, EU AI Act">
